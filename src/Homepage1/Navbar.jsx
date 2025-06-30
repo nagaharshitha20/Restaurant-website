@@ -15,8 +15,7 @@ import LocalMallIcon from '@mui/icons-material/LocalMall';
 import ClearAllIcon from '@mui/icons-material/ClearAll';
 import Badge from '@mui/material/Badge';
 
-
-// ✅ Correct image import
+import Dropdown from './Dropdown';
 import logo from './logo.png';
 
 const pages = ['Home ', 'About', 'Shop', 'Blog', 'Pages', 'Contact'];
@@ -50,13 +49,13 @@ function Navbar() {
           <Box
             component="img"
             src={logo}
+            alt="logo"
             sx={{
-              width: 119,
-              height: 67,
+              width: { xs: 0, md: 119 },
+              height: { xs: 0, md: 67 },
               display: { xs: 'none', md: 'flex' },
-              top: 15,
-              left: 312,
-              mr:-2.6,
+              ml: { md: 10, lg: 18 },
+              mr: { md: -1, lg: -2.6 },
             }}
           />
 
@@ -65,19 +64,16 @@ function Navbar() {
             variant="h6"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
+            href="#"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
               fontFamily: 'Fugaz One',
               fontWeight: 400,
               letterSpacing: '.3rem',
-              width: '111px',
-              height: '27px',
-              top: '34px',
-              left: '415px',
               color: '#EE3A43',
               textDecoration: 'none',
+              fontSize: { md: '20px', lg: '22px' },
             }}
           >
             pizza hut
@@ -87,27 +83,23 @@ function Navbar() {
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
               onClick={handleOpenNavMenu}
               color="inherit"
+              sx={{ color: 'black' }}
             >
               <MenuIcon />
             </IconButton>
             <Menu
-              id="menu-appbar"
               anchorEl={anchorElNav}
-              anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
-              keepMounted
-              transformOrigin={{ vertical: 'top', horizontal: 'left' }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
+              anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
+              transformOrigin={{ vertical: 'top', horizontal: 'left' }}
               sx={{ display: { xs: 'block', md: 'none' } }}
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography sx={{ textAlign: 'center' }}>{page}</Typography>
+                  <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -117,9 +109,10 @@ function Navbar() {
           <Box
             component="img"
             src={logo}
+            alt="logo"
             sx={{
-              width: 119,
-              height: 67,
+              width: { xs: 80, sm: 100 },
+              height: { xs: 50, sm: 60 },
               display: { xs: 'flex', md: 'none' },
               mr: 2,
             }}
@@ -130,16 +123,15 @@ function Navbar() {
             variant="h5"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
+            href="#"
             sx={{
-              mr: 2,
               display: { xs: 'flex', md: 'none' },
               flexGrow: 1,
               fontFamily: 'Fugaz One',
               fontWeight: 400,
-              fontSize: 24,
+              fontSize: { xs: '20px', sm: '24px' },
               letterSpacing: '.3rem',
-              color: 'inherit',
+              color: '#EE3A43',
               textDecoration: 'none',
             }}
           >
@@ -147,68 +139,68 @@ function Navbar() {
           </Typography>
 
           {/* Menu items for desktop */}
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', }, width: '521.66px', height: '57px',marginLeft: '100px',gap:'30px' }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, display: 'block', color: 'black', fontFamily: 'Franklin Gothic Medium' }}
-              >
-                {page}
-              </Button>
-            ))}
-          </Box>
-          <Badge badgeContent={0} color="success" sx={{ mr: 2 }}>
-  <LocalMallIcon sx={{ color: '#00A149', width: '25px', height: '70px' }} />
-</Badge>
-
-          <Button
-            variant="contained"
+          <Box
             sx={{
-              backgroundColor: '#FFC222',
-              color: '#FFFFFF',
-              fontWeight: 600,
-              fontSize: '17px',
-              fontFamily: 'Oswald',
-              borderRadius: '7px',
-              padding: '8px 20px',
-              textTransform: 'none',
-              boxShadow: 'none',
-              marginRight: '10px',
-              '&:hover': {
-                backgroundColor: '#e6a700',
-                boxShadow: 'none',
-              },
+              flexGrow: 1,
+              display: { xs: 'none', md: 'flex' },
+              ml: { md: 5, lg: 10 },
+              gap: { md: '20px', lg: '30px' },
             }}
           >
-            Contact
-          </Button>
+            <Dropdown label="Home" options={['AP', 'Hyderabad', 'Chennai']} />
+            <Dropdown label="About Us" options={['Mission', 'Vision', 'Team']} />
+            <Dropdown label="Shop" options={['Pizza', 'Burgers', 'Desserts']} />
+            <Dropdown label="Blog" options={['News', 'Events', 'Offers']} />
+            <Dropdown label="Pages" options={['Gallery', 'Testimonials', 'FAQ']} />
+            <Dropdown label="Contact" options={['Support', 'Email', 'Location']} />
+          </Box>
 
-          {/* User avatar and settings */}
-          {/* <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-              keepMounted
-              transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
+          {/* Right-side icons/buttons */}
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: { xs: 1.5, sm: 2, md: 2.5 },
+              mr: { xs: 1, sm: 4, md: 10, lg: 18 },
+            }}
+          >
+            <Badge
+              badgeContent={0}
+              color="success"
+              sx={{ '& .MuiBadge-badge': { top: 6, right: 6 } }}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography sx={{ textAlign: 'center' }}>{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box> */}
-          < ClearAllIcon style={{color:'black',marginLeft:'10px'}}/>
+              <LocalMallIcon
+                sx={{
+                  color: '#00A149',
+                  width: { xs: '22px', sm: '24px', md: '25px' },
+                  height: { xs: '30px', sm: '50px', md: '70px' },
+                }}
+              />
+            </Badge>
+
+            <Button
+              variant="contained"
+              sx={{
+                backgroundColor: '#FFC222',
+                color: '#FFFFFF',
+                fontWeight: 600,
+                fontSize: { xs: '14px', sm: '15px', md: '17px' },
+                fontFamily: 'Oswald',
+                borderRadius: '7px',
+                padding: { xs: '6px 14px', sm: '7px 18px', md: '8px 20px' },
+                textTransform: 'none',
+                boxShadow: 'none',
+                '&:hover': {
+                  backgroundColor: '#e6a700',
+                  boxShadow: 'none',
+                },
+              }}
+            >
+              Contact
+            </Button>
+
+            <ClearAllIcon sx={{ color: 'black', fontSize: { xs: 20, sm: 24, md: 28 } }} />
+          </Box>
         </Toolbar>
       </Container>
     </AppBar>
