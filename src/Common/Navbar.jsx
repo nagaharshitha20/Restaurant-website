@@ -14,9 +14,8 @@ import MenuItem from '@mui/material/MenuItem';
 import LocalMallIcon from '@mui/icons-material/LocalMall';
 import ClearAllIcon from '@mui/icons-material/ClearAll';
 import Badge from '@mui/material/Badge';
-
 import Dropdown from './Dropdown';
-import logo from './logo.png';
+import { ImageAssets } from '../ImageAssets';
 
 const pages = ['Home ', 'About', 'Shop', 'Blog', 'Pages', 'Contact'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -48,7 +47,7 @@ function Navbar() {
           {/* Logo for desktop */}
           <Box
             component="img"
-            src={logo}
+            src={ImageAssets.logo}
             alt="logo"
             sx={{
               width: { xs: 0, md: 119 },
@@ -108,7 +107,7 @@ function Navbar() {
           {/* Logo for mobile */}
           <Box
             component="img"
-            src={logo}
+            src={ImageAssets.logo}
             alt="logo"
             sx={{
               width: { xs: 80, sm: 100 },

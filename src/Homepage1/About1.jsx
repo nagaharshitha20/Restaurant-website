@@ -1,17 +1,15 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import { ImageAssets } from '../ImageAssets'; // centralized image access
-
-// ✅ Shared styles for card image layout
+import { ImageAssets } from '../ImageAssets'; 
 const styles = {
   threeImages: {
     width: '260px',
     height:'290px',
         borderRadius: '20px',
     overflow: 'hidden',
-    backgroundColor: '#000', // for spacing between border and image
-    border: '5px solid #FFD700', // outer yellow border
+    backgroundColor: '#000', 
+    border: '5px solid #FFD700', 
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -54,7 +52,7 @@ const styles = {
   },
 };
 
-// ✅ Generic card component with optional offset style
+
 const ImageCard = ({ image, label, customStyle = {} }) => (
   <Box sx={{ ...styles.threeImages, ...customStyle }}>
     <Box component="img" src={image} alt={label} sx={styles.image} />
@@ -62,7 +60,7 @@ const ImageCard = ({ image, label, customStyle = {} }) => (
   </Box>
 );
 
-// ✅ For Chief image
+
 const ChiefCard = ({ image, name, role }) => (
   <Box sx={{ display: 'flex', alignItems: 'center', mt: 3 }}>
     <Box sx={styles.chiefImage}>
@@ -75,11 +73,11 @@ const ChiefCard = ({ image, name, role }) => (
   </Box>
 );
 
-// ✅ Main Component
+
 const About1 = () => {
   return (
     <Box sx={{ width: '100%', mt: '64px' }}>
-      {/* Header Section */}
+
       <Box
         sx={{
           display: 'flex',
@@ -91,7 +89,7 @@ const About1 = () => {
           px: { xs: 2, md: 12 },
         }}
       >
-        {/* Left Text */}
+
         <Box>
           <Typography
             sx={{
@@ -118,7 +116,7 @@ const About1 = () => {
           </Typography>
         </Box>
 
-        {/* Right Text and Chief */}
+       
         <Box sx={{ maxWidth: '480px' }}>
           <Typography
             sx={{
@@ -137,7 +135,7 @@ const About1 = () => {
         </Box>
       </Box>
 
-      {/* Image Cards Section */}
+      
       <Box
         sx={{
           display: 'flex',

@@ -1,8 +1,10 @@
 import * as React from 'react';
-import Navbar from './Navbar';
+import Navbar from '../Common/Navbar';
 import CoverPage from './CoverPage';
 import About1 from './About1';
 import Bbq from './Bbq';
+import DiscoverMenu from './DiscoverMenu';
+import Review from './Review';
 const HomePage = () => {
   return (
     <div>
@@ -10,7 +12,8 @@ const HomePage = () => {
       <CoverPage />
       <About1/>
       <Bbq/>
-      {/* Add other page content here */}
+      <DiscoverMenu/>
+      <Review/>
     </div>
   );
 };
