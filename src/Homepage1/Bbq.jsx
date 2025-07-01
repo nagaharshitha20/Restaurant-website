@@ -1,14 +1,25 @@
 import * as React from 'react';
 import { Box, Typography, Grid } from '@mui/material';
 import { ImageAssets } from '../ImageAssets';
-
+const styles = {
+  bbqimages: {
+    width: '405px',
+    height: '220px',
+    '& img': {
+      width: '100%',
+      height: '100%',
+      borderRadius: '20px',
+      objectFit: 'cover',
+      display: 'block',
+    },
+  },
+};
 const categories = [
   { label: 'Dessert', img: ImageAssets.dessert, active: true },
   { label: 'Steak', img: ImageAssets.steak },
   { label: 'Coffee', img: ImageAssets.coffee },
   { label: 'Burger', img: ImageAssets.burger },
 ];
-
 const bbqItems = [
   {
     title: 'Sake BBQ sauce',
@@ -32,6 +43,17 @@ const bbqItems = [
   },
 ];
 
+const inputStyle = {
+  width: '100%',
+  padding: '10px 14px',
+  borderRadius: '8px',
+  border: '1px solid #ccc',
+  fontSize: '14px',
+  outline: 'none',
+  boxSizing: 'border-box',
+};
+
+
 const Bbq = () => {
   return (
     <Box
@@ -44,7 +66,7 @@ const Bbq = () => {
         px: { xs: 2, md: 8 },
       }}
     >
-      {/* Menu Categories */}
+      {/* Category Selector */}
       <Box
         sx={{
           display: 'flex',
@@ -62,7 +84,8 @@ const Bbq = () => {
               borderRadius: '12px',
               px: 3,
               py: 2,
-              width:'80px',height:'120px',
+              width: '80px',
+              height: '120px',
               backgroundColor: item.active ? '#F3274C' : '#fff',
               border: item.active ? 'none' : '2px solid #ccc',
               boxShadow: item.active ? '0px 4px 12px rgba(0,0,0,0.1)' : 'none',
@@ -74,7 +97,7 @@ const Bbq = () => {
               component="img"
               src={item.img}
               alt={item.label}
-              sx={{ width: '40px', height: '40px', mb: 1,mt:2 }}
+              sx={{ width: '40px', height: '40px', mb: 1, mt: 2 }}
             />
             <Typography
               sx={{
@@ -88,27 +111,30 @@ const Bbq = () => {
         ))}
       </Box>
 
-      {/* Content Layout: Image + BBQ Menu */}
+      {/* BBQ Info Section */}
       <Grid container spacing={4} alignItems="center" justifyContent="center">
-        {/* Left Chicken Image */}
-        <Grid item xs={12} md={5} >
-            
+        <Grid item xs={12} md={5}>
           <Box
             component="img"
             src={ImageAssets.grillchicken}
             alt="Grilled Chicken"
-            sx={{ width: '450px',height:'358.69px', borderRadius: '12px', position:'relative',left:'230px',marginLeft:'-290px'}}
+            sx={{
+              width: '450px',
+              height: '358.69px',
+              borderRadius: '12px',
+              position: 'relative',
+              left: '230px',
+              marginLeft: '-290px',
+            }}
           />
         </Grid>
 
-        {/* Right BBQ Menu */}
         <Grid item xs={12} md={6}>
           <Box
             sx={{
               backgroundColor: '#f8fbff',
               borderRadius: '20px',
-              width:'600px',
-              
+              width: '600px',
               p: { xs: 3, md: 5 },
               boxShadow: '0 4px 12px rgba(0,0,0,0.05)',
             }}
@@ -119,7 +145,7 @@ const Bbq = () => {
                 fontWeight: 'bold',
                 mb: 2,
                 fontFamily: 'Arial',
-                ml:20,
+                ml: 20,
               }}
             >
               BBQ
@@ -131,7 +157,7 @@ const Bbq = () => {
                   borderBottom: '1px dashed #ccc',
                   pb: 2,
                   mb: 2,
-                  ml:20,
+                  ml: 20,
                 }}
               >
                 <Box
@@ -144,7 +170,13 @@ const Bbq = () => {
                   <Typography sx={{ fontWeight: 'bold', fontSize: '16px' }}>
                     {item.title}
                   </Typography>
-                  <Typography sx={{ color: '#F3274C', fontWeight: 'bold',fontFamily:'Arial'}}>
+                  <Typography
+                    sx={{
+                      color: '#F3274C',
+                      fontWeight: 'bold',
+                      fontFamily: 'Arial',
+                    }}
+                  >
                     {item.price}
                   </Typography>
                 </Box>
@@ -162,7 +194,25 @@ const Bbq = () => {
           </Box>
         </Grid>
       </Grid>
-    </Box>
+
+      
+{/* <Box
+  sx={{
+    backgroundColor: '#F5F8FD',
+    width: '100%',
+    height:'710px',
+
+  mt:-20,
+    py: { xs: 8, md: 10 },
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  }}
+></Box> */}
+{/* Red background reservation box with inputs on right */}
+
+      </Box>
+   
   );
 };
 

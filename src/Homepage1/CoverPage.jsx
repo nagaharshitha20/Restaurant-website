@@ -1,10 +1,10 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import PrimaryButton from '../PrimaryButton';
-import PlayButton from '../PlayButton';
-import cover from './cover.jpg';
-import pizza from './pizza.png';
+import PrimaryButton from '../Common/PrimaryButton';
+import { ImageAssets } from '../ImageAssets';
+import PlayButton from '../Common/PlayButton';
+
 
 const CoverPage = () => {
   return (
@@ -12,15 +12,15 @@ const CoverPage = () => {
   sx={{
     position: 'relative',
     width: '100%',
-    minHeight: { xs: '480px', sm: '600px', md: '710px' }, // increased height for xs
+    minHeight: { xs: '480px', sm: '600px', md: '710px' },
     overflow: 'hidden',
-    mt: { xs: '56px', sm: '64px' }, // space for Navbar
+    mt: { xs: '56px', sm: '64px' },
   }}
 >
-  {/* Background Image */}
+  
   <Box
     component="img"
-    src={cover}
+    src={ImageAssets.cover}
     alt="cover"
     sx={{
       width: '100%',
@@ -39,12 +39,12 @@ const CoverPage = () => {
     }}
   />
 
-  {/* Text and Buttons */}
+
   <Box
   sx={{
     position: {
-      xs: 'relative',      // mobile: allow stacking and flow
-      sm: 'absolute',      // tablet+: position over image
+      xs: 'relative',      
+      sm: 'absolute',      
     },
     top: {
       xs: '60px',
@@ -68,7 +68,7 @@ const CoverPage = () => {
     zIndex: 1,
     textShadow: '2px 2px 4px rgba(0, 0, 0, 0.7)',
     px: { xs: 2, sm: 2 },
-    mx: { xs: 'auto', sm: '0' }, // center horizontally on mobile
+    mx: { xs: 'auto', sm: '0' }, 
   }}
 >
 
@@ -90,7 +90,8 @@ const CoverPage = () => {
     <Typography
       variant="h6"
       sx={{
-        fontSize: { xs: '14px', sm: '18px', md: '24px' },
+        fontSize: { xs: '14px', sm: '18px', md: '20px' },
+        color:'lightgrey',
         mb: { xs: 2, sm: 3 },
         lineHeight: 1.4,
       }}
@@ -120,7 +121,7 @@ const CoverPage = () => {
           ml:'40px',
           display: { xs: 'none', sm: 'block' },
           
-          // mt: { xs: 1, sm: '40px' },
+          
         }}
       >
         VIDEO
@@ -128,7 +129,7 @@ const CoverPage = () => {
     </Box>
   </Box>
 
-      {/* Floating Transparent Pizza Card - shown only on md+ */}
+     
       <Box
         sx={{
           display: { xs: 'none', lg:'flex'},
@@ -148,7 +149,7 @@ const CoverPage = () => {
           boxSizing: 'border-box',
         }}
       >
-        {/* Left Text */}
+
         <Box>
           <Typography variant="h6" sx={{ fontWeight: 'bold', fontSize: '22px' }}>
             $90.85
@@ -163,10 +164,10 @@ const CoverPage = () => {
           </Box>
         </Box>
 
-        {/* Right Image */}
+
         <Box
           component="img"
-          src={pizza}
+          src={ImageAssets.pizza}
           alt="Pizza"
           sx={{
             width: '120px',
@@ -175,7 +176,7 @@ const CoverPage = () => {
           }}
         />
 
-        {/* Weekly Special Badge */}
+    
         <Box
           sx={{
             position: 'absolute',
