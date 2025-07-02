@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Box, Typography, Grid } from '@mui/material';
 import { ImageAssets } from '../ImageAssets';
+
 const styles = {
   bbqimages: {
     width: '405px',
@@ -59,7 +60,7 @@ const Bbq = () => {
     <Box
       sx={{
         position: 'relative',
-        width: '100%',
+        width: '90%',
         minHeight: { xs: '480px', sm: '600px', md: '710px' },
         overflow: 'hidden',
         mt: { xs: '56px', sm: '64px' },
@@ -195,21 +196,6 @@ const Bbq = () => {
         </Grid>
       </Grid>
 
-      
-{/* <Box
-  sx={{
-    backgroundColor: '#F5F8FD',
-    width: '100%',
-    height:'710px',
-
-  mt:-20,
-    py: { xs: 8, md: 10 },
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-  }}
-></Box> */}
-{/* Red background reservation box with inputs on right */}
 
       </Box>
    

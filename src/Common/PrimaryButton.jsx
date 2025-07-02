@@ -1,6 +1,6 @@
 import React from 'react';
 
-const PrimaryButton = ({ name, color = '#fff', bgcolor = '#EE3A43', border = '#EE3A43', onClick }) => {
+const PrimaryButton = ({ name, color = '#fff', bgcolor = '#EE3A43',width= '189.91px',   height= '55px',borderwidth="180.41px", border = '#EE3A43', onClick }) => {
   return (
     <div style={{ position: 'relative', display: 'inline-block' }}>
       {/* Border Layer */}
@@ -9,7 +9,7 @@ const PrimaryButton = ({ name, color = '#fff', bgcolor = '#EE3A43', border = '#E
           position: 'absolute',
           top: '6px',
           left: '6px',
-          width: '180.41px',
+          width: borderwidth,
           height: '65.19px',
           border: `3px solid ${border}`,
           marginLeft: '6px',
@@ -31,8 +31,8 @@ const PrimaryButton = ({ name, color = '#fff', bgcolor = '#EE3A43', border = '#E
           fontFamily: 'Oswald',
           fontSize: '16px',
           border: 'none',
-          width: '189.91px',
-          height: '55px',
+          width: width,
+          height: height,
           marginTop: '10px',
           borderRadius: '12px',
           cursor: 'pointer',

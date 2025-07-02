@@ -6,6 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay, Pagination } from 'swiper/modules';
 import CarouselCard from '../Common/CarouselCard';
 
+
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -45,7 +46,7 @@ const DiscoverMenu = () => {
   return (
     <Box
       sx={{
-        width: '100%',
+        width: '90%',
         minHeight: { xs: '480px', sm: '600px', md: '710px' },
         mt: { xs: '56px', sm: '64px' },
         px: { xs: 2, md: 8 },
@@ -210,13 +211,13 @@ const DiscoverMenu = () => {
       <Box
         sx={{
           backgroundColor: '#F5F8FD',
-          width: '1600px',
+          width: '100%',
          mt: 10,
 
           py: { xs: 8, md: 10 },
           display: 'flex',
           mt:-20,
-          ml:-10,
+          
 
           flexDirection: 'column',
           alignItems: 'center',
@@ -227,13 +228,22 @@ const DiscoverMenu = () => {
             fontWeight: 'bold',
             fontSize: '36px',
             textAlign: 'center',
-            mb: 6,
+            mb: 0.5,
             mt:20,
           }}
         >
           Featured Dishes
         </Typography>
-
+ <Box
+        sx={{
+          width: '155px',
+          height: '6px',
+          backgroundColor: '#FFD700',
+          mx: 'auto',
+          mb: 6,
+          borderRadius: '3px',
+        }}
+      />
         <Box sx={{ width: '1000px', display:'flex',justifyContent:'center',px: { xs: 2, md: 8 }}}>
           <Swiper
   modules={[Navigation, Autoplay,Pagination]}

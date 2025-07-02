@@ -7,7 +7,7 @@ import PlayButton from '../Common/PlayButton';
 
 
 
-const CoverPage = () => {
+const CoverPage2 = () => {
   return (
     <Box
   sx={{
@@ -21,7 +21,7 @@ const CoverPage = () => {
   
   <Box
     component="img"
-    src={ImageAssets.cover}
+    src={ImageAssets.cover2}
     alt="cover"
     sx={{
       width: '100%',
@@ -65,9 +65,9 @@ const CoverPage = () => {
       sm: '85%',
       md: '600px',
     },
-    color: '#FFFFFF',
+     color:'black',
     zIndex: 1,
-    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.7)',
+    // textShadow: '0px 2px 0px rgba(0, 0, 0, 0.7)',
     px: { xs: 2, sm: 2 },
     mx: { xs: 'auto', sm: '0' }, 
   }}
@@ -80,12 +80,13 @@ const CoverPage = () => {
         fontSize: { xs: '24px', sm: '36px', md: '48px' },
         fontFamily: 'Fredoka One',
         mb: 2,
+      
         lineHeight: 1.2,
       }}
     >
-      The Perfect Space to
-      <br />
-      Enjoy Fantastic Food
+      Best Food for
+ <br/>
+     <span style={{backgroundColor:'#FFD40D',padding:'4px 15px',marginLeft:'-16px', borderRadius:'100px'}}>Best Restaurants</span>
     </Typography>
 
     <Typography
@@ -202,4 +203,4 @@ const CoverPage = () => {
   );
 };
 
-export default CoverPage;
+export default CoverPage2;

@@ -2,6 +2,7 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { ImageAssets } from '../ImageAssets'; 
+
 const styles = {
   threeImages: {
     width: '260px',

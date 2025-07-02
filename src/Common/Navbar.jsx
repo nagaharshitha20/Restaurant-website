@@ -195,7 +195,7 @@ function Navbar() {
                 },
               }}
             >
-              Contact
+           Contact
             </Button>
 
             <ClearAllIcon sx={{ color: 'black', fontSize: { xs: 20, sm: 24, md: 28 } }} />
