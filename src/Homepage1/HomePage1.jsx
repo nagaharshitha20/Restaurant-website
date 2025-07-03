@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Navbar from '../Common/Navbar';
 import CoverPage from './CoverPage';
 // import CoverPage2 from './CoverPage2';
 import About1 from './About1';
@@ -11,17 +10,16 @@ import Follow from './Follow';
 import Footer from '../Common/Footer';
 const HomePage = () => {
   return (
-    <div>
-      <Navbar />
+    <div style={{ overflowX: 'hidden' }}>
+     
       <CoverPage />
-      {/* <CoverPage2 /> */}
      <About1/>  
        <Bbq/>
-     <DiscoverMenu/>
-     <Review/>
+      <DiscoverMenu/>
+    <Review/>
        <RecentNews/>
-      <Follow/> 
-      <Footer/> 
+     <Follow/> 
+       <Footer/> 
     </div>
   );
 };

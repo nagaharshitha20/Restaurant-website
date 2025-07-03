@@ -2,48 +2,45 @@ import * as React from 'react';
 import { Box, Typography, Avatar } from '@mui/material';
 import { ImageAssets } from '../ImageAssets';
 
-
 const Follow = () => {
   return (
     <Box
       sx={{
         position: 'relative',
-       width: '100%',
-        minHeight: { xs: '480px', sm: '600px', md: '710px' },
+        width: '100%',
         overflow: 'hidden',
         mt: { xs: '56px', sm: '64px' },
       }}
     >
-      {/* Background Box */}
+      {/* Background Layer */}
       <Box
         sx={{
+          position: 'absolute',
           width: '100%',
           height: '100%',
-          backgroundColor: 'white',
-          position: 'absolute',
-          // marginBottom:'40px',
+          backgroundColor: '#fff',
           top: 0,
           left: 0,
           zIndex: 0,
         }}
       />
 
-      {/* Content Section */}
+      {/* Main Content */}
       <Box
         sx={{
+          position: 'relative',
           backgroundColor: '#fff',
           py: { xs: 8, md: 10 },
-          px: { xs: 2, md: 8 },
+          px: { xs: 2, sm: 4, md: 8 },
           textAlign: 'center',
-          position: 'relative',
+          zIndex: 1,
         }}
       >
-        {/* Title */}
         <Typography
           sx={{
-            fontWeight: 'bold',
-            fontSize: '36px',
-            mb: 0.5,
+            fontFamily: 'Fredoka One',
+            fontSize: { xs: '28px', sm: '32px', md: '36px' },
+            mb: 1,
           }}
         >
           Recent News
@@ -59,176 +56,138 @@ const Follow = () => {
           }}
         />
 
-        {/* Cards */}
+        {/* Cards Section */}
         <Box
           sx={{
             display: 'flex',
-            flexDirection: 'row',
+            flexDirection: { xs: 'column', md: 'row' },
             gap: '40px',
-           justifyContent: 'center',
-         
+            justifyContent: 'center',
+            alignItems: 'center',
           }}
         >
-          {/* Card 1 */}
-          <Box
-            sx={{
-              display: 'flex',
-              gap: '30px',
-              alignItems: 'center',
-              width: '50%',
-              maxWidth: '500px',
-            }}
-          >
+          {[ImageAssets.img1, ImageAssets.img2].map((img, index) => (
             <Box
-              component="img"
-              src={ImageAssets.img1}
-              alt="img1"
+              key={index}
               sx={{
-                width: '250px',
-                height: 'auto',
-                borderRadius: '20px',
+                display: 'flex',
+                flexDirection: { xs: 'column', sm: 'row' },
+                alignItems: { xs: 'center', sm: 'center' },
+                gap: '24px',
+                maxWidth: '500px',
+                width: '100%',
               }}
-            />
-            <Box sx={{ textAlign: 'left' }}>
+            >
               <Box
+                component="img"
+                src={img}
+                alt={`img${index + 1}`}
                 sx={{
-                  backgroundColor: '#FFD700',
-                  display: 'inline-block',
-                  px: 1.5,
-                  py: 0.5,
-                  borderRadius: '5px',
-                  fontWeight: 600,
-                  fontSize: '14px',
-                  mb: 1,
+                  width: '100%',
+                  maxWidth: '250px',
+                  borderRadius: '20px',
+                  alignSelf: 'center',
                 }}
-              >
-                April 6, 2023
-              </Box>
-              <Typography
-                sx={{
-                  fontWeight: 'bold',
-                  fontSize: '20px',
-                  mt: 1,
-                }}
-              >
-                Creamy Chicken Alfredo
-              </Typography>
-              <Box sx={{ display: 'flex', alignItems: 'center', mt: 1 }}>
-                <Avatar
-                  src={ImageAssets.cheif}
-                  alt="William"
-                  sx={{ width: 30, height: 30, mr: 1 }}
-                />
-                <Typography sx={{ fontWeight: 'bold', fontSize: '14px' }}>
-                  Willimes Thomas
+              />
+              <Box sx={{ textAlign: 'left' }}>
+                <Box
+                  sx={{
+                    backgroundColor: '#FFD700',
+                    display: 'inline-block',
+                    px: 1.5,
+                    py: 0.5,
+                    borderRadius: '5px',
+                    fontFamily: 'Fredoka One',
+                    fontSize: '14px',
+                    mb: 1,
+                  }}
+                >
+                  April 6, 2023
+                </Box>
+                <Typography
+                  sx={{
+                    fontFamily: 'Fredoka One',
+                    fontSize: '20px',
+                    mt: 1,
+                  }}
+                >
+                  {index === 0 ? 'Creamy Chicken Alfredo' : 'Air Fryer Salmon'}
                 </Typography>
+                <Box sx={{ display: 'flex', alignItems: 'center', mt: 1 }}>
+                  <Avatar
+                    src={ImageAssets.cheif}
+                    alt="William"
+                    sx={{ width: 30, height: 30, mr: 1 }}
+                  />
+                  <Typography sx={{ fontFamily: 'Fredoka One', fontSize: '14px' }}>
+                    Willimes Thomas
+                  </Typography>
+                </Box>
               </Box>
             </Box>
-          </Box>
-
-          {/* Card 2 */}
-          <Box
-            sx={{
-              display: 'flex',
-              gap: '30px',
-              alignItems: 'center',
-              width: '50%',
-              maxWidth: '500px',
-            }}
-          >
-            <Box
-              component="img"
-              src={ImageAssets.img2}
-              alt="img2"
-              sx={{
-                width: '250px',
-                height: 'auto',
-                borderRadius: '20px',
-              }}
-            />
-            <Box sx={{ textAlign: 'left' }}>
-              <Box
-                sx={{
-                  backgroundColor: '#FFD700',
-                  display: 'inline-block',
-                  px: 1.5,
-                  py: 0.5,
-                  borderRadius: '5px',
-                  fontWeight: 600,
-                  fontSize: '14px',
-                  mb: 1,
-                }}
-              >
-                April 6, 2023
-              </Box>
-              <Typography
-                sx={{
-                  fontWeight: 'bold',
-                  fontSize: '20px',
-                  mt: 1,
-                }}
-              >
-                Air Fryer Salmon
-              </Typography>
-              <Box sx={{ display: 'flex', alignItems: 'center', mt: 1 }}>
-                <Avatar
-                  src={ImageAssets.cheif}
-                  alt="William"
-                  sx={{ width: 30, height: 30, mr: 1 }}
-                />
-                <Typography sx={{ fontWeight: 'bold', fontSize: '14px' }}>
-                  Willimes Thomas
-                </Typography>
-              </Box>
-              
-            </Box>
-            
-          </Box>
-          
+          ))}
         </Box>
-            <Box
-             sx={{
-               position: 'relative',
-               width: '100%',
-               
-               minHeight: { xs: '480px', sm: '600px', md: '520px', },
-               overflow: 'hidden',
-               mt: { xs: '56px', sm: '64px' },
-                display:'flex',
-              justifyContent:'center',
-              alignItems:'center',
-             }}
-           >
-             
-             <Box
-               component="img"
-               src={ImageAssets.followbg}
-               alt="cover"
-               sx={{
-                 width: '100%',
-                 height: '704px',
-                 objectFit: 'cover',
-                 opacity:'30%',
-                 position: 'absolute',
-              
-                 top: 0,
-                 left: 0,
-                 zIndex: 0,
-                 height:{
-                   xs:'300px',
-                   sm:'100%',
-                   md:'100%',
-                   lg:'100%',
-                 }
-               }}
-             />
-             <Typography  style={{fontSize:'40px',fontWeight:'bold'
-           }}>Follow @shawonetc3
-           <div style={{fontSize:'18px'}}>Join our community to inspire your desires</div></Typography>
-           
+
+        {/* Follow Banner Section */}
+        <Box
+          sx={{
+            mt: { xs: 8, md: 10 },
+            position: 'relative',
+            minHeight: { xs: '300px', md: '520px' },
+            width: '100%',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            overflow: 'hidden',
+          }}
+        >
+          {/* Background Image */}
+          <Box
+            component="img"
+            src={ImageAssets.followbg}
+            alt="cover"
+            sx={{
+              position: 'absolute',
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              opacity: 0.3,
+              top: 0,
+              left: 0,
+              zIndex: 0,
+            }}
+          />
+
+          {/* Overlay Text */}
+          <Box
+            sx={{
+              position: 'relative',
+              zIndex: 1,
+              textAlign: 'center',
+              px: 2,
+            }}
+          >
+            <Typography
+              sx={{
+                fontSize: { xs: '24px', sm: '32px', md: '40px' },
+                fontFamily: 'Fredoka One',
+                color: '#000',
+              }}
+            >
+              Follow @shawonetc3
+            </Typography>
+            <Typography
+              sx={{
+                fontSize: { xs: '14px', sm: '16px', md: '18px' },
+                fontFamily: 'Epilogue',
+                color: '#000',
+              }}
+            >
+              Join our community to inspire your desires
+            </Typography>
+          </Box>
+        </Box>
       </Box>
-      </Box>
-    
     </Box>
   );
 };

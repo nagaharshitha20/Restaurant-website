@@ -5,136 +5,134 @@ import PrimaryButton from '../Common/PrimaryButton';
 import { ImageAssets } from '../ImageAssets';
 import PlayButton from '../Common/PlayButton';
 
-
-
 const CoverPage = () => {
   return (
     <Box
-  sx={{
-    position: 'relative',
-     width: '100%',
-    minHeight: { xs: '480px', sm: '600px', md: '710px' },
-    overflow: 'hidden',
-    mt: { xs: '56px', sm: '64px' },
-  }}
->
-  
-  <Box
-    component="img"
-    src={ImageAssets.cover}
-    alt="cover"
-    sx={{
-      width: '100%',
-      height: '100%',
-      objectFit: 'cover',
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      zIndex: 0,
-      height:{
-        xs:'300px',
-        sm:'100%',
-        md:'100%',
-        lg:'100%',
-      }
-    }}
-  />
-
-
-  <Box
-  sx={{
-    position: {
-      xs: 'relative',      
-      sm: 'absolute',      
-    },
-    top: {
-      xs: '60px',
-      sm: '50%',
-    },
-    left: {
-      xs: '20px',
-      sm: 0,
-      md: '180px',
-    },
-    transform: {
-      xs: 'none',
-      sm: 'translateY(-50%)',
-    },
-    width: {
-      xs: '90%',
-      sm: '85%',
-      md: '600px',
-    },
-    color: '#FFFFFF',
-    zIndex: 1,
-    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.7)',
-    px: { xs: 2, sm: 2 },
-    mx: { xs: 'auto', sm: '0' }, 
-  }}
->
-
-    <Typography
-      variant="h3"
       sx={{
-        // fontWeight: 'bold',
-        fontSize: { xs: '24px', sm: '36px', md: '48px' },
-        fontFamily: 'Fredoka One',
-        mb: 2,
-        lineHeight: 1.2,
+        position: 'relative',
+        width: '100%',
+        minHeight: { xs: '70vh', sm: '100vh', md: '100vh' },
+        overflow: 'hidden',
+        mt: { xs: '56px', sm: '64px' },
       }}
     >
-      The Perfect Space to
-      <br />
-      Enjoy Fantastic Food
-    </Typography>
-
-    <Typography
-      variant="h6"
-      sx={{
-        fontSize: { xs: '14px', sm: '18px', md: '20px' },
-        color:'lightgrey',
-        mb: { xs: 2, sm: 3 },
-        fontFamily: 'Epilogue',
-        lineHeight: 1.4,
-      }}
-    >
-      Festive dining at Farthings where we are strong believers in
-      using the very best produce
-    </Typography>
-
-    <Box
-      sx={{
-        display: 'flex',
-        alignItems: 'center',
-        flexWrap: 'wrap',
-        gap: { xs: 1.5, sm: 2 },
-        maxWidth: '100%',
-      }}
-    >
-      <PrimaryButton
-        name="See Our Menus"
-        onClick={() => console.log('Menu button clicked')}
-      />
-      <PlayButton onClick={() => console.log('Play video')} />
-      <Typography
+      {/* Background Image */}
+      <Box
+        component="img"
+        src={ImageAssets.cover}
+        alt="cover"
         sx={{
-          fontSize: '16px',
-          fontFamily: 'Arial',
-          ml:'40px',
-          display: { xs: 'none', sm: 'block' },
-          
-          
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: {xs:'100vh', sm: '100vh', md: '100vh'},
+          objectFit: 'cover',
+          zIndex: 0,
         }}
-      >
-        VIDEO
-      </Typography>
-    </Box>
-  </Box>
+      />
 
-     
+      {/* Foreground Content */}
       <Box
         sx={{
-          display: { xs: 'none', lg:'flex'},
+          position: {
+            xs: 'relative',
+            sm: 'absolute',
+          },
+          top: {
+            xs: 'auto',
+            sm: '50%',
+          },
+          left: {
+            xs: '0',
+            sm: 0,
+            md: '180px',
+          },
+          transform: {
+            xs: 'none',
+            sm: 'translateY(-50%)',
+          },
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: { xs: 'flex-start', sm: 'flex-start' },
+          justifyContent: 'center',
+          width: {
+            xs: '90%',
+            sm: '80%',
+            md: '600px',
+          },
+          px: { xs: 3, sm: 4 },
+          zIndex: 1,
+          color: '#FFFFFF',
+          textShadow: '2px 2px 4px rgba(0, 0, 0, 0.7)',
+        }}
+      >
+        {/* Heading */}
+        <Typography
+          variant="h3"
+          sx={{
+            fontFamily: 'Fredoka One',
+            fontSize: { xs: '8vw', sm: '6vw', md: '48px' },
+            textAlign: 'left',
+            mt: { xs: '35vw',sm:'0vw',md:'0vw',lg:'0vw' },
+            mb: 2,
+            lineHeight: 1.2,
+          }}
+        >
+          The Perfect Space to
+          <br />
+          Enjoy Fantastic Food
+        </Typography>
+
+        {/* Subheading */}
+        <Typography
+          variant="body1"
+          sx={{
+            fontFamily: 'Epilogue',
+            fontSize: { xs: '3.5vw', sm: '2.5vw', md: '20px' },
+            color: 'lightgrey',
+            textAlign: 'left',
+            mb: { xs: 3, sm: 4 },
+            lineHeight: 1.5,
+            maxWidth: '100%',
+          }}
+        >
+          Festive dining at Farthings where we are strong believers in using the very best produce
+        </Typography>
+
+        {/* Buttons Row */}
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'row',
+            flexWrap: 'wrap',
+            alignItems: 'center',
+            gap: { xs: 2, sm: 3 },
+            width: '100%',
+          }}
+        >
+          <PrimaryButton
+            name="See Our Menus"
+            onClick={() => console.log('Menu button clicked')}
+          />
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+            <PlayButton onClick={() => console.log('Play video')} />
+            <Typography
+              sx={{
+                fontSize: { xs: '4vw', sm: '16px' },
+                fontFamily: 'Fredoka One',
+              }}
+            >
+              VIDEO
+            </Typography>
+          </Box>
+        </Box>
+      </Box>
+
+      {/* Floating Card - Desktop Only */}
+      <Box
+        sx={{
+          display: { xs: 'none', lg: 'flex' },
           position: 'absolute',
           bottom: '100px',
           right: '220px',
@@ -148,24 +146,29 @@ const CoverPage = () => {
           zIndex: 2,
           alignItems: 'center',
           justifyContent: 'space-between',
-          boxSizing: 'border-box',
         }}
       >
-
         <Box>
-          <Typography variant="h6" sx={{ fontWeight: 'bold', fontSize: '22px' }}>
+          <Typography variant="h6" sx={{ fontSize: '22px', fontFamily: 'Fredoka One' }}>
             $90.85
           </Typography>
-          <Typography variant="subtitle1" sx={{ fontSize: '18px', mt: '4px' }}>
+          <Typography
+            variant="subtitle1"
+            sx={{ fontSize: '18px', mt: 1, fontFamily: 'Fredoka One' }}
+          >
             Sicilian Pizza
           </Typography>
           <Box sx={{ mt: 1 }}>
             {'★★★★★'.split('').map((star, idx) => (
-              <span key={idx} style={{ color: '#FFD40D', fontSize: '20px' }}>{star}</span>
+              <span
+                key={idx}
+                style={{ color: '#FFD40D', fontSize: '20px', fontFamily: 'Fredoka One' }}
+              >
+                {star}
+              </span>
             ))}
           </Box>
         </Box>
-
 
         <Box
           component="img"
@@ -178,7 +181,6 @@ const CoverPage = () => {
           }}
         />
 
-    
         <Box
           sx={{
             position: 'absolute',
@@ -188,10 +190,9 @@ const CoverPage = () => {
             backgroundColor: '#F3274C',
             color: '#fff',
             padding: '4px 12px',
-            fontWeight: 'bold',
             fontSize: '14px',
             borderRadius: '5px',
-            fontFamily: 'Arial',
+            fontFamily: 'Fredoka One',
             whiteSpace: 'nowrap',
           }}
         >

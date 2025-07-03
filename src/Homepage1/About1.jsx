@@ -1,16 +1,16 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import { ImageAssets } from '../ImageAssets'; 
+import { ImageAssets } from '../ImageAssets';
 
 const styles = {
   threeImages: {
-    width: '260px',
-    height:'290px',
-        borderRadius: '20px',
+    width: { xs: '100%', sm: '240px', md: '260px' },
+    height: 'auto',
+    borderRadius: '20px',
     overflow: 'hidden',
-    backgroundColor: '#000', 
-    border: '5px solid #FFD700', 
+    backgroundColor: '#000',
+    border: '5px solid #FFD700',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -20,7 +20,7 @@ const styles = {
 
   image: {
     width: '100%',
-    height: '260px',
+    height: { xs: '200px', sm: '240px', md: '260px' },
     objectFit: 'cover',
     borderRadius: '15px',
     display: 'block',
@@ -30,11 +30,10 @@ const styles = {
     width: '100%',
     backgroundColor: '#FFD700',
     color: '#000',
-    fontWeight: 700,
     fontSize: '15px',
     textAlign: 'center',
     padding: '10px 0',
-    fontFamily: 'Arial',
+    fontFamily: 'Fredoka One',
     borderBottomLeftRadius: '15px',
     borderBottomRightRadius: '15px',
   },
@@ -53,7 +52,6 @@ const styles = {
   },
 };
 
-
 const ImageCard = ({ image, label, customStyle = {} }) => (
   <Box sx={{ ...styles.threeImages, ...customStyle }}>
     <Box component="img" src={image} alt={label} sx={styles.image} />
@@ -61,72 +59,81 @@ const ImageCard = ({ image, label, customStyle = {} }) => (
   </Box>
 );
 
-
 const ChiefCard = ({ image, name, role }) => (
   <Box sx={{ display: 'flex', alignItems: 'center', mt: 3 }}>
     <Box sx={styles.chiefImage}>
       <img src={image} alt="Chief" />
     </Box>
     <Box sx={{ ml: 2 }}>
-      <Typography variant="h6" sx={{ fontWeight: 'bold' }}>{name}</Typography>
-      <Typography sx={{ fontSize: '14px' }}>{role}</Typography>
+      <Typography variant="h6" sx={{ fontFamily: 'Fredoka One' }}>
+        {name}
+      </Typography>
+      <Typography sx={{ fontSize: '14px', fontFamily: 'Epilogue' }}>{role}</Typography>
     </Box>
   </Box>
 );
 
-
 const About1 = () => {
   return (
-    <Box sx={{ width: '100%', mt: '64px' }}>
+    <Box sx={{ width: '100%', mt: { xs: '40px', md: '64px' } }}>
+      {/* Top Section */}
+     <Box
+  sx={{
+    display: 'flex',
+    flexDirection: { xs: 'column', md: 'row' },
+    justifyContent: 'center',
+    alignItems: {
+      xs: 'flex-start',
+      md: 'flex-start',
+      lg: 'flex-start', // vertically center on large screens
+    },
+    gap: 2,
+    px: { xs: 3,sm:18, md: 12 ,lg:45},
+    minHeight: { lg: '150px' }, // ensures height to vertically center
+  }}
+>
 
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: { xs: 'column', md: 'row' },
-          justifyContent: 'center',
-          alignItems: { xs: 'flex-start', md: 'flex-start' },
-          gap: 4,
-          mt:{xs:'-200px',md:'0px'},
-          px: { xs: 2, md: 12 },
-        }}
-      >
-
-        <Box>
+        {/* Heading Block */}
+        <Box sx={{ flex: 1 }}>
           <Typography
             sx={{
-              fontFamily: 'Arial',
-              fontWeight: 'bold',
+              fontFamily: 'Fredoka One',
               color: '#EE3A43',
               fontSize: '12px',
               mb: 1,
+              textAlign: { xs: 'left', md: 'left' }, // preserve left alignment
             }}
           >
             ABOUT THE FOOD RESTAURANT
           </Typography>
           <Typography
             sx={{
-              fontFamily: 'Arial',
-              fontWeight: 'bolder',
+              fontFamily: 'Fredoka One',
               fontSize: { xs: '22px', md: '32px' },
-              maxWidth: '300px',
+              maxWidth: { xs: '100%', md: '300px' },
               mb: 2,
               lineHeight: 1.3,
+              textAlign: { xs: 'left', md: 'left' },
             }}
           >
             New Ground with Dishes to be Enjoyed
           </Typography>
         </Box>
 
-       
-        <Box sx={{ maxWidth: '480px' }}>
+        {/* Description + Chief */}
+        <Box sx={{ flex: 1, maxWidth: '480px' }}>
           <Typography
             sx={{
-              fontSize: '15px',
-              fontFamily: 'Arial',
+              fontSize: { xs: '14px', md: '15px' },
+              fontFamily: 'Epilogue',
               mb: 2,
+              lineHeight: 1.6,
+              textAlign: { xs: 'left', md: 'left' },
             }}
           >
-            Nisl quam nestibu lum ac quam nec odio eleme aucan ligula. Orci varius nat oque pena tibus et urient monte nascete ridiculus mus nellentesq um ac quam nec odio ribne. Nisl quam nestibu aucan ligula.
+            Nisl quam nestibu lum ac quam nec odio eleme aucan ligula. Orci varius nat oque pena
+            tibus et urient monte nascete ridiculus mus nellentesq um ac quam nec odio ribne. Nisl
+            quam nestibu aucan ligula.
           </Typography>
           <ChiefCard
             image={ImageAssets.cheif}
@@ -136,19 +143,25 @@ const About1 = () => {
         </Box>
       </Box>
 
-      
+      {/* Images Section */}
       <Box
         sx={{
           display: 'flex',
+          flexDirection: { xs: 'column', sm: 'row' },
           justifyContent: 'center',
+          alignItems: 'center',
           flexWrap: 'wrap',
           gap: 4,
           mt: 8,
-          px: { xs: 2, md: 0 },
+          px: { xs: 17, md: 0 },
         }}
       >
         <ImageCard image={ImageAssets.restaurant} label="Restaurant" />
-        <ImageCard image={ImageAssets.cocktail} label="Cocktail Bar" customStyle={{ mt: '30px' }} />
+        <ImageCard
+          image={ImageAssets.cocktail}
+          label="Cocktail Bar"
+          customStyle={{ mt: { xs: 0, sm: '30px' } }}
+        />
         <ImageCard image={ImageAssets.dining} label="Private Dining" />
       </Box>
     </Box>

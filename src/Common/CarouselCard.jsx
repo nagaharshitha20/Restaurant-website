@@ -19,7 +19,7 @@ const CarouselCard = ({ dish }) => {
       {/* SALE Tag */}
       <Box
         sx={{
-          width: '40px',
+          width: '50px',
           height: '50px',
           position: 'absolute',
           top: '10px',
@@ -29,7 +29,7 @@ const CarouselCard = ({ dish }) => {
           alignItems: 'center',
           backgroundColor: '#FFD700',
           color: 'black',
-          fontWeight: 'bold',
+         fontFamily: 'Fredoka One',
           fontSize: '12px',
           borderRadius: '50%',
         }}
@@ -85,7 +85,8 @@ const CarouselCard = ({ dish }) => {
       {/* Dish Info */}
       <Typography
         sx={{
-          fontWeight: 'bold',
+          
+          fontFamily: 'Fredoka One',
           fontSize: '14px',
           mb: 0.5,
         }}
@@ -97,6 +98,7 @@ const CarouselCard = ({ dish }) => {
         <Typography
           sx={{
             fontSize: '13px',
+            fontFamily: 'Fredoka One',
             textDecoration: 'line-through',
             color: '#888',
           }}
@@ -106,7 +108,8 @@ const CarouselCard = ({ dish }) => {
         <Typography
           sx={{
             fontSize: '14px',
-            fontWeight: 'bold',
+            // fontWeight: 'bold',
+            fontFamily: 'Fredoka One',
           }}
         >
           {dish.price}

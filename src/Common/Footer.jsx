@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Box, Typography, TextField } from '@mui/material';
 import { ImageAssets } from '../ImageAssets';
-import PrimaryButton from './PrimaryButton'; 
+import PrimaryButton from './PrimaryButton';
 
 const Footer = () => {
   return (
@@ -9,16 +9,16 @@ const Footer = () => {
       sx={{
         position: 'relative',
         width: '100%',
-        minHeight: { xs: '480px', sm: '600px', md: '470px' },
+        minHeight: { xs: 'auto', md: '470px' },
         overflow: 'hidden',
         mt: { xs: '56px', sm: '64px' },
         bgcolor: '#F5F8FD',
-        // px: { xs: 2, sm: 6, md: 9 },
         pt: 10,
         pb: 6,
+        px: { xs: 2, sm: 4, md: 0 },
       }}
     >
-      {/* Top decorative image (left) */}
+      {/* Left & Right Decorative Images */}
       <Box
         component="img"
         src={ImageAssets.b1}
@@ -27,11 +27,10 @@ const Footer = () => {
           position: 'absolute',
           bottom: 0,
           left: 0,
-          width: '200px',
+          width: '160px',
           zIndex: 0,
         }}
       />
-      {/* Top decorative image (right) */}
       <Box
         component="img"
         src={ImageAssets.b2}
@@ -40,65 +39,64 @@ const Footer = () => {
           position: 'absolute',
           bottom: 0,
           right: 0,
-          width: '200px',
-          zIndex: 1,
+          width: '160px',
+          zIndex: 0,
         }}
       />
 
-      {/* Main Content */}
+      {/* Main Footer Content */}
       <Box
         sx={{
           display: 'flex',
-          flexDirection: { xs: 'column', md: 'row' },
+          flexDirection: { xs: 'column', lg: 'row' },
           justifyContent: 'center',
-          alignItems:'center',
-          gap:5,
-          alignItems: 'flex-start',
-          position: 'relative',
+          alignItems: { xs: 'center', lg: 'flex-start' },
+          gap: { xs: 6, md: 8, lg: 12 },
           zIndex: 1,
-          // gap: { xs: 4, md: 0 },
+          position: 'relative',
         }}
       >
-        {/* Left: Pizza Hut Card */}
+        {/* Left Box */}
         <Box
           sx={{
             width: '260px',
-            height:'240px',
             backgroundColor: '#F3274C',
             color: '#fff',
             borderRadius: '30px',
             p: 3,
             fontFamily: 'Fredoka One, sans-serif',
+            textAlign: 'left',
           }}
         >
-          <Typography variant="h5" fontWeight="bold" fontStyle="italic"sx={{ mb: 2 }}>
+          <Typography variant="h5" sx={{ mb: 2, fontFamily: 'Fugaz One' }}>
             pizza hut
           </Typography>
-          <Typography sx={{ mb: 1 }}>
+          <Typography sx={{ mb: 1, fontFamily: 'Fredoka One' }}>
             Tuesday - Saturday: 12:00pm – 23:00pm
           </Typography>
-          <Typography sx={{ mb: 2, color: '#fff', fontWeight: 600 }}>
-            <u>Closed on Sunday</u>
-          </Typography><br></br><br></br><br></br><br></br>
-          <Typography sx={{fontSize:'16px', fontWeight:'bold'}}>5 star rated on TripAdvisor</Typography>
+          <Typography sx={{ mb: 4, fontFamily: 'Fredoka One', textDecoration: 'underline' }}>
+            Closed on Sunday
+          </Typography>
+          <Typography sx={{ fontSize: '16px', fontFamily: 'Fredoka One' }}>
+            5 star rated on TripAdvisor
+          </Typography>
         </Box>
 
-        {/* Center: Links */}
+        {/* Links + Newsletter */}
         <Box
           sx={{
             display: 'flex',
-            gap: 10,
+            flexDirection: { xs: 'column', sm: 'row' },
             flexWrap: 'wrap',
-             mt:'35px'
+            gap: { xs: 4, md: 8, lg: 10 },
+            justifyContent: 'center',
+            mt: { xs: 4, lg: '35px' },
           }}
         >
-          {/* About */}
+        
           <Box >
-            <Typography variant="h6" fontWeight="bold" sx={{ mb: 1 }}>
-              <Box
-                component="span"
-                sx={{ borderBottom: '3px solid #FBD411', pb: '2px' }}
-              >
+            <Typography variant="h6" sx={{ mb: 1, fontFamily: 'Fredoka One' }}>
+              <Box component="span" sx={{ borderBottom: '3px solid #FBD411', pb: '2px' }}>
                 About
               </Box>
             </Typography>
@@ -110,11 +108,8 @@ const Footer = () => {
 
           {/* Menu */}
           <Box>
-            <Typography variant="h6" fontWeight="bold" sx={{ mb: 1 }}>
-              <Box
-                component="span"
-                sx={{ borderBottom: '3px solid #FBD411', pb: '2px' }}
-              >
+            <Typography variant="h6" sx={{ mb: 1, fontFamily: 'Fredoka One' }}>
+              <Box component="span" sx={{ borderBottom: '3px solid #FBD411', pb: '2px' }}>
                 Menu
               </Box>
             </Typography>
@@ -126,39 +121,37 @@ const Footer = () => {
           </Box>
 
           {/* Newsletter */}
-          <Box>
-            <Typography variant="h6" fontWeight="bold" sx={{ mb: 1 }}>
-              <Box
-                component="span"
-                sx={{ borderBottom: '3px solid #FBD411', pb: '2px' }}
-              >
+          <Box sx={{ minWidth: { xs: '100%', sm: '300px' }, maxWidth: '360px' }}>
+            <Typography variant="h6" sx={{ mb: 1, fontFamily: 'Fredoka One' }}>
+              <Box component="span" sx={{ borderBottom: '3px solid #FBD411', pb: '2px' }}>
                 Newsletter
               </Box>
             </Typography>
             <Typography sx={{ mb: 1 }}>Get recent news and updates.</Typography>
-            <Box sx={{ display: 'flex', gap: 1, mt: 1 }}>
-              <TextField
-                placeholder="Email Address"
-                size="small"
-                variant="outlined"
-                sx={{
-                  backgroundColor: '#fff',
-                  height:'40px',
-                  borderRadius: '6px',
-                  width:'300px'
-                }}
-                
-              />
-              
-             
+         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, mt: 1 }}>
+  <TextField
+    placeholder="Email Address"
+    size="small"
+    variant="outlined"
+    fullWidth
+    sx={{
+      backgroundColor: '#fff',
+      borderRadius: '6px',
+    }}
+  />
+   <Box sx={{ display: { xs: 'none', sm: 'block' }, mt: 2 }}>
+              <PrimaryButton name="Subscribe" width="139.91px" borderwidth="130.41px" />
             </Box>
-            <div style={{marginTop:"30px"}}><PrimaryButton name="Subscribe" width="139.91px" borderwidth="130.41px" /></div>
-             
+</Box>
+            {/** Button for xs (stacked) */}
+            <Box sx={{ display: { xs: 'block', sm: 'none' }, mt: 2 }}>
+              <PrimaryButton name="Subscribe" width="139.91px" borderwidth="130.41px" />
+            </Box>
           </Box>
         </Box>
       </Box>
 
-      {/* Footer Bottom */}
+      {/* Bottom Strip */}
       <Box
         sx={{
           mt: 6,
@@ -168,16 +161,20 @@ const Footer = () => {
           flexDirection: { xs: 'column', md: 'row' },
           justifyContent: 'center',
           alignItems: 'center',
-          gap:60,
+          gap: { xs: 2, md: 10, lg: 60 },
           textAlign: { xs: 'center', md: 'left' },
         }}
       >
-        <Typography variant="body2">
-          © 2024 <strong>pizza hut</strong> | All <strong>shawonetc3</strong> Themes
+        <Typography variant="body2" sx={{ fontFamily: 'Fugaz One' }}>
+          © 2024 pizza hut | All shawonetc3 Themes
         </Typography>
-        <Box sx={{ display: 'flex', gap: 10, mt: { xs: 2, md: 0 } }}>
-          <Typography variant="body2" fontWeight="bold">Facebook</Typography>
-          <Typography variant="body2" fontWeight="bold">Instagram</Typography>
+        <Box sx={{ display: 'flex', gap: 6 }}>
+          <Typography variant="body2" fontFamily="Fredoka One">
+            Facebook
+          </Typography>
+          <Typography variant="body2" fontFamily="Fredoka One">
+            Instagram
+          </Typography>
         </Box>
       </Box>
     </Box>
