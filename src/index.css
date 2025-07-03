@@ -1,13 +1,22 @@
+/* index.css or App.css */
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Epilogue', sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Example classes if you want to apply them selectively */
+.fredoka {
+  font-family: 'Fredoka One', cursive;
+}
+
+.fugaz {
+  font-family: 'Fugaz One', cursive;
+}
+
+.oswald {
+  font-family: 'Oswald', sans-serif;
+}
+
+.epilogue {
+  font-family: 'Epilogue', sans-serif;
 }

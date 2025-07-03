@@ -195,10 +195,10 @@ function Navbar() {
                 },
               }}
             >
-              Contact
+           Contact
             </Button>
 
-            <ClearAllIcon sx={{ color: 'black', fontSize: { xs: 20, sm: 24, md: 28 } }} />
+            <ClearAllIcon sx={{ color: 'black', fontSize: {  md: 28 },display:{ xs: 'none',sm:'none', md: 'flex' } }} />
           </Box>
         </Toolbar>
       </Container>

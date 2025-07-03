@@ -1,19 +1,25 @@
 import * as React from 'react';
-import Navbar from '../Common/Navbar';
 import CoverPage from './CoverPage';
+// import CoverPage2 from './CoverPage2';
 import About1 from './About1';
 import Bbq from './Bbq';
 import DiscoverMenu from './DiscoverMenu';
 import Review from './Review';
+import RecentNews from './RecentNews';
+import Follow from './Follow';
+import Footer from '../Common/Footer';
 const HomePage = () => {
   return (
-    <div>
-      <Navbar />
+    <div style={{ overflowX: 'hidden' }}>
+     
       <CoverPage />
-      <About1/>
-      <Bbq/>
+     <About1/>  
+       <Bbq/>
       <DiscoverMenu/>
-      <Review/>
+    <Review/>
+       <RecentNews/>
+     <Follow/> 
+       <Footer/> 
     </div>
   );
 };

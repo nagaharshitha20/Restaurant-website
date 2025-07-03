@@ -6,6 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay, Pagination } from 'swiper/modules';
 import CarouselCard from '../Common/CarouselCard';
 
+
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -18,6 +19,7 @@ const inputStyle = {
   fontSize: '14px',
   outline: 'none',
   boxSizing: 'border-box',
+  fontFamily: 'Epilogue',
 };
 
 const featuredDishes = [
@@ -45,25 +47,35 @@ const DiscoverMenu = () => {
   return (
     <Box
       sx={{
-        width: '100%',
+        width: '90%',
         minHeight: { xs: '480px', sm: '600px', md: '710px' },
         mt: { xs: '56px', sm: '64px' },
+        
         px: { xs: 2, md: 8 },
       }}
     >
       
       <Typography
         sx={{
-          fontWeight: 'bold',
-          fontSize: '25px',
+         fontFamily: 'Fredoka One',
+          fontSize: '35px',
           textAlign: 'center',
           marginTop: '50px',
-          marginBottom: '50px',
+          
         }}
       >
         Discover Menu
       </Typography>
-
+<Box
+        sx={{
+          width: '155px',
+          height: '6px',
+          backgroundColor: '#FFD700',
+          mx: 'auto',
+          mb: 6,
+          borderRadius: '3px',
+        }}
+      />
      
       <Box sx={{ display: 'flex', gap: '25px', justifyContent: 'center' }}>
         {[{
@@ -109,15 +121,16 @@ const DiscoverMenu = () => {
                 color: '#fff',
               }}
             >
-              <Typography variant="h6" sx={{ fontWeight: 'bold' }}>{item.title}</Typography>
-              <Typography variant="body2" sx={{ color: 'lightgrey' }}>{item.desc}</Typography>
+              <Typography variant="h6" sx={{    fontFamily: 'Fredoka One', }}>{item.title}</Typography>
+              <Typography variant="body2" sx={{ color: 'lightgrey',   fontFamily: 'Epilogue', }}>{item.desc}</Typography>
             </Box>
 
             <Box
               sx={{
                 position: 'absolute',
-                bottom: '-30px',
-                left: '50px',
+               left: { xs: '25px', sm: '30px', md: '50px' },
+               bottom: { xs: '-20px', sm: '-20px', md: '-30px' },
+
                 backgroundColor: '#FFD700',
                 width: '70px',
                 height: '70px',
@@ -127,96 +140,110 @@ const DiscoverMenu = () => {
                 alignItems: 'center',
                 justifyContent: 'center',
                 color: '#F3274C',
-                fontWeight: 'bold',
+                   fontFamily: 'Fredoka One',
                 boxShadow: '0px 2px 8px rgba(0,0,0,0.2)',
                 zIndex: 2,
               }}
             >
-              <Typography sx={{ fontSize: '16px', lineHeight: 1 }}>{item.price}</Typography>
-              <Typography sx={{ fontSize: '12px' }}>person</Typography>
+              <Typography sx={{ fontSize: '16px', lineHeight: 1 ,   fontFamily: 'Fredoka One',}}>{item.price}</Typography>
+              <Typography sx={{ fontSize: '12px',   fontFamily: 'Fredoka One',color:'black' }}>person</Typography>
             </Box>
           </Box>
         ))}
       </Box>
 
       {/* Reservation Box */}
-      <Box sx={{ display: 'flex', justifyContent: 'center', mt: 10 }}>
-        <Box
-          sx={{
-            width: '776.66px',
-            height: '240px',
-            borderRadius: '20px',
-            backgroundImage: `url(${ImageAssets.bg})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            display: 'flex',
-            justifyContent: 'space-between',
-            px: 4,
-            py: 4,
-            gap: 4,
-          }}
-        >
-          
-          <Box sx={{ width: '32%' }}>
-            <Typography
-              sx={{
-                color: 'white',
-                fontSize: '28px',
-                fontWeight: 'bold',
-                mb: 1,
-                lineHeight: 1.3,
-              }}
-            >
-              RESERVE <br /> A TABLE
-            </Typography>
-            <Typography sx={{ color: 'white', fontSize: '14px' }}>
-              Discover our New Menu !
-            </Typography>
-          </Box>
+    {/* Reservation Box */}
+<Box sx={{ display: 'flex', justifyContent: 'center', mt: 10, px: 2, overflowX: 'hidden' }}>
+  <Box
+    sx={{
+      width: '100%',
+      maxWidth: '776.66px',
+      height: 'auto',
+      borderRadius: '20px',
+      backgroundImage: `url(${ImageAssets.bg})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      display: 'flex',
+      flexDirection: { xs: 'column', md: 'row' },
+      justifyContent: 'space-between',
+      px: 4,
+      py: 4,
+      gap: 4,
+    }}
+  >
+    {/* Left Text Block */}
+    <Box sx={{ width: { xs: '100%', md: '32%' } }}>
+      <Typography
+        sx={{
+          color: 'white',
+          fontSize: '28px',
+          fontFamily: 'Fredoka One',
+          mb: 1,
+          lineHeight: 1.3,
+        }}
+      >
+        RESERVE <br /> A TABLE
+      </Typography>
+      <Box
+        sx={{
+          width: '120px',
+          height: '2px',
+          backgroundColor: '#FFD700',
+          mb: 1,
+          borderRadius: '3px',
+        }}
+      />
+      <Typography sx={{ color: 'white', fontSize: '14px', fontFamily: 'Fredoka One' }}>
+        Discover our New Menu !
+      </Typography>
+    </Box>
 
-          
-          <Box
-            sx={{
-              width: '65%',
-              borderRadius: '12px',
-              padding: '16px',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'space-between',
-            }}
-          >
-            <Box sx={{ display: 'flex', gap: 2 }}>
-              <input placeholder="No of Guest" style={inputStyle} />
-              <input placeholder="Date" style={inputStyle} />
-              <input placeholder="Time" style={inputStyle} />
-            </Box>
-            <Box sx={{ display: 'flex', gap: 2 }}>
-              <input placeholder="Full Name" style={inputStyle} />
-              <input placeholder="Phone No" style={inputStyle} />
-            </Box>
-            <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-              <PrimaryButton
-                name="Submit"
-                bgcolor="#FFD40D"
-                color="black"
-                border="#FFD40D"
-              />
-            </Box>
-          </Box>
-        </Box>
+   
+    <Box
+      sx={{
+        width: { xs: '100%', md: '65%' },
+        borderRadius: '12px',
+        padding: '16px',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 1.5,
+        minWidth: 0, 
+      }}
+    >
+      <Box sx={{ display: 'flex', gap: 2, flexDirection: { xs: 'column', sm: 'row' } }}>
+        <input placeholder="No of Guest" style={inputStyle} />
+        <input placeholder="Date" style={inputStyle} />
+        <input placeholder="Time" style={inputStyle} />
       </Box>
+      <Box sx={{ display: 'flex', gap: 2, flexDirection: { xs: 'column', sm: 'row' } }}>
+        <input placeholder="Full Name" style={inputStyle} />
+        <input placeholder="Phone No" style={inputStyle} />
+      </Box>
+      <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+        <PrimaryButton
+          name="Submit"
+          bgcolor="#FFD40D"
+          color="black"
+          border="#FFD40D"
+        />
+      </Box>
+    </Box>
+  </Box>
+</Box>
+
 
       
       <Box
         sx={{
           backgroundColor: '#F5F8FD',
-          width: '1600px',
+          width: '100%',
          mt: 10,
 
           py: { xs: 8, md: 10 },
           display: 'flex',
           mt:-20,
-          ml:-10,
+          
 
           flexDirection: 'column',
           alignItems: 'center',
@@ -224,17 +251,37 @@ const DiscoverMenu = () => {
       >
         <Typography
           sx={{
-            fontWeight: 'bold',
+           fontFamily: 'Fredoka One',
             fontSize: '36px',
             textAlign: 'center',
-            mb: 6,
+            mb: 0.5,
             mt:20,
           }}
         >
           Featured Dishes
         </Typography>
+ <Box
+        sx={{
+          width: '155px',
+          height: '6px',
+          backgroundColor: '#FFD700',
+          mx: 'auto',
+          mb: 6,
+          borderRadius: '3px',
+          
+        }}
+      />
+       <Box
+  sx={{
+    width: '100%',
+    // maxWidth: '400px', // <-- responsive
+    display: 'flex',
+    justifyContent: 'center',
+    px: { xs: 0, md: 8 },
+  }}
+>
 
-        <Box sx={{ width: '1000px', display:'flex',justifyContent:'center',px: { xs: 2, md: 8 }}}>
+
           <Swiper
   modules={[Navigation, Autoplay,Pagination]}
   spaceBetween={10} // ⬅️ 10 or 20px gap
