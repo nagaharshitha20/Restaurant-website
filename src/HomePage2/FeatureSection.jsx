@@ -224,9 +224,9 @@ ac quam nec odio rbine.
         <Box sx={{
             display: 'flex',
             flexWrap: 'wrap',
-            justifyContent: 'space-between',
+            justifyContent: 'space-around',
             alignItems: 'center',
-            gap: 8,
+            gap: 6,
             mt: 2,
         }}>
           <img src={ImageAssets.c1} alt="Sponsor 1" style={{width:'80px',height:'80px'}} />
