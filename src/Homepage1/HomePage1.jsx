@@ -19,7 +19,7 @@ const HomePage = () => {
     <Review/>
        <RecentNews/>
      <Follow/> 
-       <Footer/> 
+       
     </div>
   );
 };

@@ -5,16 +5,13 @@ import HomePage1 from './HomePage1/HomePage1';
 import Footer from './Common/Footer';
 import HomePage3 from './HomePage3/HomePage3';
 // import FeatureSection from './HomePage2/FeatureSection';
+import MainApp from './MainApp';
 
 const App = () => {
   return (
-    <div>
-      <Navbar />
-      {/* <HomePage1 /> */}
-      {/* <HomePage2 /> */}
-      <HomePage3/>
-      <Footer/>
+    <div style={{overflowX:'hidden'}}>
       
+      <MainApp/>
 
     </div>
   );
