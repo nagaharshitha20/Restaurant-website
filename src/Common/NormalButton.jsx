@@ -13,11 +13,12 @@ const NormalButton= ({ name, color , bgcolor,  onClick }) => {
                 fontSize: { xs: '14px', sm: '15px', md: '17px' },
                 fontFamily: 'Oswald',
                 borderRadius: '7px',
-                padding: { xs: '6px 14px', sm: '7px 18px', md: '8px 20px' },
+                padding: { xs: '6px 14px', sm: '7px 18px', md: '8px 25px' },
                 textTransform: 'none',
                 boxShadow: 'none',
                 '&:hover': {
-                  backgroundColor: '#e6a700',
+                  backgroundColor: color,
+                  color:bgcolor,
                   boxShadow: 'none',
                 },
               }}

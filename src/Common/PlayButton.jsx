@@ -9,7 +9,7 @@ const PlayButton = ({ onClick }) => {
         width: '76px',
         height: '75px',
         marginLeft:'40.91px',
-        
+        zIndex:2,
         border:'3px',
         cursor: 'pointer',
       }}
