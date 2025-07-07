@@ -4,6 +4,7 @@ import HomePage1 from "./HomePage1/HomePage1";
 import HomePage2 from "./HomePage2/HomePage2";
 import HomePage3 from "./HomePage3/HomePage3";
 import HomePage4 from "./HomePage4/HomePage4";
+import HomePage5 from "./HomePage5/HomePage5";
 
 
 const routing = createBrowserRouter([
@@ -26,6 +27,10 @@ const routing = createBrowserRouter([
       {
         path: "home4",
         element: <HomePage4 />,
+      },
+      {
+        path: "home5",
+        element: <HomePage5 />,
       },
       
     ],
