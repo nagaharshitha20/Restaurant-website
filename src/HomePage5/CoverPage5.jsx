@@ -119,7 +119,7 @@ const CoverPage5 = () => {
 
         
           <Box sx={{ mt: 6 }}>
-            <ToggleButton leftLabel="Your email address" rightLabel="Subscribe" />
+            <ToggleButton buttonLabel="Subscribe"/>
           </Box>
         </Box>
 
