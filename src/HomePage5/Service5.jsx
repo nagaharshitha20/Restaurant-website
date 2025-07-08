@@ -2,6 +2,8 @@ import React from 'react';
 import { Box, Typography, Button } from '@mui/material';
 import { ImageAssets } from '../ImageAssets'; // left.jpg, right.jpg, down.png
 import NormalButton from '../Common/NormalButton';
+import FastfoodOutlinedIcon from '@mui/icons-material/FastfoodOutlined';
+import PeopleOutlineOutlinedIcon from '@mui/icons-material/PeopleOutlineOutlined';
 
 const Service5 = () => {
   return (
@@ -33,13 +35,13 @@ const Service5 = () => {
             The perfect dining experience where every dish is crafted with fresh, high-quality Experience quick and efficient service that ensures you food is served fresh. The dining experience where every dish is crafted with fresh, high-quality ingredients
           </Typography>
 
-          <Box sx={{ display: 'flex', gap: 10,  mb: 3 ,flexDirection:'row',width:'70%',}}>
+          <Box sx={{ display: 'flex', gap: 10,  mb: 3 ,flexDirection:'row',width:'90%',}}>
             <Box sx={{width:'50%'}}>
-              <Typography fontWeight={700}>Super Quality Food</Typography>
+            <Typography fontWeight={700}> <FastfoodOutlinedIcon style={{color:"#FFC222"}}/> Super Quality Food</Typography>
               <Typography fontSize={14}>A team of dreamers and doers building unique interactive music and art</Typography>
             </Box>
             <Box>
-              <Typography fontWeight={700}>Well Reputation</Typography>
+              <Typography fontWeight={700}> <PeopleOutlineOutlinedIcon style={{color:"#FFC222"}}/>Well Reputation</Typography>
               <Typography fontSize={14}>A team of dreamers and doers building unique interactive music and art</Typography>
             </Box>
           </Box>
@@ -54,8 +56,8 @@ const Service5 = () => {
            
          
 
-          <Typography fontSize={12} fontWeight={600}>
-            BRENDON GARETY <br /> CUSTOMER'S EXPERIENCE IS OUR HIGHEST PRIORITY.
+          <Typography fontSize={12} fontWeight={600}><span style={{ color: '#FFC222' }}> BRENDON GARETY</span>
+           <br /> CUSTOMER'S EXPERIENCE IS OUR HIGHEST PRIORITY.
           </Typography>
 </Box>
           

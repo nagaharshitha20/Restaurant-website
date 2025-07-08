@@ -1,70 +1,49 @@
 import React, { useState } from 'react';
 
-export default function ToggleButton({ leftLabel, rightLabel }) {
-  const [activeLeft, setActiveLeft] = useState(false); // right is active by default
-
-  const toggle = () => setActiveLeft(!activeLeft);
+export default function ToggleButton({ buttonLabel = "Subscribe" }) {
+  const [email, setEmail] = useState('');
 
   const containerStyle = {
-    position: 'relative',
-    width: '340px',
-    height: '50px',
-    fontFamily: 'sans-serif',
-  };
-
-  const sharedBtnStyle = {
-    height: '100%',
-    fontSize: '14px',
-    borderRadius: '9999px',
     display: 'flex',
     alignItems: 'center',
-    position: 'absolute',
-    cursor: 'pointer',
-    border: 'none',
-    transition: 'all 0.3s ease',
-    boxSizing: 'border-box',
+    background: 'white',
+    borderRadius: '50px',
+    overflow: 'hidden',
+    maxWidth: '400px',
+    boxShadow: '0 2px 6px rgba(0,0,0,0.1)',
   };
 
-  const isLeftActive = activeLeft;
-  const isRightActive = !activeLeft;
+  const inputStyle = {
+    flex: 1,
+    border: 'none',
+    padding: '12px 20px',
+    fontSize: '16px',
+    outline: 'none',
+    borderRadius: '50px 0 0 50px',
+  };
+
+  const buttonStyle = {
+    backgroundColor: '#EF294C',
+    color: 'white',
+    border: 'none',
+    padding: '12px 30px',
+    fontSize: '16px',
+    cursor: 'pointer',
+    whiteSpace: 'nowrap',
+    borderRadius: '30px',
+    transition: 'background 0.3s ease',
+  };
 
   return (
     <div style={containerStyle}>
-      {/* Left Button */}
-      <button
-        onClick={toggle}
-        style={{
-          ...sharedBtnStyle,
-          left: 0,
-          width: '100%',
-          paddingLeft: '16px',
-          paddingRight: '130px',
-          backgroundColor: isLeftActive ? '#f43f5e' : '#ffffff',
-          color: isLeftActive ? '#ffffff' : '#333',
-          boxShadow: isLeftActive ? '0 2px 6px rgba(0,0,0,0.1)' : 'none',
-          zIndex: 2,
-          justifyContent: 'flex-start',
-        }}
-      >
-        ✉️ <span style={{ marginLeft: '8px' }}>{leftLabel}</span>
-      </button>
-
-      {/* Right Button */}
-      <button
-        onClick={toggle}
-        style={{
-          ...sharedBtnStyle,
-          right: 0,
-          width: '130px',
-          backgroundColor: isRightActive ? '#f43f5e' : '#ffffff',
-          color: isRightActive ? '#ffffff' : '#333',
-          boxShadow: isRightActive ? '0 2px 6px rgba(0,0,0,0.1)' : 'none',
-          zIndex: 3, // always higher to appear tucked in
-          justifyContent: 'center',
-        }}
-      >
-        {rightLabel}
-      </button>
+      <input
+        type="email"
+        placeholder="Your email address"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        style={inputStyle}
+      />
+      <button style={buttonStyle}>{buttonLabel}</button>
     </div>
   );
 }
