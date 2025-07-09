@@ -153,6 +153,7 @@ function Navbar() {
   opt3={{ label: "home 4", path: "/home4" }}
    opt4={{ label: "home 5", path: "/home5" }}
    opt5={{ label: "home 6", path: "/home6" }}
+   opt6={{ label: "home 7", path: "/home7" }}
 />
             <Dropdown label="About Us" options={['Mission', 'Vision', 'Team']} />
             <Dropdown label="Shop" options={['Pizza', 'Burgers', 'Desserts']} />

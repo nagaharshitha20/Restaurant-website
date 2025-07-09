@@ -1,5 +1,6 @@
 import * as React from 'react';
-import CoverPage from './CoverPage';
+// import CoverPage from './CoverPage';
+import CoverCarousel from '../Common/CoverCarousel';
 // import CoverPage2 from './CoverPage2';
 import About1 from './About1';
 import Bbq from './Bbq';
@@ -12,7 +13,9 @@ const HomePage = () => {
   return (
     <div style={{ overflowX: 'hidden' }}>
      
-      <CoverPage />
+      {/* <CoverPage /> */}
+      <CoverCarousel />
+
      <About1/>  
        <Bbq/>
       <DiscoverMenu/>
