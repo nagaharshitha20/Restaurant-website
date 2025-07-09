@@ -4,12 +4,14 @@ import About3 from './About3';
 import MenuSection from './MenuSection';
 import Services from './Services';
 import BestSellers from './BestSellers';
+import CoverCarousel from '../Common/CoverCarousel';
 
 
 const HomePage = () => {
   return (
     <div style={{ overflowX: 'hidden' }}>
-     <CoverPage3/>
+     {/* <CoverPage3/> */}
+     <CoverCarousel/>
      <About3/>
       <MenuSection/>
       <Services/>

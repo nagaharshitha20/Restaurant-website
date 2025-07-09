@@ -1,6 +1,8 @@
 import React from 'react';
 import { Box, Typography, Grid, Card, CardContent, RadioGroup, FormControlLabel, Radio, Button } from '@mui/material';
 import { ImageAssets } from '../ImageAssets';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import InstaFollow from '../Common/InstaFollow';
 
 const menuItems = [
   {
@@ -34,7 +36,7 @@ const menuItems = [
 ];
 
 const BestSellers = () => {
-  return (
+  return (<>
     <Box sx={{ px: { xs: 2, sm: 4, md: 10 }, py: 15, backgroundColor: '#f8fbff' }}>
      
       <Typography
@@ -183,6 +185,7 @@ const BestSellers = () => {
                   Product
                 </Button>
               </Box>
+              
             </Box>
           </Grid>
         </Grid>
@@ -190,6 +193,8 @@ const BestSellers = () => {
       <Box/>
 
     </Box>
+    <InstaFollow/>
+    </>
   );
 };
 

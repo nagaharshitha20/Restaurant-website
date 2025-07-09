@@ -5,16 +5,24 @@ import Delicious from './Delicious';
 import TrendingMenu from './TrendingMenu';
 import Service5 from './Service5';
 import Process from './Process';
+import BlogSection from '../HomePage6/BlogSection';
+import FooterGallery from '../Common/FooterGallery';
+import Learn from '../HomePage6/Learn';
+import CoverCarousel from '../Common/CoverCarousel';
 const HomePage5=()=>{
       return (
     <div style={{ overflowX: 'hidden' }}>
      
-      <CoverPage5 />
+      {/* <CoverPage5 /> */}
+      <CoverCarousel/>
       <About5/>
       <Delicious/>
       <TrendingMenu/>
       <Service5/>
       <Process/>
+      <Learn/>
+      <BlogSection/>
+      <FooterGallery/>
      
        
     </div>

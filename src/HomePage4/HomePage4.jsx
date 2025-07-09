@@ -6,20 +6,23 @@ import Popular3 from './Popular3';
 import Trending from './Trending';
 import Quality from './Quality';
 import Kfc from './Kfc';
-
+import FooterGallery from '../Common/FooterGallery';
+import CoverCarousel from '../Common/CoverCarousel';
 
 
 
 const HomePage4 = () => {
   return (
     <div style={{ overflowX: 'hidden' }}>
-     <CoverPage4/>
+     {/* <CoverPage4/> */}
+     <CoverCarousel/>
      <PopularFood/>
      <Popular2/>
      <Popular3/>
      <Trending/>
      <Quality/>
      <Kfc/>
+     <FooterGallery/>
    
     </div>
   );
