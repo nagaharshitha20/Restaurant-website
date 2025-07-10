@@ -62,7 +62,7 @@ const RecentNews = () => {
             <NormalButton name="Google Play" bgcolor="#F3274C" color="#FFFFFF" style={{fontFamily:'Fredoka One'}}/>
             <NormalButton name="App Store" bgcolor="#000000" color="#FFFFFF" style={{fontFamily:'Fredoka One'}}/>
           </Box>
-          {/* Delivery Image */}
+         
           <Box
             component="img"
             src={ImageAssets.Delivery}
@@ -77,7 +77,7 @@ const RecentNews = () => {
               objectFit: 'contain',
             }}
           />
-          {/* Order Phone Image */}
+       
           <Box
             component="img"
             src={ImageAssets.order}
@@ -92,7 +92,7 @@ const RecentNews = () => {
               zIndex: 3,
             }}
           />
-          {/* Cheezy Pizza Image */}
+       
           <Box
             component="img"
             src={ImageAssets.cheezypizza}
@@ -106,7 +106,7 @@ const RecentNews = () => {
               zIndex: 2,
             }}
           />
-          {/* Salad Image */}
+        
           <Box
             component="img"
             src={ImageAssets.salad}

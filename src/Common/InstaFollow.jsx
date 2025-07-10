@@ -24,7 +24,7 @@ return(<Box sx={{ px: 2, py: 8, backgroundColor: "#fff", textAlign: "center" }}>
         </Typography>
         <Typography sx={{ fontSize: 12, mb: 4 }}>Join our community to inspire your desires</Typography>
     
-        {/* Image Row */}
+       
         <Box
           sx={{
             display: "flex",

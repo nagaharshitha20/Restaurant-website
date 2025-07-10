@@ -23,7 +23,7 @@ const CardCarousel = () => {
   const maxIndex = images.length - visibleCount;
   const intervalRef = useRef();
 
-  // Auto-scroll every 3 sec
+
   useEffect(() => {
     startAutoScroll();
     return () => clearInterval(intervalRef.current);
@@ -48,7 +48,7 @@ const nextSlide = () => {
 
   return (
     <Box sx={{ position: 'relative', width: '100%', overflow: 'hidden', px: 2 }}>
-      {/* Image Strip */}
+   
       <Box
   sx={{
     display: 'flex',
@@ -75,7 +75,7 @@ const nextSlide = () => {
 </Box>
 
 
-      {/* Arrows */}
+   
       <IconButton
         onClick={prevSlide}
         sx={{ position: 'absolute', top: '45%', left: 8, zIndex: 1, bgcolor: '#fff' }}

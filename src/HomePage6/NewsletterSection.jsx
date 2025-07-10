@@ -47,7 +47,7 @@ const NewsletterSection = () => {
             left: 0,
             width: '100%',
             height: '100%',
-            background: 'linear-gradient(to bottom, rgba(244, 241, 234, 0.94), rgba(244, 241, 234, 0.98))',
+            background: 'linear-gradient(to bottom, rgba(244, 241, 234, 0.94), rgba(244, 241, 234, 0.3))',
             zIndex: 1,
           }}
         />

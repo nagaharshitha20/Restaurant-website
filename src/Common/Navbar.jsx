@@ -44,7 +44,7 @@ function Navbar() {
     <AppBar position="fixed" elevation={0} sx={{ backgroundColor: '#FFFFFF' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          {/* Logo for desktop */}
+        
           <Box
             component="img"
             src={ImageAssets.logo}
@@ -58,7 +58,7 @@ function Navbar() {
             }}
           />
 
-          {/* Typography for desktop */}
+        
           <Typography
             variant="h6"
             noWrap
@@ -78,7 +78,7 @@ function Navbar() {
             pizza hut
           </Typography>
 
-          {/* Mobile menu button */}
+         
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
@@ -104,7 +104,7 @@ function Navbar() {
             </Menu>
           </Box>
 
-          {/* Logo for mobile */}
+    
           <Box
             component="img"
             src={ImageAssets.logo}
@@ -117,7 +117,7 @@ function Navbar() {
             }}
           />
 
-          {/* Typography for mobile */}
+          
           <Typography
             variant="h5"
             noWrap
@@ -137,7 +137,6 @@ function Navbar() {
             pizza hut
           </Typography>
 
-          {/* Menu items for desktop */}
           <Box
             sx={{
               flexGrow: 1,
@@ -162,7 +161,6 @@ function Navbar() {
             <Dropdown label="Contact" options={['Support', 'Email', 'Location']} />
           </Box>
 
-          {/* Right-side icons/buttons */}
           <Box
             sx={{
               display: 'flex',

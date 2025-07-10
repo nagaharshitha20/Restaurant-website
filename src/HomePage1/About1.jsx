@@ -76,7 +76,7 @@ const ChiefCard = ({ image, name, role }) => (
 const About1 = () => {
   return (
     <Box sx={{ width: '100%', mt: { xs: '40px', md: '64px' } }}>
-      {/* Top Section */}
+     
      <Box
   sx={{
     display: 'flex',
@@ -85,11 +85,11 @@ const About1 = () => {
     alignItems: {
       xs: 'flex-start',
       md: 'flex-start',
-      lg: 'flex-start', // vertically center on large screens
+      lg: 'flex-start', 
     },
     gap: 2,
     px: { xs: 3,sm:18, md: 12 ,lg:45},
-    minHeight: { lg: '150px' }, // ensures height to vertically center
+    minHeight: { lg: '150px' }, 
   }}
 >
 
@@ -101,7 +101,7 @@ const About1 = () => {
               color: '#EE3A43',
               fontSize: '12px',
               mb: 1,
-              textAlign: { xs: 'left', md: 'left' }, // preserve left alignment
+              textAlign: { xs: 'left', md: 'left' }, 
             }}
           >
             ABOUT THE FOOD RESTAURANT
@@ -143,7 +143,7 @@ const About1 = () => {
         </Box>
       </Box>
 
-      {/* Images Section */}
+      
       <Box
         sx={{
           display: 'flex',

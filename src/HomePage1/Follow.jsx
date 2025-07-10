@@ -12,7 +12,7 @@ const Follow = () => {
         mt: { xs: '56px', sm: '64px' },
       }}
     >
-      {/* Background Layer */}
+    
       <Box
         sx={{
           position: 'absolute',
@@ -25,7 +25,7 @@ const Follow = () => {
         }}
       />
 
-      {/* Main Content */}
+   
       <Box
         sx={{
           position: 'relative',
@@ -56,7 +56,7 @@ const Follow = () => {
           }}
         />
 
-        {/* Cards Section */}
+        
         <Box
           sx={{
             display: 'flex',
@@ -128,7 +128,7 @@ const Follow = () => {
           ))}
         </Box>
 
-        {/* Follow Banner Section */}
+        
         <Box
           sx={{
             mt: { xs: 8, md: 10 },
@@ -141,7 +141,7 @@ const Follow = () => {
             overflow: 'hidden',
           }}
         >
-          {/* Background Image */}
+          
           <Box
             component="img"
             src={ImageAssets.followbg}
@@ -158,7 +158,7 @@ const Follow = () => {
             }}
           />
 
-          {/* Overlay Text */}
+          
           <Box
             sx={{
               position: 'relative',

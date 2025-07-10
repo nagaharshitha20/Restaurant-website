@@ -221,7 +221,7 @@ ac quam nec odio rbine.
           ))}
 
           <Box sx={{ mt: 3 }}>
-            <PrimaryButton name="Reserve a Table" />
+            <PrimaryButton name="Reserve a Table" to="/popular" />
           </Box>
           
         </Box>
