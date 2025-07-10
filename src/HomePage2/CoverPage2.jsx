@@ -51,12 +51,12 @@ const CoverPage2 = () => {
             flexDirection: { xs: 'column', lg: 'row' },
             justifyContent: 'center',
             alignItems: 'center',
-            gap: { xs: 4, lg: 8 },
+            gap: { xs: 4, lg: 4 },
             maxWidth: '1100px',
             width: '100%',
           }}
         >
-          <Box sx={{ flex: 1 ,display: 'flex',flexDirection:'column', justifyContent:'center', alignItems: 'center', textAlign: 'left',mt:10}}>
+          <Box sx={{ flex: 1 ,display: 'flex',flexDirection:'column', justifyContent:'center', alignItems: 'center', textAlign: 'left',mt:15}}>
             <Typography
               variant="h3"
               sx={{
@@ -82,10 +82,11 @@ const CoverPage2 = () => {
             <Typography
               variant="h6"
               sx={{
-                fontSize: { xs: '14px', sm: '18px', md: '20px' },
-                color: 'black',
+                fontSize: { xs: '14px', sm: '18px', md: '16px' },
+                color: '#555555',
                 mb: { xs: 2, sm: 3 },
                 fontFamily: 'Fredoka One',
+               marginLeft: '-156px',
                 lineHeight: 1.4,
               }}
             >
@@ -130,41 +131,57 @@ const CoverPage2 = () => {
 
          
           <Box
-            sx={{
-              display: 'flex',
-              flexDirection: 'row',
-              gap: 5,
-              alignItems: 'center',
-              mt: { xs: 4, lg: 0 },
-            }}
-          >
-          
-            <Box
-              component="img"
-              src={ImageAssets.carrot}
-              alt="carrot"
-              sx={{
-                width: { xs: '120px', sm: '150px', md: '180px' },
-                height: '300px',
-                borderRadius: '180px',
-                objectFit: 'cover',
-              }}
-            />
+  sx={{
+    display: 'flex',
+    flexDirection: 'row',
+    gap: 5,
+    alignItems: 'center',
+    mt: { xs: 4, lg: 0 },
+    position: 'relative',
+  }}
+>
+  <Box
+    component="img"
+    src={ImageAssets.carrot}
+    alt="carrot"
+    sx={{
+      width: { xs: '120px', sm: '150px', md: '180px' },
+      height: '300px',
+      borderRadius: '180px',
+      objectFit: 'cover',
+    }}
+  />
 
-       
-            <Box
-              component="img"
-              src={ImageAssets.sidedish}
-              alt="sidedish"
-              sx={{
-                width: { xs: '120px', sm: '150px', md: '180px' },
-                height: '300px',
-                borderRadius: '180px',
-                objectFit: 'cover',
-                mt: '160px', 
-              }}
-            />
-          </Box>
+  {/* Container with badge overlay */}
+  <Box sx={{ position: 'relative', mt: '160px' }}>
+    <Box
+      component="img"
+      src={ImageAssets.sidedish}
+      alt="sidedish"
+      sx={{
+        width: { xs: '120px', sm: '150px', md: '180px' },
+        height: '300px',
+        borderRadius: '180px',
+        objectFit: 'cover',
+      }}
+    />
+
+    {/* Free Delivery Badge (freedel image) */}
+    <Box
+      component="img"
+      src={ImageAssets.freedel}
+      alt="Free Delivery"
+      sx={{
+        position: 'absolute',
+        top: '-130px',
+        right: '-30px',
+        width: { xs: '70px', sm: '80px', md: '230px' },
+        height: 'auto',
+      }}
+    />
+  </Box>
+</Box>
+
         </Box>
       </Box>
     </Box>

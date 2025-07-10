@@ -115,7 +115,7 @@ const CoverPage = () => {
             name="See Our Menus"
             onClick={() => console.log('Menu button clicked')}
           />
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 6 }}>
             <PlayButton onClick={() => console.log('Play video')} />
             <Typography
               sx={{

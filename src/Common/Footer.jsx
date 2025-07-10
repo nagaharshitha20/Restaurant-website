@@ -136,16 +136,16 @@ const Footer = () => {
     fullWidth
     sx={{
       backgroundColor: '#fff',
-      borderRadius: '6px',
+   
     }}
   />
    <Box sx={{ display: { xs: 'none', sm: 'block' }, mt: 2 }}>
-              <PrimaryButton name="Subscribe" width="139.91px" borderwidth="130.41px" />
+              <PrimaryButton name="Subscribe" width="139.91px" borderwidth="129.41px" />
             </Box>
 </Box>
             {/** Button for xs (stacked) */}
             <Box sx={{ display: { xs: 'block', sm: 'none' }, mt: 2 }}>
-              <PrimaryButton name="Subscribe" width="139.91px" borderwidth="130.41px" />
+              <PrimaryButton name="Subscribe" width="139.91px" borderwidth="129.41px" />
             </Box>
           </Box>
         </Box>
@@ -165,11 +165,11 @@ const Footer = () => {
           textAlign: { xs: 'center', md: 'left' },
         }}
       >
-        <Typography variant="body2" sx={{ fontFamily: 'Fugaz One' }}>
-          © 2024 pizza hut | All shawonetc3 Themes
+        <Typography variant="body2" sx={{ fontFamily: 'Fugaz One',color:'#F3274C' }}>
+          © 2024 pizza hut <span style={{color:'#000',fontFamily: 'Fredoka One'}}>| All shawonetc3 Themes</span>
         </Typography>
-        <Box sx={{ display: 'flex', gap: 6 }}>
-          <Typography variant="body2" fontFamily="Fredoka One">
+        <Box sx={{ display: 'flex', gap: 20 ,textDecoration:'underline'}}>
+          <Typography variant="body2" fontFamily="Fredoka One" >
             Facebook
           </Typography>
           <Typography variant="body2" fontFamily="Fredoka One">

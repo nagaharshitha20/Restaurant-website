@@ -47,6 +47,7 @@ const DealOfWeek = () => {
         container
         spacing={4}
         alignItems="center"
+      
         justifyContent="center"
         flexWrap="wrap"
       >
@@ -59,6 +60,7 @@ const DealOfWeek = () => {
                 backgroundColor: '#FFD700',
                 color: '#000',
                 fontSize: '12px',
+              
                 fontWeight: 700,
                 px: 1.5,
                 py: 0.5,
@@ -80,7 +82,7 @@ const DealOfWeek = () => {
             </Typography>
 
             {/* Bullet Points */}
-            <Grid container spacing={1}>
+            <Grid container spacing={2} width="60%" >
               {[
                 'Fresh & Tasty',
                 'Best in organic foods',
@@ -200,7 +202,7 @@ const DealOfWeek = () => {
     sx={{
       border: '2px solid #FFD700',
       borderRadius: '10px',
-      width:{ xs: '100%', md: '600px' },
+      width:{ xs: '100%', md: '700px' },
       height: { xs: 'auto', md: '250px' },
       p: { xs: 2, md: 6 },
       display: 'flex',
@@ -227,8 +229,8 @@ const DealOfWeek = () => {
           src={ImageAssets.d1}
           alt={`Dining ${index}`}
           sx={{
-            width: { xs: '100px', sm: '140px', md: '130px' },
-            height: { xs: '100px', sm: '120px', md: '110px' },
+            width: { xs: '100px', sm: '140px', md: '210px' },
+            height: { xs: '100px', sm: '120px', md: '130px' },
             borderRadius: '8px',
             objectFit: 'cover',
           }}
@@ -241,7 +243,7 @@ const DealOfWeek = () => {
       <Typography
         sx={{
           fontFamily: 'Fredoka One',
-          fontSize: { xs: '20px', md: '26px' },
+          fontSize: { xs: '20px', md: '36px' },
           mb: 1,
         }}
       >

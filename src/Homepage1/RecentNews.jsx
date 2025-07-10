@@ -53,14 +53,14 @@ const RecentNews = () => {
           >
             Manage Your Restaurant <br />Anytime! Anywhere!
           </Typography>
-          <Box sx={{ listStyle: 'none', pl: 0, fontSize: { xs: '14px', sm: '18px', md: '20px', lg: '20px' } }}>
+          <Box sx={{ listStyle: 'none', pl: 0, fontSize: { xs: '14px', sm: '18px', md: '20px', lg: '14px' } }}>
             <li><TripOriginIcon sx={{ color: '#FFD40D', fontSize: '15px', fontFamily: 'Epilogue', mr: 1 }} /> Higher Reach - Minimal Effort</li>
             <li><TripOriginIcon sx={{ color: '#FFD40D', fontSize: '15px', fontFamily: 'Epilogue', mr: 1 }} /> Showcase your Brand</li>
             <li><TripOriginIcon sx={{ color: '#FFD40D', fontSize: '15px', fontFamily: 'Epilogue', mr: 1 }} /> Exclusive offers & discounts</li>
           </Box>
           <Box sx={{ display: 'flex', gap: '20px', mt: '30px', justifyContent: { xs: 'flex-start', lg: 'flex-start' } }}>
-            <NormalButton name="Google Play" bgcolor="#F3274C" color="#FFFFFF" />
-            <NormalButton name="App Store" bgcolor="#000000" color="#FFFFFF" />
+            <NormalButton name="Google Play" bgcolor="#F3274C" color="#FFFFFF" style={{fontFamily:'Fredoka One'}}/>
+            <NormalButton name="App Store" bgcolor="#000000" color="#FFFFFF" style={{fontFamily:'Fredoka One'}}/>
           </Box>
           {/* Delivery Image */}
           <Box

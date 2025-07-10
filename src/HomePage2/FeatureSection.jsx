@@ -174,17 +174,34 @@ ac quam nec odio rbine.
             Steak & Great <br />
             Restaurant
           </Typography>
-        <Box
-          component="img"
-          src={ImageAssets.good}
-          alt="good"
-          sx={{
-            width: { xs: '220px', sm: '280px', md: '320px' },
-            height: 'auto',
-            borderRadius: '50%',
-            objectFit: 'cover',
-          }}
-        />
+        <Box sx={{ position: 'relative', width: { xs: '220px', sm: '280px', md: '320px' } }}>
+  {/* Main circular image */}
+  <Box
+    component="img"
+    src={ImageAssets.good}
+    alt="good"
+    sx={{
+      width: '100%',
+      height: 'auto',
+      borderRadius: '50%',
+      objectFit: 'cover',
+    }}
+  />
+
+
+  <Box
+    component="img"
+    src={ImageAssets.percentage}
+    alt="percentage"
+    sx={{
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      width: '100px', 
+      height: '100px',
+    }}
+  />
+</Box>
 
     
         <Box>
@@ -199,7 +216,7 @@ ac quam nec odio rbine.
           ].map((item, i) => (
             <Box key={i} sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}>
               <CheckCircleIcon color="success" fontSize="small" />
-              <Typography sx={{ fontSize: '14px', fontFamily: 'Epilogue' }}>{item}</Typography>
+              <Typography sx={{ fontSize: '14px', fontFamily: 'Fredoka One' }}>{item}</Typography>
             </Box>
           ))}
 
@@ -212,13 +229,13 @@ ac quam nec odio rbine.
       </Box>
       <Typography
         sx={{
-          fontSize: '20px',
-          fontFamily: 'Epilogue',
+          fontSize: '22px',
+          fontFamily: 'Fredoka One',
           textAlign: 'center',
           mt: 2,
         }}
       >
-        Highly Trusted Sponsor
+        HIGHLY TRUSTED SPONSOR
       </Typography>
       <Box>
         <Box sx={{
@@ -226,7 +243,7 @@ ac quam nec odio rbine.
             flexWrap: 'wrap',
             justifyContent: 'space-around',
             alignItems: 'center',
-            gap: 6,
+            gap: 8,
             mt: 2,
         }}>
           <img src={ImageAssets.c1} alt="Sponsor 1" style={{width:'80px',height:'80px'}} />

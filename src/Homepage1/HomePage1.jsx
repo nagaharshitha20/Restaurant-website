@@ -6,6 +6,7 @@ import About1 from './About1';
 import Bbq from './Bbq';
 import DiscoverMenu from './DiscoverMenu';
 import Review from './Review';
+
 import RecentNews from './RecentNews';
 import Follow from './Follow';
 import Footer from '../Common/Footer';

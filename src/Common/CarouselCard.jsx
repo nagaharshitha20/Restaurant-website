@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 
 const CarouselCard = ({ dish }) => {
   return (
@@ -30,7 +30,7 @@ const CarouselCard = ({ dish }) => {
           backgroundColor: '#FFD700',
           color: 'black',
          fontFamily: 'Fredoka One',
-          fontSize: '12px',
+          fontSize: '13px',
           borderRadius: '50%',
         }}
       >
@@ -123,15 +123,15 @@ const CarouselCard = ({ dish }) => {
           bottom: '10px',
           right: '10px',
           backgroundColor: '#FFD700',
-          width: '28px',
-          height: '28px',
+          width: '30px',
+          height: '30px',
           borderRadius: '6px',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
         }}
       >
-        <ShoppingCartIcon sx={{ fontSize: '16px', color: 'black' }} />
+        <ShoppingBagIcon sx={{ fontSize: '16px', color: 'black', }} />
       </Box>
     </Box>
   );
