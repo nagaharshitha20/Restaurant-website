@@ -109,7 +109,7 @@ const Review = () => {
             display: { xs: 'none', sm: 'none', md: 'block' }, // ✅ show on md & lg
             position: 'absolute',
             top: '20px',
-            right: 250,
+            right: 200,
             width: '65%',
             height: '100%',
             pointerEvents: 'none',
@@ -119,10 +119,10 @@ const Review = () => {
           <Box
             sx={{
               position: 'absolute',
-              top: 0,
-              right: 0,
-              width: '150px',
-              height: '150px',
+              top: -40,
+              right: -60,
+              width: '180px',
+              height: '180px',
               borderRadius: '20px',
               overflow: 'hidden',
             }}
@@ -134,6 +134,7 @@ const Review = () => {
                 width: '100%',
                 height: '100%',
                 objectFit: 'cover',
+                
               }}
             />
           </Box>
@@ -143,9 +144,9 @@ const Review = () => {
             sx={{
               position: 'absolute',
               top: '100px',
-              right: '70px',
-              width: '150px',
-              height: '150px',
+              right: '80px',
+              width: '180px',
+              height: '180px',
               borderRadius: '20px',
               overflow: 'hidden',
               backgroundColor: '#F3274C',
@@ -169,9 +170,9 @@ const Review = () => {
             sx={{
               position: 'absolute',
               top: '160px',
-              right: -100,
-              width: '150px',
-              height: '150px',
+              right: -120,
+              width: '180px',
+              height: '180px',
               borderRadius: '20px',
               overflow: 'hidden',
             }}
@@ -260,7 +261,7 @@ const Review = () => {
             <Box
               sx={{
                 mt: -6,
-                width: '220px',
+                width: '200px',
                 height: '220px',
                 backgroundColor: '#fff',
                 borderRadius: '50%',
@@ -312,9 +313,9 @@ const Review = () => {
               </Box>
 
               {/* Signature */}
-              <Typography sx={{ fontFamily: 'cursive', fontSize: '16px',fontStyle:'italic', mt: 2 }}>
-                Chef
-              </Typography>
+              <Box component="img" 
+              src={ImageAssets.sign}
+              sx={{width:'40%',mt:2}}/>
             </Box>
           </Box>
         ))}

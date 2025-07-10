@@ -148,41 +148,7 @@ const CoverPage5 = () => {
       </Box>
      
     </Box>
-    <Box sx={{display:'flex',flexDirection:'row',justifyContent:'center',gap:4,mt:10}}>
- <Box
-            component="img"
-            src={ImageAssets.order1}
-            alt="Pizza"
-            sx={{
-              width: { xs: '180px', sm: '220px', md: '20%' },
-              height: 'auto',
-              borderRadius: 2,
-              boxShadow: 3,
-            }}
-          />
- <Box
-            component="img"
-            src={ImageAssets.order2}
-            alt="Pizza"
-            sx={{
-              width: { xs: '180px', sm: '220px', md: '20%' },
-              height: 'auto',
-              borderRadius: 2,
-              boxShadow: 3,
-            }}
-          />
- <Box
-            component="img"
-            src={ImageAssets.order3}
-            alt="Pizza"
-            sx={{
-              width: { xs: '180px', sm: '220px', md: '20%' },
-              height: 'auto',
-              borderRadius: 2,
-              boxShadow: 3,
-            }}
-          />
-    </Box>
+  
     </>
   );
 };

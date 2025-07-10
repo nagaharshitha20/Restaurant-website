@@ -316,99 +316,99 @@ const Menu = () => {
                       </div>
                       
                     </Grid>
-                     <Box sx={{ width: '100%', mt: { xs: '40px', md: '100px' } ,}}>
-                          {/* Top Section */}
-                         <Box
-                      sx={{
-                        display: 'flex',
-                        flexDirection: { xs: 'column', md: 'row' },
-                        justifyContent: 'center',
-                        alignItems: {
-                          xs: 'flex-start',
-                          md: 'flex-start',
-                          lg: 'flex-start', // vertically center on large screens
-                        },
-                        gap: 10,
-                        px: { xs: 3,sm:18, md: 12 ,lg:25},
-                        minHeight: { lg: '150px' }, // ensures height to vertically center
-                      }}
-                    >
-                    
-                            {/* Heading Block */}
-                            <Box sx={{ flex: 1 }}>
-                              <Typography
-                                sx={{
-                                  fontFamily: 'Fredoka One',
-                                  color: '#EE3A43',
-                                  fontSize: '12px',
-                                  mb: 1,
-                                  textAlign: { xs: 'left', md: 'left' }, // preserve left alignment
-                                }}
-                              >
-                                BEST SOLUTIONS
-                              </Typography>
-                              <Typography
-                                sx={{
-                                  fontFamily: 'Fredoka One',
-                                  fontSize: { xs: '22px', md: '32px' },
-                                  maxWidth: { xs: '100%', md: '300px' },
-                                  mb: 2,
-                                  lineHeight: 1.3,
-                                  textAlign: { xs: 'left', md: 'left' },
-                                }}
-                              >
-                                We Provide Best Services
-                              </Typography>
-                            </Box>
-                    
-                            {/* Description + Chief */}
-                            <Box sx={{ flex: 1, maxWidth: '480px' }}>
-                              <Typography
-                                sx={{
-                                  fontSize: { xs: '14px', md: '15px' },
-                                  fontFamily: 'Epilogue',
-                                  mb: 2,
-                                  lineHeight: 1.6,
-                                  textAlign: { xs: 'left', md: 'left' },
-                                }}
-                              >
-                                Nisl quam nestibu lum ac quam nec odio eleme aucan ligula. Orci varius nat oque pena
-                                tibus et urient monte nascete ridiculus mus nellentesq um ac quam nec odio ribne. Nisl
-                                quam nestibu aucan ligula.
-                              </Typography>
-                              
-                            </Box>
-                
-                          </Box>
-                                    
+<Box sx={{ width: '100%', mt: { xs: '40px', md: '100px' } ,}}>
+{/* Top Section */}
+<Box
+sx={{
+display: 'flex',
+flexDirection: { xs: 'column', md: 'row' },
+justifyContent: 'center',
+alignItems: {
+xs: 'flex-start',
+md: 'flex-start',
+lg: 'flex-start', // vertically center on large screens
+},
+gap: 10,
+px: { xs: 3,sm:18, md: 12 ,lg:25},
+minHeight: { lg: '150px' }, // ensures height to vertically center
+}}
+>
+
+{/* Heading Block */}
+<Box sx={{ flex: 1 }}>
+  <Typography
+    sx={{
+      fontFamily: 'Fredoka One',
+      color: '#EE3A43',
+      fontSize: '12px',
+      mb: 1,
+      textAlign: { xs: 'left', md: 'left' }, // preserve left alignment
+    }}
+  >
+    BEST SOLUTIONS
+  </Typography>
+  <Typography
+    sx={{
+      fontFamily: 'Fredoka One',
+      fontSize: { xs: '22px', md: '34px' },
+      maxWidth: { xs: '100%', md: '300px' },
+      mb: 2,
+      lineHeight: 1.3,
+      textAlign: { xs: 'left', md: 'left' },
+    }}
+  >
+    We Provide Best Services
+  </Typography>
+</Box>
+
+{/* Description + Chief */}
+<Box sx={{ flex: 1, maxWidth: '480px' }}>
+  <Typography
+    sx={{
+      fontSize: { xs: '14px', md: '15px' },
+      fontFamily: 'Epilogue',
+      mb: 2,
+      lineHeight: 1.6,
+      textAlign: { xs: 'left', md: 'left' },
+    }}
+  >
+    Nisl quam nestibu lum ac quam nec odio eleme aucan ligula. Orci varius nat oque pena
+    tibus et urient monte nascete ridiculus mus nellentesq um ac quam nec odio ribne. Nisl
+    quam nestibu aucan ligula.
+  </Typography>
+  
+</Box>
+
+</Box>
+        
 
 <Box
-  sx={{
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'center',
-    width: '100%',
-    gap: 6,
-    mt: 4,
-  }}
+sx={{
+display: 'flex',
+flexWrap: 'wrap',
+justifyContent: 'center',
+width: '100%',
+gap: 6,
+mt: 4,
+}}
 >
-  {services.map((service, index) => (
-    <Box
-      key={index}
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        textAlign: 'center',
-        maxWidth: '220px',
-      }}
-    >
-      <Box
-        sx={{
-          width: '90px',
-          height: '90px',
-          backgroundColor: '#FFD40D',
-          padding: '12px',
+{services.map((service, index) => (
+<Box
+key={index}
+sx={{
+display: 'flex',
+flexDirection: 'column',
+alignItems: 'center',
+textAlign: 'center',
+maxWidth: '220px',
+}}
+>
+<Box
+sx={{
+width: '90px',
+height: '90px',
+backgroundColor: '#FFD40D',
+padding: '12px',
           borderRadius: '50%',
           border: '2px solid #000',
           display: 'flex',

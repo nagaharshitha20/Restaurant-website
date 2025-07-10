@@ -1,6 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "./Layout";
-import HomePage1 from "./HomePage1/HomePage1"; 
+// import HomePage1 from "./HomePage1/HomePage1.jsx";
+
+import HomePage1 from "./HomePage1/HomePage1";
 import HomePage2 from "./HomePage2/HomePage2";
 import HomePage3 from "./HomePage3/HomePage3";
 import HomePage4 from "./HomePage4/HomePage4";

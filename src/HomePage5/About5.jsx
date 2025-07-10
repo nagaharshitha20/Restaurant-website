@@ -4,6 +4,41 @@ import { ImageAssets } from '../ImageAssets'; // left.jpg, right.jpg, down.png
 
 const About5 = () => {
   return (<>
+    <Box sx={{display:'flex',flexDirection:'row',justifyContent:'center',gap:4,mt:10}}>
+ <Box
+            component="img"
+            src={ImageAssets.order1}
+            alt="Pizza"
+            sx={{
+              width: { xs: '180px', sm: '220px', md: '20%' },
+              height: 'auto',
+              borderRadius: 2,
+              boxShadow: 3,
+            }}
+          />
+ <Box
+            component="img"
+            src={ImageAssets.order2}
+            alt="Pizza"
+            sx={{
+              width: { xs: '180px', sm: '220px', md: '20%' },
+              height: 'auto',
+              borderRadius: 2,
+              boxShadow: 3,
+            }}
+          />
+ <Box
+            component="img"
+            src={ImageAssets.order3}
+            alt="Pizza"
+            sx={{
+              width: { xs: '180px', sm: '220px', md: '20%' },
+              height: 'auto',
+              borderRadius: 2,
+              boxShadow: 3,
+            }}
+          />
+    </Box>
     <Box sx={{ width: '100%',  fontFamily: 'Oswald',mt:10 }}>
     
         <Box

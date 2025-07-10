@@ -41,6 +41,24 @@ const featuredDishes = [
     price: '$11.76',
     image: ImageAssets.blackcoffee,
   },
+  {
+    name: ' Chicken Burger',
+    originalPrice: '$21.76',
+    price: '$11.76',
+    image: ImageAssets.chickenburger,
+  },
+  {
+    name: 'Delicious Black Coffee',
+    originalPrice: '$21.76',
+    price: '$11.76',
+    image: ImageAssets.i2,
+  },
+  {
+    name: 'French Fries ',
+    originalPrice: '$21.76',
+    price: '$11.76',
+    image: ImageAssets.i3,
+  },
 ];
 
 const DiscoverMenu = () => {
@@ -115,14 +133,14 @@ const DiscoverMenu = () => {
               sx={{
                 position: 'absolute',
                 padding: '20px',
-                width: '210px',
+                width: '250px',
                 top: '20px',
                 left: '20px',
                 color: '#fff',
               }}
             >
-              <Typography variant="h6" sx={{    fontFamily: 'Fredoka One', }}>{item.title}</Typography>
-              <Typography variant="body2" sx={{ color: 'lightgrey',   fontFamily: 'Epilogue', }}>{item.desc}</Typography>
+              <Typography variant="h4" sx={{    fontFamily: 'Fredoka One', }}>{item.title}</Typography>
+              <Typography variant="body2" sx={{ color: 'lightgrey',   fontFamily: 'Epilogue',fontSize:'14px' }}>{item.desc}</Typography>
             </Box>
 
             <Box
@@ -134,6 +152,7 @@ const DiscoverMenu = () => {
                 backgroundColor: '#FFD700',
                 width: '70px',
                 height: '70px',
+                padding:'15px',
                 borderRadius: '50%',
                 display: 'flex',
                 flexDirection: 'column',
@@ -145,15 +164,14 @@ const DiscoverMenu = () => {
                 zIndex: 2,
               }}
             >
-              <Typography sx={{ fontSize: '16px', lineHeight: 1 ,   fontFamily: 'Fredoka One',}}>{item.price}</Typography>
-              <Typography sx={{ fontSize: '12px',   fontFamily: 'Fredoka One',color:'black' }}>person</Typography>
+              <Typography sx={{ fontSize: '20px', lineHeight: 1 ,   fontFamily: 'Fredoka One',}}>{item.price}</Typography>
+              <Typography sx={{ fontSize: '14px',   fontFamily: 'Fredoka One',color:'black' }}>person</Typography>
             </Box>
           </Box>
         ))}
       </Box>
 
-      {/* Reservation Box */}
-    {/* Reservation Box */}
+  
 <Box sx={{ display: 'flex', justifyContent: 'center', mt: 10, px: 2, overflowX: 'hidden' }}>
   <Box
     sx={{
@@ -172,12 +190,12 @@ const DiscoverMenu = () => {
       gap: 4,
     }}
   >
-    {/* Left Text Block */}
+   
     <Box sx={{ width: { xs: '100%', md: '32%' } }}>
       <Typography
         sx={{
           color: 'white',
-          fontSize: '28px',
+          fontSize: '36px',
           fontFamily: 'Fredoka One',
           mb: 1,
           lineHeight: 1.3,
@@ -194,7 +212,7 @@ const DiscoverMenu = () => {
           borderRadius: '3px',
         }}
       />
-      <Typography sx={{ color: 'white', fontSize: '14px', fontFamily: 'Fredoka One' }}>
+      <Typography sx={{ color: '#fff',opacity:'0.8', fontSize: '14px', fontFamily: 'Epilogue' }}>
         Discover our New Menu !
       </Typography>
     </Box>
@@ -202,9 +220,9 @@ const DiscoverMenu = () => {
    
     <Box
       sx={{
-        width: { xs: '100%', md: '65%' },
+        width: { xs: '100%', md: '70%' },
         borderRadius: '12px',
-        padding: '16px',
+        padding: '20px',
         display: 'flex',
         flexDirection: 'column',
         gap: 1.5,
@@ -226,6 +244,8 @@ const DiscoverMenu = () => {
           bgcolor="#FFD40D"
           color="black"
           border="#FFD40D"
+          width="118px"
+          borderwidth="109px"
         />
       </Box>
     </Box>
@@ -273,8 +293,8 @@ const DiscoverMenu = () => {
       />
        <Box
   sx={{
-    width: '100%',
-    // maxWidth: '400px', // <-- responsive
+    width: '70%',
+    // maxWidth: '400px', 
     display: 'flex',
     justifyContent: 'center',
     px: { xs: 0, md: 8 },
@@ -284,19 +304,18 @@ const DiscoverMenu = () => {
 
           <Swiper
   modules={[Navigation, Autoplay,Pagination]}
-  spaceBetween={10} // ⬅️ 10 or 20px gap
+  spaceBetween={10} 
  
   slidesPerView={1}
   slidesPerGroup={1}
-// navigation
+
   autoplay={{ delay: 2000, disableOnInteraction: false }}
   pagination={{ clickable: true}}
   loop={true}
   breakpoints={{
     1024: {
-      slidesPerView: 3,      // ⬅️ Show 3 at a time
-      slidesPerGroup: 3,     // ⬅️ Move 3 at a time (not 1)
-         // ⬅️ 20px gap on lg screens
+      slidesPerView: 3,      
+      slidesPerGroup: 3,     
     },
     768: {
       slidesPerView: 2,
