@@ -7,7 +7,7 @@ import BestSellers from './BestSellers';
 import CoverCarousel from '../Common/CoverCarousel';
 
 
-const HomePage = () => {
+const HomePage3 = () => {
   return (
     <div style={{ overflowX: 'hidden' }}>
      {/* <CoverPage3/> */}
@@ -20,4 +20,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default HomePage3;

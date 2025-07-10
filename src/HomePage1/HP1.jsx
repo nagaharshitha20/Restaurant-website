@@ -9,7 +9,7 @@ import Review from './Review';
 import RecentNews from './RecentNews';
 import Follow from './Follow';
 import Footer from '../Common/Footer';
-const HomePage1 = () => {
+const HP1 = () => {
   return (
     <div style={{ overflowX: 'hidden' }}>
      
@@ -27,4 +27,4 @@ const HomePage1 = () => {
   );
 };
 
-export default HomePage1;
+export default HP1;
