@@ -66,7 +66,7 @@ const DiscoverMenu = () => {
     <Box
       sx={{
         width: '90%',
-        minHeight: { xs: '480px', sm: '600px', md: '710px' },
+        minHeight: { xs: '480px', sm: '630px', md: '710px' },
         mt: { xs: '56px', sm: '64px' },
         
         px: { xs: 2, md: 8 },

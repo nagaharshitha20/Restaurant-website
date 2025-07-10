@@ -18,7 +18,7 @@ const Footer = () => {
         px: { xs: 2, sm: 4, md: 0 },
       }}
     >
-      {/* Left & Right Decorative Images */}
+    
       <Box
         component="img"
         src={ImageAssets.b1}
@@ -44,7 +44,7 @@ const Footer = () => {
         }}
       />
 
-      {/* Main Footer Content */}
+    
       <Box
         sx={{
           display: 'flex',
@@ -56,7 +56,7 @@ const Footer = () => {
           position: 'relative',
         }}
       >
-        {/* Left Box */}
+       
         <Box
           sx={{
             width: '260px',
@@ -82,7 +82,7 @@ const Footer = () => {
           </Typography>
         </Box>
 
-        {/* Links + Newsletter */}
+        
         <Box
           sx={{
             display: 'flex',
@@ -106,7 +106,6 @@ const Footer = () => {
             <Typography>› Contact</Typography>
           </Box>
 
-          {/* Menu */}
           <Box>
             <Typography variant="h6" sx={{ mb: 1, fontFamily: 'Fredoka One' }}>
               <Box component="span" sx={{ borderBottom: '3px solid #FBD411', pb: '2px' }}>
@@ -120,7 +119,7 @@ const Footer = () => {
             <Typography>› Desserts</Typography>
           </Box>
 
-          {/* Newsletter */}
+       
           <Box sx={{ minWidth: { xs: '100%', sm: '300px' }, maxWidth: '360px' }}>
             <Typography variant="h6" sx={{ mb: 1, fontFamily: 'Fredoka One' }}>
               <Box component="span" sx={{ borderBottom: '3px solid #FBD411', pb: '2px' }}>
@@ -151,7 +150,6 @@ const Footer = () => {
         </Box>
       </Box>
 
-      {/* Bottom Strip */}
       <Box
         sx={{
           mt: 6,

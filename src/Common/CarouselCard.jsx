@@ -4,19 +4,25 @@ import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 
 const CarouselCard = ({ dish }) => {
   return (
-    <Box
-      sx={{
-        width: '260px',
-        border: '3px solid #FFD700',
-        borderRadius: '20px',
-        backgroundColor: 'white',
-        padding: '16px',
-        position: 'relative',
-        textAlign: 'center',
-        margin: 'auto',
-      }}
-    >
-      {/* SALE Tag */}
+   <Box
+  sx={{
+    width: '260px',
+    border: '3px solid #FFD700',
+    borderRadius: '20px',
+    backgroundColor: 'white',
+    padding: '16px',
+    position: 'relative',
+    textAlign: 'center',
+    margin: 'auto',
+    transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+    '&:hover': {
+      transform: 'translateY(-8px)',
+      boxShadow: '0 8px 20px rgba(0, 0, 0, 0.15)',
+    },
+  }}
+>
+
+     
       <Box
         sx={{
           width: '50px',
@@ -29,15 +35,15 @@ const CarouselCard = ({ dish }) => {
           alignItems: 'center',
           backgroundColor: '#FFD700',
           color: 'black',
-         fontFamily: 'Fredoka One',
+          fontFamily: 'Fredoka One',
           fontSize: '13px',
           borderRadius: '50%',
+          zIndex: 3,
         }}
       >
         SALE
       </Box>
 
-      {/* Dish image */}
       <Box
         component="img"
         src={dish.image}
@@ -54,38 +60,35 @@ const CarouselCard = ({ dish }) => {
         }}
       />
 
-      {/* Red Ellipse Background */}
+      
       <Box
         sx={{
-          width: '50%',
-          height: '120px',
-          backgroundColor: '#F3274C',
-          borderRadius: '50%',
-          position: 'relative',
-          zIndex: 1,
-          float: 'left',
+          display: 'flex',
+          justifyContent: 'space-between',
           mt: -10,
-          mb: 6,
+          mb: 5,
         }}
-      />
-      <Box
-        sx={{
-          width: '50%',
-          height: '120px',
-          backgroundColor: '#F3274C',
-          borderRadius: '50%',
-          position: 'relative',
-          zIndex: 1,
-          float: 'right',
-          mt: -10,
-          mb: 6,
-        }}
-      />
+      >
+        <Box
+          sx={{
+            width: '50%',
+            height: '120px',
+            backgroundColor: '#F3274C',
+            borderRadius: '50%',
+          }}
+        />
+        <Box
+          sx={{
+            width: '50%',
+            height: '120px',
+            backgroundColor: '#F3274C',
+            borderRadius: '50%',
+          }}
+        />
+      </Box>
 
-      {/* Dish Info */}
       <Typography
         sx={{
-          
           fontFamily: 'Fredoka One',
           fontSize: '14px',
           mb: 0.5,
@@ -108,7 +111,6 @@ const CarouselCard = ({ dish }) => {
         <Typography
           sx={{
             fontSize: '14px',
-            // fontWeight: 'bold',
             fontFamily: 'Fredoka One',
           }}
         >
@@ -116,7 +118,7 @@ const CarouselCard = ({ dish }) => {
         </Typography>
       </Box>
 
-      {/* Cart Icon */}
+   
       <Box
         sx={{
           position: 'absolute',
@@ -131,7 +133,7 @@ const CarouselCard = ({ dish }) => {
           justifyContent: 'center',
         }}
       >
-        <ShoppingBagIcon sx={{ fontSize: '16px', color: 'black', }} />
+        <ShoppingBagIcon sx={{ fontSize: '16px', color: 'black' }} />
       </Box>
     </Box>
   );

@@ -19,9 +19,9 @@ const ProductCard = ({ img, name, price, oldPrice, badge, rating = 5 }) => {
         position: 'relative',
       }}
     >
-      {/* Image Section */}
+   
       <Box sx={{ position: 'relative', height: '70%' }}>
-        {/* Product Image */}
+      
         <Box
           component="img"
           src={img}
@@ -33,7 +33,7 @@ const ProductCard = ({ img, name, price, oldPrice, badge, rating = 5 }) => {
           }}
         />
 
-        {/* Badge */}
+        
         {badge && (
           <Box
             sx={{
@@ -53,7 +53,6 @@ const ProductCard = ({ img, name, price, oldPrice, badge, rating = 5 }) => {
           </Box>
         )}
 
-        {/* Favorite Icon */}
         <IconButton
           sx={{
             position: 'absolute',
@@ -68,9 +67,9 @@ const ProductCard = ({ img, name, price, oldPrice, badge, rating = 5 }) => {
         </IconButton>
       </Box>
 
-      {/* Content */}
+   
       <Box sx={{ p: 2, flexGrow: 1 }}>
-        {/* Rating */}
+       
         <Box sx={{ display: 'flex', gap: 0.3, mb: 0.6 }}>
           {[...Array(5)].map((_, i) => (
             <StarIcon
@@ -83,12 +82,12 @@ const ProductCard = ({ img, name, price, oldPrice, badge, rating = 5 }) => {
           ))}
         </Box>
 
-        {/* Name */}
+      
         <Typography fontWeight={600} fontSize={14} mb={0.5} noWrap>
           {name}
         </Typography>
 
-        {/* Price + Cart */}
+       
         <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
   <Typography fontWeight={700} fontSize={14} color="primary">

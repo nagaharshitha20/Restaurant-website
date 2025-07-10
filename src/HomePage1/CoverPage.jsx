@@ -16,7 +16,7 @@ const CoverPage = () => {
         mt: { xs: '56px', sm: '64px' },
       }}
     >
-      {/* Background Image */}
+  
       <Box
         component="img"
         src={ImageAssets.cover}
@@ -32,7 +32,7 @@ const CoverPage = () => {
         }}
       />
 
-      {/* Foreground Content */}
+    
       <Box
         sx={{
           position: {
@@ -67,7 +67,7 @@ const CoverPage = () => {
           textShadow: '2px 2px 4px rgba(0, 0, 0, 0.7)',
         }}
       >
-        {/* Heading */}
+      
         <Typography
           variant="h3"
           sx={{
@@ -84,7 +84,7 @@ const CoverPage = () => {
           Enjoy Fantastic Food
         </Typography>
 
-        {/* Subheading */}
+      
         <Typography
           variant="body1"
           sx={{
@@ -100,7 +100,7 @@ const CoverPage = () => {
           Festive dining at Farthings where we are strong believers in using the very best produce
         </Typography>
 
-        {/* Buttons Row */}
+     
         <Box
           sx={{
             display: 'flex',
@@ -113,7 +113,7 @@ const CoverPage = () => {
         >
           <PrimaryButton
             name="See Our Menus"
-            onClick={() => console.log('Menu button clicked')}
+            to='/home7'
           />
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 6 }}>
             <PlayButton onClick={() => console.log('Play video')} />
@@ -129,7 +129,7 @@ const CoverPage = () => {
         </Box>
       </Box>
 
-      {/* Floating Card - Desktop Only */}
+    
       <Box
         sx={{
           display: { xs: 'none', lg: 'flex' },

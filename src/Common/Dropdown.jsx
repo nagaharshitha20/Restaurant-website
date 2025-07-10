@@ -25,8 +25,7 @@ const Dropdown = ({ label, ...options }) => {
     navigate(path);
   };
 
-  // Convert props object into array
-  const optionList = Object.values(options); // [{label, path}, ...]
+  const optionList = Object.values(options); 
 
   return (
     <div

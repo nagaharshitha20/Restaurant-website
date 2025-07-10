@@ -105,15 +105,13 @@ const Menu = () => {
               }}
             />
             {/* BBQ Box */}
-                    <Grid item xs={12} md={12} lg={6}>
+                    <Grid item xs={12} md={6} lg={6}>
                       <div style={{
                         display: 'flex',
                         flexDirection: { xs: 'column', lg: 'row' },
                         justifyContent: 'center',
                         alignItems: 'center',
-                        gap: { xs: 4, lg: 8 },
-                       
-                        width: '100%',
+                                             
                       }}>
                         <Box
                         sx={{
@@ -201,7 +199,7 @@ const Menu = () => {
                             ml: { xs: 0,  },
                           }}
                         >
-                          Breakfast
+                          Lunch
                         </Typography>
 
                         {Breakfast.map((item, idx) => (
@@ -267,7 +265,7 @@ const Menu = () => {
                             ml: { xs: 0,  },
                           }}
                         >
-                          Breakfast
+                          Dinner
                         </Typography>
 
                         {Breakfast.map((item, idx) => (

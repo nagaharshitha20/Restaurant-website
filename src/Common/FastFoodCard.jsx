@@ -19,7 +19,7 @@ const FastFoodCard = ({ img, title, discount, oldPrice, newPrice }) => {
         alignItems: "center",
       }}
     >
-      {/* Wishlist Button */}
+     
       <IconButton
         size="small"
         sx={{
@@ -34,7 +34,7 @@ const FastFoodCard = ({ img, title, discount, oldPrice, newPrice }) => {
         <FavoriteBorderIcon fontSize="small" />
       </IconButton>
 
-      {/* Food Image */}
+      
       <Box
         component="img"
         src={img}
@@ -42,7 +42,6 @@ const FastFoodCard = ({ img, title, discount, oldPrice, newPrice }) => {
         sx={{ width: "100px", height: "100px", objectFit: "contain", mb: 2 }}
       />
 
-      {/* Price Row */}
       <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 1 }}>
         <Box
           sx={{
@@ -64,7 +63,7 @@ const FastFoodCard = ({ img, title, discount, oldPrice, newPrice }) => {
         </Typography>
       </Box>
 
-      {/* Title */}
+   
       <Typography
         sx={{
           fontSize: "15px",

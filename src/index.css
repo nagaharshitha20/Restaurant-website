@@ -8,15 +8,16 @@ body {
 }
 .swiper-slide {
   transform: scale(0.95);
-  opacity: 0.6;
-  transition: all 0.4s ease-out;
+  transition: all 0.2s ease-out;
 }
 
-.swiper-slide-active {
+
+/* .menu-card.active {
   transform: scale(1.05);
   opacity: 1;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-}
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  z-index: 5;
+} */
 
 /* Example classes if you want to apply them selectively */
 .fredoka {

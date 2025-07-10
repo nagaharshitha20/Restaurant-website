@@ -56,7 +56,7 @@ const Bbq = () => {
         py: { xs: 4, md: 6 },
       }}
     >
-      {/* Category Selector */}
+      
       <Box
         sx={{
           display: 'flex',
@@ -143,7 +143,7 @@ const Bbq = () => {
         })}
       </Box>
 
-      {/* BBQ Content Section */}
+      
       <Grid
         container
         spacing={4}
@@ -157,11 +157,11 @@ const Bbq = () => {
           },
         }}
       >
-        {/* Image Section */}
+       
         <Grid item xs={12} md={12} lg={5}>
          <Box
   component="img"
-  src={categoryImages[activeCategory]} // ✅ dynamic image
+  src={categoryImages[activeCategory]}
   alt={activeCategory}
 
             sx={{
@@ -201,7 +201,7 @@ const Bbq = () => {
           />
         </Grid>
 
-        {/* Content Box */}
+       
         <Grid item xs={12} md={12} lg={6}>
           <Box
             sx={{

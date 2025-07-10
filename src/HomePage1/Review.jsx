@@ -25,7 +25,7 @@ const Review = () => {
     <Box
       sx={{
         width: '100%',
-        overflowX: 'hidden', // prevent scroll
+        overflowX: 'hidden', 
         backgroundColor: '#ffffff',
         py: { xs: 8, md: 10 },
         px: { xs: 2, md: 8 },
@@ -42,7 +42,7 @@ const Review = () => {
           position: 'relative',
         }}
       >
-        {/* Left Content */}
+        
         <Box sx={{ width: { xs: '100%', md: '55%' }, zIndex: 2 }}>
           <Typography
             sx={{
@@ -103,10 +103,10 @@ const Review = () => {
           </Box>
         </Box>
 
-        {/* Right-side floating images: visible on md+ */}
+        
         <Box
           sx={{
-            display: { xs: 'none', sm: 'none', md: 'block' }, // ✅ show on md & lg
+            display: { xs: 'none', sm: 'none', md: 'block' },
             position: 'absolute',
             top: '20px',
             right: 200,
@@ -115,7 +115,7 @@ const Review = () => {
             pointerEvents: 'none',
           }}
         >
-          {/* Image 1 */}
+         
           <Box
             sx={{
               position: 'absolute',
@@ -139,7 +139,7 @@ const Review = () => {
             />
           </Box>
 
-          {/* Image 2 */}
+       
           <Box
             sx={{
               position: 'absolute',
@@ -165,7 +165,7 @@ const Review = () => {
             />
           </Box>
 
-          {/* Image 3 */}
+          
           <Box
             sx={{
               position: 'absolute',
@@ -245,7 +245,7 @@ const Review = () => {
               alignItems: 'center',
             }}
           >
-            {/* Chef image */}
+         
             <Box
               component="img"
               src={chef.image}
@@ -257,7 +257,7 @@ const Review = () => {
               }}
             />
 
-            {/* Circular bio card */}
+           
             <Box
               sx={{
                 mt: -6,
@@ -284,7 +284,7 @@ const Review = () => {
                 {chef.name}
               </Typography>
 
-              {/* Placeholder dots */}
+           
               <Box sx={{ display: 'flex', gap: 1, mt: 2 }}>
                 <Box
                   sx={{
@@ -312,7 +312,7 @@ const Review = () => {
                 />
               </Box>
 
-              {/* Signature */}
+             
               <Box component="img" 
               src={ImageAssets.sign}
               sx={{width:'40%',mt:2}}/>

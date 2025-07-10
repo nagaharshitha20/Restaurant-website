@@ -165,6 +165,7 @@ h3:require('./Assets/h3.jpg'),
 h4:require('./Assets/h4.jpg'),
 h5:require('./Assets/h5.jpg'),
 tandoorichicken:require('./Assets/tandoorichicken.png'),
+Shroom:require('./Assets/Shroom.png'),
 subscribe:require('./Assets/subscribe.jpg'),
 
 

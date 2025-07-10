@@ -1,9 +1,18 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const PrimaryButton = ({ name, color = '#fff', bgcolor = '#EE3A43',width= '189.91px',   height= '55px',borderwidth="180.41px", border = '#EE3A43', onClick }) => {
+const PrimaryButton = ({ name, color = '#fff', bgcolor = '#EE3A43',width= '189.91px',   height= '55px',borderwidth="180.41px", border = '#EE3A43', to, onClick}) => {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    if (to) {
+      navigate(to);
+    } else if (onClick) {
+      onClick();
+    }
+  }; 
   return (
     <div style={{ position: 'relative', display: 'inline-block' }}>
-      {/* Border Layer */}
+   
       <div
         style={{
           position: 'absolute',
@@ -20,9 +29,8 @@ const PrimaryButton = ({ name, color = '#fff', bgcolor = '#EE3A43',width= '189.9
         }}
       ></div>
 
-      {/* Button */}
       <button
-        onClick={onClick}
+        onClick={handleClick}
         style={{
           position: 'relative',
           backgroundColor: bgcolor,
