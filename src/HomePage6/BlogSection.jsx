@@ -46,7 +46,7 @@ const BlogSection = () => (
     >
 News & Blog
     </Typography>
-    {/* Header */}
+   
     <Typography
       sx={{
         fontSize: { xs: "5vw", sm: "3vw", md: 36 },
@@ -58,7 +58,7 @@ News & Blog
       Explore News & Blog
     </Typography>
 
-    {/* Blog Cards */}
+   
     <Box
       sx={{
         display: "grid",

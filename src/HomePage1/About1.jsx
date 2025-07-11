@@ -93,7 +93,7 @@ const About1 = () => {
   }}
 >
 
-        {/* Heading Block */}
+       
         <Box sx={{ flex: 1 }}>
           <Typography
             sx={{
@@ -120,7 +120,7 @@ const About1 = () => {
           </Typography>
         </Box>
 
-        {/* Description + Chief */}
+       
         <Box sx={{ flex: 1, maxWidth: '480px' }}>
           <Typography
             sx={{

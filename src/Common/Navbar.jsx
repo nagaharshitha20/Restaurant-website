@@ -4,6 +4,7 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
+import { useSelector } from 'react-redux';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
@@ -15,6 +16,7 @@ import LocalMallIcon from '@mui/icons-material/LocalMall';
 import ClearAllIcon from '@mui/icons-material/ClearAll';
 import Badge from '@mui/material/Badge';
 import Dropdown from './Dropdown';
+import ShopPage from '../pages/ShopPage';
 import { ImageAssets } from '../ImageAssets';
 
 const pages = ['Home ', 'About', 'Shop', 'Blog', 'Pages', 'Contact'];
@@ -23,6 +25,8 @@ const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+const cartItems = useSelector((state) => state.filters.cart);
+const totalItems = cartItems.reduce((sum, item) => sum + item.qty, 0);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -155,7 +159,7 @@ function Navbar() {
    opt6={{ label: "home 7", path: "/home7" }}
 />
             <Dropdown label="About Us" options={['Mission', 'Vision', 'Team']} />
-            <Dropdown label="Shop" options={['Pizza', 'Burgers', 'Desserts']} />
+            <Dropdown label="Shop" opt1={{label: "Shop", path: "/shop"}} opt2={{label: "CartPage", path: "/cart"}} />
             <Dropdown label="Blog" options={['News', 'Events', 'Offers']} />
             <Dropdown label="Pages" options={['Gallery', 'Testimonials', 'FAQ']} />
             <Dropdown label="Contact" options={['Support', 'Email', 'Location']} />
@@ -170,18 +174,19 @@ function Navbar() {
             }}
           >
             <Badge
-              badgeContent={0}
-              color="success"
-              sx={{ '& .MuiBadge-badge': { top: 6, right: 6 } }}
-            >
-              <LocalMallIcon
-                sx={{
-                  color: '#00A149',
-                  width: { xs: '22px', sm: '24px', md: '25px' },
-                  height: { xs: '30px', sm: '50px', md: '70px' },
-                }}
-              />
-            </Badge>
+  badgeContent={totalItems}
+  color="success"
+  sx={{ '& .MuiBadge-badge': { top: 22, right: 3 } }}
+>
+  <LocalMallIcon
+    sx={{
+      color: '#00A149',
+      width: { xs: '22px', sm: '24px', md: '25px' },
+      height: { xs: '30px', sm: '50px', md: '70px' },
+    }}
+  />
+</Badge>
+
 
             <Button
               variant="contained"

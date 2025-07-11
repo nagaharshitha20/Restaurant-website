@@ -18,7 +18,7 @@ const foodItems = [
 const Popular3 = () => (
   <Box sx={{ mt: 5, px: 2,display:'flex', justifyContent: "center" ,flexDirection:'column',alignItems:'center'}}>
     
-    {/* Section Header */}
+    
 
     <Typography sx={{ fontSize: 16, fontFamily: "Oswald", color: "#00aa00", mb: 1 }}>
       Crispy, Every Bite Taste
@@ -34,7 +34,7 @@ const Popular3 = () => (
       Popular Fast Foods
     </Typography>
 
-    {/* Card Container */}
+   
     <Box
       sx={{
         display: "flex",
@@ -48,7 +48,7 @@ const Popular3 = () => (
     >
       {foodItems.map((item, idx) => (
         <Box key={idx} sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-          {/* Card Box */}
+         
           <Box
             sx={{
               width: "230px",
@@ -63,7 +63,7 @@ const Popular3 = () => (
               justifyContent: "center",
             }}
           >
-            {/* Wishlist Icon */}
+           
             <IconButton
               size="small"
               sx={{
@@ -80,7 +80,7 @@ const Popular3 = () => (
               <FavoriteIcon fontSize="small" />
             </IconButton>
 
-            {/* Food Image */}
+         
             <Box
               component="img"
               src={item.img}
@@ -89,7 +89,7 @@ const Popular3 = () => (
             />
           </Box>
 
-          {/* Text Below Card */}
+          
           <Box sx={{ mt: 1.5, textAlign: "center" }}>
             <Box sx={{ display: "flex", justifyContent: "center", gap: 1, mb: 0.5 }}>
               <Box

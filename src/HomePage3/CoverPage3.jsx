@@ -16,7 +16,7 @@ const CoverPage3 = () => {
         mt: { xs: '56px', sm: '64px' },
       }}
     >
-      {/* Background Image */}
+
       <Box
         component="img"
         src={ImageAssets.bg3}
@@ -32,7 +32,7 @@ const CoverPage3 = () => {
         }}
       />
 
-      {/* Foreground Content */}
+     
       <Box
         sx={{
           position: {
@@ -93,7 +93,7 @@ const CoverPage3 = () => {
         Kings Burger
         </Typography>
 
-        {/* Subheading */}
+        
         <Typography
           variant="body1"
           sx={{
@@ -110,7 +110,7 @@ const CoverPage3 = () => {
 bring you the best.
         </Typography>
 
-        {/* Buttons Row */}
+      
         <Box
           sx={{
             display: 'flex',

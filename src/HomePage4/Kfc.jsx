@@ -1,15 +1,11 @@
 import React from 'react';
 import { Box, Typography, Button } from '@mui/material';
-import { ImageAssets } from '../ImageAssets'; // left.jpg, right.jpg, down.png
+import { ImageAssets } from '../ImageAssets'; 
 
 const Kfc = () => {
   return (<>
     <Box sx={{ width: '100%',  fontFamily: 'Oswald',mt:10 }}>
-      {/* Top Section */}
-      
-      
-
-        {/* Right Side */}
+ 
         <Box
           sx={{
             flex: 1,
@@ -39,7 +35,7 @@ const Kfc = () => {
                  
                 }}
               />
-          {/* Text Content Centered */}
+         
           <Box sx={{ zIndex: 2, maxWidth: '800px', width: '100%',display:'flex',flexDirection:'column',ml:20 }}>
             <Typography
               variant="body2"
@@ -65,7 +61,7 @@ const Kfc = () => {
               A team of dreamers and doers building unique interactive music and art festivals.
             </Typography>
 
-            {/* Offers with Image Logos */}
+           
  
 
 
@@ -83,13 +79,12 @@ const Kfc = () => {
             </Button>
           </Box>
 
-          {/* Coke Image in Bottom Left */}
+         
           
         </Box>
       </Box>
 
-      {/* Bottom Section - Popular Dishes */}
-     
+  
    
     
     </>

@@ -24,7 +24,7 @@ const categoryItems = [
 
 const About3 = () => (
   <Box sx={{ px: { xs: 2, md: 10 }, py: 8 }}>
-    {/* Top Section */}
+  
     <Typography sx={{ color: '#F3274C', textAlign: 'center', fontSize: '12px', mb: 1 ,fontFamily: 'Fredoka One'}}>
       ABOUT THE FOOD RESTAURANT
     </Typography>
@@ -33,7 +33,7 @@ const About3 = () => (
     </Typography>
 
    <Grid container spacing={4} alignItems="center" justifyContent="center">
-  {/* LEFT - Circular Images */}
+ 
   <Grid item xs={12} md={6} sx={{ display: 'flex', justifyContent: 'center', gap: 2 }}>
     <Box
       component="img"
@@ -47,7 +47,7 @@ const About3 = () => (
     />
   </Grid>
 
-  {/* RIGHT - Paragraph + Feature Items */}
+  
   <Grid item xs={12} md={6}>
     <Typography
       sx={{
@@ -101,7 +101,7 @@ const About3 = () => (
 </Grid>
 
 
-    {/* Choose a Category Section */}
+   
     <Typography sx={{ fontFamily: 'Fredoka One', textAlign: 'center', fontSize: { xs: 24, md: 32 }, mt: 10, mb:1 }}>
       Choose a Category
     </Typography>

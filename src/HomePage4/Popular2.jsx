@@ -16,7 +16,7 @@ const Popular2 = () => {
           mt: { xs: '56px', sm: '64px',md:0 },
         }}
       >
-        {/* Background Image */}
+       
         <Box
           component="img"
           src={ImageAssets.blackbg}
@@ -32,7 +32,7 @@ const Popular2 = () => {
           }}
         />
 
-        {/* Foreground Content */}
+      
         <Box
           sx={{
             position: {
@@ -116,7 +116,7 @@ const Popular2 = () => {
               </Typography>
             </Box>
 
-            {/* Buttons Row */}
+        
             <Box
               sx={{
                 display: 'flex',
@@ -134,7 +134,6 @@ const Popular2 = () => {
         </Box>
       </Box>
 
-      {/* Add m1 image below */}
   
     </>
   );

@@ -6,7 +6,7 @@ import NormalButton from '../Common/NormalButton';
 const Quality = () => {
   return (
     <Box sx={{ width: '100%', fontFamily: 'Oswald', px: 2, py: 6 }}>
-      {/* Top Section */}
+  
       <Box
         sx={{
           display: 'flex',
@@ -20,7 +20,7 @@ const Quality = () => {
           alt="Burger"
           sx={{ width: { xs: '100%', md: '50%' }, maxWidth: '600px' }}
         />
-        {/* Left Content */}
+       
         <Box sx={{ flex: 1, textAlign: 'left' }}>
           <Typography sx={{ color: '#00A149', fontWeight: 600,fontFamily:'Oswald' }}>About Our Food</Typography>
 
@@ -69,11 +69,11 @@ const Quality = () => {
           
         </Box>
 
-        {/* Burger Image */}
+       
        
       </Box>
 
-      {/* Bottom Cards */}
+     
       <Box
         sx={{
           mt: 6,

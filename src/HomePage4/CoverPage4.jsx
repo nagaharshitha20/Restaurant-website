@@ -14,7 +14,7 @@ const CoverPage4 = () => {
         mt: { xs: '56px', sm: '64px' },
       }}
     >
-      {/* Background Image */}
+     
       <Box
         component="img"
         src={ImageAssets.cover4}
@@ -31,7 +31,7 @@ const CoverPage4 = () => {
         }}
       />
 
-      {/* Foreground Content */}
+    
       <Box
         sx={{
           position: {
@@ -113,10 +113,7 @@ const CoverPage4 = () => {
          color: '#fff',}}>
             $5</Typography>
 </Box>
-        {/* Subheading */}
        
-
-        {/* Buttons Row */}
         <Box
           sx={{
             display: 'flex',

@@ -30,7 +30,7 @@ const Services = () => {
       }}
     >
       <Box sx={{ width: '100%', mt: { xs: '40px', md: '100px' } }}>
-        {/* Top Section */}
+      
         <Box
           sx={{
             display: 'flex',
@@ -39,16 +39,16 @@ const Services = () => {
             alignItems: {
               xs: 'flex-start',
               md: 'flex-start',
-              lg: 'center', // vertically center on large screens
+              lg: 'center', 
             },
             px: { xs: 3, sm: 18, md: 12, lg: 25 },
             minHeight: { lg: '150px' },
-            gap: { xs: 4, md: 6, lg: '30px' }, // 30px gap for lg screens
+            gap: { xs: 4, md: 6, lg: '30px' }, 
           }}
         >
-          {/* Left Side */}
+       
           <Box sx={{ flex: 1, }}>
-            {/* Heading */}
+         
             <Box sx={{ flex: 1 }}>
               <Typography
                 sx={{
@@ -75,7 +75,7 @@ const Services = () => {
               </Typography>
             </Box>
 
-            {/* Service Boxes */}
+           
             <Box
               sx={{
                 display: 'flex',
@@ -144,7 +144,7 @@ const Services = () => {
             </Box>
           </Box>
 
-          {/* Right Side Image */}
+         
           <Box>
             <Box
               component="img"
@@ -160,7 +160,7 @@ const Services = () => {
           </Box>
         </Box>
       </Box>
-      {/* Section Title */}
+     
 <Typography
   sx={{
     fontFamily: 'Fredoka One',
@@ -173,9 +173,9 @@ const Services = () => {
   A Collection of Unique Experiences
 </Typography>
 
-{/* Experience Cards */}
+
 <Grid container spacing={15} justifyContent="center">
-  {/* Experience 1 */}
+ 
   <Grid item xs={12} sm={6} md={6}>
     <Box
       sx={{
@@ -190,7 +190,7 @@ const Services = () => {
         overflow: 'visible',
       }}
     >
-      {/* Overlapping Image (Top-Left Corner) */}
+    
       <Box
         component="img"
         src={ImageAssets.n1}
@@ -207,7 +207,7 @@ const Services = () => {
         }}
       
       />
-      {/* Text */}
+     
       <Box sx={{ mt: 4, textAlign: 'left', px: 2 }}>
         <Typography sx={{ fontFamily:'Fredoka One', fontSize: 14, mb: 1 }}>
           Valentine's Day <br/>Private Table
@@ -220,7 +220,7 @@ const Services = () => {
     </Box>
   </Grid>
 
-  {/* Experience 2 */}
+ 
   <Grid item xs={12} sm={6} md={4}>
     <Box
       sx={{
@@ -235,7 +235,7 @@ const Services = () => {
         overflow: 'visible',
       }}
     >
-      {/* Overlapping Image on Right */}
+    
       <Box
         component="img"
         src={ImageAssets.n2}
@@ -251,7 +251,7 @@ const Services = () => {
           boxShadow: '0 4px 12px rgba(0,0,0,0.2)'
         }}
       />
-      {/* Text */}
+    
       <Box sx={{ mt: 4, textAlign: 'left', px: 2 }}>
         <Typography sx={{ fontFamily: 'Fredoka One', fontSize: 14, mb: 1 }}>
           Birthday Party <br/>Special

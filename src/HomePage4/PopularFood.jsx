@@ -1,4 +1,4 @@
-// Example usage in PopularSection.js or Home.js
+
 import React from "react";
 import FoodCard from "../Common/FoodCard";
 import Box from '@mui/material/Box';
@@ -72,7 +72,7 @@ const PopularFood = () => {
           iw="130px"
           ih="130px"
           subcolor="#FFD40D"
-          gap={idx === foodItems.length - 1 ? "0" : "24px"} // no right gap on last card
+          gap={idx === foodItems.length - 1 ? "0" : "24px"} 
         />
       ))}
 </Box>
@@ -102,7 +102,7 @@ const PopularFood = () => {
         sx={{
           width: '100%',
           display: 'block',
-          mt: 0, // optional margin
+          mt: 0, 
         }}
       />
     </>
