@@ -9,6 +9,9 @@ import HomePage5 from "./HomePage5/HomePage5";
 import HomePage6 from "./HomePage6/HomePage6";
 import HomePage7 from "./HomePage7/HomePage7";
 import Popular3 from "./HomePage4/Popular3";
+import ShopPage from "./pages/ShopPage";
+import CartPage from './pages/CartPage';
+
 
 
 const routing = createBrowserRouter([
@@ -47,6 +50,14 @@ const routing = createBrowserRouter([
       {
         path: "popular",
         element: <Popular3/>,
+      },
+      {
+        path: "shop",
+        element: <ShopPage/>,
+      },
+      {
+        path: "cart",
+        element: <CartPage/>,
       },
       
     ],

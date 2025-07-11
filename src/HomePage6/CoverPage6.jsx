@@ -19,7 +19,7 @@ const CoverPage6 = () => {
         mt: { xs: '56px', sm: '64px' },
       }}
     >
-      {/* Background Image */}
+     
       <Box
         component="img"
         src={ImageAssets.cover6}
@@ -35,7 +35,7 @@ const CoverPage6 = () => {
         }}
       />
 
-      {/* Foreground Content */}
+      
       <Box
         sx={{
           position: {
@@ -70,7 +70,7 @@ const CoverPage6 = () => {
           textShadow: '2px 2px 4px rgba(0, 0, 0, 0.7)',
         }}
       >
-        {/* Heading */}
+       
         <Typography
           variant="h3"
           sx={{
@@ -86,7 +86,7 @@ const CoverPage6 = () => {
          DELICIOUS PIZZA
         </Typography>
 
-        {/* Subheading */}
+       
         <Typography
           variant="body1"
           sx={{
@@ -102,7 +102,7 @@ const CoverPage6 = () => {
           Star Your Order Just Only $25.00
         </Typography>
 
-        {/* Buttons Row */}
+       
         <Box
           sx={{
             display: 'flex',
@@ -132,7 +132,7 @@ const CoverPage6 = () => {
       </Box>
 
      
-      {/* Decorative Vegetables */}
+      
 <Box
   component="img"
   src={ImageAssets.decor1}

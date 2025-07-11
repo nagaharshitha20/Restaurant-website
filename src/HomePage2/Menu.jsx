@@ -315,7 +315,7 @@ const Menu = () => {
                       
                     </Grid>
 <Box sx={{ width: '100%', mt: { xs: '40px', md: '100px' } ,}}>
-{/* Top Section */}
+
 <Box
 sx={{
 display: 'flex',
@@ -324,15 +324,15 @@ justifyContent: 'center',
 alignItems: {
 xs: 'flex-start',
 md: 'flex-start',
-lg: 'flex-start', // vertically center on large screens
+lg: 'flex-start', 
 },
 gap: 10,
 px: { xs: 3,sm:18, md: 12 ,lg:25},
-minHeight: { lg: '150px' }, // ensures height to vertically center
+minHeight: { lg: '150px' }, 
 }}
 >
 
-{/* Heading Block */}
+
 <Box sx={{ flex: 1 }}>
   <Typography
     sx={{
@@ -340,7 +340,7 @@ minHeight: { lg: '150px' }, // ensures height to vertically center
       color: '#EE3A43',
       fontSize: '12px',
       mb: 1,
-      textAlign: { xs: 'left', md: 'left' }, // preserve left alignment
+      textAlign: { xs: 'left', md: 'left' }, 
     }}
   >
     BEST SOLUTIONS
@@ -359,7 +359,7 @@ minHeight: { lg: '150px' }, // ensures height to vertically center
   </Typography>
 </Box>
 
-{/* Description + Chief */}
+
 <Box sx={{ flex: 1, maxWidth: '480px' }}>
   <Typography
     sx={{

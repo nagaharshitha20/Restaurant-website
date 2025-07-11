@@ -1,11 +1,11 @@
 import React from 'react';
 import { Box, Typography, Button } from '@mui/material';
-import { ImageAssets } from '../ImageAssets'; // left.jpg, right.jpg, down.png
+import { ImageAssets } from '../ImageAssets'; 
 
 const Trending = () => {
   return (<>
     <Box sx={{ width: '100%',  fontFamily: 'Oswald',mt:10 }}>
-      {/* Top Section */}
+     
       <Box
         sx={{
           display: 'flex',
@@ -14,7 +14,7 @@ const Trending = () => {
           minHeight: { xs: 'auto', md: '100vh' },
         }}
       >
-        {/* Left Side */}
+      
         <Box
           sx={{
             position: 'relative',
@@ -30,7 +30,7 @@ const Trending = () => {
             minHeight: '100%',
           }}
         >
-          {/* Text Content Centered */}
+        
           <Box sx={{ zIndex: 2, maxWidth: '500px', width: '100%', }}>
             <Typography
               variant="body2"
@@ -56,7 +56,7 @@ const Trending = () => {
               A team of dreamers and doers building unique interactive music and art festivals.
             </Typography>
 
-            {/* Offers with Image Logos */}
+           
         <Box
   sx={{
     display: 'flex',
@@ -64,8 +64,8 @@ const Trending = () => {
     gap: 1,
     mt: 1,
    
-    width: '100%', // make sure parent has fixed width
-    maxWidth: '500px', // or desired consistent value
+    width: '100%',
+    maxWidth: '500px', 
   }}
 >
   {[
@@ -85,7 +85,7 @@ const Trending = () => {
         borderRadius: 1,
         fontFamily: 'Oswald',
         fontWeight: 600,
-        width: '90%', // ensure all are equal width
+        width: '90%', 
       }}
     >
       <Box
@@ -116,7 +116,7 @@ const Trending = () => {
             </Button>
           </Box>
 
-          {/* Coke Image in Bottom Left */}
+         
           <Box
             component="img"
             src={ImageAssets.coke}
@@ -131,7 +131,7 @@ const Trending = () => {
           />
         </Box>
 
-        {/* Right Side */}
+      
         <Box
           sx={{
             flex: 1,
@@ -143,7 +143,7 @@ const Trending = () => {
         />
       </Box>
 
-      {/* Bottom Section - Popular Dishes */}
+      
       <Box
         component="img"
         src={ImageAssets.down}

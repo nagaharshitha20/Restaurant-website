@@ -152,7 +152,7 @@ const CoverPage2 = () => {
     }}
   />
 
-  {/* Container with badge overlay */}
+
   <Box sx={{ position: 'relative', mt: '160px' }}>
     <Box
       component="img"
@@ -166,7 +166,7 @@ const CoverPage2 = () => {
       }}
     />
 
-    {/* Free Delivery Badge (freedel image) */}
+   
     <Box
       component="img"
       src={ImageAssets.freedel}

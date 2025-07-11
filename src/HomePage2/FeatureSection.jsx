@@ -175,7 +175,7 @@ ac quam nec odio rbine.
             Restaurant
           </Typography>
         <Box sx={{ position: 'relative', width: { xs: '220px', sm: '280px', md: '320px' } }}>
-  {/* Main circular image */}
+
   <Box
     component="img"
     src={ImageAssets.good}

@@ -15,7 +15,7 @@ const menuItems = [
 
 const MenuSection = () => (
   <Box >
-    {/* How We Work Section */}
+   
    <Box
   sx={{
     background: `url(${ImageAssets.bg4})
@@ -37,7 +37,7 @@ zIndex: 1,
   
   }}
 >
-  {/* Left Content */}
+
   <Box sx={{ width: { xs: '100%', md: '70%' }, color: '#fff', fontFamily: 'Fredoka One',
 textAlign: 'left',
               display: 'flex',
@@ -98,7 +98,7 @@ textAlign: 'left',
     </Grid>
   </Box>
 
-  {/* Right Image Overlapping */}
+
   <Box
     sx={{
       display: { xs: 'none', md: 'block' },
@@ -118,7 +118,7 @@ textAlign: 'left',
         borderRadius: '50%',
         zIndex: 2,
       
-        transform: 'translateX(200px)', // overlaps to the right
+        transform: 'translateX(200px)', 
       }}
     />
   </Box>
@@ -126,7 +126,7 @@ textAlign: 'left',
 
       
 
-    {/* Fast Food Menu Section */}
+   
     <Box sx={{ background: '#fff', pt: 8, pb: 10, }}>
       <Typography variant="h4" sx={{ textAlign: 'center', mb: 1, fontFamily: 'Fredoka One',  }}>
         Fast Food Menus
@@ -181,7 +181,7 @@ textAlign: 'left',
             <Typography variant="body2">Avenue New Town 13th United States</Typography>
           </Box>
         </Grid>
-        {/* Opening Hours */}
+      
         
       </Grid>
     </Box>
