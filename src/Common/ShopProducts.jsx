@@ -1,24 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Box,
   Typography,
   Card,
   CardContent,
   Chip,
-  IconButton,
   Button,
-  Tooltip
+  Tooltip,
 } from '@mui/material';
 import StarIcon from '@mui/icons-material/Star';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import AddIcon from '@mui/icons-material/Add';
+import CheckIcon from '@mui/icons-material/Check';
 import { useDispatch } from 'react-redux';
-import { addToCart } from '../redux/filterSlice'; 
-
-
+import { addToCart } from '../redux/filterSlice';
+import { useNavigate } from 'react-router-dom';
 
 const ShopProducts = ({
-  id, 
+  id,
   img,
   name,
   price,
@@ -27,53 +26,81 @@ const ShopProducts = ({
   badge,
   deliveryTime,
   discount,
+  onAddToCart,
 }) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [added, setAdded] = useState(false);
 
-const handleAdd = () => {
-  dispatch(addToCart({ id, name, price, img, qty: 1 }));
-};
+  const handleAdd = (e) => {
+    e.stopPropagation(); // Prevent card click navigation
+    if (!added) {
+      dispatch(
+        addToCart({
+          id,
+          img,
+          name,
+          price,
+          oldPrice,
+          rating,
+          deliveryTime,
+          discount,
+          qty: 1,
+        })
+      );
+      setAdded(true);
+      if (onAddToCart) onAddToCart();
+      setTimeout(() => setAdded(false), 2000);
+    }
+  };
+
+  const handleCardClick = () => {
+    navigate(`/product/${id}`);
+  };
 
   return (
-    
     <Card
+      onClick={handleCardClick}
       sx={{
         borderRadius: 2,
         boxShadow: 3,
+        width:'190px',
+        height:'290px',
+        // height:'90%',
         transition: 'transform 0.2s ease-in-out',
         '&:hover': {
-          transform: 'scale(1.02)'
+          transform: 'scale(1.02)',
+          cursor: 'pointer',
         },
-        position: 'relative'
+        position: 'relative',
       }}
     >
-  
       <Box
         sx={{
           position: 'relative',
-          height: 140,
+          height: '60%',
           backgroundColor: '#f7f7f7',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           overflow: 'hidden',
           borderTopLeftRadius: 8,
-          borderTopRightRadius: 8
+          borderTopRightRadius: 8,
+           
         }}
       >
         <img
           src={img}
           alt={name}
           style={{
-            maxHeight: '100%',
-            width: '180px',
-            objectFit: 'contain'
+          
+            width: '100%',
+            objectFit: 'contain',
+            
+            // borderRadius:'50%'
+
           }}
         />
-
-       
-
-       
         {discount && discount >= 10 && (
           <Chip
             label={`${discount}% OFF`}
@@ -84,42 +111,32 @@ const handleAdd = () => {
               top: 10,
               right: 10,
               fontWeight: 600,
-              fontSize: '0.7rem'
+              fontSize: '0.7rem',
             }}
           />
         )}
-
-      
-       
       </Box>
 
-   
-  <CardContent sx={{ pt: 1.5 }}>
+      <CardContent sx={{ pt: 1.5 ,height:'30%'}}>
+        <Typography
+          variant="subtitle1"
+          fontWeight={700}
+          sx={{
+            fontSize: '1rem',
+            mb: 1,
+            textTransform: 'capitalize',
+            color: '#333',
+          }}
+        >
+          {name}
+        </Typography>
 
-  <Typography
-    variant="subtitle1"
-    fontWeight={700}
-    sx={{
-      fontSize: '1rem',
-      mb: 1,
-      textTransform: 'capitalize',
-      color: '#333',
-    }}
-  >
-    {name}
-  </Typography>
-
-
-
-
-
-       
         <Box
           sx={{
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            mb: 1
+            mb: 1,
           }}
         >
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
@@ -137,56 +154,58 @@ const handleAdd = () => {
           </Box>
         </Box>
 
-<Box
-  sx={{
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    mt: 1,
-  }}
->
-  <Box>
-    <Typography variant="body1" fontWeight={600}>
-      ₹{price}
-      {oldPrice && (
-        <Typography
-          variant="body2"
-          component="span"
+        <Box
           sx={{
-            ml: 1,
-            textDecoration: 'line-through',
-            color: 'text.secondary',
-            fontSize: '0.9rem',
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            mt: 1,
           }}
         >
-          ₹{oldPrice}
-        </Typography>
-      )}
-    </Typography>
-  </Box>
+          <Box>
+            <Typography variant="body1" fontWeight={600}>
+              ₹{price}
+              {oldPrice && (
+                <Typography
+                  variant="body2"
+                  component="span"
+                  sx={{
+                    ml: 1,
+                    textDecoration: 'line-through',
+                    color: 'text.secondary',
+                    fontSize: '0.9rem',
+                  }}
+                >
+                  ₹{oldPrice}
+                </Typography>
+              )}
+            </Typography>
+          </Box>
 
-  <Tooltip title="Add to Cart">
-  <Button sx={{backgroundColor:'#00A149',color:'#fff',px:0.7,py:0.3,borderRadius:3}}
-   onClick={() =>
-  dispatch(
-    addToCart({
-      img,
-      name,
-      price,
-      oldPrice,
-      rating,
-      deliveryTime,
-      discount,
-    })
-  )
-}
-  >
-    Add +
-  </Button>
-</Tooltip>
-
-</Box>
-
+          <Tooltip title="Add to Cart">
+            <Button
+              sx={{
+                backgroundColor: added ? '#2e7d32' : '#00A149',
+                color: '#fff',
+                px: 0.7,
+                py: 0.3,
+                borderRadius: 3,
+                transition: 'background-color 0.3s',
+                '&:hover': {
+                  backgroundColor: added ? '#2e7d32' : '#008C40',
+                },
+              }}
+              onClick={handleAdd}
+            >
+              Add
+              {added ? (
+                <CheckIcon sx={{ fontSize: 18, ml: 0.5 }} />
+              ) : (
+                <AddIcon sx={{ fontSize: 18, ml: 0.5 }} />
+              )}
+            </Button>
+          </Tooltip>
+        </Box>
       </CardContent>
     </Card>
   );

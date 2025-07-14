@@ -40,20 +40,34 @@ const FilterSidebar = () => {
       </Typography>
 
       <FormGroup>
-        {categories.map((cat, i) => (
-          <FormControlLabel
-            key={i}
-            control={
-              <Checkbox
-                checked={selected.includes(cat)}
-                onChange={() => dispatch(toggleCategory(cat))}
-              />
-            }
-            label={cat}
-            sx={{ mb: 0.5 }}
-          />
-        ))}
-      </FormGroup>
+  {/* ALL Checkbox */}
+  <FormControlLabel
+    control={
+      <Checkbox
+        checked={selected.length === 0}
+        onChange={() => dispatch(toggleCategory(null))} // We'll modify the reducer for this
+      />
+    }
+    label="All"
+    sx={{ mb: 0.5 }}
+  />
+
+  {/* Category checkboxes */}
+  {categories.map((cat, i) => (
+    <FormControlLabel
+      key={i}
+      control={
+        <Checkbox
+          checked={selected.includes(cat)}
+          onChange={() => dispatch(toggleCategory(cat))}
+        />
+      }
+      label={cat}
+      sx={{ mb: 0.5 }}
+    />
+  ))}
+</FormGroup>
+
 
       <Divider sx={{ my: 3 }} />
 

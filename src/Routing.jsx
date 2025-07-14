@@ -11,6 +11,12 @@ import HomePage7 from "./HomePage7/HomePage7";
 import Popular3 from "./HomePage4/Popular3";
 import ShopPage from "./pages/ShopPage";
 import CartPage from './pages/CartPage';
+import About from "./About/About";
+import Login from "./auth/Login";
+import Register from "./auth/Register";
+import ItemDetails from "./pages/ItemDetails";
+
+
 
 
 
@@ -59,6 +65,22 @@ const routing = createBrowserRouter([
         path: "cart",
         element: <CartPage/>,
       },
+      {
+        path: "about",
+        element: <About/>,
+      },
+      {
+        path: "login",
+        element: <Login/>,
+      },
+      {
+        path: "register",
+        element: <Register/>,
+      },
+      {
+  path: "product/:id",
+  element: <ItemDetails />,
+},
       
     ],
   },

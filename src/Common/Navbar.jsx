@@ -18,11 +18,18 @@ import Badge from '@mui/material/Badge';
 import Dropdown from './Dropdown';
 import ShopPage from '../pages/ShopPage';
 import { ImageAssets } from '../ImageAssets';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { clearCart } from '../redux/filterSlice';
+const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+
 
 const pages = ['Home ', 'About', 'Shop', 'Blog', 'Pages', 'Contact'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function Navbar() {
+   const navigate = useNavigate();
+   const dispatch = useDispatch();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 const cartItems = useSelector((state) => state.filters.cart);
@@ -35,14 +42,28 @@ const totalItems = cartItems.reduce((sum, item) => sum + item.qty, 0);
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };
-
+const handleOpenCart = () => {
+    navigate('/cart');
+  };
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
+
   };
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+  const handleLogout = () => {
+  // Clear local storage
+  localStorage.removeItem('currentUser');
+  localStorage.removeItem('isLoggedIn');
+
+  // Clear Redux cart
+  dispatch(clearCart());
+
+  // Redirect user to login
+  navigate('/login');
+};
 
   return (
     <AppBar position="fixed" elevation={0} sx={{ backgroundColor: '#FFFFFF' }}>
@@ -93,19 +114,26 @@ const totalItems = cartItems.reduce((sum, item) => sum + item.qty, 0);
               <MenuIcon />
             </IconButton>
             <Menu
-              anchorEl={anchorElNav}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
-              transformOrigin={{ vertical: 'top', horizontal: 'left' }}
-              sx={{ display: { xs: 'block', md: 'none' } }}
-            >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
+  anchorEl={anchorElUser}
+  open={Boolean(anchorElUser)}
+  onClose={handleCloseUserMenu}
+>
+ {settings.map((setting) => (
+  <MenuItem
+    key={setting}
+    onClick={() => {
+      handleCloseUserMenu();
+      if (setting === 'Logout') {
+        handleLogout();
+      }
+    }}
+  >
+    <Typography textAlign="center">{setting}</Typography>
+  </MenuItem>
+))}
+
+</Menu>
+
           </Box>
 
     
@@ -158,8 +186,8 @@ const totalItems = cartItems.reduce((sum, item) => sum + item.qty, 0);
    opt5={{ label: "home 6", path: "/home6" }}
    opt6={{ label: "home 7", path: "/home7" }}
 />
-            <Dropdown label="About Us" options={['Mission', 'Vision', 'Team']} />
-            <Dropdown label="Shop" opt1={{label: "Shop", path: "/shop"}} opt2={{label: "CartPage", path: "/cart"}} />
+            <Dropdown label="About Us" options={{label:"About",path:'/about'}} />
+            <Dropdown label="Shop" opt1={{label: "Shop", path: "/shop"}}  />
             <Dropdown label="Blog" options={['News', 'Events', 'Offers']} />
             <Dropdown label="Pages" options={['Gallery', 'Testimonials', 'FAQ']} />
             <Dropdown label="Contact" options={['Support', 'Email', 'Location']} />
@@ -178,7 +206,7 @@ const totalItems = cartItems.reduce((sum, item) => sum + item.qty, 0);
   color="success"
   sx={{ '& .MuiBadge-badge': { top: 22, right: 3 } }}
 >
-  <LocalMallIcon
+  <LocalMallIcon onClick={handleOpenCart}
     sx={{
       color: '#00A149',
       width: { xs: '22px', sm: '24px', md: '25px' },
@@ -209,7 +237,38 @@ const totalItems = cartItems.reduce((sum, item) => sum + item.qty, 0);
            Contact
             </Button>
 
-            <ClearAllIcon sx={{ color: 'black', fontSize: {  md: 28 },display:{ xs: 'none',sm:'none', md: 'flex' } }} />
+          <Box>
+  <IconButton onClick={handleOpenUserMenu}>
+    <ClearAllIcon sx={{ color: 'black', fontSize: 28 }} />
+  </IconButton>
+  <Menu
+    anchorEl={anchorElUser}
+    open={Boolean(anchorElUser)}
+    onClose={handleCloseUserMenu}
+  >
+    {!isLoggedIn ? (
+      <>
+ <MenuItem onClick={() => { 
+  navigate('/login'); 
+  handleCloseUserMenu(); 
+}}>
+  <Typography textAlign="center">Login</Typography>
+</MenuItem>
+
+        <MenuItem onClick={() => { navigate('/register'); handleCloseUserMenu(); }}>Register</MenuItem>
+      </>
+    ) : (
+      <MenuItem onClick={() => {
+        localStorage.removeItem('currentUser');
+        localStorage.setItem('isLoggedIn', 'false');
+        navigate('/');
+        handleCloseUserMenu();
+        window.location.reload(); // refresh to update UI
+      }}>Logout</MenuItem>
+    )}
+  </Menu>
+</Box>
+
           </Box>
         </Toolbar>
       </Container>
