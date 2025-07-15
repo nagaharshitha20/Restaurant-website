@@ -15,7 +15,8 @@ const Footer = () => {
         bgcolor: '#F5F8FD',
         pt: 10,
         pb: 6,
-        px: { xs: 2, sm: 4, md: 0 },
+        mx:'auto'
+        // px: { xs: 2, sm: 4, md: 0 },
       }}
     >
     

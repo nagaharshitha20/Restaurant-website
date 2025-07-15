@@ -10,7 +10,7 @@ const RecentNews = () => {
       sx={{
         position: 'relative',
         width: '100%',
-        minHeight: { xs: '380px', sm: '600px', md: '700px', lg: '600px' },
+        minHeight: { xs: '300px', sm: '400px', md: '700px', lg: '600px' },
         overflow: 'hidden',
         mt: { xs: '0px', sm: '0px', md: '24px', lg: '24px' },
         backgroundColor: '#fff',
@@ -22,7 +22,7 @@ const RecentNews = () => {
         alt="cover"
         sx={{
           width: '100%',
-          height: { xs: '350px', sm: '400px', md: '500px', lg: '600px' },
+          height: { xs: '300px', sm: '400px', md: '500px', lg: '600px' },
           objectFit: 'cover',
           position: 'absolute',
           top: 0,
@@ -32,13 +32,13 @@ const RecentNews = () => {
       />
       <Box sx={{ position: 'relative', display: 'flex', 
         justifyContent:{xs: 'flex-start',lg:'center'}, mt: { xs: 8, sm: 15, md: 20, lg: 25 } }}>
-        <Box sx={{ width: { xs: '90%', sm: '80%', md: '65%', lg: '55%' }, zIndex: 2, mr: { lg: 15 },ml:{xs:'13px'}, textAlign: { xs: 'left', lg: 'left' } }}>
+        <Box sx={{ width: { xs: '100%', sm: '80%', md: '65%', lg: '55%' }, zIndex: 2, mr: { lg: 15 },ml:{xs:'13px'}, textAlign: { xs: 'left', lg: 'left' } }}>
           <Typography
             sx={{
               color: '#F3274C',
               fontFamily: 'Fredoka One',
               fontSize: { xs: '10px', sm: '12px', md: '12px', lg: '12px' },
-              mb: 2,
+              mb: 1,
             }}
           >
             BEST APP FOR FOODS ORDERING
@@ -46,19 +46,19 @@ const RecentNews = () => {
           <Typography
             sx={{
               fontFamily: 'Fredoka One',
-              fontSize: { xs: '24px', sm: '30px', md: '36px', lg: '36px' },
+              fontSize: { xs: '20px', sm: '30px', md: '36px', lg: '36px' },
               lineHeight: 1.2,
-              mb: 3,
+              mb: 2,
             }}
           >
             Manage Your Restaurant <br />Anytime! Anywhere!
           </Typography>
-          <Box sx={{ listStyle: 'none', pl: 0, fontSize: { xs: '14px', sm: '18px', md: '20px', lg: '14px' } }}>
+          <Box sx={{ listStyle: 'none', pl: 0, fontSize: { xs: '12px', sm: '18px', md: '20px', lg: '14px' } }}>
             <li><TripOriginIcon sx={{ color: '#FFD40D', fontSize: '15px', fontFamily: 'Epilogue', mr: 1 }} /> Higher Reach - Minimal Effort</li>
             <li><TripOriginIcon sx={{ color: '#FFD40D', fontSize: '15px', fontFamily: 'Epilogue', mr: 1 }} /> Showcase your Brand</li>
             <li><TripOriginIcon sx={{ color: '#FFD40D', fontSize: '15px', fontFamily: 'Epilogue', mr: 1 }} /> Exclusive offers & discounts</li>
           </Box>
-          <Box sx={{ display: 'flex', gap: '20px', mt: '30px', justifyContent: { xs: 'flex-start', lg: 'flex-start' } }}>
+          <Box sx={{ display: 'flex', gap: {xs:'5px',sm:'20px'}, mt: '30px', justifyContent: { xs: 'flex-start', lg: 'flex-start' } }}>
             <NormalButton name="Google Play" bgcolor="#F3274C" color="#FFFFFF" style={{fontFamily:'Fredoka One'}}/>
             <NormalButton name="App Store" bgcolor="#000000" color="#FFFFFF" style={{fontFamily:'Fredoka One'}}/>
           </Box>
@@ -68,8 +68,8 @@ const RecentNews = () => {
             src={ImageAssets.Delivery}
             alt="Delivery"
             sx={{
-              width: { xs: '150px', sm: '180px', md: '200px', lg: '200px' },
-              height: { xs: '150px', sm: '180px', md: '200px', lg: '200px' },
+              width: { xs: '100px', sm: '180px', md: '200px', lg: '200px' },
+              height: { xs: '100px', sm: '180px', md: '200px', lg: '200px' },
               position: 'absolute',
                  display:{xs:'none', sm:'none', md:'none', lg:'block'},
               bottom: { xs: '-100px', sm: '-120px', md: '-150px', lg: '-5px' },
@@ -83,11 +83,11 @@ const RecentNews = () => {
             src={ImageAssets.order}
             alt="Order Phone"
             sx={{
-              width: { xs: '160px', sm: '250px', md: '300px', lg: '350px' },
+              width: { xs: '140px', sm: '250px', md: '300px', lg: '350px' },
               height: 'auto',
               position: 'absolute',
-              bottom: { xs: '-52px', sm: '40px', md: '60px', lg: '-120px' },
-              left: { xs: '70%', sm: '55%', md: '60%', lg: '970px' },
+              bottom: { xs: '-28px', sm: '37px', md: '60px', lg: '-120px' },
+              left: { xs: '80%', sm: '75%', md: '60%', lg: '970px' },
               transform: { xs: 'translateX(-50%)', sm: 'translateX(-50%)', md: 'translateX(-50%)', lg: 'none' },
               zIndex: 3,
             }}
@@ -98,11 +98,12 @@ const RecentNews = () => {
             src={ImageAssets.cheezypizza}
             alt="Cheezy Pizza"
             sx={{
-              width: { xs: '150px', sm: '180px', md: '200px', lg: '200px' },
+              width: { xs: '130px', sm: '180px', md: '200px', lg: '200px' },
               height: 'auto',
               position: 'absolute',
-              top: { xs: '-30px', sm: '-30px', md: '-40px', lg: '-110px' },
-              right: { xs: '0%', sm: '15%', md: '20%', lg: '120px' },
+              top: { xs: '-30px', sm: '-110px', md: '-40px', lg: '-110px' },
+               right: { xs: '0%', sm: '0%', md: '20%', lg: '120px' },
+                 display:{xs:'none', sm:'none', md:'block', lg:'block'},
               zIndex: 2,
             }}
           />
@@ -117,6 +118,7 @@ const RecentNews = () => {
               position: 'absolute',
               bottom: { xs: '30px', sm: '40px', md: '100px', lg: '40px' },
               right: { xs: '-10%', sm: '15%', md: '20%', lg: '20px' },
+               display:{xs:'none', sm:'none', md:'block', lg:'block'},
               zIndex: 1,
             }}
           />

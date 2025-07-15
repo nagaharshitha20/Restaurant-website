@@ -1,13 +1,13 @@
 import * as React from 'react';
 import {
   AppBar, Box, Toolbar, IconButton, Typography, Menu,
-  Container, Avatar, Button, Tooltip, MenuItem, Badge
+  Container, Badge, MenuItem
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import LocalMallIcon from '@mui/icons-material/LocalMall';
 import ClearAllIcon from '@mui/icons-material/ClearAll';
 import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { clearCart } from '../redux/filterSlice';
 import { ImageAssets } from '../ImageAssets';
 import Dropdown from './Dropdown';
@@ -54,11 +54,9 @@ function Navbar() {
     <AppBar position="fixed" elevation={0} sx={{ backgroundColor: '#FFFFFF' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          {/* Desktop logo */}
-          <Box
-            component="img"
-            src={ImageAssets.logo}
-            alt="logo"
+
+          {/* Desktop Logo */}
+          <Box component="img" src={ImageAssets.logo} alt="logo"
             sx={{
               width: { xs: 0, md: 119 },
               height: { xs: 0, md: 67 },
@@ -68,7 +66,7 @@ function Navbar() {
             }}
           />
 
-          {/* Desktop text */}
+          {/* Desktop Text */}
           <Typography
             variant="h6"
             noWrap
@@ -88,7 +86,7 @@ function Navbar() {
             pizza hut
           </Typography>
 
-          {/* Mobile menu icon */}
+          {/* Mobile Menu Icon */}
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton size="large" onClick={handleOpenNavMenu} color="inherit" sx={{ color: 'black' }}>
               <MenuIcon />
@@ -99,22 +97,12 @@ function Navbar() {
               onClose={handleCloseNavMenu}
               sx={{ display: { xs: 'block', md: 'none' } }}
             >
-              {/* Home dropdown */}
-              <MenuItem disabled><Typography textAlign="center" sx={{ fontWeight: 'bold' }}>Home</Typography></MenuItem>
-              {[
-                { label: 'Home 2', path: '/home2' },
-                { label: 'Home 3', path: '/home3' },
-                { label: 'Home 4', path: '/home4' },
-                { label: 'Home 5', path: '/home5' },
-                { label: 'Home 6', path: '/home6' },
-                { label: 'Home 7', path: '/home7' },
-              ].map((item) => (
-                <MenuItem key={item.label} onClick={() => { navigate(item.path); handleCloseNavMenu(); }}>
-                  <Typography textAlign="center">{item.label}</Typography>
+              <MenuItem disabled><Typography sx={{ fontWeight: 'bold' }}>Home</Typography></MenuItem>
+              {["/home2", "/home3", "/home4", "/home5", "/home6", "/home7"].map((path, index) => (
+                <MenuItem key={index} onClick={() => { navigate(path); handleCloseNavMenu(); }}>
+                  <Typography textAlign="center">{"Home `${index + 2}`"}</Typography>
                 </MenuItem>
               ))}
-
-              {/* About, Shop, Contact direct links */}
               {[
                 { label: 'About Us', path: '/about' },
                 { label: 'Shop', path: '/shop' },
@@ -124,30 +112,11 @@ function Navbar() {
                   <Typography textAlign="center">{item.label}</Typography>
                 </MenuItem>
               ))}
-
-              {/* Blog Dropdown */}
-              <MenuItem disabled><Typography textAlign="center" sx={{ fontWeight: 'bold' }}>Blog</Typography></MenuItem>
-              {['News', 'Events', 'Offers'].map((item) => (
-                <MenuItem key={item} onClick={() => { navigate(`/${item.toLowerCase()}`); handleCloseNavMenu(); }}>
-                  <Typography textAlign="center">{item}</Typography>
-                </MenuItem>
-              ))}
-
-              {/* Pages Dropdown */}
-              <MenuItem disabled><Typography textAlign="center" sx={{ fontWeight: 'bold' }}>Pages</Typography></MenuItem>
-              {['Gallery', 'Testimonials', 'FAQ'].map((item) => (
-                <MenuItem key={item} onClick={() => { navigate(`/${item.toLowerCase()}`); handleCloseNavMenu(); }}>
-                  <Typography textAlign="center">{item}</Typography>
-                </MenuItem>
-              ))}
             </Menu>
           </Box>
 
-          {/* Mobile logo */}
-          <Box
-            component="img"
-            src={ImageAssets.logo}
-            alt="logo"
+          {/* Mobile Logo */}
+          <Box component="img" src={ImageAssets.logo} alt="logo"
             sx={{
               width: { xs: 80, sm: 100 },
               height: { xs: 50, sm: 60 },
@@ -175,44 +144,37 @@ function Navbar() {
           </Typography>
 
           {/* Desktop Nav */}
-          <Box
-            sx={{
-              flexGrow: 1,
-              display: { xs: 'none', md: 'flex' },
-              ml: { md: 5, lg: 10 },
-              gap: { md: '20px', lg: '30px' },
-            }}
-          >
+          <Box sx={{
+            flexGrow: 1,
+            display: { xs: 'none', md: 'flex' },
+            alignItems: 'center',
+            ml: { md: 5, lg: 10 },
+            gap: { md: '20px', lg: '30px' },
+          }}>
             <Dropdown
               label="Home"
-              opt1={{ label: "home2", path: "/home2" }}
-              opt2={{ label: "home 3", path: "/home3" }}
-              opt3={{ label: "home 4", path: "/home4" }}
-              opt4={{ label: "home 5", path: "/home5" }}
-              opt5={{ label: "home 6", path: "/home6" }}
-              opt6={{ label: "home 7", path: "/home7" }}
+              opt1={{ label: "Home 2", path: "/home2" }}
+              opt2={{ label: "Home 3", path: "/home3" }}
+              opt3={{ label: "Home 4", path: "/home4" }}
+              opt4={{ label: "Home 5", path: "/home5" }}
+              opt5={{ label: "Home 6", path: "/home6" }}
+              opt6={{ label: "Home 7", path: "/home7" }}
             />
-            <Button onClick={() => navigate('/about')} sx={{ color: 'black', textTransform: 'none' }}>About</Button>
-            <Button onClick={() => navigate('/shop')} sx={{ color: 'black', textTransform: 'none' }}>Shop</Button>
+            <Link to="/about" style={{ color: 'black', textDecoration: 'none', fontSize: '16px' }}>About</Link>
+            <Link to="/shop" style={{ color: 'black', textDecoration: 'none', fontSize: '16px' }}>Shop</Link>
             <Dropdown label="Blog" options={['News', 'Events', 'Offers']} />
             <Dropdown label="Pages" options={['Gallery', 'Testimonials', 'FAQ']} />
-            <Button onClick={() => navigate('/contact')} sx={{ color: 'black', textTransform: 'none' }}>Contact</Button>
+            <Link to="/contact" style={{ color: 'black', textDecoration: 'none', fontSize: '16px' }}>Contact</Link>
           </Box>
 
           {/* Right Icons */}
-          <Box
-            sx={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: { xs: 1.5, sm: 2, md: 2.5 },
-              mr: { xs: 1, sm: 4, md: 10, lg: 18 },
-            }}
-          >
-            <Badge
-              badgeContent={totalItems}
-              color="success"
-              sx={{ '& .MuiBadge-badge': { top: 22, right: 3 } }}
-            >
+          <Box sx={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: { xs: 1.5, sm: 2, md: 2.5 },
+            mr: { xs: 1, sm: 4, md: 10, lg: 18 },
+          }}>
+            <Badge badgeContent={totalItems} color="success" sx={{ '& .MuiBadge-badge': { top: 22, right: 3 } }}>
               <LocalMallIcon
                 onClick={handleOpenCart}
                 sx={{
@@ -224,45 +186,33 @@ function Navbar() {
               />
             </Badge>
 
-            <Button
-              variant="contained"
-              sx={{
-                backgroundColor: '#FFC222',
-                color: '#FFFFFF',
-                fontWeight: 600,
-                fontSize: { xs: '14px', sm: '15px', md: '17px' },
-                fontFamily: 'Oswald',
-                borderRadius: '7px',
-                padding: { xs: '6px 14px', sm: '7px 18px', md: '8px 20px' },
-                textTransform: 'none',
-                boxShadow: 'none',
-                '&:hover': {
-                  backgroundColor: '#e6a700',
-                  boxShadow: 'none',
-                },
-              }}
-              onClick={() => navigate('/contact')}
-            >
+            {/* Contact Button */}
+            <Link to="/contact" style={{
+              backgroundColor: '#FFC222',
+              color: '#fff',
+              fontWeight: 600,
+              fontSize: '16px',
+              padding: '8px 18px',
+              borderRadius: '6px',
+              textDecoration: 'none',
+              fontFamily: 'Oswald',
+            }}>
               Contact
-            </Button>
+            </Link>
 
-            {/* User menu */}
+            {/* User Menu */}
             <Box>
               <IconButton onClick={handleOpenUserMenu}>
                 <ClearAllIcon sx={{ color: 'black', fontSize: 28 }} />
               </IconButton>
-              <Menu
-                anchorEl={anchorElUser}
-                open={Boolean(anchorElUser)}
-                onClose={handleCloseUserMenu}
-              >
+              <Menu anchorEl={anchorElUser} open={Boolean(anchorElUser)} onClose={handleCloseUserMenu}>
                 {!isLoggedIn ? (
                   <>
                     <MenuItem onClick={() => { navigate('/login'); handleCloseUserMenu(); }}>
-                      <Typography textAlign="center">Login</Typography>
+                      <Typography>Login</Typography>
                     </MenuItem>
                     <MenuItem onClick={() => { navigate('/register'); handleCloseUserMenu(); }}>
-                      <Typography textAlign="center">Register</Typography>
+                      <Typography>Register</Typography>
                     </MenuItem>
                   </>
                 ) : (

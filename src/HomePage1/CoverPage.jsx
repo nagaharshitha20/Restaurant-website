@@ -75,7 +75,7 @@ const CoverPage = () => {
             fontSize: { xs: '3vw', sm: '2.3vw', md: '20px' },
             color: 'lightgrey',
             textAlign: 'left',
-            mb: { xs: 2, sm: 4 },
+            mb: { xs: 0, sm: 4 },
             lineHeight: 1.5,
             maxWidth: '100%',
           }}
@@ -92,16 +92,16 @@ const CoverPage = () => {
             flexWrap: 'wrap',
             justifyContent: { xs: 'flex-end', sm: 'flex-start' },
             alignItems: 'center',
-            gap: { xs: 1.5, sm: 3 },
+            gap: { xs: 1.3, sm: 3 },
             width: '100%',
           }}
         >
-          <Box sx={{ display: 'flex', justifyContent: 'flex-end', mr: { xs: 10, sm: 0 } }}>
+          <Box sx={{ display: 'flex', justifyContent: 'flex-end', mr: { xs: 10, sm: 0 } ,mb:2}}>
             <PrimaryButton
               name="See Our Menus"
               to="/home7"
-              width={{ xs: '120px', sm: '160px', md: '190px' }}
-              borderwidth={{ xs: '110px', sm: '150px', md: '180px' }}
+              width={{ xs: '100px', sm: '160px', md: '190px' }}
+              borderwidth={{ xs: '90px', sm: '150px', md: '180px' }}
             />
           </Box>
 
