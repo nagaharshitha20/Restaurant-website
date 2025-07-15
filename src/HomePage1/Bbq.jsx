@@ -81,7 +81,7 @@ const Bbq = () => {
                 px: 3,
                 py: 2,
 
-                width: { xs: '20%', sm: '80px' },
+                width: { xs: '15%', sm: '80px' },
                 height: { xs: '50%', sm: '100px' },
                 backgroundColor: isActive ? '#F3274C' : '#fff',
                 border: isActive ? 'none' : '2px solid #ccc',

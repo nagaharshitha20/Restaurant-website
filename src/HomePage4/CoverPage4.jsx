@@ -45,7 +45,8 @@ const CoverPage4 = () => {
           justifyContent: 'center',
           alignItems: 'center',
           height: '100%',
-          px: { xs: 3 },
+          
+          px: { xs: 1.5 },
         }}
       >
         <Box
@@ -68,7 +69,7 @@ const CoverPage4 = () => {
               justifyContent: 'center',
               alignItems: { xs: 'flex-start', sm: 'flex-start', lg: 'flex-start' },
               textAlign: 'left',
-              mt: { xs: 4, sm: 10, md: 15, lg: 10 },
+              mt: { xs: 3, sm: 10, md: 15, lg: 10 },
               color: '#FFFFFF',
               textShadow: '2px 2px 4px rgba(0, 0, 0, 0.7)',
               width: '100%',
@@ -124,7 +125,7 @@ const CoverPage4 = () => {
                 display: 'flex',
                 flexDirection: 'row',
                 alignItems: 'center',
-                gap: { xs: 2, sm: 3, md: 4 },
+                gap: { xs: 0, sm: 3, md: 4 },
                 width: '100%',
               }}
             >
@@ -139,12 +140,12 @@ const CoverPage4 = () => {
               justifyContent: { xs: 'flex-end', sm: 'center', lg: 'flex-end' },
               alignItems: 'center',
               width: {
-                xs: '180px',
+                xs: '170px',
                 sm: '50%',
                 md: '60%',
                 lg: '55%',
               },
-              mt: { xs: 4, sm: 5, md: 10 },
+              mt: { xs: 0, sm: 5, md: 10 },
             }}
           >
             <Box

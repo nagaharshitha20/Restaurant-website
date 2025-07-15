@@ -86,7 +86,7 @@ const FeaturedDishes = () => {
 
       <Box
         sx={{
-          width: '70%',
+          width: {xs:'100%',md:'70%'},
           display: 'flex',
           justifyContent: 'center',
           flexDirection: 'column',

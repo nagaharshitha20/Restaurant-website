@@ -67,7 +67,7 @@ const CoverPage3 = () => {
               justifyContent: 'center',
               alignItems: { xs: 'flex-start', sm: 'flex-start', lg: 'flex-start' },
               textAlign: 'left',
-              mt: { xs: 3.5, sm: 10, md: 15, lg: 0 },
+              mt: { xs: 2, sm: 10, md: 15, lg: 0 },
               color: '#FFFFFF',
               textShadow: '2px 2px 4px rgba(0, 0, 0, 0.7)',
               width: '100%',
@@ -78,6 +78,7 @@ const CoverPage3 = () => {
                 fontSize: { xs: '12px', sm: '14px' },
                 fontFamily: 'Fredoka One',
                 color: '#F3274C',
+                display:{xs:'none',md:'flex'},
                 mb: { xs: 0, sm: 1 },
               }}
             >
@@ -90,7 +91,7 @@ const CoverPage3 = () => {
                 color: '#FFD40D',
                 fontFamily: 'Fredoka One',
                 fontSize: { xs: '6.5vw', sm: '5.5vw', md: '48px', lg: '50px' },
-                mb: { xs: 1, sm: 2 },
+                mb: { xs: 1., sm: 2 },
                 lineHeight: 1.3,
               }}
             >
@@ -103,8 +104,8 @@ const CoverPage3 = () => {
                 fontFamily: 'Epilogue',
                 fontSize: { xs: '2.6vw', sm: '2.3vw', md: '16px', lg: '20px' },
                 color: 'lightgrey',
-                mb: { xs: 2, sm: 3, lg: 4 },
-                lineHeight: { xs: 1, md: 1.5 },
+                mb: { xs: 1, sm: 3, lg: 4 },
+                lineHeight: { xs: 1.3, md: 1.5 },
               }}
             >
               Good food starts with good ingredients.
@@ -125,7 +126,7 @@ const CoverPage3 = () => {
                 name="View Our Menu"
                 onClick={() => console.log('Menu button clicked')}
               />
-              <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+              <Box sx={{ display: {xs:'none',md:'flex'}, alignItems: 'center', gap: 2 }}>
                 <Box
                   component="img"
                   src={ImageAssets.star5}
@@ -152,7 +153,7 @@ const CoverPage3 = () => {
               justifyContent: { xs: 'flex-end', sm: 'center', lg: 'flex-end' },
               alignItems:'center',
               width: {
-                xs: '150px',
+                xs: '160px',
                 sm: '100%',
                 md: '90%',
                 lg: '90%',
