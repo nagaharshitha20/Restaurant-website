@@ -65,11 +65,11 @@ const DiscoverMenu = () => {
   return (
     <Box
       sx={{
-        width: '90%',
+        width: '100%',
         minHeight: { xs: '480px', sm: '630px', md: '710px' },
         mt: { xs: '56px', sm: '64px' },
-       
-        px: { xs: 4, md: 8 },
+       mx:'auto',
+        // px: { xs: 0, md: 8 },
       }}
     >
       
@@ -112,8 +112,8 @@ const DiscoverMenu = () => {
             key={idx}
             sx={{
               position: 'relative',
-              width: '405px',
-              height: '220px',
+              width: {xs:'90%',md:'405px'},
+              height: {xs: 'auto',md:'220px'},
               borderRadius: '20px',
               overflow: 'visible',
             }}
@@ -151,8 +151,8 @@ const DiscoverMenu = () => {
                bottom: { xs: '-20px', sm: '-20px', md: '-30px' },
 
                 backgroundColor: '#FFD700',
-                width: '70px',
-                height: '70px',
+                width: {xs:'40px',md:'70px'},
+                height: {xs:'40px',md:'70px'},
                 padding:'15px',
                 borderRadius: '50%',
                 display: 'flex',

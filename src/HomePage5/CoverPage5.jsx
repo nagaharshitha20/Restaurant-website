@@ -11,14 +11,14 @@ const CoverPage5 = () => {
       sx={{
         position: 'relative',
         width: '100%',
-        minHeight: { xs: '35vh', sm: '60vh', md: '100vh' },
+        minHeight: { xs: '25vh', sm: '60vh', md: '100vh' },
         overflow: 'hidden',
-       margin: { xs: 2.5, sm: 2.5, md: 0 },
+margin: { xs: 1.3, sm: 2.5,md:0 },
         mt: { xs: '66px', sm: '64px' },
         mb: { xs: 4, sm: 4, md: 0 },
       }}
     >
-      {/* Background Image */}
+
       <Box
         component="img"
         src={ImageAssets.cover}
@@ -28,7 +28,7 @@ const CoverPage5 = () => {
           top: 0,
           left: 0,
           width: { xs: '95%', sm: '100%' },
-          height: { xs: '35vh', sm: '60vh', md: '100vh' },
+          height: { xs: '25vh', sm: '60vh', md: '100vh' },
           objectFit: 'cover',
           opacity: '97%',
           borderRadius: { xs: '30px', sm: '30px', md: 0 },
@@ -36,7 +36,7 @@ const CoverPage5 = () => {
         }}
       />
 
-      {/* Content */}
+     
     <Box
   sx={{
     position: { xs: 'relative', lg: 'absolute' },
@@ -54,7 +54,6 @@ const CoverPage5 = () => {
   }}
 >
 
-        {/* Text Section */}
         <Box
           sx={{
             maxWidth: '600px',
@@ -106,7 +105,7 @@ const CoverPage5 = () => {
             Exclusive offer <span style={{ color: '#FFD43A' }}>-35%</span> off this week
           </Typography>
 
-          {/* Button */}
+          
           <Box
             sx={{
               display: 'flex',
@@ -125,7 +124,7 @@ const CoverPage5 = () => {
             />
           </Box>
 
-          {/* Toggle Button: hidden for xs and sm */}
+       
           <Box
             sx={{
               mt: 6,
@@ -136,7 +135,7 @@ const CoverPage5 = () => {
           </Box>
         </Box>
 
-        {/* Image Section */}
+       
         <Box
           sx={{
             flexShrink: 0,

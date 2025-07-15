@@ -51,8 +51,9 @@ const Bbq = () => {
       sx={{
         position: 'relative',
         width: '90%',
+        mx:'auto',
         mt: { xs: '56px', sm: '64px' },
-        px: { xs: 2, sm: 4, md: 6, lg: 8 },
+        px: { xs: 0, sm: 4, md: 6, lg: 8 },
         py: { xs: 4, md: 6 },
       }}
     >
@@ -79,8 +80,9 @@ const Bbq = () => {
                 borderRadius: '12px',
                 px: 3,
                 py: 2,
-                width: { xs: '40px', sm: '80px' },
-                height: { xs: '70px', sm: '100px' },
+
+                width: { xs: '20%', sm: '80px' },
+                height: { xs: '50%', sm: '100px' },
                 backgroundColor: isActive ? '#F3274C' : '#fff',
                 border: isActive ? 'none' : '2px solid #ccc',
                 boxShadow: isActive ? '0px 4px 12px rgba(0,0,0,0.1)' : 'none',
@@ -210,7 +212,8 @@ const Bbq = () => {
               width: '100%',
               maxWidth: { xs: '100%', lg: '700px' },
               mx: 'auto',
-              p: { xs: 3, md: 4, lg: 5 },
+              
+              p: { xs: 0, md: 4, lg: 5 },
               boxShadow: '0 4px 12px rgba(0,0,0,0.05)',
             }}
           >

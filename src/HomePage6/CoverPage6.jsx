@@ -14,9 +14,10 @@ const CoverPage6 = () => {
       sx={{
         position: 'relative',
         width: '100%',
-        minHeight: { xs: '35vh', sm: '60vh', md: '100vh' },
+        minHeight: { xs: '25vh', sm: '60vh', md: '100vh' },
         overflow: 'hidden',
-        margin: { xs: 2.5, sm: 2.5, md: 0 },
+        mx:'auto',
+       margin: { xs: 1.3, sm: 2.5,md:0 },
         mt: { xs: '66px', sm: '64px' },
       }}
     >
@@ -27,7 +28,7 @@ const CoverPage6 = () => {
         alt="cover"
         sx={{
           width: { xs: '95%', md: '100%' },
-          height: { xs: '35vh', sm: '60vh', md: '100vh' },
+          height: { xs: '25vh', sm: '60vh', md: '100vh' },
           objectFit: 'cover',
           position: 'absolute',
           top: 0,

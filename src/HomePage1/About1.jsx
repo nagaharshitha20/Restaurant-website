@@ -5,7 +5,7 @@ import { ImageAssets } from '../ImageAssets';
 
 const styles = {
   threeImages: {
-    width: { xs: '100%', sm: '240px', md: '260px' },
+    width: { xs: '70%', sm: '240px', md: '260px' },
     height: 'auto',
     borderRadius: '20px',
     overflow: 'hidden',
@@ -65,17 +65,17 @@ const ChiefCard = ({ image, name, role }) => (
       <img src={image} alt="Chief" />
     </Box>
     <Box sx={{ ml: 2 }}>
-      <Typography variant="h6" sx={{ fontFamily: 'Fredoka One' }}>
+      <Typography variant="h6" sx={{ fontFamily: 'Fredoka One', }}>
         {name}
       </Typography>
-      <Typography sx={{ fontSize: '14px', fontFamily: 'Epilogue' }}>{role}</Typography>
+      <Typography sx={{ fontSize: { xs: '12px', sm: '14px' }, fontFamily: 'Epilogue' }}>{role}</Typography>
     </Box>
   </Box>
 );
 
 const About1 = () => {
   return (
-    <Box sx={{ width: '100%', mt: { xs: '40px', md: '64px' } }}>
+    <Box sx={{ width: '100%', mx:'auto',mt: { xs: '0px', md: '64px' } }}>
      
      <Box
   sx={{
@@ -111,7 +111,7 @@ const About1 = () => {
               fontFamily: 'Fredoka One',
               fontSize: { xs: '22px', md: '32px' },
               maxWidth: { xs: '100%', md: '300px' },
-              mb: 2,
+              mb: 1,
               lineHeight: 1.3,
               textAlign: { xs: 'left', md: 'left' },
             }}
@@ -124,7 +124,7 @@ const About1 = () => {
         <Box sx={{ flex: 1, maxWidth: '480px' }}>
           <Typography
             sx={{
-              fontSize: { xs: '14px', md: '15px' },
+              fontSize: { xs: '12px', md: '15px' },
               fontFamily: 'Epilogue',
               mb: 2,
               lineHeight: 1.6,
@@ -149,11 +149,13 @@ const About1 = () => {
           display: 'flex',
           flexDirection: { xs: 'column', sm: 'row' },
           justifyContent: 'center',
+          
           alignItems: 'center',
           flexWrap: 'wrap',
           gap: 4,
           mt: 8,
-          px: { xs: 17, md: 0 },
+          mx:'auto',
+          px: { xs: 0, md: 0 },
         }}
       >
         <ImageCard image={ImageAssets.restaurant} label="Restaurant" />

@@ -39,7 +39,7 @@ const CoverCarousel = () => {
 
   return (
     <div
-      style={{ width: '100%', overflow: 'hidden' }}
+      style={{ width: '100%', overflow: 'hidden' ,}}
       onClick={handleInteraction}
       onTouchStart={handleInteraction}
       onFocus={handleInteraction}

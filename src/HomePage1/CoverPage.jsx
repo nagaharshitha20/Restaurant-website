@@ -11,13 +11,13 @@ const CoverPage = () => {
       sx={{
         position: 'relative',
         width: '100%',
-        minHeight: { xs: '35vh', sm: '60vh', md: '100vh' },
+        minHeight: { xs: '25vh', sm: '60vh', md: '100vh' },
         overflowX: 'hidden',
-        margin: { xs: 2.5, sm: 2.5,md:0 },
+                margin: { xs: 1.3, sm: 2.5,md:0 },
         mt: { xs: '66px', sm: '64px' },
       }}
     >
-      {/* Background Image */}
+    
       <Box
         component="img"
         src={ImageAssets.cover}
@@ -28,13 +28,13 @@ const CoverPage = () => {
           left: 0,
           borderRadius: { xs: '30px', sm: '30px', md: '0' },
           width: {xs:'95%',md:'100%'},
-          height: { xs: '35vh', sm: '60vh', md: '100vh' },
+          height: { xs: '25vh', sm: '60vh', md: '100vh' },
           objectFit: 'cover',
           zIndex: 0,
         }}
       />
 
-      {/* Overlay Text Content */}
+    
       <Box
         sx={{
           position: { xs: 'relative', sm: 'absolute' },
@@ -58,7 +58,7 @@ const CoverPage = () => {
             fontFamily: 'Fredoka One',
             fontSize: { xs: '5.5vw', sm: '5.5vw', md: '48px' },
             textAlign: 'left',
-            mt: { xs: '6vw', sm: 0 },
+            mt: { xs: '8vw', sm: 0 },
             mb: 1,
             lineHeight: 1.2,
           }}
@@ -125,7 +125,7 @@ const CoverPage = () => {
         </Box>
       </Box>
 
-      {/* Weekly Special (Only for lg) */}
+     
       <Box
         sx={{
           display: { xs: 'none', lg: 'flex' },

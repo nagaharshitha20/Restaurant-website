@@ -28,7 +28,8 @@ const Review = () => {
         overflowX: 'hidden', 
         backgroundColor: '#ffffff',
         py: { xs: 8, md: 10 },
-        px: { xs: 2, md: 8 },
+        // px: { xs: 2, md: 8 },
+        mx:'auto',
       }}
     >
       <Box
@@ -196,13 +197,14 @@ const Review = () => {
         width: {xs:'100%', sm: '100%', md: '90%',lg:'90%'},
         minHeight: { xs: '480px', sm: '600px', md: '710px' },
         overflow: 'hidden',
+        mx:'auto',
         mt: { xs: '56px', sm: '64px' },
       }}
     ><Box
       sx={{
         backgroundColor: '#fff',
         py: { xs: 8, md: 10 },
-        px: { xs: 2, md: 8 },
+        // px: { xs: 2, md: 8 },
      
         textAlign: 'center',
       }}
