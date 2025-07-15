@@ -33,17 +33,18 @@ const Review = () => {
     >
       <Box
         sx={{
-          maxWidth: '1200px',
+          maxWidth: {lg:'1200px'},
           // mx: 'auto',
           display: 'flex',
+           px: { xs: 6, md: 8 },
           flexDirection: { xs: 'column', md: 'row' },
-          justifyContent: {sm:'space-between',md:'space-between',lg:'space-around'},
-          alignItems: 'flex-start',
+          justifyContent: {sm:'center',md:'space-between',lg:'space-around'},
+          alignItems: 'center',
           position: 'relative',
         }}
       >
         
-        <Box sx={{ width: { xs: '100%', md: '55%' }, zIndex: 2 }}>
+        <Box sx={{ width: { xs: '100%', md: '55%' }, zIndex: 2, }}>
           <Typography
             sx={{
               color: '#F3274C',
