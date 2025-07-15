@@ -1,56 +1,66 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Box } from '@mui/material';
 
-const PrimaryButton = ({ name, color = '#fff', bgcolor = '#EE3A43',width= '189.91px',   height= '55px',borderwidth="180.41px", border = '#EE3A43', to, onClick}) => {
+const PrimaryButton = ({
+  name,
+  color = '#fff',
+  bgcolor = '#EE3A43',
+  width = { xs: '135px', sm: '190px' },
+  height = { xs: '48px', sm: '55px' },
+  borderwidth = { xs: '125px', sm: '180px' },
+  border = '#EE3A43',
+  to,
+  onClick,
+}) => {
   const navigate = useNavigate();
+
   const handleClick = () => {
-    if (to) {
-      navigate(to);
-    } else if (onClick) {
-      onClick();
-    }
-  }; 
+    if (to) navigate(to);
+    else if (onClick) onClick();
+  };
+
   return (
-    <div style={{ position: 'relative', display: 'inline-block' }}>
-   
-      <div
-        style={{
+    <Box sx={{ position: 'relative', display: 'inline-block' }}>
+      {/* Border Layer */}
+      <Box
+        sx={{
           position: 'absolute',
           top: '6px',
           left: '6px',
           width: borderwidth,
-          height: '65.19px',
-        
+          height: { xs: '58px', sm: '65.19px' },
           border: `3px solid ${border}`,
-          marginLeft: '6px',
-          marginTop: '-3px',
+          ml: '6px',
+          mt: '-3px',
           borderRadius: '12px',
           zIndex: 0,
         }}
-      ></div>
+      />
 
-      <button
+      {/* Actual Button */}
+      <Box
+        component="button"
         onClick={handleClick}
-        style={{
+        sx={{
           position: 'relative',
           backgroundColor: bgcolor,
           color: color,
-          // fontWeight: 'bold',
-          padding: '12px 30px',
-            fontFamily: 'Fredoka One',
-          fontSize: '16px',
+          padding:{ xs:'8px 20px',sm:'12px 30px'},
+          fontFamily: 'Fredoka One',
+          fontSize: { xs: '3.2vw', sm: '16px' },
           border: 'none',
           width: width,
           height: height,
-          marginTop: '10px',
+          mt: '10px',
           borderRadius: '12px',
           cursor: 'pointer',
           zIndex: 1,
         }}
       >
         {name}
-      </button>
-    </div>
+      </Box>
+    </Box>
   );
 };
 

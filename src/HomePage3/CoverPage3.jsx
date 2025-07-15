@@ -3,7 +3,6 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import PrimaryButton from '../Common/PrimaryButton';
 import { ImageAssets } from '../ImageAssets';
-import PlayButton from '../Common/PlayButton';
 
 const CoverPage3 = () => {
   return (
@@ -11,144 +10,171 @@ const CoverPage3 = () => {
       sx={{
         position: 'relative',
         width: '100%',
-        minHeight: { xs: '70vh', sm: '100vh', md: '100vh' },
+        minHeight: { xs: '35vh', sm: '60vh', md: '100vh' },
         overflow: 'hidden',
-        mt: { xs: '56px', sm: '64px' },
+        margin: { xs: 2.5, sm: 2.5, md: 0 },
+        mt: { xs: '66px', sm: '64px' },
       }}
     >
-
+      {/* Background Image */}
       <Box
         component="img"
         src={ImageAssets.bg3}
         alt="cover"
         sx={{
+          width: { xs: '95%', md: '100%' },
+          height: { xs: '35vh', sm: '60vh', md: '100vh' },
+          objectFit: 'cover',
           position: 'absolute',
           top: 0,
           left: 0,
-          width: '100%',
-          height: {xs:'100vh', sm: '100vh', md: '100vh'},
-          objectFit: 'cover',
+          borderRadius: { xs: '30px', sm: '30px', md: 0 },
           zIndex: 0,
         }}
       />
 
-     
+      {/* Content */}
       <Box
         sx={{
-          position: {
-            xs: 'relative',
-            sm: 'absolute',
-          },
-          top: {
-            xs: 'auto',
-            sm: '50%',
-          },
-          left: {
-            xs: '0',
-            sm: 0,
-            md: '180px',
-          },
-          transform: {
-            xs: 'none',
-            sm: 'translateY(-50%)',
-          },
-          display: 'flex',
-          flexDirection: 'row',
-          alignItems: { xs: 'flex-start', sm: 'center' },
-          justifyContent: 'space-between',
-          width: {
-            xs: '90%',
-            sm: '80%',
-            md: '600px',
-          },
-          px: { xs: 3, sm: 4 },
+          position: { xs: 'absolute', lg: 'absolute' },
+          top: { lg: '50%' },
+          left: { lg: '180px' },
+          transform: { lg: 'translateY(-50%)' },
           zIndex: 1,
-          color: '#FFFFFF',
-          textShadow: '2px 2px 4px rgba(0, 0, 0, 0.7)',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          height: '100%',
+          px: { xs: 3 },
         }}
-      ><Box>
-        <Typography
-            sx={{
-              fontSize: '14px',
-              fontFamily: 'Fredoka One',
-              color: '#F3274C',
-              mb: 1,
-              textAlign: { xs: 'center', md: 'left' },
-            }}
-          >
-            Fastest Delivery & Easy Pickup
-          </Typography>
-        <Typography
-          variant="h3"
-          sx={{
-            color: '#FFD40D',
-            fontFamily: 'Fredoka One',
-            fontSize: { xs: '8vw', sm: '6vw', md: '50px' },
-            textAlign: 'left',
-            mt: { xs: '35vw',sm:'0vw',md:'0vw',lg:'0vw' },
-            mb: 2,
-            lineHeight: 1.2,
-          }}
-        >
-        Kings Burger
-        </Typography>
-
-        
-        <Typography
-          variant="body1"
-          sx={{
-            fontFamily: 'Epilogue',
-            fontSize: { xs: '3.5vw', sm: '2.5vw', md: '20px' },
-            color: 'lightgrey',
-            textAlign: 'left',
-            mb: { xs: 3, sm: 4 },
-            lineHeight: 1.5,
-            maxWidth: '100%',
-          }}
-        >
-          Good food starts with good ingridients. We only
-bring you the best.
-        </Typography>
-
-      
+      >
         <Box
           sx={{
             display: 'flex',
-            flexDirection: 'row',
-            flexWrap: 'wrap',
-            alignItems: 'center',
-            gap: { xs: 2, sm: 3,md:4 },
+            flexDirection: { xs: 'row', lg: 'row' },
+            justifyContent: 'center',
+            alignItems: { xs: 'center', lg: 'center' },
+            gap: { xs: 4, lg: 6 },
+            maxWidth: { xs: '100%', lg: '100%' },
             width: '100%',
           }}
         >
-          <PrimaryButton
-            name="View Our Menu"
-            onClick={() => console.log('Menu button clicked')}
-          />
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-           <img src={ImageAssets.star5} alt="5 star" />
-            
-          </Box>
-        <Typography
+          {/* Left Section */}
+          <Box
+            sx={{
+              flex: 1,
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: { xs: 'flex-start', sm: 'flex-start', lg: 'flex-start' },
+              textAlign: 'left',
+              mt: { xs: 3.5, sm: 10, md: 15, lg: 0 },
+              color: '#FFFFFF',
+              textShadow: '2px 2px 4px rgba(0, 0, 0, 0.7)',
+              width: '100%',
+            }}
+          >
+            <Typography
               sx={{
-                fontSize: { xs: '4vw', sm: '16px' },
+                fontSize: { xs: '12px', sm: '14px' },
                 fontFamily: 'Fredoka One',
+                color: '#F3274C',
+                mb: { xs: 0, sm: 1 },
               }}
             >
-              4.8
+              Fastest Delivery & Easy Pickup
             </Typography>
-      </Box>
-      </Box>
-          <Box sx={{
-            width: { xs: '100px', sm: '150px', md: '100px' },      }}>
-        <img src={ImageAssets.chickenburger} 
-     alt="Pizza" />
 
-    </Box>
+            <Typography
+              variant="h3"
+              sx={{
+                color: '#FFD40D',
+                fontFamily: 'Fredoka One',
+                fontSize: { xs: '6.5vw', sm: '5.5vw', md: '48px', lg: '50px' },
+                mb: { xs: 1, sm: 2 },
+                lineHeight: 1.3,
+              }}
+            >
+              Kings Burger
+            </Typography>
+
+            <Typography
+              variant="body1"
+              sx={{
+                fontFamily: 'Epilogue',
+                fontSize: { xs: '2.6vw', sm: '2.3vw', md: '16px', lg: '20px' },
+                color: 'lightgrey',
+                mb: { xs: 2, sm: 3, lg: 4 },
+                lineHeight: { xs: 1, md: 1.5 },
+              }}
+            >
+              Good food starts with good ingredients.
+              <br />
+              We only bring you the best.
+            </Typography>
+
+            {/* Button and Rating */}
+            <Box
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: { xs: 3, sm: 3, md: 4 },
+                width: '100%',
+              }}
+            >
+              <PrimaryButton
+                name="View Our Menu"
+                onClick={() => console.log('Menu button clicked')}
+              />
+              <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                <Box
+                  component="img"
+                  src={ImageAssets.star5}
+                  alt="5 star"
+                  sx={{ width: { xs: '60px', sm: '80px' } }}
+                />
+                <Typography
+                  sx={{
+                    fontSize: { xs: '4vw', sm: '16px' },
+                    fontFamily: 'Fredoka One',
+                    color: '#fff',
+                  }}
+                >
+                  4.8
+                </Typography>
+              </Box>
+            </Box>
+          </Box>
+
+          {/* Right Image */}
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: { xs: 'flex-end', sm: 'center', lg: 'flex-end' },
+              alignItems:'center',
+              width: {
+                xs: '160px',
+                sm: '100%',
+                md: '90%',
+                lg: '90%',
+              },
+             
+              mt: { xs: 0, sm: 0, md: 2, lg: 10 },
+            }}
+          >
+            <Box
+              component="img"
+              src={ImageAssets.chickenburger}
+              alt="Chicken Burger"
+              sx={{
+                width: '100%',
+                height: 'auto',
+              }}
+            />
+          </Box>
+        </Box>
       </Box>
-  
-     </Box>
-    
+    </Box>
   );
 };
 

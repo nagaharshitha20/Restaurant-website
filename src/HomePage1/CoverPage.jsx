@@ -11,12 +11,13 @@ const CoverPage = () => {
       sx={{
         position: 'relative',
         width: '100%',
-        minHeight: { xs: '70vh', sm: '100vh', md: '100vh' },
-        overflow: 'hidden',
-        mt: { xs: '56px', sm: '64px' },
+        minHeight: { xs: '35vh', sm: '60vh', md: '100vh' },
+        overflowX: 'hidden',
+        margin: { xs: 2.5, sm: 2.5,md:0 },
+        mt: { xs: '66px', sm: '64px' },
       }}
     >
-  
+      {/* Background Image */}
       <Box
         component="img"
         src={ImageAssets.cover}
@@ -25,57 +26,40 @@ const CoverPage = () => {
           position: 'absolute',
           top: 0,
           left: 0,
-          width: '100%',
-          height: {xs:'100vh', sm: '100vh', md: '100vh'},
+          borderRadius: { xs: '30px', sm: '30px', md: '0' },
+          width: {xs:'95%',md:'100%'},
+          height: { xs: '35vh', sm: '60vh', md: '100vh' },
           objectFit: 'cover',
           zIndex: 0,
         }}
       />
 
-    
+      {/* Overlay Text Content */}
       <Box
         sx={{
-          position: {
-            xs: 'relative',
-            sm: 'absolute',
-          },
-          top: {
-            xs: 'auto',
-            sm: '50%',
-          },
-          left: {
-            xs: '0',
-            sm: 0,
-            md: '180px',
-          },
-          transform: {
-            xs: 'none',
-            sm: 'translateY(-50%)',
-          },
+          position: { xs: 'relative', sm: 'absolute' },
+          top: { xs: 'auto', sm: '50%' },
+          left: { xs: 0, md: '180px' },
+          transform: { xs: 'none', sm: 'translateY(-50%)' },
           display: 'flex',
           flexDirection: 'column',
-          alignItems: { xs: 'flex-start', sm: 'flex-start' },
+          alignItems: 'flex-start',
           justifyContent: 'center',
-          width: {
-            xs: '90%',
-            sm: '80%',
-            md: '600px',
-          },
-          px: { xs: 3, sm: 4 },
+          width: { xs: '100%', sm: '90%', md: '600px' },
+          px: { xs: 4, sm: 4 },
           zIndex: 1,
           color: '#FFFFFF',
           textShadow: '2px 2px 4px rgba(0, 0, 0, 0.7)',
         }}
       >
-      
         <Typography
           variant="h3"
           sx={{
             fontFamily: 'Fredoka One',
-            fontSize: { xs: '8vw', sm: '6vw', md: '48px' },
+            fontSize: { xs: '5.5vw', sm: '5.5vw', md: '48px' },
             textAlign: 'left',
-            mt: { xs: '35vw',sm:'0vw',md:'0vw',lg:'0vw' },
-            mb: 2,
+            mt: { xs: '6vw', sm: 0 },
+            mb: 1,
             lineHeight: 1.2,
           }}
         >
@@ -84,42 +68,54 @@ const CoverPage = () => {
           Enjoy Fantastic Food
         </Typography>
 
-      
         <Typography
           variant="body1"
           sx={{
             fontFamily: 'Epilogue',
-            fontSize: { xs: '3.5vw', sm: '2.5vw', md: '20px' },
+            fontSize: { xs: '3vw', sm: '2.3vw', md: '20px' },
             color: 'lightgrey',
             textAlign: 'left',
-            mb: { xs: 3, sm: 4 },
+            mb: { xs: 2, sm: 4 },
             lineHeight: 1.5,
             maxWidth: '100%',
           }}
         >
-          Festive dining at Farthings where we are strong believers in using the very best produce
+          Festive dining at Farthings where we are strong believer
+          <br />
+          in using the very best produce
         </Typography>
 
-     
         <Box
           sx={{
             display: 'flex',
             flexDirection: 'row',
             flexWrap: 'wrap',
+            justifyContent: { xs: 'flex-end', sm: 'flex-start' },
             alignItems: 'center',
-            gap: { xs: 2, sm: 3 },
+            gap: { xs: 1.5, sm: 3 },
             width: '100%',
           }}
         >
-          <PrimaryButton
-            name="See Our Menus"
-            to='/home7'
-          />
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+          <Box sx={{ display: 'flex', justifyContent: 'flex-end', mr: { xs: 10, sm: 0 } }}>
+            <PrimaryButton
+              name="See Our Menus"
+              to="/home7"
+              width={{ xs: '120px', sm: '160px', md: '190px' }}
+              borderwidth={{ xs: '110px', sm: '150px', md: '180px' }}
+            />
+          </Box>
+
+          <Box
+            sx={{
+              display: { xs: 'none', sm: 'flex' },
+              alignItems: 'center',
+              gap: 2,
+            }}
+          >
             <PlayButton onClick={() => console.log('Play video')} />
             <Typography
               sx={{
-                fontSize: { xs: '4vw', sm: '16px' },
+                fontSize: { sm: '14px', md: '16px' },
                 fontFamily: 'Fredoka One',
               }}
             >
@@ -129,7 +125,7 @@ const CoverPage = () => {
         </Box>
       </Box>
 
-    
+      {/* Weekly Special (Only for lg) */}
       <Box
         sx={{
           display: { xs: 'none', lg: 'flex' },

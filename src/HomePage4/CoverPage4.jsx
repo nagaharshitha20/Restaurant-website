@@ -3,18 +3,20 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { ImageAssets } from '../ImageAssets';
 import NormalButton from '../Common/NormalButton';
+
 const CoverPage4 = () => {
   return (
     <Box
       sx={{
         position: 'relative',
         width: '100%',
-        minHeight: { xs: '70vh', sm: '100vh', md: '100vh' },
+        minHeight: { xs: '35vh', sm: '60vh', md: '100vh' },
         overflow: 'hidden',
-        mt: { xs: '56px', sm: '64px' },
+        margin: { xs: 2.5, sm: 2.5, md: 0 },
+        mt: { xs: '66px', sm: '64px' },
       }}
     >
-     
+      {/* Background Image */}
       <Box
         component="img"
         src={ImageAssets.cover4}
@@ -22,123 +24,143 @@ const CoverPage4 = () => {
         sx={{
           position: 'absolute',
           top: 0,
-          backgroundColor:'black',
           left: 0,
-          width: '100%',
-          height: {xs:'100vh', sm: '100vh', md: '100vh'},
+          width: { xs: '95%', md: '100%' },
+          height: { xs: '35vh', sm: '60vh', md: '100vh' },
           objectFit: 'cover',
+          backgroundColor: 'black',
+          borderRadius: { xs: '30px', sm: '30px', md: 0 },
           zIndex: 0,
         }}
       />
 
-    
+      {/* Content */}
       <Box
         sx={{
-          position: {
-            xs: 'relative',
-            sm: 'absolute',
-          },
-          top: {
-            xs: 'auto',
-            sm: '50%',
-          },
-          left: {
-            xs: '0',
-            sm: 0,
-            md: '180px',
-          },
-          transform: {
-            xs: 'none',
-            sm: 'translateY(-50%)',
-          },
-          display: 'flex',
-          flexDirection: 'row',
-          alignItems: { xs: 'flex-start', sm: 'center' },
-          justifyContent: 'space-between',
-          width: {
-            xs: '90%',
-            sm: '80%',
-            md: '600px',
-          },
-          px: { xs: 3, sm: 4 },
+          position: { xs: 'relative', lg: 'absolute' },
+          top: { lg: '50%' },
+          left: { lg: '180px' },
+          transform: { lg: 'translateY(-50%)' },
           zIndex: 1,
-          color: '#FFFFFF',
-          textShadow: '2px 2px 4px rgba(0, 0, 0, 0.7)',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          height: '100%',
+          px: { xs: 3 },
         }}
-      ><Box>
-        <Typography
-            sx={{
-              fontSize: '16px',
-              fontFamily: 'Oswald',
-              
-              color: '#FFD40D',
-              mb: 1,
-              textAlign: { xs: 'center', md: 'left' },
-            }}
-          >
-            Crispy, every bite tasty
-          </Typography>
-        <Typography
-          variant="h3"
-          sx={{
-            color: '#fff',
-            fontFamily: 'Oswald',
-            fontSize: { xs: '8vw', sm: '6vw', md: '60px' },
-            textAlign: 'left',
-            mt: { xs: '35vw',sm:'0vw',md:'0vw',lg:'0vw' },
-            mb: 2,
-            lineHeight: 1.2,
-          }}
-        >
-       HOT SPICY CHICKEN<br/> BURGER
-        </Typography>
-<Box sx={{display:'flex',justifyContent:'flex-start',alignItems:'center',gap:2,}}>
-     <Typography
-          variant="body1"
-          sx={{
-            fontFamily: 'Oswald',
-            fontSize: { xs: '3.5vw', sm: '2.5vw', md: '30px' },
-            color: 'lightgrey',
-            textAlign: 'left',
-            // mb: { xs: 3, sm: 4 },
-            lineHeight: 1.5,
-            maxWidth: '100%',
-          }}
-        >
-          Limited Offer/
-         
-        </Typography>
-         < Typography 
-         sx={{fontSize: { xs: '3.5vw', sm: '2.5vw', md: '40px' }, fontFamily: 'Oswald', 
-         color: '#fff',}}>
-            $5</Typography>
-</Box>
-       
+      >
         <Box
           sx={{
             display: 'flex',
-            flexDirection: 'row',
-            flexWrap: 'wrap',
-            alignItems: 'center',
-            gap: { xs: 2, sm: 3,md:4 },
+            flexDirection: { xs: 'row', lg: 'row' },
+            justifyContent: 'center',
+            alignItems: { xs: 'center', lg: 'center' },
+            gap: { xs: 0, lg: 6 },
+            maxWidth: { xs: '100%', lg: '100%' },
             width: '100%',
           }}
         >
-         <NormalButton name="Order Now" bgcolor="#F3274C" color="#FFFFFF" />
-          
-      
-      </Box>
-      </Box>
-          <Box sx={{
-            width: { xs: '100px', sm: '150px', md: '150px' },      }}>
-        <img src={ImageAssets.burger4} 
-     alt="Pizza" />
+          {/* Left Section */}
+          <Box
+            sx={{
+              flex: 1,
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: { xs: 'flex-start', sm: 'flex-start', lg: 'flex-start' },
+              textAlign: 'left',
+              mt: { xs: 3.5, sm: 10, md: 15, lg: 10 },
+              color: '#FFFFFF',
+              textShadow: '2px 2px 4px rgba(0, 0, 0, 0.7)',
+              width: '100%',
+            }}
+          >
+            <Typography
+              sx={{
+                fontSize: { xs: '12px', sm: '14px' },
+                fontFamily: 'Oswald',
+                color: '#FFD40D',
+                mb: { xs: 1, sm: 1 },
+              }}
+            >
+              Crispy, every bite tasty
+            </Typography>
 
-    </Box>
+            <Typography
+              variant="h3"
+              sx={{
+                color: '#fff',
+                fontFamily: 'Oswald',
+                fontSize: { xs: '6.5vw', sm: '5.5vw', md: '48px', lg: '60px' },
+                mb: { xs: 1, sm: 2 },
+                lineHeight: 1.3,
+              }}
+            >
+              HOT SPICY CHICKEN<br />BURGER
+            </Typography>
+
+            <Box sx={{ display: 'flex', gap: 2, alignItems: 'center', mb: { xs: 2, sm: 3 } }}>
+              <Typography
+                sx={{
+                  fontFamily: 'Oswald',
+                  fontSize: { xs: '3.2vw', sm: '2.5vw', md: '20px' },
+                  color: 'lightgrey',
+                }}
+              >
+                Limited Offer/
+              </Typography>
+              <Typography
+                sx={{
+                  fontSize: { xs: '3.2vw', sm: '2.5vw', md: '28px' },
+                  fontFamily: 'Oswald',
+                  color: '#fff',
+                }}
+              >
+                $5
+              </Typography>
+            </Box>
+
+            <Box
+              sx={{
+                display: 'flex',
+                flexDirection: 'row',
+                alignItems: 'center',
+                gap: { xs: 2, sm: 3, md: 4 },
+                width: '100%',
+              }}
+            >
+              <NormalButton name="Order Now" bgcolor="#F3274C" color="#FFFFFF" />
+            </Box>
+          </Box>
+
+          {/* Right Image */}
+          <Box
+            sx={{
+              display: 'flex' ,
+              justifyContent: { xs: 'flex-end', sm: 'center', lg: 'flex-end' },
+              alignItems: 'center',
+              width: {
+                xs: '180px',
+                sm: '50%',
+                md: '60%',
+                lg: '55%',
+              },
+              mt: { xs: 0, sm: 5, md: 10 },
+            }}
+          >
+            <Box
+              component="img"
+              src={ImageAssets.burger4}
+              alt="Burger"
+              sx={{
+                width: '100%',
+                height: 'auto',
+              }}
+            />
+          </Box>
+        </Box>
       </Box>
-  
-     </Box>
-    
+    </Box>
   );
 };
 

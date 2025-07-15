@@ -11,28 +11,30 @@ const CoverPage2 = () => {
       sx={{
         position: 'relative',
         width: '100%',
-        minHeight: { xs: '480px', sm: '600px', md: '710px' },
+        minHeight: { xs: '35vh', sm: '60vh', md: '100vh' },
         overflow: 'hidden',
-        mt: { xs: '56px', sm: '64px' },
+        margin: { xs: 2.5, sm: 2.5, md: 0 },
+        mt: { xs: '66px', sm: '64px' },
       }}
     >
-     
+      {/* Background Image */}
       <Box
         component="img"
         src={ImageAssets.cover2}
         alt="cover"
         sx={{
-          width: '100%',
-          height: '100%',
+          width: { xs: '95%', md: '100%' },
+          height: { xs: '35vh', sm: '60vh', md: '100vh' },
           objectFit: 'cover',
           position: 'absolute',
           top: 0,
           left: 0,
+          borderRadius: { xs: '30px', sm: '30px', md: 0 },
           zIndex: 0,
-          height: { xs: '300px', sm: '100%', md: '100%', lg: '100%' },
         }}
       />
 
+      {/* Content Box */}
       <Box
         sx={{
           position: 'relative',
@@ -41,10 +43,9 @@ const CoverPage2 = () => {
           justifyContent: 'center',
           alignItems: 'center',
           height: '100%',
-          px: { xs: 2,  },
+          px: { xs: 3 },
         }}
       >
-      
         <Box
           sx={{
             display: 'flex',
@@ -56,11 +57,23 @@ const CoverPage2 = () => {
             width: '100%',
           }}
         >
-          <Box sx={{ flex: 1 ,display: 'flex',flexDirection:'column', justifyContent:'center', alignItems: 'center', textAlign: 'left',mt:15}}>
+          {/* Left Section */}
+          <Box
+            sx={{
+              flex: 1,
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'flex-start',
+              textAlign: { xs: 'left', sm: 'left' },
+              mt: { xs: 2, sm: 6, md: 15 },
+              width: '100%',
+            }}
+          >
             <Typography
               variant="h3"
               sx={{
-                fontSize: { xs: '24px', sm: '36px', md: '48px' },
+                fontSize: { xs: '5.5vw', sm: '5.5vw', md: '48px' },
                 fontFamily: 'Fredoka One',
                 mb: 2,
                 lineHeight: 1.4,
@@ -82,19 +95,25 @@ const CoverPage2 = () => {
             <Typography
               variant="h6"
               sx={{
-                fontSize: { xs: '14px', sm: '18px', md: '16px' },
+                fontSize: { xs: '3.5vw', sm: '2.3vw', md: '16px' },
                 color: '#555555',
-                mb: { xs: 2, sm: 3 },
+                mb: { xs: 1, sm: 3 },
                 fontFamily: 'Fredoka One',
-               marginLeft: '-156px',
                 lineHeight: 1.4,
               }}
             >
               ARRIVING FROM PARIS IN 1986
             </Typography>
 
-         
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+            {/* Form Section - hidden on xs */}
+            <Box
+              sx={{
+                display: { xs: 'none', sm: 'flex' },
+                flexDirection: 'column',
+                gap: 2,
+                width:{xs:'80%',md:'100%'}
+              }}
+            >
               <TextField
                 placeholder="No of Guest"
                 size="small"
@@ -103,7 +122,7 @@ const CoverPage2 = () => {
                 sx={{ backgroundColor: '#fff', borderRadius: '6px' }}
               />
 
-              <Box sx={{ display: 'flex', gap: 2 }}>
+              <Box sx={{ display: 'flex', gap: 2}}>
                 <TextField
                   placeholder="Date"
                   size="small"
@@ -119,69 +138,67 @@ const CoverPage2 = () => {
                   sx={{ backgroundColor: '#fff', borderRadius: '6px' }}
                 />
               </Box>
+            </Box>
 
-              <Box sx={{ mt: 1 }}>
-                <PrimaryButton
-                  name="Reserve a Table"
-                  onClick={() => console.log('Reserve button clicked')}
-                />
-              </Box>
+            {/* Button (always visible) */}
+            <Box sx={{ mt: { xs: 0, sm: 2 } }}>
+              <PrimaryButton
+                name="Reserve a Table"
+                onClick={() => console.log('Reserve button clicked')}
+              />
             </Box>
           </Box>
 
-         
+          {/* Right Images */}
           <Box
-  sx={{
-    display: 'flex',
-    flexDirection: 'row',
-    gap: 5,
-    alignItems: 'center',
-    mt: { xs: 4, lg: 0 },
-    position: 'relative',
-  }}
->
-  <Box
-    component="img"
-    src={ImageAssets.carrot}
-    alt="carrot"
-    sx={{
-      width: { xs: '120px', sm: '150px', md: '180px' },
-      height: '300px',
-      borderRadius: '180px',
-      objectFit: 'cover',
-    }}
-  />
+            sx={{
+              display: { xs: 'none', sm: 'flex' }, // Hide visuals on extra small
+              flexDirection: 'row',
+              gap: 5,
+              alignItems: 'center',
+              mt: { sm: 4, lg: 0 },
+              position: 'relative',
+            }}
+          >
+            <Box
+              component="img"
+              src={ImageAssets.carrot}
+              alt="carrot"
+              sx={{
+                width: { sm: '150px', md: '180px' },
+                height: '300px',
+                borderRadius: '180px',
+                objectFit: 'cover',
+              }}
+            />
 
+            <Box sx={{ position: 'relative', mt: '160px' }}>
+              <Box
+                component="img"
+                src={ImageAssets.sidedish}
+                alt="sidedish"
+                sx={{
+                  width: { sm: '150px', md: '180px' },
+                  height: '300px',
+                  borderRadius: '180px',
+                  objectFit: 'cover',
+                }}
+              />
 
-  <Box sx={{ position: 'relative', mt: '160px' }}>
-    <Box
-      component="img"
-      src={ImageAssets.sidedish}
-      alt="sidedish"
-      sx={{
-        width: { xs: '120px', sm: '150px', md: '180px' },
-        height: '300px',
-        borderRadius: '180px',
-        objectFit: 'cover',
-      }}
-    />
-
-   
-    <Box
-      component="img"
-      src={ImageAssets.freedel}
-      alt="Free Delivery"
-      sx={{
-        position: 'absolute',
-        top: '-130px',
-        right: '-30px',
-        width: { xs: '70px', sm: '80px', md: '230px' },
-        height: 'auto',
-      }}
-    />
-  </Box>
-</Box>
-
+              <Box
+                component="img"
+                src={ImageAssets.freedel}
+                alt="Free Delivery"
+                sx={{
+                  position: 'absolute',
+                  top: '-130px',
+                  right: '-30px',
+                  width: { sm: '80px', md: '230px' },
+                  height: 'auto',
+                }}
+              />
+            </Box>
+          </Box>
         </Box>
       </Box>
     </Box>

@@ -17,6 +17,7 @@ return(<Box sx={{ px: 2, py: 8, backgroundColor: "#fff", textAlign: "center" }}>
             color: "#000",
            fontFamily:'Fredoka One',
             mb: 1,
+            
           }}
         >
          <InstagramIcon style={{backgroundColor:'#EF294C',padding:'15px',borderRadius:'50%',width:'35px',height:'35px',color:'#fff',}}/><br/>

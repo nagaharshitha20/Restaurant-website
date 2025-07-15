@@ -9,6 +9,7 @@ import Review from './Review';
 import RecentNews from './RecentNews';
 import Follow from './Follow';
 import Footer from '../Common/Footer';
+import FeaturedDishes from './FeaturedDishes';
 const HP1 = () => {
   return (
     <div style={{ overflowX: 'hidden' }}>
@@ -19,6 +20,7 @@ const HP1 = () => {
      <About1/>  
        <Bbq/>
       <DiscoverMenu/>
+      <FeaturedDishes/>
     <Review/>
        <RecentNews/>
      <Follow/> 

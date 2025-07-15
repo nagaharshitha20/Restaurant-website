@@ -10,13 +10,14 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 const CoverPage6 = () => {
   return (
-    <Box
+   <Box
       sx={{
         position: 'relative',
         width: '100%',
-        minHeight: { xs: '70vh', sm: '100vh', md: '100vh' },
+        minHeight: { xs: '35vh', sm: '60vh', md: '100vh' },
         overflow: 'hidden',
-        mt: { xs: '56px', sm: '64px' },
+        margin: { xs: 2.5, sm: 2.5, md: 0 },
+        mt: { xs: '66px', sm: '64px' },
       }}
     >
      
@@ -25,12 +26,13 @@ const CoverPage6 = () => {
         src={ImageAssets.cover6}
         alt="cover"
         sx={{
+          width: { xs: '95%', md: '100%' },
+          height: { xs: '35vh', sm: '60vh', md: '100vh' },
+          objectFit: 'cover',
           position: 'absolute',
           top: 0,
           left: 0,
-          width: '100%',
-          height: {xs:'100vh', sm: '100vh', md: '100vh'},
-          objectFit: 'cover',
+          borderRadius: { xs: '30px', sm: '30px', md: 0 },
           zIndex: 0,
         }}
       />
@@ -39,11 +41,11 @@ const CoverPage6 = () => {
       <Box
         sx={{
           position: {
-            xs: 'relative',
+            xs: 'absolute',
             sm: 'absolute',
           },
           top: {
-            xs: 'auto',
+            xs: '0',
             sm: '50%',
           },
           left: {
@@ -52,7 +54,7 @@ const CoverPage6 = () => {
             md: '180px',
           },
           transform: {
-            xs: 'none',
+            xs: 'translateY(-40%)',
             sm: 'translateY(-50%)',
           },
           display: 'flex',
@@ -75,14 +77,14 @@ const CoverPage6 = () => {
           variant="h3"
           sx={{
             fontFamily: 'Oswald',
-            fontSize: { xs: '8vw', sm: '6vw', md: '7.5vw' },
+            fontSize: { xs: '6.5vw', sm: '6vw', md: '7.5vw' },
             textAlign: 'left',
             mt: { xs: '35vw',sm:'0vw',md:'0vw',lg:'0vw' },
             mb: 2,
             lineHeight: 1.2,
           }}
         >
-          AWESOME 
+          AWESOME <br/>
          DELICIOUS PIZZA
         </Typography>
 
@@ -91,7 +93,7 @@ const CoverPage6 = () => {
           variant="body1"
           sx={{
             fontFamily: 'Oswald',
-            fontSize: { xs: '3.5vw', sm: '2.5vw', md: '20px' },
+            fontSize: { xs: '3vw', sm: '2.5vw', md: '20px' },
            
             textAlign: 'left',
             mb: { xs: 3, sm: 2 },
@@ -121,7 +123,7 @@ const CoverPage6 = () => {
           <Button style={{
            backgroundColor:'#FFC222',
            border:'none',
-           padding:'20px 45px',
+           padding:'10px 20px',
            borderRadius:0,
            color:"#000",
           

@@ -9,7 +9,8 @@ const Follow = () => {
         position: 'relative',
         width: '100%',
         overflow: 'hidden',
-        mt: { xs: '56px', sm: '64px' },
+        mt: { xs: '15px', sm: '64px' },
+       
       }}
     >
     
@@ -131,7 +132,7 @@ const Follow = () => {
         
         <Box
           sx={{
-            mt: { xs: 8, md: 10 },
+            mt: { xs: 12, md: 10 },
             position: 'relative',
             minHeight: { xs: '300px', md: '520px' },
             width: '100%',

@@ -10,9 +10,9 @@ const RecentNews = () => {
       sx={{
         position: 'relative',
         width: '100%',
-        minHeight: { xs: '480px', sm: '600px', md: '700px', lg: '600px' },
+        minHeight: { xs: '380px', sm: '600px', md: '700px', lg: '600px' },
         overflow: 'hidden',
-        mt: { xs: '56px', sm: '24px', md: '24px', lg: '24px' },
+        mt: { xs: '0px', sm: '0px', md: '24px', lg: '24px' },
         backgroundColor: '#fff',
       }}
     >

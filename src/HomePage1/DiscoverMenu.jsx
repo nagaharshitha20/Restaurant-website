@@ -2,9 +2,9 @@ import * as React from 'react';
 import { Box, Typography } from '@mui/material';
 import { ImageAssets } from '../ImageAssets';
 import PrimaryButton from '../Common/PrimaryButton';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Autoplay, Pagination } from 'swiper/modules';
-import CarouselCard from '../Common/CarouselCard';
+// import { Swiper, SwiperSlide } from 'swiper/react';
+// import { Navigation, Autoplay, Pagination } from 'swiper/modules';
+// import CarouselCard from '../Common/CarouselCard';
 
 
 import 'swiper/css';
@@ -68,8 +68,8 @@ const DiscoverMenu = () => {
         width: '90%',
         minHeight: { xs: '480px', sm: '630px', md: '710px' },
         mt: { xs: '56px', sm: '64px' },
-        
-        px: { xs: 2, md: 8 },
+       
+        px: { xs: 4, md: 8 },
       }}
     >
       
@@ -95,7 +95,8 @@ const DiscoverMenu = () => {
         }}
       />
      
-      <Box sx={{ display: 'flex', gap: '25px', justifyContent: 'center' }}>
+      <Box sx={{ display: 'flex', gap: '25px', justifyContent: 'center',  display: 'flex',alignItems:'center',
+                flexDirection:{xs:'column',lg:'row'} }}>
         {[{
           img: ImageAssets.classicsbbq,
           title: 'Steaks & BBQ',
@@ -126,7 +127,7 @@ const DiscoverMenu = () => {
                 height: '100%',
                 objectFit: 'cover',
                 borderRadius: '20px',
-                display: 'block',
+              display:'block',
               }}
             />
             <Box
@@ -185,7 +186,7 @@ const DiscoverMenu = () => {
       display: 'flex',
       flexDirection: { xs: 'column', md: 'row' },
       justifyContent: 'space-between',
-      px: 4,
+      px: 5,
       py: 4,
       gap: 4,
     }}
@@ -254,7 +255,7 @@ const DiscoverMenu = () => {
 
 
       
-      <Box
+      {/* <Box
         sx={{
           backgroundColor: '#F5F8FD',
           width: '100%',
@@ -337,7 +338,7 @@ const DiscoverMenu = () => {
 </Swiper>
 
         </Box>
-      </Box>
+      </Box> */}
     </Box>
   );
 };
