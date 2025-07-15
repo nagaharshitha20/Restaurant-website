@@ -10,20 +10,19 @@ const CoverPage3 = () => {
       sx={{
         position: 'relative',
         width: '100%',
-        minHeight: { xs: '35vh', sm: '60vh', md: '100vh' },
+        minHeight: { xs: '25vh', sm: '60vh', md: '100vh' },
         overflow: 'hidden',
-        margin: { xs: 2.5, sm: 2.5, md: 0 },
+        margin: { xs: 1.3, sm: 2.5,md:0 },
         mt: { xs: '66px', sm: '64px' },
       }}
     >
-      {/* Background Image */}
       <Box
         component="img"
         src={ImageAssets.bg3}
         alt="cover"
         sx={{
           width: { xs: '95%', md: '100%' },
-          height: { xs: '35vh', sm: '60vh', md: '100vh' },
+          height: { xs: '25vh', sm: '60vh', md: '100vh' },
           objectFit: 'cover',
           position: 'absolute',
           top: 0,
@@ -54,12 +53,12 @@ const CoverPage3 = () => {
             flexDirection: { xs: 'row', lg: 'row' },
             justifyContent: 'center',
             alignItems: { xs: 'center', lg: 'center' },
-            gap: { xs: 4, lg: 6 },
+            gap: { xs: 0, lg: 6 },
             maxWidth: { xs: '100%', lg: '100%' },
             width: '100%',
           }}
         >
-          {/* Left Section */}
+          
           <Box
             sx={{
               flex: 1,
@@ -113,12 +112,12 @@ const CoverPage3 = () => {
               We only bring you the best.
             </Typography>
 
-            {/* Button and Rating */}
+           
             <Box
               sx={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: { xs: 3, sm: 3, md: 4 },
+                gap: { xs: 2, sm: 3, md: 4 },
                 width: '100%',
               }}
             >
@@ -146,14 +145,14 @@ const CoverPage3 = () => {
             </Box>
           </Box>
 
-          {/* Right Image */}
+      
           <Box
             sx={{
               display: 'flex',
               justifyContent: { xs: 'flex-end', sm: 'center', lg: 'flex-end' },
               alignItems:'center',
               width: {
-                xs: '160px',
+                xs: '150px',
                 sm: '100%',
                 md: '90%',
                 lg: '90%',

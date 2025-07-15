@@ -11,20 +11,20 @@ const CoverPage2 = () => {
       sx={{
         position: 'relative',
         width: '100%',
-        minHeight: { xs: '35vh', sm: '60vh', md: '100vh' },
+        minHeight: { xs: '25vh', sm: '60vh', md: '100vh' },
         overflow: 'hidden',
-        margin: { xs: 2.5, sm: 2.5, md: 0 },
+        margin: { xs: 1.3, sm: 2.5,md:0 },
         mt: { xs: '66px', sm: '64px' },
       }}
     >
-      {/* Background Image */}
+   
       <Box
         component="img"
         src={ImageAssets.cover2}
         alt="cover"
         sx={{
           width: { xs: '95%', md: '100%' },
-          height: { xs: '35vh', sm: '60vh', md: '100vh' },
+          height: { xs: '25vh', sm: '60vh', md: '100vh' },
           objectFit: 'cover',
           position: 'absolute',
           top: 0,
@@ -34,7 +34,7 @@ const CoverPage2 = () => {
         }}
       />
 
-      {/* Content Box */}
+     
       <Box
         sx={{
           position: 'relative',
@@ -57,7 +57,7 @@ const CoverPage2 = () => {
             width: '100%',
           }}
         >
-          {/* Left Section */}
+       
           <Box
             sx={{
               flex: 1,
@@ -105,7 +105,7 @@ const CoverPage2 = () => {
               ARRIVING FROM PARIS IN 1986
             </Typography>
 
-            {/* Form Section - hidden on xs */}
+           
             <Box
               sx={{
                 display: { xs: 'none', sm: 'flex' },
@@ -140,7 +140,7 @@ const CoverPage2 = () => {
               </Box>
             </Box>
 
-            {/* Button (always visible) */}
+        
             <Box sx={{ mt: { xs: 0, sm: 2 } }}>
               <PrimaryButton
                 name="Reserve a Table"
@@ -149,10 +149,10 @@ const CoverPage2 = () => {
             </Box>
           </Box>
 
-          {/* Right Images */}
+          
           <Box
             sx={{
-              display: { xs: 'none', sm: 'flex' }, // Hide visuals on extra small
+              display: { xs: 'none', lg: 'flex' }, 
               flexDirection: 'row',
               gap: 5,
               alignItems: 'center',

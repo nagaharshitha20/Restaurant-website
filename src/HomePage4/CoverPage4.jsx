@@ -10,13 +10,12 @@ const CoverPage4 = () => {
       sx={{
         position: 'relative',
         width: '100%',
-        minHeight: { xs: '35vh', sm: '60vh', md: '100vh' },
+        minHeight: { xs: '25vh', sm: '60vh', md: '100vh' },
         overflow: 'hidden',
-        margin: { xs: 2.5, sm: 2.5, md: 0 },
+        margin: { xs: 1.3, sm: 2.5,md:0 },
         mt: { xs: '66px', sm: '64px' },
       }}
     >
-      {/* Background Image */}
       <Box
         component="img"
         src={ImageAssets.cover4}
@@ -26,7 +25,7 @@ const CoverPage4 = () => {
           top: 0,
           left: 0,
           width: { xs: '95%', md: '100%' },
-          height: { xs: '35vh', sm: '60vh', md: '100vh' },
+          height: { xs: '25vh', sm: '60vh', md: '100vh' },
           objectFit: 'cover',
           backgroundColor: 'black',
           borderRadius: { xs: '30px', sm: '30px', md: 0 },
@@ -34,7 +33,7 @@ const CoverPage4 = () => {
         }}
       />
 
-      {/* Content */}
+   
       <Box
         sx={{
           position: { xs: 'relative', lg: 'absolute' },
@@ -60,7 +59,7 @@ const CoverPage4 = () => {
             width: '100%',
           }}
         >
-          {/* Left Section */}
+       
           <Box
             sx={{
               flex: 1,
@@ -69,7 +68,7 @@ const CoverPage4 = () => {
               justifyContent: 'center',
               alignItems: { xs: 'flex-start', sm: 'flex-start', lg: 'flex-start' },
               textAlign: 'left',
-              mt: { xs: 3.5, sm: 10, md: 15, lg: 10 },
+              mt: { xs: 4, sm: 10, md: 15, lg: 10 },
               color: '#FFFFFF',
               textShadow: '2px 2px 4px rgba(0, 0, 0, 0.7)',
               width: '100%',
@@ -91,7 +90,7 @@ const CoverPage4 = () => {
               sx={{
                 color: '#fff',
                 fontFamily: 'Oswald',
-                fontSize: { xs: '6.5vw', sm: '5.5vw', md: '48px', lg: '60px' },
+                fontSize: { xs: '5.5vw', sm: '5.5vw', md: '48px', lg: '60px' },
                 mb: { xs: 1, sm: 2 },
                 lineHeight: 1.3,
               }}
@@ -99,7 +98,7 @@ const CoverPage4 = () => {
               HOT SPICY CHICKEN<br />BURGER
             </Typography>
 
-            <Box sx={{ display: 'flex', gap: 2, alignItems: 'center', mb: { xs: 2, sm: 3 } }}>
+            <Box sx={{ display: 'flex', gap: 2, alignItems: 'center', mb: { xs: 0.5, sm: 3 } }}>
               <Typography
                 sx={{
                   fontFamily: 'Oswald',
@@ -133,7 +132,7 @@ const CoverPage4 = () => {
             </Box>
           </Box>
 
-          {/* Right Image */}
+          
           <Box
             sx={{
               display: 'flex' ,
@@ -145,7 +144,7 @@ const CoverPage4 = () => {
                 md: '60%',
                 lg: '55%',
               },
-              mt: { xs: 0, sm: 5, md: 10 },
+              mt: { xs: 4, sm: 5, md: 10 },
             }}
           >
             <Box
