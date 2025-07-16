@@ -11,12 +11,13 @@ const Learn = () => {
       sx={{
         position: 'relative',
         width: '100%',
-        minHeight: { xs: '70vh', sm: '100vh', md: '50vh' },
+        minHeight: { xs: '90vh', sm: '100vh', md: '60vh' },
         overflow: 'hidden',
-        display:'flex',
-        justifyContent:'center',
-        gap:30,
+        display: 'flex',
+        mx:'auto',
+        justifyContent: 'center',
         mt: { xs: '56px', sm: '64px' },
+        // px: 2,
       }}
     >
       {/* Background Color */}
@@ -32,52 +33,97 @@ const Learn = () => {
         }}
       />
 
-      {/* Foreground Content */}
+      {/* Content Wrapper */}
       <Box
         sx={{
           display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'space-around',
+          flexDirection: { xs: 'column', md: 'row' },
+          justifyContent: 'center',
           alignItems: 'center',
-          width: '50%',
+          width: '100%',
           height: '100%',
           zIndex: 1,
-          position: 'absolute',
-
-          px: 2,
+          gap: { xs: 4, md: 0 },
         }}
       >
-        {/* Image Left */}
-        <Box sx={{ mr: 10 }}>
+        {/* Left Image */}
+        <Box
+          sx={{
+            width: { xs: '100%', md: '30%' },
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            mb: { xs: 2, md: 0 },
+          }}
+        >
           <Box
             component="img"
             src={ImageAssets.master}
             alt="master"
-            sx={{ width: '300', height: '300px' }}
+            sx={{
+              width: { xs: '80%', sm: '60%', md: '70%', lg: '300px' },
+              height: 'auto',
+              maxWidth: '350px',
+            }}
           />
         </Box>
 
-        {/* Text Right */}
-        <Box >
-          <Typography variant="h8" sx={{fontFamily:'Oswald'}}>LEARN SOMETHING FOODKING</Typography>
-          <Typography variant="h6" sx={{fontFamily:'Oswald'}}>Welcome to our culinary haven, where each dish is a
-symphony of flavors meticulously crafted tantalize your
-taste buds. Nestled in the heart of [City], our
-restaurant is an inviting space that combines.</Typography>
-<div style={{display:'flex',flexDirection:'row',justifyContent:'flex-start',alignItems:'center',gap:10,marginTop:'10px'}}>
-  <div> <Box
-        component="img"
-        src={ImageAssets.grouppic}
-        alt="decor"
-        sx={{
-          borderRadius:'50%',
-          width:'50px',
-          height:'50px',
+        {/* Right Text Section */}
+        <Box
+          sx={{
+            width: { xs: '100%', md: '40%' },
+            textAlign: { xs: 'center', md: 'left' },
+            // px: { xs: 2, md: 4 },
+          }}
+        >
+          <Typography
+            variant="subtitle2"
+            sx={{ fontFamily: 'Oswald', color: '#F3274C', fontWeight: 600 }}
+          >
+            LEARN SOMETHING FOODKING
+          </Typography>
 
-        }}
-      /></div>
-  <div style={{fontSize:'12px'}}>Michael V. Christensen / CEO & Founder</div>
-  </div>
+          <Typography
+            variant="h6"
+            sx={{
+              fontFamily: 'Oswald',
+              mt: 1,
+              mb: 2,
+              fontSize: { xs: 16, sm: 18, md: 20 },
+              color: '#333',
+              lineHeight: 1.6,
+            }}
+          >
+            Welcome to our culinary haven, where each dish is a symphony of flavors meticulously
+            crafted to tantalize your taste buds. Nestled in the heart of your city, our restaurant
+            is an inviting space that combines ambiance and passion.
+          </Typography>
+
+          {/* Signature Row */}
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'row',
+              justifyContent: { xs: 'center', md: 'flex-start' },
+              alignItems: 'center',
+              gap: 2,
+              mt: 2,
+            }}
+          >
+            <Box
+              component="img"
+              src={ImageAssets.grouppic}
+              alt="CEO"
+              sx={{
+                borderRadius: '50%',
+                width: '50px',
+                height: '50px',
+              }}
+            />
+            <Typography fontSize={12}>
+              Michael V. Christensen / CEO & Founder
+            </Typography>
+          </Box>
         </Box>
       </Box>
 
@@ -92,6 +138,7 @@ restaurant is an inviting space that combines.</Typography>
           right: { xs: '8%', md: '70%' },
           opacity: 0.2,
           zIndex: 0,
+          width: { xs: '100px', md: '120px' },
         }}
       />
     </Box>

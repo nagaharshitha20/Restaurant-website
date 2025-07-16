@@ -11,12 +11,12 @@ const Popular2 = () => {
         sx={{
           position: 'relative',
           width: '100%',
-          minHeight: { xs: '70vh', sm: '100vh', md: '100vh' },
+          minHeight: { xs: 'auto', sm: '100vh', md: '100vh' },
           overflow: 'hidden',
-          mt: { xs: '56px', sm: '64px',md:0 },
+          mt: { xs: '56px', sm: '64px', md: 0 },
         }}
       >
-       
+        {/* Background Image */}
         <Box
           component="img"
           src={ImageAssets.blackbg}
@@ -26,22 +26,24 @@ const Popular2 = () => {
             top: 0,
             left: 0,
             width: '100%',
-            height: { xs: '100vh', sm: '100vh', md: '100vh' },
+            height: '100%',
             objectFit: 'cover',
             zIndex: 0,
           }}
         />
 
-      
+        {/* Text Box */}
         <Box
           sx={{
             position: {
               xs: 'relative',
               sm: 'absolute',
+              md: 'absolute',
             },
             top: {
               xs: 'auto',
               sm: '50%',
+              md: '50%',
             },
             left: {
               xs: '0',
@@ -51,90 +53,87 @@ const Popular2 = () => {
             transform: {
               xs: 'none',
               sm: 'translateY(-50%)',
+              md: 'translateY(-50%)',
             },
             display: 'flex',
-            flexDirection: 'row',
-            alignItems: { xs: 'flex-start', sm: 'center' },
-            justifyContent: 'space-between',
+            flexDirection: 'column',
+            alignItems: { xs: 'flex-start', sm: 'flex-start', md: 'flex-start' },
+            justifyContent: 'center',
             width: {
-              xs: '90%',
-              sm: '80%',
+              xs: '100%',
+              sm: '90%',
               md: '600px',
             },
             px: { xs: 3, sm: 4 },
+            py: { xs: 6, sm: 0 },
             zIndex: 1,
             color: '#FFFFFF',
             textShadow: '2px 2px 4px rgba(0, 0, 0, 0.7)',
           }}
         >
-          <Box>
-            <Typography
-              sx={{
-                fontSize: '16px',
-                fontFamily: 'Oswald',
-                color: '#FFD40D',
-                mb: 1,
-                textAlign: { xs: 'left', md: 'left' },
-              }}
-            >
-              Save 20%
-            </Typography>
-            <Typography
-              variant="h3"
-              sx={{
-                color: '#fff',
-                fontFamily: 'Oswald',
-                fontSize: { xs: '8vw', sm: '6vw', md: '60px' },
-                textAlign: 'left',
-                mt: { xs: '35vw', sm: '0vw', md: '0vw', lg: '0vw' },
-                mb: 2,
-                lineHeight: 1,
-              }}
-            >
-              Today's Astackin Day
-            </Typography>
-            <Box
-              sx={{
-                display: 'flex',
-                justifyContent: 'flex-start',
-                alignItems: 'center',
-                gap: 2,
-              }}
-            >
-              <Typography
-                variant="body1"
-                sx={{
-                  fontFamily: 'Oswald',
-                  fontSize: { xs: '3.5vw', sm: '2.5vw', md: '30px' },
-                  color: '#fff',
-                  textAlign: 'left',
-                  lineHeight: 1.5,
-                  maxWidth: '100%',
-                }}
-              >
-                Grilled <span style={{ color: '#FFC222' }}>Chicken $5</span>
-              </Typography>
-            </Box>
+          <Typography
+            sx={{
+              fontSize: '16px',
+              fontFamily: 'Oswald',
+              color: '#FFD40D',
+              mb: 1,
+              textAlign: 'left',
+            }}
+          >
+            Save 20%
+          </Typography>
 
-        
-            <Box
+          <Typography
+            variant="h3"
+            sx={{
+              color: '#fff',
+              fontFamily: 'Oswald',
+              fontSize: { xs: '8vw', sm: '6vw', md: '60px' },
+              textAlign: 'left',
+              mb: 2,
+              lineHeight: 1,
+            }}
+          >
+            Today's Astackin Day
+          </Typography>
+
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'flex-start',
+              alignItems: 'center',
+              gap: 2,
+            }}
+          >
+            <Typography
+              variant="body1"
               sx={{
-                display: 'flex',
-                flexDirection: 'row',
-                flexWrap: 'wrap',
-                alignItems: 'center',
-                gap: { xs: 2, sm: 3, md: 4 },
-                width: '100%',
-                mt: 2,
+                fontFamily: 'Oswald',
+                fontSize: { xs: '4vw', sm: '2.5vw', md: '30px' },
+                color: '#fff',
+                textAlign: 'left',
+                lineHeight: 1.5,
               }}
             >
-              <NormalButton name="Order Now" bgcolor="#F3274C" color="#FFFFFF" />
-            </Box>
+              Grilled <span style={{ color: '#FFC222' }}>Chicken $5</span>
+            </Typography>
+          </Box>
+
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'row',
+              flexWrap: 'wrap',
+              alignItems: 'center',
+              gap: { xs: 2, sm: 3, md: 4 },
+              width: '100%',
+              mt: 2,
+            }}
+          >
+            <NormalButton name="Order Now" bgcolor="#F3274C" color="#FFFFFF" />
           </Box>
         </Box>
       </Box>
-
-  
     </>
   );
 };
