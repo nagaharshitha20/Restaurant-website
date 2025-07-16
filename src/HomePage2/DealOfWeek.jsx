@@ -14,10 +14,12 @@ const DealOfWeek = () => {
   return (
     <Box
       sx={{
+       
+        mx:'auto',
         px: { xs: 3, sm: 6, md: 0 },
         py: { xs: 6, md: 10 },
         bgcolor: '#fff',
-        width: '100%',
+        width: '90%',
       }}
     >
      
@@ -52,7 +54,8 @@ const DealOfWeek = () => {
       >
         
         <Grid item xs={12} md={5}>
-          <Box>
+          <Box sx={{display:'flex',alignItems:{xs:'center',lg:"flex-start"},
+        justifyContent:"flex-start",flexDirection:'column'}}>
             <Box
               sx={{
                 display: 'inline-block',
@@ -138,7 +141,7 @@ const DealOfWeek = () => {
         </Grid>
 
        
-        <Grid item xs={12} md={4} sx={{ textAlign: 'center' }}>
+        <Grid item xs={12} md={4} sx={{ textAlign: 'center' ,}}>
           <Box
             component="img"
             src={ImageAssets.Shroom}
@@ -147,6 +150,8 @@ const DealOfWeek = () => {
               width: '100%',
               maxWidth: '550px',
               borderRadius: '12px',
+              // display:'flex',
+              // mx:'auto',
               zIndex:0,
             }}
           />
@@ -157,7 +162,7 @@ const DealOfWeek = () => {
           <Box
             sx={{
               display: 'flex',
-              flexDirection: 'column',
+              flexDirection: {xs:'row',sm:'column'},
               alignItems: 'center',
               gap: 2,
               zIndex:1,
@@ -193,7 +198,9 @@ const DealOfWeek = () => {
       <Box
   sx={{
     backgroundColor: '#fff',
-    px: { xs: 2, sm: 4, md: 40 },
+    display:'flex',
+   mx:'auto',
+    // px: { xs: 2, sm: 4, md: 40 },
     pt: { xs: 6, md: 10 },
     pb: { xs: 8, md: 12 },
   }}
@@ -204,11 +211,13 @@ const DealOfWeek = () => {
       borderRadius: '10px',
       width:{ xs: '100%', md: '720px' },
       height: { xs: 'auto', md: '270px' },
-      p: { xs: 2, md: 8 },
+      p: { xs: 4, md: 8 },
       display: 'flex',
       flexDirection: { xs: 'column', md: 'row' },
       justifyContent: 'center',
       alignItems: 'center',
+     
+    mx:'auto',
       gap: 3,
       backgroundColor: '#f8fbff',
     }}
@@ -230,7 +239,8 @@ const DealOfWeek = () => {
           src={ImageAssets.d1}
           alt={`Dining ${index}`}
           sx={{
-            width: { xs: '100px', sm: '140px', md: '210px' },
+            width: { xs: '120px', sm: '140px', md: '210px' },
+            display:{xs:'none',sm:'block'},
             height: { xs: '100px', sm: '120px', md: '130px' },
             borderRadius: '25px',
           

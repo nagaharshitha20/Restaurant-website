@@ -23,7 +23,7 @@ const categoryItems = [
 ];
 
 const About3 = () => (
-  <Box sx={{ px: { xs: 2, md: 10 }, py: 8 }}>
+  <Box sx={{ px: { xs: 2, md: 10 }, py: 0 }}>
   
     <Typography sx={{ color: '#F3274C', textAlign: 'center', fontSize: '12px', mb: 1 ,fontFamily: 'Fredoka One'}}>
       ABOUT THE FOOD RESTAURANT
@@ -32,14 +32,14 @@ const About3 = () => (
       Perfect Place For An Exceptional Experience
     </Typography>
 
-   <Grid container spacing={4} alignItems="center" justifyContent="center">
+   <Grid container spacing={3} alignItems="center" justifyContent="center" display="flex" flexDirection="row">
  
   <Grid item xs={12} md={6} sx={{ display: 'flex', justifyContent: 'center', gap: 2 }}>
     <Box
       component="img"
       src={ImageAssets.twoinone}
       sx={{
-        width: { xs: '150px', sm: '200px', md: '500px' },
+        width: { xs: '250px', sm: '200px', md: '500px' },
        
         objectFit: 'cover',
        
@@ -54,7 +54,7 @@ const About3 = () => (
         fontSize: 14,
         color: '#444',
         lineHeight: 1.8,
-        mb: 3,
+        mb: 5,
         maxWidth: 400,
       }}
     >
@@ -115,28 +115,38 @@ const About3 = () => (
           borderRadius: '3px',
         }}
       />
-    <Grid container spacing={1} justifyContent="center">
-      {categoryItems.map((item, i) => (
-        <Grid key={i} item xs={6} sm={4} md={2.5}>
-          <Box sx={{ textAlign: 'center' }}>
-          
-            <Box
-              component="img"
-              src={item.img}
-              alt={item.title}
-              sx={{
-                width: '80%',
-                borderRadius: '180px',
-                border: '3px solid #fff',
-                boxShadow: '0px 5px 15px rgba(0,0,0,0.1)',
-              }}
-            />
-            <Typography sx={{ fontFamily: 'Fredoka One', mt: 1 }}>{item.title}</Typography>
-            <Typography sx={{ fontSize: 13, color: '#F3274C', fontFamily: 'Fredoka One' }}>{item.subtitle}</Typography>
-          </Box>
-        </Grid>
-      ))}
+  <Grid container spacing={1} justifyContent="center" width="100%">
+  {categoryItems.map((item, i) => (
+    <Grid key={i} item xs={6} sm={6} md={4} lg={2.5}>
+      <Box sx={{ textAlign: 'center' }}>
+        <Box
+          component="img"
+          src={item.img}
+          alt={item.title}
+          sx={{
+            width: { xs: '60%', sm: '60%', md: '80%' },
+            borderRadius: '180px',
+            border: '3px solid #fff',
+            boxShadow: '0px 5px 15px rgba(0,0,0,0.1)',
+          }}
+        />
+        <Typography sx={{ fontFamily: 'Fredoka One', mt: 1 }}>
+          {item.title}
+        </Typography>
+        <Typography
+          sx={{
+            fontSize: { xs: 10, sm: 13 },
+            color: '#F3274C',
+            fontFamily: 'Fredoka One',
+          }}
+        >
+          {item.subtitle}
+        </Typography>
+      </Box>
     </Grid>
+  ))}
+</Grid>
+
   </Box>
 );
 

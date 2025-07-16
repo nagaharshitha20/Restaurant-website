@@ -35,7 +35,7 @@ const FeatureSection = () => {
           alt="organic"
           sx={{
             width: { xs: '180px', sm: '250px', md: '250px' },
-            height: '360px',
+            height: {xs:'10%',sm:'360px'},
             borderRadius: '180px',
             objectFit: 'cover',
           }}
@@ -114,7 +114,7 @@ ac quam nec odio rbine.
   />
 
  
-  <Box sx={{ position: 'relative', width: '140px', height: '140px' }}>
+  <Box sx={{ position: 'relative', width: '140px', height: '140px',display:{xs:'none',sm:'block'} }}>
    
     <Box
       component="img"
@@ -241,7 +241,7 @@ ac quam nec odio rbine.
         <Box sx={{
             display: 'flex',
             flexWrap: 'wrap',
-            justifyContent: 'space-around',
+            justifyContent: {xs:'center',md:'space-around'},
             alignItems: 'center',
             gap: 8,
             mt: 2,
