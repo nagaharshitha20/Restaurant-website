@@ -11,7 +11,6 @@ import NormalButton from "../Common/NormalButton";
 import PlayButton from "../Common/PlayButton";
 import { ImageAssets } from "../ImageAssets";
 
-
 const tabCategories = FoodItems.map((item) => item.category);
 
 const Delicious = () => {
@@ -25,7 +24,7 @@ const Delicious = () => {
   };
 
   const promoTitle = {
-    fontSize: 22,
+    fontSize: { xs: 20, sm: 24, md: 28 },
     fontWeight: 'bold',
     mb: 1,
   };
@@ -37,11 +36,12 @@ const Delicious = () => {
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         color: '#fff',
-        p: 3,
-        position: 'relative',
+        p: { xs: 2, sm: 3 },
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
+        height: { xs: 200, sm: 240, md: '100%' },
+        position: 'relative',
       }}
     >
       {content}
@@ -49,7 +49,7 @@ const Delicious = () => {
   );
 
   return (
-    <Box sx={{ mt: 8, px: 2, display: "flex", flexDirection: "column", alignItems: "center" }}>
+    <Box sx={{ mt: 8, px: { xs: 2, sm: 3, md: 4 }, display: "flex", flexDirection: "column", alignItems: "center" }}>
       
       <Typography sx={{ fontSize: 16, fontFamily: "Oswald", color: "#00aa00", mb: 1 }}>
         About Our Food
@@ -60,29 +60,67 @@ const Delicious = () => {
           fontFamily: "Oswald",
           fontWeight: 700,
           mb: 4,
+          textAlign: "center"
         }}
       >
         Hot Delicious Item
       </Typography>
 
-    
+      {/* Custom Tabs for xs/sm */}
+      <Box
+        sx={{
+          display: { xs: 'flex', md: 'none' },
+          flexWrap: 'wrap',
+          justifyContent: 'center',
+          gap: 2,
+          mb: 4,
+        }}
+      >
+        {tabCategories.map((label, idx) => (
+          <Box
+            key={label}
+            onClick={() => setSelectedTab(idx)}
+            sx={{
+              width: '45%',
+              textAlign: 'center',
+              borderRadius: '40px',
+              backgroundColor: selectedTab === idx ? '#FFD43A' : 'white',
+              border: '1px solid #ddd',
+              py: 1.5,
+              px: 0,
+              fontWeight: 600,
+              fontSize: 14,
+              color: selectedTab === idx ? '#000' : '#222',
+              cursor: 'pointer',
+              userSelect: 'none',
+            }}
+          >
+            {label}
+          </Box>
+        ))}
+      </Box>
+
+      {/* Original Tabs for md and up */}
       <Tabs
         value={selectedTab}
         onChange={(e, v) => setSelectedTab(v)}
         centered
+        variant="scrollable"
+        scrollButtons="auto"
         sx={{
+          display: { xs: 'none', md: 'flex' },
           mb: 5,
           '& .MuiTab-root': {
             borderRadius: '40px',
             backgroundColor: 'white',
             border: '1px solid #ddd',
-            px: 3,
-            py: 1,
+            py: 2,
             mx: 1,
             fontWeight: 600,
             textTransform: 'none',
-            fontSize: 16,
+            fontSize: 14,
             color: '#222',
+            minWidth: 100,
           },
           '& .Mui-selected': {
             backgroundColor: '#FFD43A',
@@ -92,17 +130,27 @@ const Delicious = () => {
         }}
         TabIndicatorProps={{ style: { display: 'none' } }}
       >
-        {tabCategories.map((label, idx) => (
+        {tabCategories.map((label) => (
           <Tab key={label} label={label} />
         ))}
       </Tabs>
 
-    
+      {/* Food Items */}
       <Grid container spacing={4} sx={{ px: { xs: 2, sm: 4, md: 10 }, mb: 10 }}>
         {selectedItems.map((item, idx) => (
-          <Grid item xs={12} sm={6} md={3} key={idx}>
+          <Grid item xs={6} sm={6} md={3} key={idx}>
             <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', p: 2 }}>
-              <Box component="img" src={item.img} alt={item.title} sx={{ width: '170px', height: '170px', objectFit: 'contain', mb: 2 }} />
+              <Box
+                component="img"
+                src={item.img}
+                alt={item.title}
+                sx={{
+                  width: { xs: 120, sm: 150, md: 170 },
+                  height: { xs: 120, sm: 150, md: 170 },
+                  objectFit: 'contain',
+                  mb: 2,
+                }}
+              />
               <Typography variant="subtitle1" sx={{ fontWeight: 600, fontFamily: 'Oswald', mb: 1 }}>
                 {item.title}
               </Typography>
@@ -116,40 +164,32 @@ const Delicious = () => {
         ))}
       </Grid>
 
- 
-      <Box
-  sx={{
-    width: '100%',
-    height: '250px',
-    position: 'relative',
-  }}
->
-  
-  <Box
-    component="img"
-    src={ImageAssets.top1}
-    alt="Popular Dishes"
-    sx={{
-      width: '100%',
-      height: '100%',
-      objectFit: 'cover',
-      display: 'block',
-    }}
-  />
-  <Box
-    sx={{
-      position: 'absolute',
-      top: '80%',
-      left: '50%',
-      transform: 'translate(-50%, -50%)',
-      zIndex: 2,
-    }}
-  >
-    <PlayButton />
-  </Box>
-</Box>
+      {/* Play Button Section */}
+      <Box sx={{ width: '100%', height: '250px', position: 'relative' }}>
+        <Box
+          component="img"
+          src={ImageAssets.top1}
+          alt="Popular Dishes"
+          sx={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+          }}
+        />
+        <Box
+          sx={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            zIndex: 2,
+          }}
+        >
+          <PlayButton />
+        </Box>
+      </Box>
 
-   
+      {/* Delivery Promo Section */}
       <Box
         sx={{
           width: '100%',
@@ -159,7 +199,6 @@ const Delicious = () => {
           flexDirection: { xs: 'column', md: 'row' },
           alignItems: 'center',
           justifyContent: 'space-around',
-          px: { xs: 2, md: 0 },
           py: { xs: 6, md: 8 },
         }}
       >
@@ -167,14 +206,14 @@ const Delicious = () => {
         <Box component="img" src={ImageAssets.chilli} alt="chilli" sx={{ position: 'absolute', top: 0, right: 0, opacity: 0.1, width: 80 }} />
 
         <Box>
-          <Typography variant="body2" sx={{ mb: 1, fontFamily: 'Oswald', fontWeight: 600, fontSize: { xs: 18, md: 14 }, color: '#FFD43A' }}>
+          <Typography variant="body2" sx={{ mb: 1, fontFamily: 'Oswald', fontWeight: 600, fontSize: { xs: 16, md: 14 }, color: '#FFD43A' }}>
             Crispy, Every Bite Taste
           </Typography>
           <Typography
             variant="h3"
             sx={{
               fontFamily: 'Oswald',
-              fontSize: { xs: 28, md: 40 },
+              fontSize: { xs: 26, sm: 32, md: 40 },
               fontWeight: 800,
               color: 'white',
               lineHeight: 1.2,
@@ -187,68 +226,88 @@ const Delicious = () => {
         </Box>
 
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 4, mt: { xs: 4, md: 0 } }}>
-          <Box component="img" src={ImageAssets.bike} alt="bike" sx={{ width: { xs: '180px', md: '280px' }, maxWidth: '100%' }} />
+          <Box component="img" src={ImageAssets.bike} alt="bike" sx={{ width: { xs: 160, sm: 200, md: 280 }, maxWidth: '100%' }} />
           <NormalButton color="#000" bgcolor="#fff" name="Order Now" />
         </Box>
       </Box>
 
- 
-      <Box sx={{ width: '100%', fontFamily: 'Oswald', overflow: 'hidden' }}>
+      {/* Promo Grid Section */}
+      <Box sx={{ width: '100%', fontFamily: 'Oswald', overflow: 'hidden', mt: 0 }}>
         <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, width: '100%' }}>
-       
-          <Box component="img" src={ImageAssets.today} alt="today" sx={{ width: '50%',height:'600px' }} />
+          <Box
+            component="img"
+            src={ImageAssets.today}
+            alt="today"
+            sx={{ width: { xs: '100%', md: '50%' }, height: { xs: 300, sm: 400, md: 600 }, objectFit: 'cover' }}
+          />
 
-        
           <Box
             sx={{
               display: 'grid',
               gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' },
               gridTemplateRows: '1fr 1fr',
               width: { xs: '100%', md: '50%' },
-              height: { xs: 'auto', md: '600px' },
+              height: { xs: 'auto', md: 600 },
               flex: 1,
             }}
           >
-           
             {promoBox(ImageAssets.background1, (
               <>
                 <Typography sx={promoText}>Delicious</Typography>
                 <Typography sx={promoTitle}>Burger Combo</Typography>
                 <Typography sx={{ fontSize: 14 }}>This Weekend Only</Typography>
-                <Typography sx={{ fontSize: 14, fontWeight: 600 }}>Limited Offer / <span style={{ color: '#FFD43A' }}>$5</span></Typography>
-                <Box component="button" sx={{ backgroundColor: '#FFD43A', color: '#000', mt: 2, px: 3, py: 1, border: 'none', borderRadius: '20px', fontWeight: 600, fontSize: 14, cursor: 'pointer' }}>
+                <Typography sx={{ fontSize: 14, fontWeight: 600 }}>
+                  Limited Offer / <span style={{ color: '#FFD43A' }}>$5</span>
+                </Typography>
+                <Box component="button" sx={{
+                  backgroundColor: '#FFD43A',
+                  color: '#000',
+                  mt: 2,
+                  px: 3,
+                  py: 1,
+                  border: 'none',
+                  borderRadius: '20px',
+                  fontWeight: 600,
+                  fontSize: 14,
+                  cursor: 'pointer',
+                }}>
                   Order Now
                 </Box>
               </>
             ))}
-
-            
             {promoBox(ImageAssets.background3, (
               <>
                 <Typography sx={promoText}>Crispy, Every Bite Taste</Typography>
                 <Typography sx={promoTitle}>SUPER DELICIOUS</Typography>
-                <Box component="img" src={ImageAssets.off} sx={{ width: 130, height: 110, borderRadius: '50%' }} />
+                <Box component="img" src={ImageAssets.off} sx={{ width: 100, height: 100, borderRadius: '50%' }} />
               </>
             ))}
-
-            
             {promoBox(ImageAssets.background2, (
               <>
                 <Typography sx={promoText}>Crispy, Every Bite Taste</Typography>
                 <Typography sx={promoTitle}>FASH FOOD MEAL</Typography>
                 <Typography sx={{ fontSize: 14 }}>The mouth-watering aroma of sizzling burgers</Typography>
-                <Box component="img" src={ImageAssets.ch2} alt="fries" sx={{ position: 'absolute', right: 20, bottom: 10, width: 120 }} />
-                <Box component="button" sx={{ backgroundColor: '#FFD43A', color: '#000', mt: 3, px: 3, py: 1, border: 'none', borderRadius: '20px', fontWeight: 600, fontSize: 14, cursor: 'pointer' }}>
+                <Box component="img" src={ImageAssets.ch2} alt="fries" sx={{ position: 'absolute', right: 20, bottom: 10, width: 100 }} />
+                <Box component="button" sx={{
+                  backgroundColor: '#FFD43A',
+                  color: '#000',
+                  mt: 3,
+                  px: 3,
+                  py: 1,
+                  border: 'none',
+                  borderRadius: '20px',
+                  fontWeight: 600,
+                  fontSize: 14,
+                  cursor: 'pointer',
+                }}>
                   Order Now
                 </Box>
               </>
             ))}
-
-            
             {promoBox(ImageAssets.background4, (
               <>
-                <Box component="img" src={ImageAssets.ch2} alt="fries" sx={{ position: 'absolute', right: 20, bottom: 10, width: 120 }} />
-                <Box component="img" src={ImageAssets.off2} sx={{ width: 200 }} />
+                <Box component="img" src={ImageAssets.ch2} alt="fries" sx={{ position: 'absolute', right: 20, bottom: 10, width: 100 }} />
+                <Box component="img" src={ImageAssets.off2} sx={{ width: 160 }} />
               </>
             ))}
           </Box>

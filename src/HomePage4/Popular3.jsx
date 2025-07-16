@@ -70,10 +70,10 @@ const Popular3 = () => (
                 position: "absolute",
                 top: 8,
                 left: 8,
-                bgcolor: "black",
+                // bgcolor: "black",
                
-                color:'white',
-                borderRadius: "50%",
+                color:'rgba(220, 220, 220, 1)',
+                // borderRadius: "50%",
                 "&:hover": { color: "red",bgcolor:"#fff"},
               }}
             >

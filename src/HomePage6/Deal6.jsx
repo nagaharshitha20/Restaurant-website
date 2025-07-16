@@ -1,7 +1,6 @@
 import React from 'react';
 import { Box, Typography, Button } from '@mui/material';
 import { ImageAssets } from '../ImageAssets';
-import NormalButton from '../Common/NormalButton';
 
 const featuredItems = [
   { img: ImageAssets.i1, title: 'Delicious Classic Italian Pizza' },
@@ -14,7 +13,7 @@ const Deal6 = () => {
   return (
     <>
       {/* Deal Section */}
-      <Box sx={{ width: '100%', fontFamily: 'Oswald', }}>
+      <Box sx={{ width: '100%', fontFamily: 'Oswald' }}>
         <Box
           sx={{
             display: 'flex',
@@ -28,89 +27,84 @@ const Deal6 = () => {
             src={ImageAssets.starter}
             alt="Popular Dishes"
             sx={{
-              width: '60%',
+              width: { xs: '100%', md: '60%' },
               height: 'auto',
+              objectFit: 'cover',
             }}
           />
           <Box
             sx={{
-              zIndex: 1,
-              maxWidth: '1000px',
-              width: '40%',
+              width: { xs: '100%', md: '40%' },
               display: 'flex',
               flexDirection: 'column',
-              ml: 0,
               justifyContent: 'center',
               backgroundColor: '#FFC222',
-              px: 8,
+              px: { xs: 3, sm: 6, md: 8 },
+              py: { xs: 4, md: 0 },
             }}
           >
-            <Typography
-              variant="body2"
-              sx={{ color: '#fff', fontWeight: 700, mb: 1, fontFamily: 'Oswald' }}
-            >
+            <Typography variant="body2" sx={{ color: '#fff', fontWeight: 700, mb: 1 }}>
               Deal Of The Day
             </Typography>
             <Typography
               variant="h3"
               sx={{
                 fontWeight: 700,
-                fontSize: { xs: '8vw', sm: '5vw', md: '3vw' },
-                fontFamily: 'Oswald',
+                fontSize: { xs: '9vw', sm: '6vw', md: '3vw' },
                 lineHeight: 1.2,
                 color: '#fff',
               }}
             >
-              TODAY’S the<br />
-              hamburger’ DAY
+              TODAY’S the<br /> hamburger’ DAY
             </Typography>
             <Typography
-              variant="h3"
               sx={{
-                fontSize: { xs: '8vw', sm: '5vw', md: '1.3vw' },
-                fontFamily: 'Oswald',
-                lineHeight: 1.2,
-                color: '#fff',
+                fontSize: { xs: '6vw', sm: '4vw', md: '1.3vw' },
+                mt: 3,
                 mb: 4,
-                mt: 4,
+                color: '#fff',
               }}
             >
-              Special price<span style={{ fontSize: '2.5vw' }}> $55</span>
+              Special price <span style={{ fontSize: '2.5vw' }}>$55</span>
             </Typography>
             <Typography
               variant="body2"
-              sx={{ color: '#fff', mt: 3, fontFamily: 'Oswald', mb: 3 }}
+              sx={{
+                color: '#fff',
+                mb: 3,
+                fontSize: { xs: 14, sm: 16 },
+              }}
             >
-              Savor the perfect symphony of flavors It’s the perfect dining
-              experience where Experience quick and efficient with our
-              signature hamburger, a culinary
+              Savor the perfect symphony of flavors. Experience quick and efficient service with our signature hamburger — a true culinary masterpiece.
             </Typography>
-            <Box sx={{ display: 'flex' }}>
-              <Button
-                style={{
-                  border: 'none',
-                  padding: '20px 45px',
-                  borderRadius: 0,
-                  color: '#fff',
-                  fontFamily: 'Oswald',
-                }}
-              >
-                Order Now
-              </Button>
-            </Box>
+            <Button
+              sx={{
+                backgroundColor: '#000',
+                color: '#fff',
+                borderRadius: 0,
+                px: 5,
+                py: 2,
+                fontFamily: 'Oswald',
+                fontWeight: 600,
+                width: 'fit-content',
+                '&:hover': { backgroundColor: '#222' },
+              }}
+            >
+              Order Now
+            </Button>
           </Box>
         </Box>
       </Box>
 
-      {/* Featured Items - Image Left, Text Right */}
+      {/* Featured Items */}
       <Box
         sx={{
           py: 8,
-          backgroundColor: '#fff',
-          px: { xs: 2, md: 10 },
+          px: { xs: 2, sm: 4, md: 10 },
           display: 'flex',
-          flexDirection: 'row',
+          flexDirection: {xs:'column',md:'row'},
           gap: 6,
+          backgroundColor: '#fff',
         }}
       >
         {featuredItems.map((item, index) => (
@@ -120,25 +114,24 @@ const Deal6 = () => {
               display: 'flex',
               flexDirection: { xs: 'column', sm: 'row' },
               alignItems: 'center',
-              justifyContent: 'space-between',
+              justifyContent: 'flex-start',
               gap: 3,
-              maxWidth: '1000px',
               mx: 'auto',
             }}
           >
-            {/* Left image */}
+            {/* Image */}
             <Box
               component="img"
               src={item.img}
               alt={item.title}
               sx={{
-                width: { xs: '60%', sm: '140px' },
+                width: { xs: '80%', sm: '140px' },
                 height: '140px',
                 objectFit: 'contain',
               }}
             />
-            {/* Right text & button */}
-            <Box sx={{  textAlign: 'left' }}>
+            {/* Text */}
+            <Box sx={{ textAlign: { xs: 'center', sm: 'left' } }}>
               <Typography
                 sx={{
                   fontWeight: 600,
@@ -152,7 +145,7 @@ const Deal6 = () => {
               <Button
                 sx={{
                   fontWeight: 'bold',
-                  fontSize: '14px',
+                  fontSize: 14,
                   textTransform: 'none',
                   fontFamily: 'Oswald',
                   color: '#000',
@@ -165,101 +158,70 @@ const Deal6 = () => {
         ))}
       </Box>
 
-      {/* Clients Testimonials */}
-      <Box sx={{ textAlign: 'center', py: 2, background: '#fff' ,}}>
+      {/* Client Testimonials */}
+      <Box sx={{ textAlign: 'center', py: 4, background: '#fff' }}>
         <Box
           component="img"
           src={ImageAssets.client}
           alt="client"
           sx={{
-            width: { xs: '90%', sm: '60%', md: '90%' },
+            width: { xs: '90%', sm: '70%', md: '85%' },
             mx: 'auto',
             borderRadius: 2,
           }}
         />
       </Box>
-      {/* <Box sx={{display:'flex',justifyContent:'center',flexDirection:'column',width:'500px'}}>
-        <div style={{display:'flex',flexDirection:'row'}}>
-            <Typography>Quality Food   <Box sx={{ mt: 1 }}>
-                    {'★★★★★'.split('').map((star, idx) => (
-                      <span
-                        key={idx}
-                        style={{ color: '#FFD40D', fontSize: '20px', fontFamily: 'Fredoka One' }}
-                      >
-                        {star}
-                      </span>
-                    ))}
-                  </Box>
-                  </Typography ></div>
-        <Typography variant="body1"
-          sx={{
-            fontFamily: 'Oswald',
-            fontSize: { xs: '3.5vw', sm: '2.5vw', md: '20px' },
-            textAlign: 'left',
-            mb: { xs: 3, sm: 2 },
-            lineHeight: 1.5,
-            maxWidth: '100%'}}>Nestled within a fresh, toasted bun, each bite unveils a
-perfect harmony of textures, complemented by layers
-of crisp lettuce, ripe tomatoes, and the crunch pickles
-Our secret sauce proprietary blend savory</Typography>
-<Typography>Richard D. Baker/ </Typography>
+
+      {/* Testimonial Text Section */}
+      <Box
+        sx={{
+          px: { xs: 3, sm: 6, md: 20 },
+          py: 8,
+          backgroundColor: '#fff',
+        }}
+      >
+        <Box sx={{ maxWidth: 600, mx: 'auto' }}>
+          <Typography
+            sx={{
+              fontSize: 14,
+              fontWeight: 'bold',
+              color: '#000',
+              fontFamily: 'Oswald',
+              mb: 3,
+              textTransform: 'uppercase',
+            }}
+          >
+            Quality Food <span style={{ color: 'gold' }}>★★★★★</span>
+          </Typography>
+
+          <Typography
+            sx={{
+              fontSize: { xs: 16, sm: 18, md: 20 },
+              fontWeight: 400,
+              color: '#000',
+              fontFamily: 'Oswald',
+              lineHeight: 1.7,
+              mb: 3,
+            }}
+          >
+            Nestled within a fresh, toasted bun, each bite unveils a perfect harmony of textures,
+            complemented by layers of crisp lettuce, ripe tomatoes, and crunchy pickles.
+            <br />
+            Our secret sauce is a proprietary savory blend that makes it unforgettable.
+          </Typography>
+
+          <Typography
+            sx={{
+              fontWeight: 'bold',
+              fontSize: 14,
+              color: '#000',
+              fontFamily: 'Oswald',
+            }}
+          >
+            Richard D. Baker <span style={{ fontWeight: 400 }}>/ CEO & Founder</span>
+          </Typography>
+        </Box>
       </Box>
-       */}
-       {/* Testimonial Section */}
-<Box sx={{ px: 20, py: 8, textAlign: 'left', backgroundColor: '#fff',justifyContent:'flex-start' }}>
-
-  <Box
-    sx={{
-      maxWidth: 450,
-    //   display:'flex',
-    //   flexDirection:'column',
-    //     justifyContent:'flex-start',
-    //     alignItems:'center',
-    //     textAlign:'left',
-      bgcolor: '#fff',
-      px: 4,
-      py: 4,
-      
-    }}
-  >
-    <Typography
-      sx={{
-        fontSize: 14,
-        fontWeight: 'bold',
-        color: '#000',
-        fontFamily:'Oswald',
-        mb: 3,
-        ml:2,
-        textAlign:'left',
-        textTransform: 'uppercase',
-      }}
-    >
-      Quality Food <span style={{ color: 'gold' }}>★★★★★</span>
-    </Typography>
-
-    <Typography
-      sx={{
-        fontSize: 20,
-        fontWeight: 400,
-        color: '#000',
-        fontFamily: 'Oswald',
-        lineHeight: 1.7,
-        mb: 3,
-      }}
-    >
-      Nestled within a fresh, toasted bun, each bite unveils a perfect harmony of textures,
-      complemented by layers of crisp lettuce, ripe tomatoes, and the crunch pickles. <br />
-      Our secret sauce proprietary blend savory
-    </Typography>
-
-    <Typography sx={{ fontWeight: 'bold', fontSize: 14, color: '#000',  fontFamily:'Oswald',ml:6 }}>
-      Richard D. Baker <span style={{ fontWeight: 400 ,  fontFamily:'Oswald',}}>/ CEO & Founder</span>
-    </Typography>
-
-   
-  </Box>
-</Box>
-
     </>
   );
 };

@@ -10,7 +10,7 @@ const FooterGallery = () => {
       sx={{
         width: '100%',
         mt: 4,
-        display: 'flex',
+        display: {xs:'none',md:'flex'},
         justifyContent: 'space-between',
         py: 2,
       }}

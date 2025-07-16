@@ -8,8 +8,9 @@ const NewsletterSection = () => {
       sx={{
         width: '100%',
         display: 'flex',
-        justifyContent: 'center',
+        // justifyContent: 'center',
         py: 6,
+        mx:'auto',
         backgroundColor: '#F4F1EA',
       }}
     >
@@ -17,6 +18,7 @@ const NewsletterSection = () => {
         sx={{
           width: '1290px',
           height: '407.78px',
+            mx:'auto',
           position: 'relative',
           borderRadius: 2,
           overflow: 'hidden',

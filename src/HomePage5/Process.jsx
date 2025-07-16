@@ -4,73 +4,77 @@ const Process = () => {
   const services = [
     {
       title: 'Cooking With Care',
-      description: 'Its the perfect dining experience where Experience quick and efficient',
+      description:
+        'It’s the perfect dining experience where every dish is crafted with precision and heart.',
     },
     {
       title: 'QUICKLY DELIVERY',
-      description: 'Its the perfect dining experience where Experience quick and efficient',
+      description:
+        'Fast and efficient service ensures your meals are delivered fresh and on time.',
       highlight: true,
     },
     {
       title: 'CHOOSE FOOD',
-      description: 'Its the perfect dining experience where Experience quick and efficient',
+      description:
+        'Explore a diverse menu and choose your favorite meals with just a few clicks.',
     },
   ];
 
-  // Define responsive breakpoints
-  const getBreakpoints = (width) => {
-    if (width < 480) return 'xs';
-    if (width < 768) return 'sm';
-    if (width < 1024) return 'md';
-    return 'lg';
-  };
-
-  const screenWidth = window.innerWidth;
-  const breakpoint = getBreakpoints(screenWidth);
-
-  const isMobile = breakpoint === 'xs' || breakpoint === 'sm';
-
-  const Card = ({ title, description, highlight }) => {
-    return (
+  const Card = ({ title, description, highlight }) => (
+    <div
+      style={{
+        flex: '1 1 260px',
+        padding: '20px',
+        borderRadius: '12px',
+        textAlign: 'center',
+        backgroundColor: highlight ? '#fff' : 'transparent',
+        boxShadow: highlight ? '0 4px 10px rgba(0,0,0,0.08)' : 'none',
+        minWidth: '240px',
+        maxWidth: '320px',
+        boxSizing: 'border-box',
+        position: 'relative',
+        zIndex: 1,
+        transition: 'all 0.3s ease',
+      }}
+    >
       <div
         style={{
-          flex: '1 1 280px',
-          padding: 20,
-          borderRadius: 10,
-          textAlign: 'center',
-          backgroundColor: highlight ? '#ffffff' : 'transparent',
-          boxShadow: highlight ? '0 2px 6px rgba(0,0,0,0.1)' : 'none',
-          position: 'relative',
-          zIndex: 1,
+          fontWeight: '800',
+          fontSize: '16px',
+          marginBottom: '10px',
+          textTransform: 'uppercase',
         }}
       >
-        <div style={{ fontWeight: '800', fontSize: 16, marginBottom: 10 }}>{title}</div>
-        <div style={{ fontSize: 13, color: '#555', lineHeight: 1.5 }}>{description}</div>
+        {title}
       </div>
-    );
-  };
+      <div
+        style={{
+          fontSize: '14px',
+          color: '#555',
+          lineHeight: 1.6,
+        }}
+      >
+        {description}
+      </div>
+    </div>
+  );
 
   return (
     <div
       style={{
         backgroundColor: '#F4F1EA',
-        padding: screenWidth < 768 ? '60px 20px' : '100px 40px',
-        minHeight: '80vh',
+        padding: '80px 20px',
         textAlign: 'center',
         boxSizing: 'border-box',
-        display:'flex',
-        justifyContent:'center',
-        alignItems:'center',
-        flexDirection:'column'
       }}
     >
       <div
         style={{
           color: 'green',
           fontWeight: '600',
-          fontSize: 13,
+          fontSize: '13px',
           textTransform: 'uppercase',
-          marginBottom: 10,
+          marginBottom: '10px',
         }}
       >
         FOOD PROCESSING
@@ -78,40 +82,41 @@ const Process = () => {
 
       <div
         style={{
-          fontSize: 32,
+          fontSize: '30px',
           fontWeight: '800',
-          marginBottom: 60,
+          marginBottom: '50px',
         }}
       >
         HOW WE SERVE YOU?
       </div>
 
+      {/* Cards Row */}
       <div
         style={{
           display: 'flex',
-          flexDirection: isMobile ? 'column' : 'row',
+          flexWrap: 'wrap',
           justifyContent: 'center',
-          alignItems: 'center',
-          gap: 20,
-          position: 'relative',
-          maxWidth: 860,
+          gap: '30px',
+          maxWidth: '960px',
           margin: '0 auto',
+          position: 'relative',
         }}
       >
-        {!isMobile && (
-          <div
-            style={{
-              position: 'absolute',
-              top: '50%',
-              left: 0,
-              right: 0,
-              height: 2,
-              backgroundColor: '#ccc',
-              zIndex: 0,
-              transform: 'translateY(-50%)',
-            }}
-          />
-        )}
+        {/* Connector Line (will only be visible when space allows due to flex wrap) */}
+        <div
+          style={{
+            position: 'absolute',
+            top: '50%',
+            left: 0,
+            right: 0,
+            height: '2px',
+            backgroundColor: '#ccc',
+            zIndex: 0,
+            transform: 'translateY(-50%)',
+            width: '100%',
+            pointerEvents: 'none',
+          }}
+        />
 
         {services.map((service, index) => (
           <Card

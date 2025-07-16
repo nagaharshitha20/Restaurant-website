@@ -105,7 +105,7 @@ const Trending = () => {
             <Button
               variant="contained"
               sx={{
-                mt: 3,
+                mt: {xs:1,md:3},
                 bgcolor: '#F3274C',
                 color: '#fff',
                 px: 4,
@@ -132,8 +132,9 @@ const Trending = () => {
         </Box>
 
       
-        <Box
+      <Box
           sx={{
+            display:{xs:'none',md:'flex'},
             flex: 1,
             backgroundImage: `url(${ImageAssets.right})`,
             backgroundSize: 'cover',
