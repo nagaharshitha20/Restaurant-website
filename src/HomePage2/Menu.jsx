@@ -78,8 +78,8 @@ const Menu = () => {
         backgroundColor: '#f8fbff',
         minHeight: { xs: '480px', sm: '600px', md: '710px' },
         mt: { xs: '56px', sm: '64px' },
+        mx:'auto',
         
-        px: { xs: 2, md: 0},
       }}
     >
       
@@ -89,6 +89,7 @@ const Menu = () => {
           fontSize: '35px',
           textAlign: 'center',
           marginTop: '50px',
+           display:{xs:'none',sm:'block'},
           
         }}
       >
@@ -98,6 +99,7 @@ const Menu = () => {
               sx={{
                 width: '155px',
                 height: '6px',
+                display:{xs:'none',sm:'block'},
                 backgroundColor: '#FFD700',
                 mx: 'auto',
                 mb: 6,
@@ -105,216 +107,81 @@ const Menu = () => {
               }}
             />
             {/* BBQ Box */}
-                    <Grid item xs={12} md={6} lg={6}>
-                      <div style={{
-                        display: 'flex',
-                        flexDirection: { xs: 'column', lg: 'row' },
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                                             
-                      }}>
-                        <Box
-                        sx={{
-                          backgroundColor: '#FFFFFF01',
-                          borderRadius: '20px',
-                          width: '100%',
-                          maxWidth: { xs: '100%', lg: '250px' },
-                          mx: 'auto',
-                          p: { xs: 3, md: 4, lg: 10 },
-                          boxShadow: '0 4px 12px rgba(0,0,0,0.05)',
-                        }}
-                      >
-                        <Typography
-                          sx={{
-                            fontSize: { xs: '20px', md: '24px' },
-                            mb: 2,
-                            fontFamily: 'Fredoka One',
-                            textAlign: { xs: 'center', md: 'left' },
-                            ml: { xs: 0,  },
-                          }}
-                        >
-                          Breakfast
-                        </Typography>
+          {/* Menu Items Section */}
+<Grid container spacing={3} justifyContent="center">
+  {[{ label: 'Breakfast', data: Breakfast }, { label: 'Lunch', data: Lunch }, { label: 'Dinner', data: Dinner }].map((section, idx) => (
+    <Grid item xs={12} sm={6} md={4} key={idx}>
+      <Box
+        sx={{
+          backgroundColor: '#FFFFFF01',
+          borderRadius: '20px',
+          width: '100%',
+          maxWidth: { lg: '250px' },
+          mx: 'auto',
+          display:{xs:'none',sm:'block'},
+          p: { xs: 0, md: 4, lg: 10 },
+          boxShadow: '0 4px 12px rgba(0,0,0,0.05)',
+        }}
+      >
+        <Typography
+          sx={{
+            fontSize: { xs: '20px', md: '24px' },
+            mb: 2,
+            fontFamily: 'Fredoka One',
+            textAlign: 'center',
+          }}
+        >
+          {section.label}
+        </Typography>
 
-                        {Breakfast.map((item, idx) => (
-                          <Box
-                            key={idx}
-                            sx={{
-                              borderBottom: '1px dashed #ccc',
-                              pb: 2,
-                              mb: 2,
-                              ml: { xs: 0,  },
-                            }}
-                          >
-                            <Box
-                              sx={{
-                                display: 'flex',
-                                justifyContent: 'space-between',
-                                alignItems: 'baseline',
-                                flexWrap: 'wrap',
-                              }}
-                            >
-                              <Typography sx={{ fontFamily: 'Fredoka One' }}>
-                                {item.title}
-                              </Typography>
-                              <Typography
-                                sx={{
-                                  color: '#F3274C',
-                                  fontFamily: 'Fredoka One',
-                                }}
-                              >
-                                {item.price}
-                              </Typography>
-                            </Box>
-                            <Typography
-                              sx={{
-                                fontSize: '14px',
-                                color: '#666',
-                                fontFamily: 'Epilogue',
-                                mt: 0.5,
-                              }}
-                            >
-                              {item.desc}
-                            </Typography>
-                          </Box>
-                        ))}
-                      </Box>
-                        <Box
-                        sx={{
-                          backgroundColor: '#FFFFFF01',
-                          borderRadius: '20px',
-                          width: '100%',
-                          maxWidth: { xs: '100%', lg: '250px' },
-                          mx: 'auto',
-                          p: { xs: 3, md: 4, lg: 10 },
-                          boxShadow: '0 4px 12px rgba(0,0,0,0.05)',
-                        }}
-                      >
-                        <Typography
-                          sx={{
-                            fontSize: { xs: '20px', md: '24px' },
-                            mb: 2,
-                            fontFamily: 'Fredoka One',
-                            textAlign: { xs: 'center', md: 'left' },
-                            ml: { xs: 0,  },
-                          }}
-                        >
-                          Lunch
-                        </Typography>
+        {section.data.map((item, i) => (
+          <Box
+            key={i}
+            sx={{
+              borderBottom: '1px dashed #ccc',
+              pb: 2,
+              mb: 2,
+            }}
+          >
+            <Box
+              sx={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'baseline',
+                flexWrap: 'wrap',
+              }}
+            >
+              <Typography sx={{ fontFamily: 'Fredoka One' }}>
+                {item.title}
+              </Typography>
+              <Typography
+                sx={{
+                  color: '#F3274C',
+                  fontFamily: 'Fredoka One',
+                }}
+              >
+                {item.price}
+              </Typography>
+            </Box>
+            <Typography
+              sx={{
+                fontSize: '14px',
+                color: '#666',
+                fontFamily: 'Epilogue',
+                mt: 0.5,
+              }}
+            >
+              {item.desc}
+            </Typography>
+          </Box>
+        ))}
+      </Box>
+    </Grid>
+  ))}
+</Grid>
 
-                        {Breakfast.map((item, idx) => (
-                          <Box
-                            key={idx}
-                            sx={{
-                              borderBottom: '1px dashed #ccc',
-                              pb: 2,
-                              mb: 2,
-                              ml: { xs: 0,  },
-                            }}
-                          >
-                            <Box
-                              sx={{
-                                display: 'flex',
-                                justifyContent: 'space-between',
-                                alignItems: 'baseline',
-                                flexWrap: 'wrap',
-                              }}
-                            >
-                              <Typography sx={{ fontFamily: 'Fredoka One' }}>
-                                {item.title}
-                              </Typography>
-                              <Typography
-                                sx={{
-                                  color: '#F3274C',
-                                  fontFamily: 'Fredoka One',
-                                }}
-                              >
-                                {item.price}
-                              </Typography>
-                            </Box>
-                            <Typography
-                              sx={{
-                                fontSize: '14px',
-                                color: '#666',
-                                fontFamily: 'Epilogue',
-                                mt: 0.5,
-                              }}
-                            >
-                              {item.desc}
-                            </Typography>
-                          </Box>
-                        ))}
-                      </Box>
-                        <Box
-                        sx={{
-                          backgroundColor: '#FFFFFF01',
-                          borderRadius: '20px',
-                          width: '100%',
-                          maxWidth: { xs: '100%', lg: '250px' },
-                          mx: 'auto',
-                          p: { xs: 3, md: 4, lg: 10 },
-                          boxShadow: '0 4px 12px rgba(0,0,0,0.05)',
-                        }}
-                      >
-                        <Typography
-                          sx={{
-                            fontSize: { xs: '20px', md: '24px' },
-                            mb: 2,
-                            fontFamily: 'Fredoka One',
-                            textAlign: { xs: 'center', md: 'left' },
-                            ml: { xs: 0,  },
-                          }}
-                        >
-                          Dinner
-                        </Typography>
-
-                        {Breakfast.map((item, idx) => (
-                          <Box
-                            key={idx}
-                            sx={{
-                              borderBottom: '1px dashed #ccc',
-                              pb: 2,
-                              mb: 2,
-                              ml: { xs: 0,  },
-                            }}
-                          >
-                            <Box
-                              sx={{
-                                display: 'flex',
-                                justifyContent: 'space-between',
-                                alignItems: 'baseline',
-                                flexWrap: 'wrap',
-                              }}
-                            >
-                              <Typography sx={{ fontFamily: 'Fredoka One' }}>
-                                {item.title}
-                              </Typography>
-                              <Typography
-                                sx={{
-                                  color: '#F3274C',
-                                  fontFamily: 'Fredoka One',
-                                }}
-                              >
-                                {item.price}
-                              </Typography>
-                            </Box>
-                            <Typography
-                              sx={{
-                                fontSize: '14px',
-                                color: '#666',
-                                fontFamily: 'Epilogue',
-                                mt: 0.5,
-                              }}
-                            >
-                              {item.desc}
-                            </Typography>
-                          </Box>
-                        ))}
-                      </Box>
-                      </div>
-                      
-                    </Grid>
-<Box sx={{ width: '100%', mt: { xs: '40px', md: '100px' } ,}}>
+<Box sx={{ width: '100%', mt: { xs: '30px', md: '100px' } ,
+}}>
 
 <Box
 sx={{
@@ -326,8 +193,10 @@ xs: 'flex-start',
 md: 'flex-start',
 lg: 'flex-start', 
 },
-gap: 10,
-px: { xs: 3,sm:18, md: 12 ,lg:25},
+gap: {xs:0,sm:10},
+// mx:'auto',
+
+px: { xs: 3,sm:18, md: 12 ,lg:35},
 minHeight: { lg: '150px' }, 
 }}
 >
@@ -350,7 +219,7 @@ minHeight: { lg: '150px' },
       fontFamily: 'Fredoka One',
       fontSize: { xs: '22px', md: '34px' },
       maxWidth: { xs: '100%', md: '300px' },
-      mb: 2,
+      mb:2,
       lineHeight: 1.3,
       textAlign: { xs: 'left', md: 'left' },
     }}
@@ -360,7 +229,7 @@ minHeight: { lg: '150px' },
 </Box>
 
 
-<Box sx={{ flex: 1, maxWidth: '480px' }}>
+<Box sx={{ flex: 1, maxWidth: '100%' }}>
   <Typography
     sx={{
       fontSize: { xs: '14px', md: '15px' },
@@ -385,8 +254,10 @@ sx={{
 display: 'flex',
 flexWrap: 'wrap',
 justifyContent: 'center',
-width: '100%',
+alignItems:'center',
+ width: '100%',
 gap: 6,
+mx:'auto',
 mt: 4,
 }}
 >
