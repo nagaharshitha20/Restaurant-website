@@ -33,7 +33,7 @@ const Dropdown = ({ label, ...options }) => {
       style={{
         position: "relative",
         display: "inline-block",
-        marginTop: "16px",
+        // marginTop: "16px",
       }}
     >
       <span
@@ -63,7 +63,7 @@ const Dropdown = ({ label, ...options }) => {
             minWidth: "140px",
             boxShadow: "5px 5px 8px rgba(0, 0, 0, 0.15)",
             zIndex: 10,
-            padding: "8px 0",
+            // padding: "8px 0",
             borderRadius: "4px",
           }}
         >

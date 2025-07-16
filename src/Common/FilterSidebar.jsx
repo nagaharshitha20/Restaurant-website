@@ -24,6 +24,7 @@ const FilterSidebar = () => {
       sx={{
         px: 2,
         py: 3,
+        display:{xs:'none',lg:'block'},
         borderRadius: 2,
         backgroundColor: '#f9f9f9',
         boxShadow: '0 2px 8px rgba(0,0,0,0.05)',

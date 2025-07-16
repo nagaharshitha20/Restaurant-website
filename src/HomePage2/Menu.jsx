@@ -255,9 +255,9 @@ display: 'flex',
 flexWrap: 'wrap',
 justifyContent: 'center',
 alignItems:'center',
- width: '100%',
+ width: {xs:'90%',md:'100%'},
 gap: 6,
-mx:'auto',
+// mx:'auto',
 mt: 4,
 }}
 >

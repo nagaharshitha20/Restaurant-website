@@ -57,9 +57,9 @@ const CartPage = () => {
   };
 
   return (
-    <Box sx={{ pt: 14, pb: 6, backgroundColor: '#f9f9f9', fontFamily: 'Roboto, sans-serif', minHeight: '80vh' }}>
+    <Box sx={{ pt: 14, pb: 6, backgroundColor: '#f9f9f9', fontFamily: 'Roboto, sans-serif', minHeight: '80vh'}}>
       <Container maxWidth={false} sx={{ padding: 0 }}>
-        <Box sx={{ display: 'flex', justifyContent: 'center', gap: 4, width: '100%', flexWrap: 'wrap' }}>
+        <Box sx={{ display: 'flex', justifyContent: 'center', gap: 4, width: '90%', flexWrap: 'wrap', mx:'auto', }}>
           
           <Box
             sx={{
@@ -141,7 +141,7 @@ const CartPage = () => {
                         </Typography>
                       </Box>
 
-                      {/* Extras Section */}
+                     
                       <Box sx={{ pl: 7, mt: 0.5 }}>
                         {item.size && (
                           <Typography variant="body2" sx={{ fontSize: '0.75rem', color: '#888' }}>
