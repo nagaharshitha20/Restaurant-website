@@ -20,6 +20,7 @@ import {
 import { FoodItems } from '../Data/FoodItems';
 import FilterSidebar from '../Common/FilterSidebar';
 import ShopProducts from '../Common/ShopProducts';
+import { useSearchParams } from 'react-router-dom';
 
 const sortOptions = [
   { value: 'default', label: 'Default' },
@@ -29,6 +30,13 @@ const sortOptions = [
 
 const ShopPage = () => {
   const dispatch = useDispatch();
+  const [params] = useSearchParams();
+const searchParam = params.get('search') || '';
+
+useEffect(() => {
+  dispatch(setSearchQuery(searchParam));
+}, [searchParam, dispatch]);
+
   const { selectedCategories, searchQuery, sortType, priceRange, tags } = useSelector(
     (state) => state.filters
   );
@@ -51,7 +59,7 @@ useEffect(() => {
 
 
     if (selectedCategories.length === 0) {
-  // When 'All' is selected, shuffle the combined array
+
   items = FoodItems.flatMap((cat) => cat.items).sort(() => Math.random() - 0.5);
 } else {
   items = FoodItems.filter((cat) =>
@@ -161,7 +169,7 @@ useEffect(() => {
             >
               <Box
                 sx={{
-                  display: 'flex',
+                  display: {xs:'none',md:'flex'},
                   gap: 2,
                   alignItems: 'center',
                   flexWrap: 'wrap',

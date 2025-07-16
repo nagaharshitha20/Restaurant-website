@@ -1,13 +1,19 @@
 import * as React from 'react';
 import {
-  AppBar, Box, Toolbar, IconButton, Typography, Menu,
-  Container, Badge, MenuItem
+   AppBar, Box, Toolbar, IconButton, Typography, Menu,
+  Container, Badge, MenuItem, Drawer, List, ListItemButton,
+  ListItemText, Collapse, InputBase, Paper, Divider, ListItem
 } from '@mui/material';
+import { setSearchQuery } from '../redux/filterSlice'; // ✅ import action
+import { useLocation } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
 import LocalMallIcon from '@mui/icons-material/LocalMall';
 import ClearAllIcon from '@mui/icons-material/ClearAll';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate, Link } from 'react-router-dom';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import ExpandLess from '@mui/icons-material/ExpandLess';
+import ExpandMore from '@mui/icons-material/ExpandMore';
 import { clearCart } from '../redux/filterSlice';
 import { ImageAssets } from '../ImageAssets';
 import Dropdown from './Dropdown';
@@ -19,9 +25,30 @@ function Navbar() {
   const dispatch = useDispatch();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+   
 
   const cartItems = useSelector((state) => state.filters.cart);
   const totalItems = cartItems.reduce((sum, item) => sum + item.qty, 0);
+    const [drawerOpen, setDrawerOpen] = React.useState(false);
+  const [openMenus, setOpenMenus] = React.useState({ Home: false, Blog: false, Pages: false });
+  const [isLoggedIn, setIsLoggedIn] = React.useState(localStorage.getItem('isLoggedIn') === 'true');
+  const [searchQuery, setSearchQueryInput] = React.useState('');
+const location = useLocation();
+
+// const globalSearch = useSelector(state => state.filters.searchQuery);
+// React.useEffect(() => {
+//   setSearchQueryInput(globalSearch);
+// }, [globalSearch]);
+
+const handleSearchSubmit = (e) => {
+  e.preventDefault();
+  const trimmed = searchQuery.trim();
+  if (trimmed) {
+    dispatch(setSearchQuery(trimmed)); // ✅ set Redux state
+    navigate(`/shop?search=${encodeURIComponent(trimmed)}`); // ✅ route to shop
+  }
+};
+
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -54,6 +81,44 @@ function Navbar() {
     <AppBar position="fixed" elevation={0} sx={{ backgroundColor: '#FFFFFF' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
+  <Box sx={{ display: {xs:'flex',md:'none'}, alignItems: 'center', justifyContent: 'space-between', flexGrow: 1 }}>
+            <IconButton onClick={() => setDrawerOpen(true)}>
+              <MenuIcon sx={{ color: 'black' }} />
+            </IconButton>
+
+ <Paper
+  component="form"
+  onSubmit={handleSearchSubmit}
+  sx={{
+    p: '2px 8px',
+    display: 'flex',
+    alignItems: 'center',
+    flexGrow: 1,
+    mx: 1,
+    borderRadius: '12px',
+    backgroundColor: '#f5f5f5',
+    boxShadow: '0 1px 4px rgba(0,0,0,0.1)',
+  }}
+>
+  <InputBase
+    sx={{ ml: 1, flex: 1 }}
+    placeholder="Search…"
+    inputProps={{ 'aria-label': 'search' }}
+    value={searchQuery}
+    onChange={(e) => setSearchQueryInput(e.target.value)}
+  />
+</Paper>
+
+
+
+            <Badge badgeContent={totalItems} color="success" sx={{ '& .MuiBadge-badge': { top: 8, right: 3 } }}>
+              <LocalMallIcon onClick={handleOpenCart} sx={{ color: '#00A149', fontSize: 26, cursor: 'pointer' }} />
+            </Badge>
+
+            <IconButton onClick={handleOpenUserMenu}>
+                 <AccountCircleIcon sx={{ color: 'rgba(205, 201, 201, 1)', fontSize: 30 }} />
+            </IconButton>
+          </Box>
 
           {/* Desktop Logo */}
           <Box component="img" src={ImageAssets.logo} alt="logo"
@@ -65,8 +130,6 @@ function Navbar() {
               mr: { md: -1, lg: -2.6 },
             }}
           />
-
-          {/* Desktop Text */}
           <Typography
             variant="h6"
             noWrap
@@ -85,9 +148,48 @@ function Navbar() {
           >
             pizza hut
           </Typography>
+ <Drawer anchor="left" open={drawerOpen} onClose={() => setDrawerOpen(false)} sx={{ display: { xs: 'block', md: 'none' } }}>
+        <Box sx={{ width: 250, p: 2 }}>
+          <Typography variant="h6" sx={{ mb: 2, fontFamily: 'Fredoka One' }}>Menu</Typography>
+          <Divider sx={{ mb: 1 }} />
 
+          {['Home', 'Blog', 'Pages'].map((item) => (
+            <React.Fragment key={item}>
+              <ListItem button onClick={() => setOpenMenus({ ...openMenus, [item]: !openMenus[item] })}>
+                <ListItemText primary={item} />
+                {openMenus[item] ? <ExpandLess /> : <ExpandMore />}
+              </ListItem>
+              <Collapse in={openMenus[item]} timeout="auto" unmountOnExit>
+                <List component="div" disablePadding>
+                  {item === 'Home' && ['/home2', '/home3', '/home4', '/home5', '/home6', '/home7'].map((path, i) => (
+                    <ListItem button key={path} sx={{ pl: 4 }} onClick={() => { navigate(path); setDrawerOpen(false); }}>
+                      <ListItemText primary={`Home ${i + 2}`} />
+                    </ListItem>
+                  ))}
+                  {item === 'Blog' && ['News', 'Events', 'Offers'].map((label) => (
+                    <ListItem button key={label} sx={{ pl: 4 }}>
+                      <ListItemText primary={label} />
+                    </ListItem>
+                  ))}
+                  {item === 'Pages' && ['Gallery', 'Testimonials', 'FAQ'].map((label) => (
+                    <ListItem button key={label} sx={{ pl: 4 }}>
+                      <ListItemText primary={label} />
+                    </ListItem>
+                  ))}
+                </List>
+              </Collapse>
+            </React.Fragment>
+          ))}
+
+          {[{ label: 'About', path: '/about' }, { label: 'Shop', path: '/shop' }, { label: 'Contact', path: '/contact' }].map((item) => (
+            <ListItem button key={item.label} onClick={() => { navigate(item.path); setDrawerOpen(false); }}>
+              <ListItemText primary={item.label} />
+            </ListItem>
+          ))}
+        </Box>
+      </Drawer>
           {/* Mobile Menu Icon */}
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+          {/* <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton size="large" onClick={handleOpenNavMenu} color="inherit" sx={{ color: 'black' }}>
               <MenuIcon />
             </IconButton>
@@ -113,10 +215,10 @@ function Navbar() {
                 </MenuItem>
               ))}
             </Menu>
-          </Box>
+          </Box> */}
 
           {/* Mobile Logo */}
-          <Box component="img" src={ImageAssets.logo} alt="logo"
+          {/* <Box component="img" src={ImageAssets.logo} alt="logo"
             sx={{
               width: { xs: 80, sm: 100 },
               height: { xs: 50, sm: 60 },
@@ -141,8 +243,8 @@ function Navbar() {
             }}
           >
             pizza hut
-          </Typography>
-
+          </Typography> */}
+          
           {/* Desktop Nav */}
           <Box sx={{
             flexGrow: 1,
@@ -160,16 +262,16 @@ function Navbar() {
               opt5={{ label: "Home 6", path: "/home6" }}
               opt6={{ label: "Home 7", path: "/home7" }}
             />
-            <Link to="/about" style={{ color: 'black', textDecoration: 'none', fontSize: '16px' }}>About</Link>
-            <Link to="/shop" style={{ color: 'black', textDecoration: 'none', fontSize: '16px' }}>Shop</Link>
+            <Link to="/about" style={{ color: 'black', textDecoration: 'none', fontSize: '16px',fontFamily:'Franklin Gothic Medium' }}>About</Link>
+            <Link to="/shop" style={{ color: 'black', textDecoration: 'none', fontSize: '16px',fontFamily:'Franklin Gothic Medium'  }}>Shop</Link>
             <Dropdown label="Blog" options={['News', 'Events', 'Offers']} />
             <Dropdown label="Pages" options={['Gallery', 'Testimonials', 'FAQ']} />
-            <Link to="/contact" style={{ color: 'black', textDecoration: 'none', fontSize: '16px' }}>Contact</Link>
+            <Link to="/contact" style={{ color: 'black', textDecoration: 'none', fontSize: '16px',fontFamily:'Franklin Gothic Medium'  }}>Contact</Link>
           </Box>
 
           {/* Right Icons */}
           <Box sx={{
-            display: 'flex',
+            display: {xs:'none',md:'flex'},
             alignItems: 'center',
             gap: { xs: 1.5, sm: 2, md: 2.5 },
             mr: { xs: 1, sm: 4, md: 10, lg: 18 },
@@ -204,6 +306,7 @@ function Navbar() {
             <Box>
               <IconButton onClick={handleOpenUserMenu}>
                 <ClearAllIcon sx={{ color: 'black', fontSize: 28 }} />
+                
               </IconButton>
               <Menu anchorEl={anchorElUser} open={Boolean(anchorElUser)} onClose={handleCloseUserMenu}>
                 {!isLoggedIn ? (
