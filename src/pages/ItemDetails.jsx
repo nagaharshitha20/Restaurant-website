@@ -20,7 +20,7 @@ import {
   RadioGroup,
   Radio,
 } from '@mui/material';
-
+import { useNavigate } from 'react-router-dom';
 const TOPPING_PRICES = {
   cheese: 20,
   olives: 15,
@@ -35,7 +35,7 @@ export default function ProductPage() {
   const { id } = useParams();
   const dispatch = useDispatch();
   const productId = parseInt(id);
-
+const navigate = useNavigate();
   let product = null;
   let category = '';
 
@@ -66,34 +66,42 @@ export default function ProductPage() {
     return extra;
   };
 
-  const handleAddToCart = () => {
-    const selectedToppings = Object.entries(toppings)
-      .filter(([_, value]) => value)
-      .map(([key]) => ({ name: key, price: TOPPING_PRICES[key] }));
 
-    const selectedDips = Object.entries(dips)
-      .filter(([_, value]) => value)
-      .map(([key]) => ({ name: key, price: DIP_PRICES[key] }));
+const handleAddToCart = () => {
+  const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+  if (!isLoggedIn) {
+    navigate('/login');
+    return;
+  }
 
-    const extras = {
-      toppings: selectedToppings,
-      dips: selectedDips,
-      note,
-      size,
-    };
+  const selectedToppings = Object.entries(toppings)
+    .filter(([_, value]) => value)
+    .map(([key]) => ({ name: key, price: TOPPING_PRICES[key] }));
 
-    const totalPrice = product.price + calculateExtrasPrice();
+  const selectedDips = Object.entries(dips)
+    .filter(([_, value]) => value)
+    .map(([key]) => ({ name: key, price: DIP_PRICES[key] }));
 
-    const cartItem = {
-      ...product,
-      extras,
-      size,
-      price: totalPrice,
-      qty: 1,
-    };
-
-    dispatch(addToCart(cartItem));
+  const extras = {
+    toppings: selectedToppings,
+    dips: selectedDips,
+    note,
+    size,
   };
+
+  const totalPrice = product.price + calculateExtrasPrice();
+
+  const cartItem = {
+    ...product,
+    extras,
+    size,
+    price: totalPrice,
+    qty: 1,
+  };
+
+  dispatch(addToCart(cartItem));
+};
+
 
   return (
     <Container maxWidth="sm" style={{ textAlign: 'center', padding: '2rem 0' ,marginTop:35}}>

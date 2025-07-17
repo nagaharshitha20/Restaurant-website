@@ -33,26 +33,33 @@ const ShopProducts = ({
   const [added, setAdded] = useState(false);
 
   const handleAdd = (e) => {
-    e.stopPropagation(); // Prevent card click navigation
-    if (!added) {
-      dispatch(
-        addToCart({
-          id,
-          img,
-          name,
-          price,
-          oldPrice,
-          rating,
-          deliveryTime,
-          discount,
-          qty: 1,
-        })
-      );
-      setAdded(true);
-      if (onAddToCart) onAddToCart();
-      setTimeout(() => setAdded(false), 2000);
-    }
-  };
+  e.stopPropagation(); // Prevent card click navigation
+
+  const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+  if (!isLoggedIn) {
+    navigate('/login');
+    return;
+  }
+
+  if (!added) {
+    dispatch(
+      addToCart({
+        id,
+        img,
+        name,
+        price,
+        oldPrice,
+        rating,
+        deliveryTime,
+        discount,
+        qty: 1,
+      })
+    );
+    setAdded(true);
+    if (onAddToCart) onAddToCart();
+    setTimeout(() => setAdded(false), 2000);
+  }
+};
 
   const handleCardClick = () => {
     navigate(`/product/${id}`);

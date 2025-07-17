@@ -1,137 +1,128 @@
 import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './Login.css';
-import { initiateGoogleLogin, initiateGithubLogin, initiateLinkedinLogin} from '../services/authService';
+import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, GithubAuthProvider } from 'firebase/auth';
+import { auth } from "../Firebase";
 import { FcGoogle } from 'react-icons/fc';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { FaEye, FaEyeSlash } from 'react-icons/fa'; // 👁️ added
+import { ImageAssets } from '../ImageAssets';
 
 function Login() {
   const navigate = useNavigate();
-  const [formData, setFormData] = useState({
-    username: '',
-    password: ''
-  });
+  const [formData, setFormData] = useState({ email: '', password: '',remember:false});
   const [error, setError] = useState('');
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prevState => ({
-      ...prevState,
-      [name]: value
+  const [showPassword, setShowPassword] = useState(false); // 👁️ visibility toggle
+ const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: type === 'checkbox' ? checked : value
     }));
-    // Clear error when user starts typing
     setError('');
   };
 
-  const handleLogin = (e) => {
+
+  const handleLogin = async (e) => {
     e.preventDefault();
-    const users = JSON.parse(localStorage.getItem('users')) || [];
-    const user = users.find(u => u.username === formData.username && u.password === formData.password);
-    
-    if (user) {
-      localStorage.setItem('currentUser', JSON.stringify(user));
-      localStorage.setItem('isLoggedIn', 'true');
+    try {
+      await signInWithEmailAndPassword(auth, formData.email, formData.password);
       navigate('/');
-    } else {
-      setError('Invalid username or password');
+    } catch (err) {
+      setError(err.message);
     }
   };
 
-  const handleSocialLogin = (platform) => {
-    switch (platform) {
-      case 'google':
-        initiateGoogleLogin();
-        break;
-      case 'github':
-        initiateGithubLogin();
-        break;
-      case 'linkedin':
-        initiateLinkedinLogin();
-        break;
-      default:
-        console.error('Unknown platform');
+  const handleSocialLogin = async (platform) => {
+    try {
+      let provider;
+      switch (platform) {
+        case 'google':
+          provider = new GoogleAuthProvider();
+          break;
+        case 'github':
+          provider = new GithubAuthProvider();
+          break;
+        case 'linkedin':
+          alert("LinkedIn login not supported directly in Firebase.");
+          return;
+        default:
+          return;
+      }
+      await signInWithPopup(auth, provider);
+      navigate('/');
+    } catch (err) {
+      setError(err.message);
     }
-  };
-
-  const handleSignUpClick = () => {
-    navigate('/register');
   };
 
   return (
     <div className="login-container">
-      <div className="login-card">
-        <h1>Welcome Back</h1>
-        <form onSubmit={handleLogin}>
-          {error && <div className="error-message">{error}</div>}
-          <div className="input-group">
-            <input
-              type="text"
-              name="username"
-              placeholder="Username"
-              value={formData.username}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div className="input-group">
-            <input
-              type="password"
-              name="password"
-              placeholder="Password"
-              value={formData.password}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div className="remember-forgot">
-            <label>
-              <input type="checkbox" /> Remember me
-            </label>
-            <a href="#">Forgot Password?</a>
-          </div>
-          <button type="submit" className="login-button">
-            Login
-          </button>
-        </form>
-        <div className="register-link">
-          Don't have an account? <button onClick={handleSignUpClick} className="signup-link">Sign up</button>
-        </div>
-        <div className="social-login">
-          <p>Or login with</p>
-          <div className="social-icons">
-            <a
-              href="https://www.google.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="social-btn"
-              title="Go to Google"
-            >
-              <FcGoogle size={20} />
-            </a>
+      <div className="login-left">
+        <div className="login-box">
+          <h1>Log in to your account.</h1>
+          <form onSubmit={handleLogin}>
+            {error && <div className="error-message">{error}</div>}
 
-            <a
-              href="https://github.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="social-btn"
-              title="Go to GitHub"
-            >
-              <i className="fab fa-github"></i>
-            </a>
+            <div className="input-group">
+              <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+            </div>
 
-            <a
-              href="https://www.linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="social-btn"
-              title="Go to LinkedIn"
-            >
-              <i className="fab fa-linkedin"></i>
-            </a>
+            <div className="input-group password-input-group">
+              <input
+                type={showPassword ? 'text' : 'password'}
+                name="password"
+                placeholder="Password"
+                value={formData.password}
+                onChange={handleChange}
+                required
+              />
+              <span className="toggle-password" onClick={() => setShowPassword(!showPassword)}>
+                {showPassword ? <FaEyeSlash /> : <FaEye />}
+              </span>
+            </div>
+    <div className="remember-forgot">
+              <label>
+                <input
+                  type="checkbox"
+                  name="remember"
+                  checked={formData.remember}
+                  onChange={handleChange}
+                />
+                Remember me
+              </label>
+            </div>
+            <button type="submit" className="login-button">Login</button>
+          </form>
+
+          <div className="social-login">
+            <p>Or login with</p>
+            <div className="social-icons">
+              <button onClick={() => handleSocialLogin('google')} className="social-btn"><FcGoogle size={20} /></button>
+              <button onClick={() => handleSocialLogin('github')} className="social-btn"><FaGithub size={20} /></button>
+              <button onClick={() => handleSocialLogin('linkedin')} className="social-btn"><FaLinkedin size={20} /></button>
+            </div>
+          </div>
+
+          <div className="register-link">
+            Don’t have an account?
+            <button onClick={() => navigate('/register')} className="signup-link">Create Account</button>
           </div>
         </div>
+      </div>
+
+      <div className="login-right">
+        <img src={ImageAssets.Minal} alt="background" className="img" />
       </div>
     </div>
   );
 }
 
-export default Login; 
+export default Login;

@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "./Layout";
-
+import ProtectedRoute from "./auth/ProtectedRoute";
 import HP1 from "./HomePage1/HP1";
 import HomePage2 from "./HomePage2/HomePage2";
 import HomePage3 from "./HomePage3/HomePage3";
@@ -30,58 +30,58 @@ const routing = createBrowserRouter([
         element: <HP1/>,
       },
       {
-        path: "home2",
-        element: <HomePage2 />,
-      },
-      {
-        path: "home3",
-        element: <HomePage3 />,
-      },
-      {
-        path: "home4",
-        element: <HomePage4 />,
-      },
-      {
-        path: "home5",
-        element: <HomePage5 />,
-      },
-      {
-        path: "home6",
-        element: <HomePage6 />,
-      },
-      {
-        path: "home7",
-        element: <HomePage7 />,
-      },
-      {
-        path: "popular",
-        element: <Popular3/>,
-      },
-      {
-        path: "shop",
-        element: <ShopPage/>,
-      },
-      {
-        path: "cart",
-        element: <CartPage/>,
-      },
-      {
-        path: "about",
-        element: <About/>,
-      },
-      {
-        path: "login",
-        element: <Login/>,
-      },
-      {
-        path: "register",
-        element: <Register/>,
-      },
-      {
+  path: "home2",
+  element: <HomePage2 />,
+},
+{
+  path: "home3",
+  element: <HomePage3 />,
+},
+{
+  path: "home4",
+  element: <HomePage4 />,
+},
+{
+  path: "home5",
+  element: <HomePage5 />,
+},
+{
+  path: "home6",
+  element: <HomePage6 />,
+},
+{
+  path: "home7",
+  element: <HomePage7 />,
+},
+{
+  path: "popular",
+  element: <Popular3 />,
+},
+{
+  path: "shop",
+  element: <ShopPage />,
+},
+{
+  path: "cart",
+  element:<ProtectedRoute><CartPage/></ProtectedRoute>,
+},
+{
+  path: "about",
+  element: <About />,
+},
+{
   path: "product/:id",
   element: <ItemDetails />,
 },
-      
+{
+  path: "login",
+  element: <Login />,
+},
+{
+  path: "register",
+  element: <Register />,
+},
+
     ],
   },
 ]);

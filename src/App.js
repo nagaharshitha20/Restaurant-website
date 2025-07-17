@@ -1,19 +1,20 @@
-import * as React from 'react';
-import HomePage2 from "./HomePage2/HomePage2";
-import Navbar from './Common/Navbar';
-import Footer from './Common/Footer';
-import HomePage3 from './HomePage3/HomePage3';
-import './index.css';
-
-// import FeatureSection from './HomePage2/FeatureSection';
-import MainApp from './MainApp';
+// src/App.js
+import React, { useState, useEffect } from "react";
+import SplashScreen from "./SplashScreen";
+import MainApp from "./MainApp"; // Your actual app
+import "./index.css";
 
 const App = () => {
-  return (
-    <div style={{overflowX:'hidden'}}>
-      
-      <MainApp/>
+  const [showSplash, setShowSplash] = useState(true);
 
+  useEffect(() => {
+    const timer = setTimeout(() => setShowSplash(false), 3000); // Match video length
+    return () => clearTimeout(timer);
+  }, []);
+
+  return (
+    <div style={{ overflowX: "hidden" }}>
+      {showSplash ? <SplashScreen /> : <MainApp />}
     </div>
   );
 };
