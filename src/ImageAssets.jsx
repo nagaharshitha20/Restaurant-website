@@ -169,5 +169,8 @@ tandoorichicken:require('./Assets/tandoorichicken.png'),
 Shroom:require('./Assets/Shroom.png'),
 subscribe:require('./Assets/subscribe.jpg'),
 mask:require('./Assets/mask.svg'),
-brand:'./assets/brand.mp4', 
+brand:require('./Assets/brand.png'),
+hat:require('./Assets/hat.png'),
+bestseller:require('./Assets/bestseller.png'),
+
 };

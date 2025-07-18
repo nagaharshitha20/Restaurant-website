@@ -10,11 +10,14 @@ import {
 } from '@mui/material';
 import StarIcon from '@mui/icons-material/Star';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
+
 import AddIcon from '@mui/icons-material/Add';
 import CheckIcon from '@mui/icons-material/Check';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../redux/filterSlice';
 import { useNavigate } from 'react-router-dom';
+import { auth } from '../Firebase'; // ✅ Added
 
 const ShopProducts = ({
   id,
@@ -27,104 +30,105 @@ const ShopProducts = ({
   deliveryTime,
   discount,
   onAddToCart,
+  small
 }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [added, setAdded] = useState(false);
 
   const handleAdd = (e) => {
-  e.stopPropagation(); // Prevent card click navigation
+    e.stopPropagation(); // Prevent card click navigation
 
-  const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-  if (!isLoggedIn) {
-    navigate('/login');
-    return;
-  }
+    const isLoggedIn = !!auth.currentUser; // ✅ Updated
+    if (!isLoggedIn) {
+      navigate('/login');
+      return;
+    }
 
-  if (!added) {
-    dispatch(
-      addToCart({
-        id,
-        img,
-        name,
-        price,
-        oldPrice,
-        rating,
-        deliveryTime,
-        discount,
-        qty: 1,
-      })
-    );
-    setAdded(true);
-    if (onAddToCart) onAddToCart();
-    setTimeout(() => setAdded(false), 2000);
-  }
-};
+    if (!added) {
+      dispatch(
+        addToCart({
+          id,
+          img,
+          name,
+          price,
+          oldPrice,
+          rating,
+          deliveryTime,
+          discount,
+          qty: 1,
+        })
+      );
+      setAdded(true);
+      if (onAddToCart) onAddToCart();
+      setTimeout(() => setAdded(false), 2000);
+    }
+  };
 
   const handleCardClick = () => {
     navigate(`/product/${id}`);
   };
 
   return (
-    <Card
-      onClick={handleCardClick}
-      sx={{
-        borderRadius: 2,
-        boxShadow: 3,
-        width:'190px',
-        height:'290px',
-        // height:'90%',
-        transition: 'transform 0.2s ease-in-out',
-        '&:hover': {
-          transform: 'scale(1.02)',
-          cursor: 'pointer',
-        },
-        position: 'relative',
+   <Card
+  onClick={handleCardClick}
+  sx={{
+    borderRadius: 2,
+    boxShadow: 3,
+    width: small ? '140px' : '190px',
+    height: small ? '240px' : '290px',
+    transition: 'transform 0.2s ease-in-out',
+    '&:hover': {
+      transform: 'scale(1.02)',
+      cursor: 'pointer',
+    },
+    position: 'relative',
+    mx: small ? 0.5 : 0,
+  }}
+>
+  <Box
+    sx={{
+      position: 'relative',
+      height: small ? '50%' : '60%',
+      backgroundColor: '#f7f7f7',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      overflow: 'hidden',
+      borderTopLeftRadius: 8,
+      borderTopRightRadius: 8,
+    }}
+  >
+    <img
+      src={img}
+      alt={name}
+      style={{
+        width: small ? '90%' : '100%',
+        objectFit: 'cover',
       }}
-    >
-      <Box
+    />
+    {discount && discount >= 10 && (
+      <Chip
+        label={`${discount}% OFF`}
+        color="error"
+        size="small"
         sx={{
-          position: 'relative',
-          height: '60%',
-          backgroundColor: '#f7f7f7',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          overflow: 'hidden',
-          borderTopLeftRadius: 8,
-          borderTopRightRadius: 8,
-           
+          position: 'absolute',
+          top: 0,
+          borderBottomLeftRadius:12,
+          borderBottomRightRadius:0,
+          borderTopLeftRadius:2,
+          borderTopRightRadius:0,
+          right: 0,
+          fontWeight: 600,
+          fontSize: '0.6rem',
         }}
-      >
-        <img
-          src={img}
-          alt={name}
-          style={{
-          
-            width: '100%',
-            objectFit: 'contain',
-            
-            // borderRadius:'50%'
+      />
+    )}
+  </Box>
 
-          }}
-        />
-        {discount && discount >= 10 && (
-          <Chip
-            label={`${discount}% OFF`}
-            color="error"
-            size="small"
-            sx={{
-              position: 'absolute',
-              top: 10,
-              right: 10,
-              fontWeight: 600,
-              fontSize: '0.7rem',
-            }}
-          />
-        )}
-      </Box>
 
-      <CardContent sx={{ pt: 1.5 ,height:'30%'}}>
+      <CardContent sx={{ pt: 1.5, height: '30%' }}>
         <Typography
           variant="subtitle1"
           fontWeight={700}
@@ -189,29 +193,43 @@ const ShopProducts = ({
             </Typography>
           </Box>
 
-          <Tooltip title="Add to Cart">
-            <Button
-              sx={{
-                backgroundColor: added ? '#2e7d32' : '#00A149',
-                color: '#fff',
-                px: 0.7,
-                py: 0.3,
-                borderRadius: 3,
-                transition: 'background-color 0.3s',
-                '&:hover': {
-                  backgroundColor: added ? '#2e7d32' : '#008C40',
-                },
-              }}
-              onClick={handleAdd}
-            >
-              Add
-              {added ? (
-                <CheckIcon sx={{ fontSize: 18, ml: 0.5 }} />
-              ) : (
-                <AddIcon sx={{ fontSize: 18, ml: 0.5 }} />
-              )}
-            </Button>
-          </Tooltip>
+   <Tooltip title={added ? 'Added!' : 'Add to Cart'}>
+  <Button
+    sx={{
+      backgroundColor: added ? '#2e7d32' : '#00A149',
+      color: '#fff',
+      px: 1.2,
+      py: 0.5,
+      borderRadius: 3,
+      transition: 'background-color 0.3s',
+      minWidth: 0,
+      '&:hover': {
+        backgroundColor: added ? '#2e7d32' : '#008C40',
+      },
+    }}
+    onClick={handleAdd}
+  >
+    {/* For Desktop (md and up) — show Add text + icon */}
+    <Box sx={{ display: { xs: 'none', sm: 'none', md: 'flex' }, alignItems: 'center' }}>
+      Add&nbsp;
+      {added ? (
+        <CheckIcon sx={{ fontSize: 18 }} />
+      ) : (
+        <AddIcon sx={{ fontSize: 18 }} />
+      )}
+    </Box>
+
+    {/* For Mobile (xs and sm) — show Cart icon / Check icon only */}
+    <Box sx={{ display: { xs: 'flex', sm: 'flex', md: 'none' }, alignItems: 'center' }}>
+      {added ? (
+        <CheckIcon sx={{ fontSize: 20 }} />
+      ) : (
+        <ShoppingCartRoundedIcon sx={{ fontSize: 20 }} />
+      )}
+    </Box>
+  </Button>
+</Tooltip>
+
         </Box>
       </CardContent>
     </Card>
@@ -219,3 +237,24 @@ const ShopProducts = ({
 };
 
 export default ShopProducts;
+  //  <Button
+  //             sx={{
+  //               backgroundColor: added ? '#2e7d32' : '#00A149',
+  //               color: '#fff',
+  //               px: 0.7,
+  //               py: 0.3,
+  //               borderRadius: 3,
+  //               transition: 'background-color 0.3s',
+  //               '&:hover': {
+  //                 backgroundColor: added ? '#2e7d32' : '#008C40',
+  //               },
+  //             }}
+  //             onClick={handleAdd}
+  //           >
+  //             Add
+  //             {added ? (
+  //               <CheckIcon sx={{ fontSize: 18, ml: 0.5 }} />
+  //             ) : (
+  //               <AddIcon sx={{ fontSize: 18, ml: 0.5 }} />
+  //             )}
+  //           </Button>

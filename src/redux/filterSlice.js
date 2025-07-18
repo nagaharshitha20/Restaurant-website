@@ -26,9 +26,9 @@ const filterSlice = createSlice({
     toggleCategory: (state, action) => {
       const category = action.payload;
       if (category === null) {
-    state.selectedCategories = [];
-    return;
-  }
+        state.selectedCategories = [];
+        return;
+      }
       if (state.selectedCategories.includes(category)) {
         state.selectedCategories = state.selectedCategories.filter((c) => c !== category);
       } else {
@@ -39,12 +39,14 @@ const filterSlice = createSlice({
       const tag = action.payload;
       state.tags[tag] = !state.tags[tag];
     },
-setPriceRange: (state, action) => {
-  state.priceRange = action.payload;
-},
+    setPriceRange: (state, action) => {
+      state.priceRange = action.payload;
+    },
 
-
-
+    
+    setCart: (state, action) => {
+      state.cart = action.payload; 
+    },
     addToCart: (state, action) => {
       const item = action.payload;
       const exists = state.cart.find((i) => i.name === item.name);
@@ -66,9 +68,8 @@ setPriceRange: (state, action) => {
       state.cart = state.cart.filter((i) => i.name !== action.payload);
     },
     clearCart: (state) => {
-  state.cart = [];
-}
-
+      state.cart = [];
+    }
   },
 });
 
@@ -77,13 +78,13 @@ export const {
   setSortType,
   toggleCategory,
   toggleTag,
+  setPriceRange,
   addToCart,
   increaseQty,
   decreaseQty,
   removeFromCart,
-  setPriceRange,
-  clearCart 
+  clearCart,
+  setCart 
 } = filterSlice.actions;
-
 
 export default filterSlice.reducer;
