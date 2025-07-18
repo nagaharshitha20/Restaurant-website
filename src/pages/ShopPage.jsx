@@ -43,6 +43,13 @@ useEffect(() => {
 
   const [showCartMsg, setShowCartMsg] = useState(false); 
 const [customFilter, setCustomFilter] = useState(null);
+const [initialItems, setInitialItems] = useState([]);
+
+useEffect(() => {
+  // Only run once
+  const randomItems = FoodItems.flatMap((cat) => cat.items).sort(() => Math.random() - 0.5);
+  setInitialItems(randomItems);
+}, []);
 
   const handleShowCartMessage = () => {
     setShowCartMsg(true);
@@ -60,7 +67,9 @@ useEffect(() => {
 
     if (selectedCategories.length === 0) {
 
-  items = FoodItems.flatMap((cat) => cat.items).sort(() => Math.random() - 0.5);
+items = initialItems;
+
+
 } else {
   items = FoodItems.filter((cat) =>
     selectedCategories.includes(cat.category)
@@ -152,93 +161,155 @@ useEffect(() => {
 )}
 
 
-
-        
-            <Box
-              sx={{
-                position: 'sticky',
-                top: 0,
-                zIndex: 10,
-                backgroundColor: '#fff',
-                py: 2,
-                mb: 2,
-                mx:'auto',
-                width:'90%',
-                borderBottom: '1px solid #eee',
-              }}
-            >
-              <Box
-                sx={{
-                  display: {xs:'none',md:'flex'},
-                  gap: 2,
-                  alignItems: 'center',
-                  flexWrap: 'wrap',
-                  justifyContent: 'space-between',
-                }}
-              >
-                <TextField
-                  placeholder="Search products..."
-                  variant="outlined"
-                  size="small"
-                  value={searchQuery}
-                  onChange={(e) => dispatch(setSearchQuery(e.target.value))}
-                  sx={{ flexGrow: 1, maxWidth: 600 }}
-                />
-               <Box sx={{ display: 'flex', gap: 3, minHeight: '40px' }}>
-  <Button
-    variant={customFilter === 'bestSellers' ? 'contained' : 'outlined'}
-    size="small"
-    sx={{ color: '#000', borderColor: '#ccc' }}
-    onClick={() => setCustomFilter(customFilter === 'bestSellers' ? null : 'bestSellers')}
+<Box
+  sx={{
+    position: 'sticky',
+    top: 0,
+    zIndex: 10,
+    backgroundColor: '#fff',
+    py: 2,
+    mb: 2,
+    mx: 'auto',
+    width: '90%',
+    borderBottom: '1px solid #eee',
+  }}
+>
+  {/* Row 1: Search and Sort */}
+  <Box
+    sx={{
+      display: 'flex',
+      flexDirection: { xs: 'row', sm: 'row', md: 'row' },
+      flexWrap: 'wrap',
+      gap: {xs:1,md:2},
+      alignItems: 'center',
+      justifyContent: 'center',
+    }}
   >
-    Best Sellers
-  </Button>
+    <TextField
+      placeholder="Search products..."
+      variant="outlined"
+      size="small"
+      value={searchQuery}
+      onChange={(e) => dispatch(setSearchQuery(e.target.value))}
+      sx={{
+        flexGrow: 1,
+        minWidth: { xs: '60%', sm: '65%', md: '70%' },
+        maxWidth: { xs: '60%', sm: '65%', md: '100%' },
+        fontSize: { xs: '0.85rem', sm: '0.9rem', md: '1rem' },
+        '& .MuiOutlinedInput-root': {
+          borderRadius: '10px',
+        },
+      }}
+    />
 
-  <Button
-    variant={customFilter === 'weeklySpecials' ? 'contained' : 'outlined'}
-    size="small"
-    sx={{ color: '#000', borderColor: '#ccc' }}
-    onClick={() => setCustomFilter(customFilter === 'weeklySpecials' ? null : 'weeklySpecials')}
-  >
-    Weekly Specials
-  </Button>
+    <TextField
+      select
+      size="small"
+      label="Sort"
+      value={sortType}
+      onChange={(e) => dispatch(setSortType(e.target.value))}
+      sx={{
+        minWidth: { xs: '35%', sm: '30%', md: 160 },
+        maxWidth: { xs: '30%', sm: '30%', md: 160 },
+        '& .MuiOutlinedInput-root': {
+          borderRadius: '10px',
+        },
+      }}
+    >
+      {sortOptions.map((option) => (
+        <MenuItem key={option.value} value={option.value}>
+          {option.label}
+        </MenuItem>
+      ))}
+    </TextField>
+  </Box>
 
-  <Button
-    variant={customFilter === 'topDeals' ? 'contained' : 'outlined'}
-    size="small"
-    sx={{ color: '#000', borderColor: '#ccc' }}
-    onClick={() => setCustomFilter(customFilter === 'topDeals' ? null : 'topDeals')}
+ 
+  <Box
+    sx={{
+      display: 'flex',
+      gap: 1.5,
+      mt: 2,
+      flexWrap: 'wrap',
+    }}
   >
-    Top Deals
-  </Button>
+    {[
+      { label: 'Best Sellers', key: 'bestSellers' },
+      { label: 'Weekly Specials', key: 'weeklySpecials' },
+      { label: 'Top Deals', key: 'topDeals' },
+    ].map(({ label, key }) => (
+      <Button
+        key={key}
+        variant={customFilter === key ? 'contained' : 'outlined'}
+        size="small"
+        onClick={() => setCustomFilter(customFilter === key ? null : key)}
+        sx={{
+          borderRadius: '20px',
+          color: customFilter === key ? '#fff' : '#333',
+          backgroundColor: customFilter === key ? '#f44336' : '#fff',
+          borderColor: '#ccc',
+          '&:hover': {
+            backgroundColor: '#f44336',
+            color: '#fff',
+          },
+        }}
+      >
+        {label}
+      </Button>
+    ))}
+  </Box>
+
+  {/* Row 3: Tags (Chips) */}
+  <Box
+    sx={{
+      mt: 2,
+      overflowX: { xs: 'auto', md: 'visible' },
+      display: 'flex',
+      gap: 1.5,
+      pb: 1,
+      whiteSpace: 'nowrap',
+      scrollbarWidth: 'none',
+      '&::-webkit-scrollbar': {
+        display: 'none',
+      },
+    }}
+  >
+    <Chip
+      label="Veg"
+      onClick={() => dispatch(toggleTag('vegOnly'))}
+      color={tags.vegOnly ? 'success' : 'default'}
+      variant={tags.vegOnly ? 'filled' : 'outlined'}
+    />
+    <Chip
+      label="Non-Veg"
+      onClick={() => dispatch(toggleTag('nonVegOnly'))}
+      color={tags.nonVegOnly ? 'error' : 'default'}
+      variant={tags.nonVegOnly ? 'filled' : 'outlined'}
+    />
+    <Chip
+      label="50% Off"
+      onClick={() => dispatch(toggleTag('halfOff'))}
+      color="secondary"
+      variant={tags.halfOff ? 'filled' : 'outlined'}
+    />
+    <Chip
+      label="Under 15 mins"
+      onClick={() => dispatch(toggleTag('fastDelivery'))}
+      variant={tags.fastDelivery ? 'filled' : 'outlined'}
+    />
+    <Chip
+      label="Pure Veg"
+      onClick={() => dispatch(toggleTag('pureVeg'))}
+      color="success"
+      variant={tags.pureVeg ? 'filled' : 'outlined'}
+    />
+    <Chip
+      label="Recommended"
+      onClick={() => dispatch(toggleTag('recommended'))}
+      variant={tags.recommended ? 'filled' : 'outlined'}
+    />
+  </Box>
 </Box>
-
-                <TextField
-                  select
-                  size="small"
-                  label="Sort"
-                  value={sortType}
-                  onChange={(e) => dispatch(setSortType(e.target.value))}
-                  sx={{ minWidth: 160 }}
-                >
-                  {sortOptions.map((option) => (
-                    <MenuItem key={option.value} value={option.value}>
-                      {option.label}
-                    </MenuItem>
-                  ))}
-                </TextField>
-              </Box>
-
-              
-              <Stack direction="row" spacing={2} mt={2} flexWrap="wrap">
-                <Chip label="Veg" onClick={() => dispatch(toggleTag('vegOnly'))} color={tags.vegOnly ? 'success' : 'default'} variant={tags.vegOnly ? 'filled' : 'outlined'} />
-                <Chip label="Non-Veg" onClick={() => dispatch(toggleTag('nonVegOnly'))} color={tags.nonVegOnly ? 'error' : 'default'} variant={tags.nonVegOnly ? 'filled' : 'outlined'} />
-                <Chip label="50% Off" onClick={() => dispatch(toggleTag('halfOff'))} variant={tags.halfOff ? 'filled' : 'outlined'} color="secondary" />
-                <Chip label="Under 15 mins" onClick={() => dispatch(toggleTag('fastDelivery'))} variant={tags.fastDelivery ? 'filled' : 'outlined'} />
-                <Chip label="Pure Veg" onClick={() => dispatch(toggleTag('pureVeg'))} variant={tags.pureVeg ? 'filled' : 'outlined'} color="success" />
-                <Chip label="Recommended" onClick={() => dispatch(toggleTag('recommended'))} variant={tags.recommended ? 'filled' : 'outlined'} />
-              </Stack>
-            </Box>
 
            
             <Typography variant="h6" fontWeight={600} sx={{ mb: 2, ml: 8 }}>
@@ -246,24 +317,108 @@ useEffect(() => {
             </Typography>
 
       
-            <Grid container spacing={4} marginLeft={8}>
-              {itemsToRender.map((item, index) => (
-                <Grid item xs={12} sm={6} md={4} lg={5} key={index}>
-                  <ShopProducts
-                    id={item.id}
-                    img={item.img}
-                    name={item.title}
-                    price={item.price}
-                    oldPrice={item.oldPrice}
-                    rating={item.rating}
-                    badge={item.badge}
-                    deliveryTime={item.deliveryTime}
-                    discount={item.discount}
-                    onAddToCart={handleShowCartMessage} 
-                  />
-                </Grid>
-              ))}
-            </Grid>
+           {/* Responsive Product Grid */}
+{/* ===== Mobile Version: Horizontally Scrolling Rows ===== */}
+<Box sx={{ display: { xs: 'block', md: 'none' }, ml: 1, mt: 4 ,}}>
+  {[0, 10, 20].map((startIndex, rowIndex) => {
+    const rowItems = itemsToRender.slice(startIndex, startIndex + 10);
+    const isLastRow = rowIndex === 2;
+
+    return (
+     <Box
+  key={rowIndex}
+  sx={{
+    overflowX: 'auto',
+    whiteSpace: 'nowrap',
+    display: 'flex',
+    gap: 2,
+    mb: 3,
+    pb: 1,
+    scrollSnapType: 'x mandatory',
+    scrollbarWidth: 'none', // Firefox
+    '&::-webkit-scrollbar': {
+      display: 'none', // Chrome, Safari
+    },
+  }}
+>
+
+        {rowItems.map((item, i) => (
+          <Box
+            key={i}
+            component="span"
+            sx={{ display: 'inline-block', scrollSnapAlign: 'start' }}
+          >
+            <ShopProducts
+              id={item.id}
+              img={item.img}
+              name={item.title}
+              price={item.price}
+              oldPrice={item.oldPrice}
+              rating={item.rating}
+              badge={item.badge}
+              deliveryTime={item.deliveryTime}
+              discount={item.discount}
+              onAddToCart={handleShowCartMessage}
+              small
+            />
+      {/* <ShopProducts products={products} /> */}
+
+
+          </Box>
+        ))}
+        {isLastRow && (
+          <Box
+            sx={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              minWidth: '140px',
+              border: '1px dashed #ccc',
+              borderRadius: 2,
+              mx: 1,
+            }}
+          >
+            <Button
+              variant="text"
+              size="small"
+              onClick={() => alert('Load more...')}
+              sx={{ whiteSpace: 'nowrap' }}
+            >
+              View More →
+            </Button>
+          </Box>
+        )}
+      </Box>
+    );
+  })}
+</Box>
+
+
+{/* Desktop Grid */}
+<Grid
+  container
+  spacing={4}
+  marginLeft={8}
+  sx={{ display: { xs: 'none', md: 'flex' } }}
+>
+  {itemsToRender.map((item, index) => (
+    <Grid item xs={12} sm={6} md={4} lg={5} key={index}>
+      <ShopProducts
+        id={item.id}
+        img={item.img}
+        name={item.title}
+        price={item.price}
+        oldPrice={item.oldPrice}
+        rating={item.rating}
+        badge={item.badge}
+        deliveryTime={item.deliveryTime}
+        discount={item.discount}
+        onAddToCart={handleShowCartMessage}
+      />
+    </Grid>
+  ))}
+</Grid>
+
           </Box>
         </Box>
       </Container>

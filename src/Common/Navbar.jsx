@@ -19,6 +19,10 @@ import { ImageAssets } from '../ImageAssets';
 import Dropdown from './Dropdown';
 import { auth } from '../Firebase';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
+import { db } from '../Firebase'; // Ensure your Firebase setup exports `db`
+import { doc, getDoc, setDoc } from 'firebase/firestore';
+import { setCart } from '../redux/filterSlice'; // import the setCart action
+
 
 function Navbar() {
   const navigate = useNavigate();
@@ -33,12 +37,46 @@ function Navbar() {
   const [searchQuery, setSearchQueryInput] = React.useState('');
   const location = useLocation();
 
-  React.useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      setIsLoggedIn(!!user);
-    });
-    return () => unsubscribe();
-  }, []);
+React.useEffect(() => {
+  const unsubscribe = onAuthStateChanged(auth, async (user) => {
+    if (user) {
+      setIsLoggedIn(true);
+      try {
+        const cartRef = doc(db, 'carts', user.uid);
+        const cartSnap = await getDoc(cartRef);
+        if (cartSnap.exists()) {
+          const data = cartSnap.data();
+          if (Array.isArray(data.cart)) {
+            dispatch(setCart(data.cart));
+          }
+        }
+      } catch (error) {
+        console.error('Error loading cart from Firestore:', error);
+      }
+    } else {
+      setIsLoggedIn(false);
+      dispatch(clearCart());
+    }
+  });
+
+  return () => unsubscribe();
+}, [dispatch]);
+
+React.useEffect(() => {
+  const saveCartToFirestore = async () => {
+    const user = auth.currentUser;
+    if (user && cartItems.length > 0) {
+      try {
+        const cartRef = doc(db, 'carts', user.uid);
+        await setDoc(cartRef, { cart: cartItems });
+      } catch (error) {
+        console.error('Error saving cart to Firestore:', error);
+      }
+    }
+  };
+
+  saveCartToFirestore();
+}, [cartItems]);
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
@@ -117,16 +155,16 @@ function Navbar() {
             </IconButton>
           </Box>
 
-          <Box component="img" src={ImageAssets.logo} alt="logo"
+          <Box component="img" src={ImageAssets.brand} alt="logo"
             sx={{
-              width: { xs: 0, md: 119 },
+              width: { xs: 0, md: 149 },
               height: { xs: 0, md: 67 },
               display: { xs: 'none', md: 'flex' },
               ml: { md: 10, lg: 18 },
               mr: { md: -1, lg: -2.6 },
             }}
           />
-          <Typography
+          {/* <Typography
             variant="h6"
             noWrap
             component="a"
@@ -136,14 +174,14 @@ function Navbar() {
               display: { xs: 'none', md: 'flex' },
               fontFamily: 'Fugaz One',
               fontWeight: 400,
-              letterSpacing: '.3rem',
+              letterSpacing: '.1rem',
               color: '#EE3A43',
               textDecoration: 'none',
               fontSize: { md: '20px', lg: '22px' },
             }}
           >
-            pizza hut
-          </Typography>
+            HeavenLyte
+          </Typography> */}
 
           <Drawer anchor="left" open={drawerOpen} onClose={() => setDrawerOpen(false)} sx={{ display: { xs: 'block', md: 'none' } }}>
             <Box sx={{ width: 250, p: 2 }}>
@@ -190,7 +228,7 @@ function Navbar() {
             display: { xs: 'none', md: 'flex' },
             alignItems: 'center',
             ml: { md: 5, lg: 10 },
-            gap: { md: '20px', lg: '30px' },
+            gap: { md: '20px', lg: '40px' },
           }}>
             <Dropdown
               label="Home"
