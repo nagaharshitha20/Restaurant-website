@@ -5,6 +5,7 @@ import FeatureSection from './FeatureSection';
 import Menu from './Menu';
 import DealOfWeek from './DealOfWeek';
 import Experience from './Experience';
+import RecentNews2 from './RecentNews2';
 
 const HomePage2 = () => {
   return (
@@ -15,6 +16,7 @@ const HomePage2 = () => {
       <Menu/>
       <DealOfWeek />
       <Experience />
+      <RecentNews2/>
       
 
     </div>

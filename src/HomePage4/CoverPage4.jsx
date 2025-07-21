@@ -3,8 +3,10 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { ImageAssets } from '../ImageAssets';
 import NormalButton from '../Common/NormalButton';
+import { useNavigate } from 'react-router-dom';
 
 const CoverPage4 = () => {
+  const navigate=useNavigate();
   return (
     <Box
       sx={{
@@ -129,7 +131,7 @@ const CoverPage4 = () => {
                 width: '100%',
               }}
             >
-              <NormalButton name="Order Now" bgcolor="#F3274C" color="#FFFFFF" />
+              <NormalButton name="Order Now" bgcolor="#F3274C" color="#FFFFFF" onClick={()=>{navigate('/fastfood')}}/>
             </Box>
           </Box>
 

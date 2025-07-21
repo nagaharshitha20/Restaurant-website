@@ -1,10 +1,14 @@
 import React from 'react';
 import { Box, Typography, Button } from '@mui/material';
 import { ImageAssets } from '../ImageAssets'; // order1, order2, order3, sandwich, sat, grouppic, sign
+import { useNavigate } from 'react-router-dom';
 
 const About5 = () => {
+   const navigate = useNavigate();
   return (
+  
     <>
+      
       {/* --- Top Image Row --- */}
       <Box
         sx={{
@@ -126,6 +130,7 @@ const About5 = () => {
               <Box component="img" src={ImageAssets.sign} alt="signature" sx={{ width: '100px' }} />
               <Button
                 variant="contained"
+                onClick={() => navigate('/about1')}
                 sx={{
                   mt: { xs: 2, sm: 0 },
                   bgcolor: '#212121',

@@ -136,9 +136,10 @@ const CartPage = () => {
                             borderRadius: 4,
                           }}
                         />
-                        <Typography variant="body1" sx={{ fontSize: '0.95rem', color: '#333' }}>
-                          {item.name}
-                        </Typography>
+                       <Typography variant="body1" sx={{ fontSize: '0.95rem', color: '#333' }}>
+  {item.title || item.name || 'Unnamed Item'}
+</Typography>
+
                       </Box>
 
                      
@@ -171,16 +172,16 @@ const CartPage = () => {
                     </Typography>
 
                     <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, justifyContent: 'center' }}>
-                      <Button onClick={() => dispatch(decreaseQty(item.name))}>-</Button>
+                      <Button onClick={() => dispatch(decreaseQty(item.id))}>-</Button>
                       <Typography sx={{ fontSize: '0.9rem' }}>{item.qty}</Typography>
-                      <Button onClick={() => dispatch(increaseQty(item.name))}>+</Button>
+                      <Button onClick={() => dispatch(increaseQty(item.id))}>+</Button>
                     </Box>
 
                     <Typography sx={{ fontSize: '0.95rem', color: '#333', textAlign: 'center' }}>
                       ₹{totalItemPrice}
                     </Typography>
 
-                    <IconButton onClick={() => dispatch(removeFromCart(item.name))}>
+                    <IconButton onClick={() => dispatch(removeFromCart(item.id))}>
                       <DeleteIcon sx={{ color: '#ff4444' }} />
                     </IconButton>
                   </Box>

@@ -1,9 +1,40 @@
 import * as React from 'react';
-import { Box, Typography, TextField } from '@mui/material';
+import { Box, Typography, TextField ,Snackbar,Alert} from '@mui/material';
 import { ImageAssets } from '../ImageAssets';
 import PrimaryButton from './PrimaryButton';
 
 const Footer = () => {
+    const [openSnackbar, setOpenSnackbar] = React.useState(false);
+    const [formData, setFormData] = React.useState({
+  email: '', 
+});
+const handleBookNow = () => {
+  if (validate()) {
+    setOpenSnackbar(true);
+    // You can also handle actual submission here if needed
+  }
+};
+
+  // Validation state
+  const [errors, setErrors] = React.useState({});
+
+  // Handle input change
+  const handleChange = (field) => (e) => {
+    setFormData({ ...formData, [field]: e.target.value });
+    setErrors({ ...errors, [field]: '' }); // Clear error when typing
+  };
+
+const validate = () => {
+  const newErrors = {};
+if (
+  !formData.email || !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(formData.email)
+) {
+  newErrors.email = 'Enter a valid email address';
+}
+
+  setErrors(newErrors);
+  return Object.keys(newErrors).length === 0;
+};
   return (
     <Box
       sx={{
@@ -133,6 +164,10 @@ const Footer = () => {
     placeholder="Email Address"
     size="small"
     variant="outlined"
+    value={formData.email}
+  onChange={handleChange('email')}
+  error={Boolean(errors.email)}
+  helperText={errors.email}
     fullWidth
     sx={{
       backgroundColor: '#fff',
@@ -140,12 +175,12 @@ const Footer = () => {
     }}
   />
    <Box sx={{ display: { xs: 'none', sm: 'block' }, mt: 2 }}>
-              <PrimaryButton name="Subscribe" width="139.91px" borderwidth="129.41px" />
+              <PrimaryButton name="Subscribe" width="139.91px" borderwidth="129.41px"  onClick={handleBookNow}/>
             </Box>
 </Box>
             {/** Button for xs (stacked) */}
             <Box sx={{ display: { xs: 'block', sm: 'none' }, mt: 2 }}>
-              <PrimaryButton name="Subscribe" width="139.91px" borderwidth="129.41px" />
+              <PrimaryButton name="Subscribe" width="139.91px" borderwidth="129.41px"     onClick={handleBookNow}/>
             </Box>
           </Box>
         </Box>
@@ -176,6 +211,25 @@ const Footer = () => {
           </Typography>
         </Box>
       </Box>
+       <Snackbar
+              open={openSnackbar}
+              autoHideDuration={4000}
+              onClose={() => setOpenSnackbar(false)}
+              anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+            >
+              <Alert
+                onClose={() => setOpenSnackbar(false)}
+                variant="filled"
+                sx={{
+                  backgroundColor: 'rgba(144, 238, 144, 0.2)', // transparent lightgreen
+                  color: 'green',
+                  border: '1px solid lightgreen',
+                  fontWeight: 600,
+                }}
+              >
+                Thank you for Subscribing {formData.email.split('@')[0]}!
+              </Alert>
+            </Snackbar>
     </Box>
   );
 };

@@ -14,11 +14,11 @@ const PrimaryButton = ({
   onClick,
 }) => {
   const navigate = useNavigate();
+const handleClick = () => {
+  if (onClick) onClick(); 
+  if (to) navigate(to);   
+};
 
-  const handleClick = () => {
-    if (to) navigate(to);
-    else if (onClick) onClick();
-  };
 
   return (
     <Box sx={{ position: 'relative', display: 'inline-block' }}>

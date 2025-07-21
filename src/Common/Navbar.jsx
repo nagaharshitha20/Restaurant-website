@@ -182,46 +182,47 @@ React.useEffect(() => {
           >
             HeavenLyte
           </Typography> */}
+<Drawer anchor="left" open={drawerOpen} onClose={() => setDrawerOpen(false)} sx={{ display: { xs: 'block', md: 'none' } }}>
+  <Box sx={{ width: 250, p: 2 }}>
+    <Typography variant="h6" sx={{ mb: 2, fontFamily: 'Fredoka One' }}>Menu</Typography>
+    <Divider sx={{ mb: 1 }} />
 
-          <Drawer anchor="left" open={drawerOpen} onClose={() => setDrawerOpen(false)} sx={{ display: { xs: 'block', md: 'none' } }}>
-            <Box sx={{ width: 250, p: 2 }}>
-              <Typography variant="h6" sx={{ mb: 2, fontFamily: 'Fredoka One' }}>Menu</Typography>
-              <Divider sx={{ mb: 1 }} />
-              {['Home', 'Blog', 'Pages'].map((item) => (
-                <React.Fragment key={item}>
-                  <ListItem button onClick={() => setOpenMenus({ ...openMenus, [item]: !openMenus[item] })}>
-                    <ListItemText primary={item} />
-                    {openMenus[item] ? <ExpandLess /> : <ExpandMore />}
-                  </ListItem>
-                  <Collapse in={openMenus[item]} timeout="auto" unmountOnExit>
-                    <List component="div" disablePadding>
-                      {item === 'Home' && ['/home2', '/home3', '/home4', '/home5', '/home6', '/home7'].map((path, i) => (
-                        <ListItem button key={path} sx={{ pl: 4 }} onClick={() => { navigate(path); setDrawerOpen(false); }}>
-                          <ListItemText primary={`Home ${i + 2}`} />
-                        </ListItem>
-                      ))}
-                      {item === 'Blog' && ['News', 'Events', 'Offers'].map((label) => (
-                        <ListItem button key={label} sx={{ pl: 4 }}>
-                          <ListItemText primary={label} />
-                        </ListItem>
-                      ))}
-                      {item === 'Pages' && ['Gallery', 'Testimonials', 'FAQ'].map((label) => (
-                        <ListItem button key={label} sx={{ pl: 4 }}>
-                          <ListItemText primary={label} />
-                        </ListItem>
-                      ))}
-                    </List>
-                  </Collapse>
-                </React.Fragment>
-              ))}
+    {/* Regular links (in same order as desktop) */}
+    {[
+      { label: 'Home', path: '/home' },
+      { label: 'About', path: '/about' },
+      { label: 'Shop', path: '/shop' },
+      { label: 'Blog', path: '/blog' },
+      { label: 'Contact', path: '/contact' }
+    ].map((item) => (
+      <ListItem button key={item.label} onClick={() => { navigate(item.path); setDrawerOpen(false); }}>
+        <ListItemText primary={item.label} />
+      </ListItem>
+    ))}
 
-              {[{ label: 'About', path: '/about' }, { label: 'Shop', path: '/shop' }, { label: 'Contact', path: '/contact' }].map((item) => (
-                <ListItem button key={item.label} onClick={() => { navigate(item.path); setDrawerOpen(false); }}>
-                  <ListItemText primary={item.label} />
-                </ListItem>
-              ))}
-            </Box>
-          </Drawer>
+    {/* Pages dropdown for mobile */}
+    <ListItem button onClick={() => setOpenMenus({ ...openMenus, Pages: !openMenus.Pages })}>
+      <ListItemText primary="Pages" />
+      {openMenus.Pages ? <ExpandLess /> : <ExpandMore />}
+    </ListItem>
+    <Collapse in={openMenus.Pages} timeout="auto" unmountOnExit>
+      <List component="div" disablePadding>
+        {[
+          { label: 'Menu', path: '/myshop' },
+          { label: 'Deals', path: '/mypages' },
+          { label: 'Gallery', path: '/gallery' },
+          { label: 'Testimonials', path: '/testimonials' },
+          { label: 'FAQ', path: '/faq' }
+        ].map((item) => (
+          <ListItemButton key={item.label} sx={{ pl: 4 }} onClick={() => { navigate(item.path); setDrawerOpen(false); }}>
+            <ListItemText primary={item.label} />
+          </ListItemButton>
+        ))}
+      </List>
+    </Collapse>
+  </Box>
+</Drawer>
+
 
           <Box sx={{
             flexGrow: 1,
@@ -230,7 +231,7 @@ React.useEffect(() => {
             ml: { md: 5, lg: 10 },
             gap: { md: '20px', lg: '40px' },
           }}>
-            <Dropdown
+            {/* <Dropdown
               label="Home"
               opt1={{ label: "Home 2", path: "/home2" }}
               opt2={{ label: "Home 3", path: "/home3" }}
@@ -238,12 +239,55 @@ React.useEffect(() => {
               opt4={{ label: "Home 5", path: "/home5" }}
               opt5={{ label: "Home 6", path: "/home6" }}
               opt6={{ label: "Home 7", path: "/home7" }}
-            />
-            <Link to="/about" style={{ color: 'black', textDecoration: 'none', fontSize: '16px', fontFamily: 'Franklin Gothic Medium' }}>About</Link>
-            <Link to="/shop" style={{ color: 'black', textDecoration: 'none', fontSize: '16px', fontFamily: 'Franklin Gothic Medium' }}>Shop</Link>
-            <Dropdown label="Blog" options={['News', 'Events', 'Offers']} />
-            <Dropdown label="Pages" options={['Gallery', 'Testimonials', 'FAQ']} />
-            <Link to="/contact" style={{ color: 'black', textDecoration: 'none', fontSize: '16px', fontFamily: 'Franklin Gothic Medium' }}>Contact</Link>
+            /> */}
+             <Link to="/home" style={{
+    color: 'black',
+    textDecoration: 'none',
+    fontSize: '16px',
+    fontFamily: 'Franklin Gothic Medium',
+    transition: 'color 0.3s',
+  }}
+  onMouseEnter={(e) => (e.target.style.color = '#e89537ff')}
+  onMouseLeave={(e) => (e.target.style.color = 'black')}>Home</Link>
+            <Link to="/about" style={{
+    color: 'black',
+    textDecoration: 'none',
+    fontSize: '16px',
+    fontFamily: 'Franklin Gothic Medium',
+    transition: 'color 0.3s',
+  }}
+  onMouseEnter={(e) => (e.target.style.color = '#e89537ff')}
+  onMouseLeave={(e) => (e.target.style.color = 'black')}>About</Link>
+            <Link to="/shop"style={{
+    color: 'black',
+    textDecoration: 'none',
+    fontSize: '16px',
+    fontFamily: 'Franklin Gothic Medium',
+    transition: 'color 0.3s',
+  }}
+  onMouseEnter={(e) => (e.target.style.color = '#e89537ff')}
+  onMouseLeave={(e) => (e.target.style.color = 'black')}>Shop</Link>
+            <Link to="/blog" style={{
+    color: 'black',
+    textDecoration: 'none',
+    fontSize: '16px',
+    fontFamily: 'Franklin Gothic Medium',
+    transition: 'color 0.3s',
+  }}
+  onMouseEnter={(e) => (e.target.style.color = '#e89537ff')}
+  onMouseLeave={(e) => (e.target.style.color = 'black')}>Blog</Link>
+            {/* <Dropdown label="Blog" options={['News', 'Events', 'Offers']} /> */}
+            <Dropdown label="Pages" opt1={{ label: "Menu", path: "/myshop" }}
+            opt2={{ label: "Deals", path: "/mypages" }} />
+            <Link to="/contact" style={{
+    color: 'black',
+    textDecoration: 'none',
+    fontSize: '16px',
+    fontFamily: 'Franklin Gothic Medium',
+    transition: 'color 0.3s',
+  }}
+  onMouseEnter={(e) => (e.target.style.color = '#e89537ff')}
+  onMouseLeave={(e) => (e.target.style.color = 'black')}>Contact</Link>
           </Box>
 
           <Box sx={{

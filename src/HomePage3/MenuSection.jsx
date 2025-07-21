@@ -1,5 +1,6 @@
 import React from 'react';
-import { Box, Typography, Grid } from '@mui/material';
+import { Box, Typography, Grid, IconButton } from '@mui/material';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { ImageAssets } from '../ImageAssets';
 
 const menuItems = [
@@ -126,80 +127,18 @@ const MenuSection = () => (
           src={ImageAssets.work}
           alt="How We Work"
           sx={{
-            width: '80%',
+            width: '100%',
             maxWidth: 400,
             borderRadius: '50%',
             zIndex: 2,
-            transform: 'translateX(200px)',
+            transform: 'translateX(120px)',
           }}
         />
       </Box>
     </Box>
 
-    {/* --- MENU SECTION --- */}
-    <Box sx={{ background: '#fff', pt: 8, pb: 10 }}>
-      <Typography variant="h4" sx={{ textAlign: 'center', mb: 1, fontFamily: 'Fredoka One' }}>
-        Fast Food Menus
-      </Typography>
-      <Box sx={{ width: '150px', height: '4px', backgroundColor: '#FFD700', mx: 'auto', mb: 5, borderRadius: '2px' }} />
-
-      <Grid container spacing={4} justifyContent="center" width="100%">
-        {menuItems.map((item, i) => (
-          <Grid key={i} item xs={12} sm={6} md={6}>
-            <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
-              <Box
-                sx={{
-                  backgroundColor: '#fff',
-                  padding: 2,
-                  borderRadius: 4,
-                  width: '100%',
-                  height: '100%',
-                  display: 'flex',
-                  flexDirection: { xs: 'column', sm: 'row' },
-                  justifyContent: { xs: 'center', sm: 'flex-start' },
-                  alignItems: 'center',
-                  gap: 2,
-                  boxShadow: '0 4px 12px rgba(0,0,0,0.05)',
-                  textAlign: 'left',
-                }}
-              >
-                <Box>
-                  <Box
-                    component="img"
-                    src={item.img}
-                    alt={item.title}
-                    sx={{ width: 120, height: 120, borderRadius: '50%', p: 1 }}
-                  />
-                </Box>
-                <Box>
-                  <Typography variant="subtitle1" sx={{ fontWeight: 'bold' }}>
-                    {item.title}
-                  </Typography>
-                  <Typography variant="body2" sx={{ color: '#f14d54' }}>
-                    {item.price}
-                  </Typography>
-                </Box>
-              </Box>
-            </Box>
-          </Grid>
-        ))}
-
-        {/* Opening Times */}
-        <Grid item xs={12} sm={6} md={6}>
-          <Box sx={{ backgroundColor: '#FFD700', p: 3, borderRadius: 4, height: '100%' }}>
-            <Typography variant="subtitle1" sx={{ fontWeight: 'bold', mb: 1 }}>
-              OPENING TIMES
-            </Typography>
-            <Typography variant="body2">Mon: 17:00 to 23:00</Typography>
-            <Typography variant="body2">Tue: 17:00 to 23:00</Typography>
-            <Typography variant="body2" sx={{ mt: 2, color: '#f14d54' }}>
-              +2341 567 891
-            </Typography>
-            <Typography variant="body2">Avenue New Town 13th United States</Typography>
-          </Box>
-        </Grid>
-      </Grid>
-    </Box>
+   
+ 
   </Box>
 );
 

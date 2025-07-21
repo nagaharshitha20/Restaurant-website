@@ -22,7 +22,7 @@ import { auth } from '../Firebase'; // ✅ Added
 const ShopProducts = ({
   id,
   img,
-  name,
+  title,
   price,
   oldPrice,
   rating,
@@ -44,13 +44,23 @@ const ShopProducts = ({
       navigate('/login');
       return;
     }
+console.log("Adding to cart:", {
+  id,
+  img,
+  title,
+  price,
+  oldPrice,
+  rating,
+  deliveryTime,
+  discount,
+});
 
     if (!added) {
       dispatch(
         addToCart({
           id,
           img,
-          name,
+          title,
           price,
           oldPrice,
           rating,
@@ -101,7 +111,7 @@ const ShopProducts = ({
   >
     <img
       src={img}
-      alt={name}
+      alt={title}
       style={{
         width: small ? '90%' : '100%',
         objectFit: 'cover',
@@ -139,7 +149,7 @@ const ShopProducts = ({
             color: '#333',
           }}
         >
-          {name}
+          {title}
         </Typography>
 
         <Box
@@ -237,24 +247,4 @@ const ShopProducts = ({
 };
 
 export default ShopProducts;
-  //  <Button
-  //             sx={{
-  //               backgroundColor: added ? '#2e7d32' : '#00A149',
-  //               color: '#fff',
-  //               px: 0.7,
-  //               py: 0.3,
-  //               borderRadius: 3,
-  //               transition: 'background-color 0.3s',
-  //               '&:hover': {
-  //                 backgroundColor: added ? '#2e7d32' : '#008C40',
-  //               },
-  //             }}
-  //             onClick={handleAdd}
-  //           >
-  //             Add
-  //             {added ? (
-  //               <CheckIcon sx={{ fontSize: 18, ml: 0.5 }} />
-  //             ) : (
-  //               <AddIcon sx={{ fontSize: 18, ml: 0.5 }} />
-  //             )}
-  //           </Button>
+  

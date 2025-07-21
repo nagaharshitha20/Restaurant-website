@@ -3,7 +3,8 @@ import CoverPage7 from './CoverPage7';
 import TodayMenu from './TodayMenu';
 import Pickup from './Pickup';
 import ProductSection from './ProductSection';
-import SpecialAndTestimonial from './SpecialAndTestimonial';
+import SpecialAndTestimonial from './Testimonial';
+import Specialoffer from './Specialoffer';
 
 
 const HomePage7=()=>{
@@ -15,6 +16,7 @@ const HomePage7=()=>{
      <TodayMenu/>
      <Pickup/>
      <ProductSection/>
+     <Specialoffer/>
      <SpecialAndTestimonial/>
     </div>
   );

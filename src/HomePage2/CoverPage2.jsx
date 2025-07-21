@@ -1,18 +1,59 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import PrimaryButton from '../Common/PrimaryButton';
+import React from 'react';
+import { Box, Typography, Grid, Button, TextField, Snackbar, Alert } from '@mui/material';
 import { ImageAssets } from '../ImageAssets';
-import TextField from '@mui/material/TextField';
+import { Dialog, DialogTitle, DialogContent, DialogActions } from '@mui/material';
+
+import PrimaryButton from '../Common/PrimaryButton';
+
 
 const CoverPage2 = () => {
-  return (
+   const [openSnackbar, setOpenSnackbar] = React.useState(false);
+     const [formData, setFormData] = React.useState({
+       guests: '',
+       date: '',
+       time: '',
+     });
+   const handleBookNow = () => {
+    console.log("Button clicked");
+     if (validate()) {
+       setOpenSnackbar(true);
+   
+     }
+   };
+    const [errors, setErrors] = React.useState({});
+   
+     // Handle input change
+     const handleChange = (field) => (e) => {
+       setFormData({ ...formData, [field]: e.target.value });
+       setErrors({ ...errors, [field]: '' }); // Clear error when typing
+     };
+   
+   const validate = () => {
+     const newErrors = {};
+   
+     if (!formData.guests || isNaN(formData.guests) || formData.guests < 1 || formData.guests > 20) {
+       newErrors.guests = 'Enter 1 to 20 guests';
+     }
+   
+     if (!formData.date || isNaN(new Date(formData.date).getTime())) {
+       newErrors.date = 'Enter a valid date';
+     }
+   
+     if (!formData.time || !/^([01]\d|2[0-3]):?([0-5]\d)$/.test(formData.time)) {
+       newErrors.time = 'Enter time in HH:MM format (24hr)';
+     }
+   
+     setErrors(newErrors);
+     return Object.keys(newErrors).length === 0;
+   };
+   
+  return (<>
     <Box
       sx={{
         position: 'relative',
         width: '100%',
         minHeight: { xs: '25vh', sm: '60vh', md: '100vh' },
-        overflow: 'hidden',
+        overflow: 'visible',
         margin: { xs: 1.3, sm: 2.5,md:0 },
         mt: { xs: '66px', sm: '64px' },
       }}
@@ -116,8 +157,12 @@ const CoverPage2 = () => {
             >
               <TextField
                 placeholder="No of Guest"
-                size="small"
-                variant="outlined"
+               size="small"
+              variant="outlined"
+              value={formData.guests}
+              onChange={handleChange('guests')}
+              error={Boolean(errors.guests)}
+              helperText={errors.guests}
                 fullWidth
                 sx={{ backgroundColor: '#fff', borderRadius: '6px' }}
               />
@@ -125,16 +170,23 @@ const CoverPage2 = () => {
               <Box sx={{ display: 'flex', gap: 2}}>
                 <TextField
                   placeholder="Date"
-                  size="small"
-                  variant="outlined"
+                 size="small"
+  variant="outlined"
+  value={formData.date}
+  onChange={handleChange('date')}
+  error={Boolean(errors.date)}
+  helperText={errors.date}
                   fullWidth
                   sx={{ backgroundColor: '#fff', borderRadius: '6px' }}
                 />
                 <TextField
                   placeholder="Time"
-                  size="small"
-                  variant="outlined"
-                  fullWidth
+size="small"
+  variant="outlined"
+  value={formData.time}
+  onChange={handleChange('time')}
+  error={Boolean(errors.time)}
+  helperText={errors.time}                  fullWidth
                   sx={{ backgroundColor: '#fff', borderRadius: '6px' }}
                 />
               </Box>
@@ -144,7 +196,7 @@ const CoverPage2 = () => {
             <Box sx={{ mt: { xs: 0, sm: 2 } }}>
               <PrimaryButton
                 name="Reserve a Table"
-                onClick={() => console.log('Reserve button clicked')}
+              onClick={handleBookNow}
               />
             </Box>
           </Box>
@@ -199,9 +251,26 @@ const CoverPage2 = () => {
               />
             </Box>
           </Box>
+            
         </Box>
+         
       </Box>
+ 
+
     </Box>
+<Dialog open={openSnackbar} onClose={() => setOpenSnackbar(false)}>
+  <DialogTitle>Reservation Confirmed</DialogTitle>
+  <DialogContent>
+    <Typography>Your table has been reserved successfully.</Typography>
+  </DialogContent>
+  <DialogActions>
+    <Button onClick={() => setOpenSnackbar(false)} color="primary">
+      Close
+    </Button>
+  </DialogActions>
+</Dialog>
+
+</>
   );
 };
 

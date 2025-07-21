@@ -3,7 +3,7 @@ import { Box, Typography } from '@mui/material';
 import { ImageAssets } from '../ImageAssets';
 import TripOriginIcon from '@mui/icons-material/TripOrigin';
 import NormalButton from '../Common/NormalButton';
-
+import { FaGooglePlay, FaApple } from 'react-icons/fa';
 const RecentNews = () => {
   return (
     <Box
@@ -58,10 +58,58 @@ const RecentNews = () => {
             <li><TripOriginIcon sx={{ color: '#FFD40D', fontSize: '15px', fontFamily: 'Epilogue', mr: 1 }} /> Showcase your Brand</li>
             <li><TripOriginIcon sx={{ color: '#FFD40D', fontSize: '15px', fontFamily: 'Epilogue', mr: 1 }} /> Exclusive offers & discounts</li>
           </Box>
-          <Box sx={{ display: 'flex', gap: {xs:'5px',sm:'20px'}, mt: '30px', justifyContent: { xs: 'flex-start', lg: 'flex-start' } }}>
-            <NormalButton name="Google Play" bgcolor="#F3274C" color="#FFFFFF" style={{fontFamily:'Fredoka One'}}/>
-            <NormalButton name="App Store" bgcolor="#000000" color="#FFFFFF" style={{fontFamily:'Fredoka One'}}/>
-          </Box>
+
+<Box
+  sx={{
+    display: 'flex',
+    gap: { xs: '5px', sm: '20px' },
+    mt: '30px',
+    justifyContent: { xs: 'flex-start', lg: 'flex-start' },
+    alignItems: 'center',
+  }}
+>
+  <a
+    href="https://play.google.com/"
+    target="_blank"
+    rel="noopener noreferrer"
+    style={{
+      backgroundColor: '#F3274C',
+      color: '#FFFFFF',
+      padding: '10px 20px',
+      borderRadius: '5px',
+      textDecoration: 'none',
+      fontFamily: 'Fredoka One',
+      display: 'inline-flex', // CHANGED
+      alignItems: 'center',   // ADDED
+      gap: '8px',             // ADDED for spacing between icon and text
+      marginRight: '10px'
+    }}
+  >
+    <FaGooglePlay size={20} />
+    Google Play
+  </a>
+
+  <a
+    href="https://www.apple.com/in/app-store/"
+    target="_blank"
+    rel="noopener noreferrer"
+    style={{
+      backgroundColor: '#000000',
+      color: '#FFFFFF',
+      padding: '10px 20px',
+      borderRadius: '5px',
+      textDecoration: 'none',
+      fontFamily: 'Fredoka One',
+      display: 'inline-flex', // CHANGED
+      alignItems: 'center',   // ADDED
+      gap: '8px'              // ADDED
+    }}
+  >
+    <FaApple size={20} />
+    App Store
+  </a>
+</Box>
+
          
           <Box
             component="img"

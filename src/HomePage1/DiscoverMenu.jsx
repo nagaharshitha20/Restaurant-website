@@ -2,6 +2,8 @@ import * as React from 'react';
 import { Box, Typography } from '@mui/material';
 import { ImageAssets } from '../ImageAssets';
 import PrimaryButton from '../Common/PrimaryButton';
+import { Snackbar, Alert } from '@mui/material';
+
 // import { Swiper, SwiperSlide } from 'swiper/react';
 // import { Navigation, Autoplay, Pagination } from 'swiper/modules';
 // import CarouselCard from '../Common/CarouselCard';
@@ -62,6 +64,56 @@ const featuredDishes = [
 ];
 
 const DiscoverMenu = () => {
+  const [formData, setFormData] = React.useState({
+  guests: '',
+  date: '',
+  time: '',
+  name: '',
+  phone: '',
+});
+const handleChange = (field) => (e) => {
+  setFormData({ ...formData, [field]: e.target.value });
+ 
+};
+const [errorAlert, setErrorAlert] = React.useState({ open: false, message: '' });
+
+const validate = () => {
+  if (!formData.guests || isNaN(formData.guests) || formData.guests < 1 || formData.guests > 20) {
+    setErrorAlert({ open: true, message: 'Please enter between 1 to 20 guests.' });
+    return false;
+  }
+
+  if (!formData.date || isNaN(new Date(formData.date).getTime())) {
+    setErrorAlert({ open: true, message: 'Please enter a valid date.' });
+    return false;
+  }
+
+  if (!formData.time || !/^([01]\d|2[0-3]):?([0-5]\d)$/.test(formData.time)) {
+    setErrorAlert({ open: true, message: 'Please enter time in HH:MM format.' });
+    return false;
+  }
+
+  if (!formData.name.trim()) {
+    setErrorAlert({ open: true, message: 'Full Name is required.' });
+    return false;
+  }
+
+  if (!formData.phone.match(/^\d{10}$/)) {
+    setErrorAlert({ open: true, message: 'Please enter a valid 10-digit phone number.' });
+    return false;
+  }
+
+  return true;
+};
+const handleSubmit = () => {
+  if (validate()) {
+    setOpenSnackbar(true);
+    setFormData({ guests: '', date: '', time: '', name: '', phone: '' });
+  }
+};
+
+const [openSnackbar, setOpenSnackbar] = React.useState(false);
+
   return (
     <Box
       sx={{
@@ -231,13 +283,27 @@ const DiscoverMenu = () => {
       }}
     >
       <Box sx={{ display: 'flex', gap: 2, flexDirection: { xs: 'column', sm: 'row' } }}>
-        <input placeholder="No of Guest" style={inputStyle} />
-        <input placeholder="Date" style={inputStyle} />
-        <input placeholder="Time" style={inputStyle} />
+        <input placeholder="No of Guest" style={inputStyle} value={formData.guests}
+  onChange={handleChange('guests')} />
+  {/* {errors.guests && <span style={{ color: 'white', fontSize: '12px' }}>{errors.guests}</span>} */}
+
+        <input placeholder="Date" style={inputStyle}  value={formData.date}
+  onChange={handleChange('date')}/>
+  {/* {errors.date && <span style={{ color: 'white', fontSize: '12px' }}>{errors.date}</span>} */}
+
+        <input placeholder="Time" style={inputStyle}  value={formData.time}
+  onChange={handleChange('time')} />
+  {/* {errors.time && <span style={{ color: 'white', fontSize: '12px' }}>{errors.time}</span>} */}
       </Box>
       <Box sx={{ display: 'flex', gap: 2, flexDirection: { xs: 'column', sm: 'row' } }}>
-        <input placeholder="Full Name" style={inputStyle} />
-        <input placeholder="Phone No" style={inputStyle} />
+        <input placeholder="Full Name" style={inputStyle} value={formData.name}
+  onChange={handleChange('name')}/>
+  {/* {errors.name && <span style={{ color: 'white', fontSize: '12px' }}>{errors.name}</span>} */}
+
+        <input placeholder="Phone No" style={inputStyle} value={formData.phone}
+  onChange={handleChange('phone')}
+/>
+{/* {errors.phone && <span style={{ color: 'white', fontSize: '12px' }}>{errors.phone}</span>} */}
       </Box>
       <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
         <PrimaryButton
@@ -247,6 +313,7 @@ const DiscoverMenu = () => {
           border="#FFD40D"
           width="118px"
           borderwidth="109px"
+            onClick={handleSubmit} 
         />
       </Box>
     </Box>
@@ -339,6 +406,46 @@ const DiscoverMenu = () => {
 
         </Box>
       </Box> */}
+      <Snackbar
+  open={openSnackbar}
+  autoHideDuration={4000}
+  onClose={() => setOpenSnackbar(false)}
+  anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+>
+  <Alert
+    onClose={() => setOpenSnackbar(false)}
+    variant="filled"
+    sx={{
+      backgroundColor: 'rgba(144, 238, 144, 0.2)',
+      color: 'green',
+      border: '1px solid lightgreen',
+      fontWeight: 600,
+    }}
+  >
+    Table Reserved Successfully!
+  </Alert>
+</Snackbar>
+     <Snackbar
+  open={errorAlert.open}
+  autoHideDuration={4000}
+  onClose={() => setErrorAlert({ open: false, message: '' })}
+  anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+>
+  <Alert
+    onClose={() => setErrorAlert({ open: false, message: '' })}
+    severity="error"
+    variant="filled"
+    sx={{
+      backgroundColor: '#fdd',
+      color: 'red',
+      border: '1px solid #f99',
+      fontWeight: 600,
+    }}
+  >
+    {errorAlert.message}
+  </Alert>
+</Snackbar>
+
     </Box>
   );
 };
