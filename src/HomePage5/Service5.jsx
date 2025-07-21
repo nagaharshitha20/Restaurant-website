@@ -4,8 +4,12 @@ import { ImageAssets } from '../ImageAssets';
 import NormalButton from '../Common/NormalButton';
 import FastfoodOutlinedIcon from '@mui/icons-material/FastfoodOutlined';
 import PeopleOutlineOutlinedIcon from '@mui/icons-material/PeopleOutlineOutlined';
+import { useNavigate } from 'react-router-dom';
+
 
 const Service5 = () => {
+  const navigate = useNavigate();
+
   return (
     <Box
       sx={{
@@ -96,7 +100,7 @@ const Service5 = () => {
             gap: 2,
           }}
         >
-          <NormalButton bgcolor="#F3274C" color="#fff" name="More About Us" />
+          <NormalButton bgcolor="#F3274C" color="#fff" name="More About Us"  onClick={() => navigate('/about1')} />
           <Typography fontSize={12} fontWeight={600} sx={{ mt: { xs: 1, sm: 0 } }}>
             <span style={{ color: '#FFC222' }}>BRENDON GARETY</span>
             <br />

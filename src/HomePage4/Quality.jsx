@@ -2,8 +2,10 @@ import React from 'react';
 import { Box, Typography } from '@mui/material';
 import { ImageAssets } from '../ImageAssets';
 import NormalButton from '../Common/NormalButton';
+import { useNavigate } from 'react-router-dom';
 
 const Quality = () => {
+  const navigate=useNavigate();
   return (
     <Box sx={{ width: '100%', fontFamily: 'Oswald', mx:'auto', py: 6 }}>
       {/* Top Section */}
@@ -97,7 +99,7 @@ const Quality = () => {
               gap: 2,
             }}
           >
-            <NormalButton bgcolor="#00A149" color="#fff" name="More About Us" />
+            <NormalButton bgcolor="#00A149" color="#fff" name="More About Us" onClick={() => navigate('/about1')}/>
             <Typography fontSize={12} fontWeight={600}>
               BRENDON GARETY <br />
               CUSTOMER'S EXPERIENCE IS OUR HIGHEST PRIORITY.

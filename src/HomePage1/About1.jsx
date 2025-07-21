@@ -88,6 +88,7 @@ const About1 = () => {
       lg: 'flex-start', 
     },
     gap: 2,
+    mt:{xs:5,md:10},
     px: { xs: 3,sm:18, md: 12 ,lg:45},
     minHeight: { lg: '150px' }, 
   }}

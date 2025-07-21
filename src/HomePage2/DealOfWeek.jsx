@@ -2,6 +2,10 @@ import React from 'react';
 import { Box, Typography, Button, Grid } from '@mui/material';
 import { ImageAssets } from '../ImageAssets';
 import PrimaryButton from '../Common/PrimaryButton';
+import { useDispatch } from "react-redux";
+import { useNavigate } from 'react-router-dom';
+import { addToCart } from "../redux/filterSlice"; // adjust path if needed
+
 
 const countdownData = [
   { value: '482', label: 'Days' },
@@ -11,6 +15,17 @@ const countdownData = [
 ];
 
 const DealOfWeek = () => {
+  const navigate=useNavigate();
+  const dispatch = useDispatch();
+
+const dealItem = {
+  id: 8,
+  name: "Mutton Shroom Fry",
+  img: ImageAssets.Shroom,
+  price: 167,
+  qty: 1,
+};
+
   return (
     <Box
       sx={{
@@ -122,6 +137,7 @@ const DealOfWeek = () => {
 
             <Button
               variant="contained"
+              onClick={() => dispatch(addToCart(dealItem))}
               sx={{
                 mt: 2,
                 backgroundColor: '#F3274C',
@@ -272,7 +288,7 @@ const DealOfWeek = () => {
         With many private dining spaces, M is the perfect place to host your event or gathering
       </Typography>
 
-       <PrimaryButton name="Enquire Now" width="139.91px" borderwidth="130.41px" />
+       <PrimaryButton name="Enquire Now" width="139.91px" borderwidth="130.41px" onClick={()=>{navigate('/enquire')}}/>
 
       <Typography
         sx={{

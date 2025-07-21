@@ -2,9 +2,11 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import PrimaryButton from '../Common/PrimaryButton';
+import { useNavigate } from 'react-router-dom';
 import { ImageAssets } from '../ImageAssets';
 
 const CoverPage3 = () => {
+  const navigate=useNavigate();
   return (
     <Box
       sx={{
@@ -124,7 +126,7 @@ const CoverPage3 = () => {
             >
               <PrimaryButton
                 name="View Our Menu"
-                onClick={() => console.log('Menu button clicked')}
+                onClick={() =>navigate('/productsection')}
               />
               <Box sx={{ display: {xs:'none',md:'flex'}, alignItems: 'center', gap: 2 }}>
                 <Box

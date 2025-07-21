@@ -9,6 +9,7 @@ import BlogSection from '../HomePage6/BlogSection';
 import FooterGallery from '../Common/FooterGallery';
 import Learn from '../HomePage6/Learn';
 import CoverCarousel from '../Common/CoverCarousel';
+import Delivery5 from './Delivery5';
 const HomePage5=()=>{
       return (
     <div style={{ overflowX: 'hidden' }}>
@@ -17,6 +18,7 @@ const HomePage5=()=>{
       <CoverCarousel/>
       <About5/>
       <Delicious/>
+      <Delivery5/>
       <TrendingMenu/>
       <Service5/>
       <Process/>

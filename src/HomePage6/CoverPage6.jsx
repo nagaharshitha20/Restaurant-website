@@ -4,11 +4,13 @@ import Typography from '@mui/material/Typography';
 import NormalButton from '../Common/NormalButton';
 import { ImageAssets } from '../ImageAssets';
 import PlayButton from '../Common/PlayButton';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '@mui/material';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 
 const CoverPage6 = () => {
+  const navigate=useNavigate();
   return (
    <Box
       sx={{
@@ -121,7 +123,7 @@ const CoverPage6 = () => {
            bgcolor="#FFC222"
            color="#000"
           /> */}
-          <Button style={{
+          <Button onClick={()=>{navigate('/fastfood')}} style={{
            backgroundColor:'#FFC222',
            border:'none',
            padding:'10px 20px',

@@ -2,6 +2,7 @@ import React from "react";
 import { Box, Typography, IconButton } from "@mui/material";
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { ImageAssets } from "../ImageAssets";
+import { useNavigate } from "react-router-dom";
 import NormalButton from "../Common/NormalButton";
 
 const foodItems = [
@@ -15,8 +16,9 @@ const foodItems = [
   { img: ImageAssets.i4, title: "Ruti With Beef Slice", discount: "-7%", oldPrice: "30.00$", newPrice: "28.50$" },
 ];
 
-const Popular3 = () => (
-  <Box sx={{ mt: 5, px: 2,display:'flex', justifyContent: "center" ,flexDirection:'column',alignItems:'center'}}>
+const Popular3 = () => {
+  const navigate=useNavigate();
+  return(<Box sx={{ mt: 5, px: 2,display:'flex', justifyContent: "center" ,flexDirection:'column',alignItems:'center'}}>
     
     
 
@@ -115,9 +117,10 @@ const Popular3 = () => (
         
       ))}
     </Box>
-    <NormalButton name="Order Now" bgcolor="#F3274C" color="#FFFFFF" />
-  </Box>
-  );
+    <NormalButton name="Order Now" bgcolor="#F3274C" color="#FFFFFF" onClick={() => navigate('/shop')} />
+  </Box>);
+  
+};
 
 
 export default Popular3;

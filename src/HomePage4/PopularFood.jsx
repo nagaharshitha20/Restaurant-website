@@ -51,6 +51,7 @@ const PopularFood = () => {
               fontFamily: 'Oswald',
               color: '#FFD40D',
               mb: 1,
+              
               textAlign: { xs: 'center', md: 'center' },
             }}
           >
@@ -81,7 +82,7 @@ const PopularFood = () => {
     gap: { xs:1,md: 3 }, // only on md and up since spacing handled via calc() below
     mt: 2,
     mx:'auto',
-    width: '100%',
+    width: {md:'70%'},
   }}
 >
   {foodItems.map((item, idx) => (
@@ -94,7 +95,7 @@ const PopularFood = () => {
       height="220px"
       iw="130px"
       ih="130px"
-      subcolor="#FFD40D"
+     subcolor="#FFD40D"
     />
   ))}
 </Box>
@@ -130,7 +131,7 @@ const PopularFood = () => {
       </Box>
 
       {/* Full-Width Image */}
-      <Box
+      {/* <Box
         component="img"
         src={ImageAssets.m1}
         alt="m1"
@@ -139,7 +140,7 @@ const PopularFood = () => {
           display: 'block',
           mt: 0,
         }}
-      />
+      /> */}
     </>
   );
 };

@@ -4,6 +4,8 @@ import { Box } from '@mui/material';
 import Navbar from "./Common/Navbar";
 import Footer from "./Common/Footer";
 import MyMap from './Contact/MyMap';
+import CartSync from './pages/CartSync';
+import ScrollToTop from './ScrollToTop';
 
 
 const HomeLayout = () => {
@@ -14,10 +16,13 @@ const HomeLayout = () => {
 
   const shouldHide = hideComponentsOnPaths.includes(location.pathname);
   return (
+    
     <Box>
-      {!shouldHide && <Navbar/>}
+      <ScrollToTop/>
+      <CartSync/>  
+          {!shouldHide && <Navbar/>}
      
-        {/* <MyMap/> */}
+       
       <Outlet /> 
        {!shouldHide && <Footer/>}
     </Box>

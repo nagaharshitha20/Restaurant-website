@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-
-export default function ToggleButton({ buttonLabel = "Subscribe" }) {
+export default function ToggleButton({ buttonLabel = "Subscribe", onClick }) {
   const [email, setEmail] = useState('');
 
   const containerStyle = {
@@ -34,6 +33,11 @@ export default function ToggleButton({ buttonLabel = "Subscribe" }) {
     transition: 'background 0.3s ease',
   };
 
+  const handleClick = () => {
+    if (onClick) onClick(email);
+    setEmail(''); // Optional: clear input after click
+  };
+
   return (
     <div style={containerStyle}>
       <input
@@ -43,7 +47,9 @@ export default function ToggleButton({ buttonLabel = "Subscribe" }) {
         onChange={(e) => setEmail(e.target.value)}
         style={inputStyle}
       />
-      <button style={buttonStyle}>{buttonLabel}</button>
+      <button onClick={handleClick} style={buttonStyle}>
+        {buttonLabel}
+      </button>
     </div>
   );
 }

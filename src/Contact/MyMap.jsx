@@ -1,4 +1,5 @@
 import React from "react";
+import { Box } from "@mui/material";
 
 function MyMap() {
   return (
@@ -6,12 +7,12 @@ function MyMap() {
     <div id="map-section" style={{ padding: "40px 0", textAlign: "center" }}>
       
 
-      <div
+      <Box
         className="map-container"
         data-aos="zoom-in"
-        style={{
-          maxWidth: "80%",
-          height: "500px",
+        sx={{
+          maxWidth: "90%",
+          height: {xs:"400px",sm:"500px"},
           margin: "auto",
           marginTop:"66px",
           borderRadius: "12px",
@@ -29,7 +30,7 @@ function MyMap() {
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
       ></iframe>
-    </div>
+    </Box>
     </div>
 
   );

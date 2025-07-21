@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState,useEffect,useRef } from 'react';
 import {
   Box,
   Typography,
@@ -13,6 +13,7 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import {
   toggleCategory,
+  setCategory,
   setSearchQuery,
   setSortType,
   toggleTag,
@@ -32,7 +33,8 @@ const ShopPage = () => {
   const dispatch = useDispatch();
   const [params] = useSearchParams();
 const searchParam = params.get('search') || '';
-
+const categoryParam = params.get('category');
+const initializedCategory = useRef(false); 
 useEffect(() => {
   dispatch(setSearchQuery(searchParam));
 }, [searchParam, dispatch]);
@@ -40,6 +42,14 @@ useEffect(() => {
   const { selectedCategories, searchQuery, sortType, priceRange, tags } = useSelector(
     (state) => state.filters
   );
+useEffect(() => {
+  if (categoryParam && !initializedCategory.current) {
+    dispatch(setCategory(categoryParam)); // now it REPLACES previous ones
+    dispatch(setSearchQuery('')); // optional: clear search
+    setCustomFilter(null);        // optional: reset filters
+    initializedCategory.current = true;
+  }
+}, [categoryParam, dispatch]);
 
   const [showCartMsg, setShowCartMsg] = useState(false); 
 const [customFilter, setCustomFilter] = useState(null);
@@ -351,7 +361,7 @@ items = initialItems;
             <ShopProducts
               id={item.id}
               img={item.img}
-              name={item.title}
+              title={item.title}
               price={item.price}
               oldPrice={item.oldPrice}
               rating={item.rating}
@@ -406,7 +416,7 @@ items = initialItems;
       <ShopProducts
         id={item.id}
         img={item.img}
-        name={item.title}
+        title={item.title}
         price={item.price}
         oldPrice={item.oldPrice}
         rating={item.rating}

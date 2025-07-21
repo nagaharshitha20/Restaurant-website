@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Typography, Button } from '@mui/material';
 import { ImageAssets } from '../ImageAssets';
+import { useNavigate } from 'react-router-dom';
 
 const featuredItems = [
   { img: ImageAssets.i1, title: 'Delicious Classic Italian Pizza' },
@@ -10,6 +11,7 @@ const featuredItems = [
 ];
 
 const Deal6 = () => {
+  const navigate=useNavigate();
   return (
     <>
       {/* Deal Section */}
@@ -78,6 +80,7 @@ const Deal6 = () => {
               Savor the perfect symphony of flavors. Experience quick and efficient service with our signature hamburger — a true culinary masterpiece.
             </Typography>
             <Button
+               onClick={()=>{navigate('/shop')}}
               sx={{
                 backgroundColor: '#000',
                 color: '#fff',
@@ -143,6 +146,7 @@ const Deal6 = () => {
                 {item.title}
               </Typography>
               <Button
+              onClick={()=>{navigate('/products')}}
                 sx={{
                   fontWeight: 'bold',
                   fontSize: 14,

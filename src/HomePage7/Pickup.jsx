@@ -2,10 +2,12 @@ import React from 'react';
 import { Box, Typography } from '@mui/material';
 import { ImageAssets } from '../ImageAssets';
 import ExploreButton from '../Common/ExploreButton';
+import { useNavigate } from 'react-router-dom';
 
 const Pickup = () => {
+  const navigate=useNavigate();
   return (
-    <Box sx={{ width: '100%', bgcolor: '#fff', py: { xs: 6, md: 10 }, px: 2 }}>
+    <Box sx={{ width: '100%', bgcolor: '#fff', py: { xs: 6, md: 10 }, px: 0,mx:'auto' }}>
       {/* Top Section */}
       <Box
         sx={{
@@ -32,7 +34,7 @@ const Pickup = () => {
             order will arrive within 30 minutes or we’ll give you a free Regular.
           </Typography>
           <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: { xs: 'center', md: 'flex-start' }, gap: 1 }}>
-            <Box component="img" src={ImageAssets.groupicon} alt="groupicon" sx={{ width: 28 }} />
+            <Box component="img" src={ImageAssets.work} alt="groupicon" sx={{ width: 28 }} />
             <Typography sx={{ fontWeight: 600, color: '#EF1B48', fontSize: 16 }}>
               Call Us Free : <br />
               <span style={{ color: '#000' }}>+1 234-567-890</span>
@@ -60,7 +62,7 @@ const Pickup = () => {
             pellentesque ut non ligula. Duis dignissim feugiat quam.
           </Typography>
           <Box sx={{ display: 'flex', justifyContent: { xs: 'center', md: 'flex-end' } }}>
-            <ExploreButton name="Learn More" />
+            <ExploreButton name="Learn More" onClick={()=>{navigate('/menu')}}/>
           </Box>
         </Box>
       </Box>
@@ -77,7 +79,7 @@ const Pickup = () => {
   }}
 >
   {/* Column 1 */}
-  <Box sx={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 2, alignItems: 'center' }}>
+  <Box sx={{ flex: 1, display: {xs:'none',md:'flex'}, flexDirection: 'column', gap: 2, alignItems: 'center' }}>
     <Box
       component="img"
       src={ImageAssets.offer1}
@@ -122,6 +124,7 @@ const Pickup = () => {
         top: 0,
         left: 0,
         width: '100%',
+        
         height: '100%',
         display: 'flex',
         flexDirection: 'column',
@@ -137,12 +140,12 @@ const Pickup = () => {
         <br />
         Filet mignon
       </Typography>
-      <ExploreButton name="Order Now" bgcolor="#007A4B" />
+      <ExploreButton name="Order Now" bgcolor="#007A4B" onClick={()=>{navigate('/productsection')}}/>
     </Box>
   </Box>
 
   {/* Column 3 */}
-  <Box sx={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
+  <Box sx={{ flex: 1, display: {xs:'none',md:'flex'}, justifyContent: 'center' }}>
     <Box
       component="img"
       src={ImageAssets.offer4}

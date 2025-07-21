@@ -23,6 +23,10 @@ const filterSlice = createSlice({
     setSortType: (state, action) => {
       state.sortType = action.payload;
     },
+    setCategory: (state, action) => {
+  state.selectedCategories = [action.payload]; 
+},
+
     toggleCategory: (state, action) => {
       const category = action.payload;
       if (category === null) {
@@ -47,25 +51,33 @@ const filterSlice = createSlice({
     setCart: (state, action) => {
       state.cart = action.payload; 
     },
-    addToCart: (state, action) => {
+      addToCart: (state, action) => {
       const item = action.payload;
-      const exists = state.cart.find((i) => i.name === item.name);
+      const exists = state.cart.find((i) => i.id === item.id);
+
       if (exists) {
         exists.qty += 1;
       } else {
         state.cart.push({ ...item, qty: 1 });
       }
     },
+
     increaseQty: (state, action) => {
-      const item = state.cart.find((i) => i.name === action.payload);
+      const item = state.cart.find((i) => i.id === action.payload);
       if (item) item.qty += 1;
     },
+
     decreaseQty: (state, action) => {
-      const item = state.cart.find((i) => i.name === action.payload);
-      if (item && item.qty > 1) item.qty -= 1;
+      const item = state.cart.find((i) => i.id === action.payload);
+      if (item && item.qty > 1) {
+        item.qty -= 1;
+      } else {
+        state.cart = state.cart.filter((i) => i.id !== action.payload);
+      }
     },
+
     removeFromCart: (state, action) => {
-      state.cart = state.cart.filter((i) => i.name !== action.payload);
+      state.cart = state.cart.filter((i) => i.id !== action.payload);
     },
     clearCart: (state) => {
       state.cart = [];
@@ -77,6 +89,7 @@ export const {
   setSearchQuery,
   setSortType,
   toggleCategory,
+  setCategory,
   toggleTag,
   setPriceRange,
   addToCart,

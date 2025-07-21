@@ -36,21 +36,25 @@ const Dropdown = ({ label, ...options }) => {
         // marginTop: "16px",
       }}
     >
-      <span
-        onClick={() => setOpen(!open)}
-        style={{
-          cursor: "pointer",
-          fontFamily: "Franklin Gothic Medium",
-          color: "black",
-          display: "flex",
-          alignItems: "center",
-        }}
-      >
-        {label}
-        <span style={{ marginLeft: 4 }}>
-          <RiArrowDropDownLine />
-        </span>
-      </span>
+    <span
+  onClick={() => setOpen(!open)}
+  style={{
+    cursor: "pointer",
+    fontFamily: "Franklin Gothic Medium",
+    color: "black",
+    display: "flex",
+    alignItems: "center",
+    transition: "color 0.3s ease",
+  }}
+  onMouseEnter={(e) => (e.currentTarget.style.color = '#e89537ff')}
+  onMouseLeave={(e) => (e.currentTarget.style.color = "black")}
+>
+  {label}
+  <span style={{ marginLeft: 4 }}>
+    <RiArrowDropDownLine />
+  </span>
+</span>
+
 
       {open && (
         <div
@@ -68,17 +72,27 @@ const Dropdown = ({ label, ...options }) => {
           }}
         >
           {optionList.map((opt, i) => (
-            <div
-              key={i}
-              style={{
-                padding: "8px 16px",
-                cursor: "pointer",
-              }}
-              onClick={() => handleOptionClick(opt.path)}
-            >
-              {opt.label}
-            </div>
-          ))}
+  <div
+    key={i}
+    style={{
+      padding: "8px 16px",
+      cursor: "pointer",
+      transition: "background-color 0.2s ease, color 0.2s ease",
+    }}
+    onMouseEnter={(e) => {
+      e.currentTarget.style.backgroundColor = "#00A149";
+      e.currentTarget.style.color = "white";
+    }}
+    onMouseLeave={(e) => {
+      e.currentTarget.style.backgroundColor = "rgb(240, 238, 238)";
+      e.currentTarget.style.color = "black";
+    }}
+    onClick={() => handleOptionClick(opt.path)}
+  >
+    {opt.label}
+  </div>
+))}
+
         </div>
       )}
     </div>

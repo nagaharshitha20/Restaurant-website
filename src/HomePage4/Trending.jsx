@@ -1,8 +1,10 @@
 import React from 'react';
 import { Box, Typography, Button } from '@mui/material';
 import { ImageAssets } from '../ImageAssets'; 
+import { useNavigate } from 'react-router-dom';
 
 const Trending = () => {
+  const navigate=useNavigate();
   return (<>
     <Box sx={{ width: '100%',  fontFamily: 'Oswald',mt:10 }}>
      
@@ -104,6 +106,7 @@ const Trending = () => {
 
             <Button
               variant="contained"
+               onClick={()=>{navigate('/shop')}}
               sx={{
                 mt: {xs:1,md:3},
                 bgcolor: '#F3274C',

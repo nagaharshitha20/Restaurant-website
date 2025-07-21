@@ -6,6 +6,7 @@ import { ImageAssets } from '../ImageAssets';
 import PlayButton from '../Common/PlayButton';
 
 const CoverPage = () => {
+
   return (
     <Box
       sx={{
@@ -99,7 +100,7 @@ const CoverPage = () => {
           <Box sx={{ display: 'flex', justifyContent: 'flex-end', mr: { xs: 10, sm: 0 } ,mb:2}}>
             <PrimaryButton
               name="See Our Menus"
-              to="/home7"
+              to="/shop"
               width={{ xs: '100px', sm: '160px', md: '190px' }}
               borderwidth={{ xs: '90px', sm: '150px', md: '180px' }}
             />

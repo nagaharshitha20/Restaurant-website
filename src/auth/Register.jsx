@@ -52,7 +52,7 @@ function Register() {
       await setPersistence(auth, persistence);
 
       await createUserWithEmailAndPassword(auth, formData.email, formData.password);
-      navigate('/login');
+      navigate('/');
     } catch (err) {
       setError(err.message);
     }

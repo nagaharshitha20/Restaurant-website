@@ -2,9 +2,11 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { ImageAssets } from '../ImageAssets';
+import { useNavigate } from 'react-router-dom';
 import NormalButton from '../Common/NormalButton';
 
 const Popular2 = () => {
+  const navigate=useNavigate();
   return (
     <>
       <Box
@@ -130,7 +132,7 @@ const Popular2 = () => {
               mt: 2,
             }}
           >
-            <NormalButton name="Order Now" bgcolor="#F3274C" color="#FFFFFF" />
+            <NormalButton name="Order Now" bgcolor="#F3274C" color="#FFFFFF" onClick={() => navigate('/productsection')} />
           </Box>
         </Box>
       </Box>

@@ -5,6 +5,9 @@ import MenuSection from './MenuSection';
 import Services from './Services';
 import BestSellers from './BestSellers';
 import CoverCarousel from '../Common/CoverCarousel';
+import WeeklySpecial from './WeeklySpecial';
+import InstaFollow from '../Common/InstaFollow';
+import FastFood from './FastFood';
 
 
 const HomePage3 = () => {
@@ -14,8 +17,11 @@ const HomePage3 = () => {
      <CoverCarousel/>
      <About3/>
       <MenuSection/>
+      {/* <FastFood/> */}
       <Services/>
       <BestSellers/>
+      <WeeklySpecial/>
+      <InstaFollow/>
     </div>
   );
 };

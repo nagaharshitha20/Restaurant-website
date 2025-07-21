@@ -6,6 +6,7 @@ const NormalButton= ({ name, color , bgcolor,  onClick }) => {
       
      <Button
               variant="contained"
+              onClick={onClick}
               sx={{
                 backgroundColor: bgcolor,
                 color: color,
@@ -16,11 +17,11 @@ const NormalButton= ({ name, color , bgcolor,  onClick }) => {
                 padding: { xs: '6px 14px', sm: '7px 18px', md: '8px 25px' },
                 textTransform: 'none',
                 boxShadow: 'none',
-                '&:hover': {
-                  backgroundColor: color,
-                  color:bgcolor,
-                  boxShadow: 'none',
-                },
+                // '&:hover': {
+                //   backgroundColor: color,
+                //   color:bgcolor,
+                //   boxShadow: 'none',
+                // },
               }}
             >
              {name}
@@ -30,4 +31,4 @@ const NormalButton= ({ name, color , bgcolor,  onClick }) => {
   );
 };
 
-export default NormalButton
+export default NormalButton;
