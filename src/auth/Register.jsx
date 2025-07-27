@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Login.css';
+import { Box } from '@mui/material';
+import './Login.css'; 
 import {
   createUserWithEmailAndPassword,
   setPersistence,
@@ -59,65 +60,70 @@ function Register() {
   };
 
   return (
-    <div className="login-container">
+    <Box
+      className="login-container"
+      sx={{
+        backgroundImage: {xs:'none',md:`url(${ImageAssets.Loginpagebg})`},
+               backgroundSize: 'cover',
+               backgroundPosition: 'center',
+             }}
+           
+    >
       <div className="login-left">
         <div className="login-box">
           <h1>Create your account.</h1>
           <form onSubmit={handleSubmit} autoComplete="on">
             {error && <div className="error-message">{error}</div>}
 
-        <form onSubmit={handleSubmit} method="post" autoComplete="on">
+            <div className="input-group">
+              <input
+                type="text"
+                name="name"
+                placeholder="Name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+              />
+            </div>
 
-  <div className="input-group">
-    <input
-      type="text"
-      name="name"
-      placeholder="Name"
-      value={formData.name}
-      onChange={handleChange}
-      required
-      autoComplete="name"
-    />
-  </div>
+            <div className="input-group">
+              <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+            </div>
 
-  <div className="input-group">
-    <input
-      type="email"
-      name="email"
-      placeholder="Email"
-      value={formData.email}
-      onChange={handleChange}
-      required
-      autoComplete="email"
-    />
-  </div>
+            <div className="input-group password-input-group">
+              <input
+                type={showPassword ? 'text' : 'password'}
+                name="password"
+                placeholder="Password"
+                value={formData.password}
+                onChange={handleChange}
+                required
+              />
+              <span className="toggle-password" onClick={() => setShowPassword(!showPassword)}>
+                {showPassword ? <FaEyeSlash /> : <FaEye />}
+              </span>
+            </div>
 
-  <div className="input-group">
-    <input
-      type="password"
-      name="password"
-      placeholder="Password"
-      value={formData.password}
-      onChange={handleChange}
-      required
-      autoComplete="new-password"
-    />
-  </div>
-
-  <div className="input-group">
-    <input
-      type="password"
-      name="confirmPassword"
-      placeholder="Confirm Password"
-      value={formData.confirmPassword}
-      onChange={handleChange}
-      required
-      autoComplete="new-password"
-    />
-  </div>
-
-</form>
-
+            <div className="input-group password-input-group">
+              <input
+                type={showConfirm ? 'text' : 'password'}
+                name="confirmPassword"
+                placeholder="Confirm Password"
+                value={formData.confirmPassword}
+                onChange={handleChange}
+                required
+              />
+              <span className="toggle-password" onClick={() => setShowConfirm(!showConfirm)}>
+                {showConfirm ? <FaEyeSlash /> : <FaEye />}
+              </span>
+            </div>
 
             <div className="remember-forgot">
               <label>
@@ -134,26 +140,22 @@ function Register() {
             <button type="submit" className="login-button">Sign Up</button>
           </form>
 
+          <div className="social-login">
+            <p>Or sign up with</p>
+            <div className="social-icons">
+              <button className="social-btn" onClick={() => alert("Use login page for Google sign-in")}><FcGoogle size={20} /></button>
+              <button className="social-btn" onClick={() => alert("Use login page for GitHub sign-in")}><FaGithub size={20} /></button>
+              <button className="social-btn" onClick={() => alert("LinkedIn not supported")}><FaLinkedin size={20} /></button>
+            </div>
+          </div>
+
           <div className="register-link">
             Already have an account?
             <button onClick={() => navigate('/login')} className="signup-link">Log In</button>
           </div>
-
-          <div className="social-login">
-            <p>Or sign up with</p>
-            <div className="social-icons">
-              <button className="social-btn" onClick={() => alert("Use Login to sign in with Google")}><FcGoogle size={20} /></button>
-              <button className="social-btn" onClick={() => alert("Use Login to sign in with GitHub")}><FaGithub size={20} /></button>
-              <button className="social-btn" onClick={() => alert("LinkedIn OAuth is not supported")}><FaLinkedin size={20} /></button>
-            </div>
-          </div>
         </div>
       </div>
-
-      <div className="login-right">
-        <img src={ImageAssets.Minal} alt="background" className="masked-image" />
-      </div>
-    </div>
+    </Box>
   );
 }
 

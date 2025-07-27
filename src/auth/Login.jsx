@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Box } from '@mui/material';
 import './Login.css';
 import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, GithubAuthProvider } from 'firebase/auth';
 import { auth } from "../Firebase";
 import { FcGoogle } from 'react-icons/fc';
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
-import { FaEye, FaEyeSlash } from 'react-icons/fa'; // 👁️ added
-import { ImageAssets } from '../ImageAssets';
+import { FaGithub, FaLinkedin, FaEye, FaEyeSlash } from 'react-icons/fa';
+import { ImageAssets } from '../ImageAssets'; // ✅ Make sure Loginpagebg is part of this
 
 function Login() {
   const navigate = useNavigate();
-  const [formData, setFormData] = useState({ email: '', password: '',remember:false});
+  const [formData, setFormData] = useState({ email: '', password: '', remember: false });
   const [error, setError] = useState('');
-  const [showPassword, setShowPassword] = useState(false); // 👁️ visibility toggle
- const handleChange = (e) => {
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData(prev => ({
       ...prev,
@@ -21,7 +22,6 @@ function Login() {
     }));
     setError('');
   };
-
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -57,7 +57,14 @@ function Login() {
   };
 
   return (
-    <div className="login-container">
+    <Box
+      className="login-container"
+      sx={{
+        backgroundImage: {xs:'none',md:`url(${ImageAssets.Loginpagebg})`},
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+    >
       <div className="login-left">
         <div className="login-box">
           <h1>Log in to your account.</h1>
@@ -88,7 +95,8 @@ function Login() {
                 {showPassword ? <FaEyeSlash /> : <FaEye />}
               </span>
             </div>
-    <div className="remember-forgot">
+
+            <div className="remember-forgot">
               <label>
                 <input
                   type="checkbox"
@@ -99,6 +107,7 @@ function Login() {
                 Remember me
               </label>
             </div>
+
             <button type="submit" className="login-button">Login</button>
           </form>
 
@@ -117,11 +126,7 @@ function Login() {
           </div>
         </div>
       </div>
-
-      <div className="login-right">
-        <img src={ImageAssets.Minal} alt="background" className="img" />
-      </div>
-    </div>
+    </Box>
   );
 }
 

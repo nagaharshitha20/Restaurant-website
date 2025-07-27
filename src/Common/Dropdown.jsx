@@ -46,7 +46,7 @@ const Dropdown = ({ label, ...options }) => {
     alignItems: "center",
     transition: "color 0.3s ease",
   }}
-  onMouseEnter={(e) => (e.currentTarget.style.color = '#e89537ff')}
+  onMouseEnter={(e) => (e.currentTarget.style.color = '#EF1B48')}
   onMouseLeave={(e) => (e.currentTarget.style.color = "black")}
 >
   {label}

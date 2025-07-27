@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-
 const initialState = {
   selectedCategories: [],
   searchQuery: '',
@@ -12,7 +11,6 @@ const initialState = {
   },
   cart: [],
 };
-
 const filterSlice = createSlice({
   name: 'filters',
   initialState,

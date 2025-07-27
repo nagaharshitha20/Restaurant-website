@@ -8,13 +8,15 @@ import { addToCart } from '../redux/filterSlice';
 import { auth } from "../Firebase"; 
 import { useNavigate } from "react-router-dom"; 
 import { doc, setDoc } from "firebase/firestore";
-import { db } from "../Firebase"; // adjust path if your Firebase config is elsewhere
+import { db } from "../Firebase"; 
 
 
 
 const ProductCard = ({ img, title, price, oldPrice, badge, rating = 5, ...item }) => {
   const navigate = useNavigate(); 
 const [openSnackbar, setOpenSnackbar] = React.useState(false);
+const [showAddSuccess, setShowAddSuccess] = React.useState(false);
+
 
   const dispatch = useDispatch();
 
@@ -22,8 +24,7 @@ const handleAddToCart = () => {
   const isLoggedIn = !!auth.currentUser;
 
   if (!isLoggedIn) {
-    setOpenSnackbar(true); 
-    // Optionally: navigate("/login"); 
+    setOpenSnackbar(true);
     return;
   }
 
@@ -37,7 +38,10 @@ const handleAddToCart = () => {
       quantity: 1,
     })
   );
+
+  setShowAddSuccess(true); 
 };
+
 
 
   return (
@@ -139,6 +143,26 @@ const handleAddToCart = () => {
           </IconButton>
         </Box>
       </Box>
+      <Snackbar
+  open={showAddSuccess}
+  autoHideDuration={3000}
+  onClose={() => setShowAddSuccess(false)}
+  anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+>
+  <Alert
+    onClose={() => setShowAddSuccess(false)}
+    variant="filled"
+    sx={{
+      backgroundColor: "#e8f5e9",
+      color: "#2e7d32",
+      border: "1px solid #66bb6a",
+      fontWeight: 600,
+    }}
+  >
+    Item added to cart!
+  </Alert>
+</Snackbar>
+
       <Snackbar
   open={openSnackbar}
   autoHideDuration={3000}
