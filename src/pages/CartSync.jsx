@@ -64,17 +64,16 @@ const CartSync = () => {
     loadCart();
   }, [user, dispatch]);
 
-  // ✅ 2. Save cart to Firestore (debounced)
+
   useEffect(() => {
     if (!user) return;
 
     if (debounceRef.current) clearTimeout(debounceRef.current);
 
     debounceRef.current = setTimeout(async () => {
-      const docRef = doc(db, 'carts', user.uid);
-      await setDoc(docRef, { cart }, { merge: true }); // ✅ overwrite cart
-    }, 300); // wait for Redux to update first
-
+      const docRef = doc(db, 'users', user.uid);
+      await setDoc(docRef, { cart }, { merge: true });
+    }, 300); 
     return () => clearTimeout(debounceRef.current);
   }, [cart, user]);
 

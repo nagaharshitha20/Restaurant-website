@@ -74,15 +74,17 @@ const FoodCard = ({
           mt: 1,
         }}
       >
-        <Box
-          sx={{
-            width: "50px",
-            height: "2.5px",
-            backgroundColor: "#FFD700",
-            mb: 1,
-            borderRadius: "3px",
-          }}
-        />
+       <Box
+  data-testid="decorative-line"
+  sx={{
+    width: "50px",
+    height: "2.5px",
+    backgroundColor: "#FFD700",
+    mb: 1,
+    borderRadius: "3px",
+  }}
+/>
+
         <p
           style={{
             fontSize: "0.85rem",

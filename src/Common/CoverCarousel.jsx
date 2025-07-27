@@ -1,11 +1,12 @@
 import React, { useRef } from 'react';
 import Slider from 'react-slick';
-import CoverPage2 from '../HomePage2/CoverPage2';
-import CoverPage4 from '../HomePage4/CoverPage4';
-import CoverPage5 from '../HomePage5/CoverPage5';
-import CoverPage6 from '../HomePage6/CoverPage6';
-import CoverPage from '../HomePage1/CoverPage';
-import CoverPage3 from '../HomePage3/CoverPage3';
+import CoverPage1 from '../Coverpages/Coverpage1';
+import CoverPage2 from '../Coverpages/Coverpage2';
+import CoverPage3 from '../Coverpages/Coverpage3';
+import CoverPage4 from '../Coverpages/Coverpage4';
+import CoverPage5 from '../Coverpages/Coverpage5';
+import CoverPage6 from '../Coverpages/CoverPage6';
+import CoverPage7 from '../Coverpages/Coverpage7';
 
 const CoverCarousel = () => {
   const sliderRef = useRef(null);
@@ -29,12 +30,13 @@ const CoverCarousel = () => {
   };
 
   const pages = [
-    <CoverPage key="1" />,
+    <CoverPage1 key="1" />,
     <CoverPage2 key="2" />,
     <CoverPage3 key="3" />,
     <CoverPage4 key="4" />,
     <CoverPage5 key="5" />,
     <CoverPage6 key="6" />,
+    <CoverPage7 key="7" />,
   ];
 
   return (

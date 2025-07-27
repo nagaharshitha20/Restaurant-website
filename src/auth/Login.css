@@ -1,10 +1,27 @@
 .login-container {
+  position: relative;
   display: flex;
   height: 100vh;
   width: 100%;
   overflow: hidden;
-  background-color: #fff;
+  background-size: cover;
+  background-position: center;
 }
+
+.login-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: inherit;
+  background-size: cover;
+  background-position: center;
+  filter: blur(2px); 
+  z-index: 0;
+}
+
+
+
+
 
 .login-left {
   flex: 1;
@@ -18,15 +35,11 @@
   z-index: 2;
 }
 
-.login-left h1 {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 1.5rem;
-}
+
 
 .input-group input {
   width: 100%;
-  max-width: 400px;
+  max-width: 340px;
   padding: 1rem;
   margin: 0.5rem 0;
   border-radius: 25px;
@@ -93,7 +106,7 @@
   width: 45px;
   height: 45px;
   border: 1px solid #ddd;
-  border-radius: 50%; /* Rounded square — more modern than perfect circle */
+  border-radius: 50%;
   background-color: #fff;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
   transition: all 0.2s ease;
@@ -125,19 +138,7 @@
   margin-left: 0.3rem;
 }
 
-.login-right {
-  flex: 1;
-  position: relative;
-  display: flex;
-  /* width:00px; */
 
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  height: 100vh;
-  padding: 0;
-  margin: 0;
-}
 
 /* .img{
   width:100%;

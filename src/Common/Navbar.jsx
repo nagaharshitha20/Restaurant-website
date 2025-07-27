@@ -210,9 +210,9 @@ React.useEffect(() => {
         {[
           { label: 'Menu', path: '/myshop' },
           { label: 'Deals', path: '/mypages' },
-          { label: 'Gallery', path: '/gallery' },
-          { label: 'Testimonials', path: '/testimonials' },
-          { label: 'FAQ', path: '/faq' }
+          // { label: 'Gallery', path: '/gallery' },
+          // { label: 'Testimonials', path: '/testimonials' },
+          // { label: 'FAQ', path: '/faq' }
         ].map((item) => (
           <ListItemButton key={item.label} sx={{ pl: 4 }} onClick={() => { navigate(item.path); setDrawerOpen(false); }}>
             <ListItemText primary={item.label} />
@@ -247,7 +247,7 @@ React.useEffect(() => {
     fontFamily: 'Franklin Gothic Medium',
     transition: 'color 0.3s',
   }}
-  onMouseEnter={(e) => (e.target.style.color = '#e89537ff')}
+  onMouseEnter={(e) => (e.target.style.color = '#EF1B48')}
   onMouseLeave={(e) => (e.target.style.color = 'black')}>Home</Link>
             <Link to="/about" style={{
     color: 'black',
@@ -256,7 +256,7 @@ React.useEffect(() => {
     fontFamily: 'Franklin Gothic Medium',
     transition: 'color 0.3s',
   }}
-  onMouseEnter={(e) => (e.target.style.color = '#e89537ff')}
+  onMouseEnter={(e) => (e.target.style.color = '#EF1B48')}
   onMouseLeave={(e) => (e.target.style.color = 'black')}>About</Link>
             <Link to="/shop"style={{
     color: 'black',
@@ -265,7 +265,7 @@ React.useEffect(() => {
     fontFamily: 'Franklin Gothic Medium',
     transition: 'color 0.3s',
   }}
-  onMouseEnter={(e) => (e.target.style.color = '#e89537ff')}
+  onMouseEnter={(e) => (e.target.style.color = '#EF1B48')}
   onMouseLeave={(e) => (e.target.style.color = 'black')}>Shop</Link>
             <Link to="/blog" style={{
     color: 'black',
@@ -274,7 +274,7 @@ React.useEffect(() => {
     fontFamily: 'Franklin Gothic Medium',
     transition: 'color 0.3s',
   }}
-  onMouseEnter={(e) => (e.target.style.color = '#e89537ff')}
+  onMouseEnter={(e) => (e.target.style.color = '#EF1B48')}
   onMouseLeave={(e) => (e.target.style.color = 'black')}>Blog</Link>
             {/* <Dropdown label="Blog" options={['News', 'Events', 'Offers']} /> */}
             <Dropdown label="Pages" opt1={{ label: "Menu", path: "/myshop" }}
@@ -286,7 +286,7 @@ React.useEffect(() => {
     fontFamily: 'Franklin Gothic Medium',
     transition: 'color 0.3s',
   }}
-  onMouseEnter={(e) => (e.target.style.color = '#e89537ff')}
+  onMouseEnter={(e) => (e.target.style.color = '#EF1B48')}
   onMouseLeave={(e) => (e.target.style.color = 'black')}>Contact</Link>
           </Box>
 
@@ -332,7 +332,7 @@ React.useEffect(() => {
                       <Typography>Login</Typography>
                     </MenuItem>
                     <MenuItem onClick={() => { navigate('/register'); handleCloseUserMenu(); }}>
-                      <Typography>Register</Typography>
+                      <Typography>Signup</Typography>
                     </MenuItem>
                   </>
                 ) : (
