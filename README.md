@@ -119,7 +119,9 @@ If you have suggestions or find issues, feel free to open an issue or submit a p
 
 ## 📄 License
 
-This project is for **learning and demonstration purposes**.
+This project is licensed under the **MIT License**.  
+See the [LICENSE](LICENSE) file for more details.
+
 
 ## 🙏 Acknowledgements
 
